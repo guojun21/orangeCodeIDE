@@ -1,0 +1,91 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/composer/browser/composerCapabilityMappings.js
+// Offset: 26903247 (bundle byte offset)
+// Size: 3438 bytes
+Uv();
+Jtt = {
+  [ko.UNSPECIFIED]: "",
+  [ko.LOOP_ON_LINTS]: "",
+  [ko.LOOP_ON_TESTS]: "Loop on Tests",
+  [ko.MEGA_PLANNER]: "Mega Planner",
+  [ko.LOOP_ON_COMMAND]: "Loop on Command",
+  [ko.TOOL_CALL]: "Tool Call",
+  [ko.DIFF_REVIEW]: "Review Changes",
+  [ko.CONTEXT_PICKING]: "Context Picking",
+  [ko.EDIT_TRAIL]: "Edit Trail",
+  [ko.AUTO_CONTEXT]: "",
+  [ko.CONTEXT_PLANNER]: "Context Planner",
+  [ko.DIFF_HISTORY]: "Diff History",
+  [ko.REMEMBER_THIS]: "Remember This",
+  [ko.USES_CODEBASE]: "Uses Codebase",
+  [ko.DECOMPOSER]: "",
+  [ko.ONLINE_METRICS]: "",
+  [ko.TOOL_FORMER]: "Tool Former",
+  [ko.CURSOR_RULES]: "Cursor Rules",
+  [ko.TOKEN_COUNTER]: "",
+  [ko.SUMMARIZATION]: "Summarization",
+  [ko.USAGE_DATA]: "Usage Data",
+  [ko.CHIMES]: "Chimes",
+  [ko.NOTIFICATIONS]: "Notifications",
+  [ko.BACKGROUND_COMPOSER]: "Background Composer",
+  [ko.CODE_DECAY_TRACKER]: "",
+  [ko.QUEUING]: "Queuing",
+  [ko.AI_CODE_TRACKING]: "",
+  [ko.MEMORIES]: "Memories",
+  [ko.RCP_LOGS]: "",
+  [ko.KNOWLEDGE_FETCH]: "",
+  [ko.SLACK_INTEGRATION]: "Slack Integration",
+  [ko.SUB_COMPOSER]: "Sub Composer",
+  [ko.THINKING]: "Thinking",
+  [ko.CONTEXT_WINDOW]: "Context Window",
+  [ko.SPEC]: "",
+  [ko.BROWSER_AGENT]: ""
+};
+Onu = {
+  bubbleDataMap: {
+    label: "Bubble Data Map",
+    type: "string",
+    defaultValue: "{}",
+    description: "Map of bubble IDs to their associated data",
+    order: 2
+  }
+};
+Unu = {
+  [ko.UNSPECIFIED]: {},
+  [ko.LOOP_ON_LINTS]: {},
+  [ko.LOOP_ON_TESTS]: {},
+  [ko.MEGA_PLANNER]: {},
+  [ko.LOOP_ON_COMMAND]: {},
+  [ko.TOOL_CALL]: {},
+  [ko.DIFF_REVIEW]: {},
+  [ko.CONTEXT_PICKING]: {},
+  [ko.EDIT_TRAIL]: {},
+  [ko.AUTO_CONTEXT]: {},
+  [ko.CONTEXT_PLANNER]: {},
+  [ko.DIFF_HISTORY]: {},
+  [ko.REMEMBER_THIS]: {},
+  [ko.USES_CODEBASE]: {},
+  [ko.DECOMPOSER]: {},
+  [ko.TOOL_FORMER]: Onu,
+  [ko.CURSOR_RULES]: {},
+  [ko.TOKEN_COUNTER]: {},
+  [ko.SUMMARIZATION]: {},
+  [ko.USAGE_DATA]: {},
+  [ko.CHIMES]: {},
+  [ko.NOTIFICATIONS]: {},
+  [ko.BACKGROUND_COMPOSER]: {},
+  [ko.CODE_DECAY_TRACKER]: {},
+  [ko.AI_CODE_TRACKING]: {},
+  [ko.QUEUING]: {},
+  [ko.MEMORIES]: {},
+  [ko.RCP_LOGS]: {},
+  [ko.KNOWLEDGE_FETCH]: {},
+  [ko.SLACK_INTEGRATION]: {},
+  [ko.SUB_COMPOSER]: {},
+  [ko.THINKING]: {},
+  [ko.CONTEXT_WINDOW]: {},
+  [ko.ONLINE_METRICS]: {},
+  [ko.SPEC]: {},
+  [ko.BROWSER_AGENT]: {}
+};

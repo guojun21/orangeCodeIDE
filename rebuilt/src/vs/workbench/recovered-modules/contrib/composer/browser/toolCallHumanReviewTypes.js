@@ -1,0 +1,59 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/composer/browser/toolCallHumanReviewTypes.js
+// Offset: 26584905 (bundle byte offset)
+// Size: 14448 bytes
+(function (n) {
+  n.NONE = "None";
+  n.REQUESTED = "Requested";
+  n.DONE = "Done";
+})(DA ||= {});
+(function (n) {
+  n.EDIT = "edit";
+  n.TERMINAL = "terminal";
+  n.MCP = "mcp";
+  n.PLAN = "plan";
+  n.WEB_FETCH = "web_fetch";
+})(aV ||= {});
+(function (n) {
+  n.USER = "user";
+  n.ALLOWLIST = "allowlist";
+  n.FULL_AUTO = "full_auto";
+  n.NONE = "none";
+})(phn ||= {});
+(function (n) {
+  n.RUN = "run";
+  n.SKIP = "skip";
+  n.ALLOWLIST_COMMANDS = "allowlistCommands";
+  n.REJECT_AND_TELL_WHAT_TO_DO_DIFFERENTLY = "rejectAndTellWhatToDoDifferently";
+})(dD ||= {});
+(function (n) {
+  n.RUN = "run";
+  n.SKIP = "skip";
+  n.REJECT_AND_TELL_WHAT_TO_DO_DIFFERENTLY = "rejectAndTellWhatToDoDifferently";
+  n.ALLOWLIST_TOOL = "allowlistTool";
+})(_I ||= {});
+(function (n) {
+  n.ACCEPT = "accept";
+  n.REJECT_AND_TELL_WHAT_TO_DO_DIFFERENTLY = "rejectAndTellWhatToDoDifferently";
+  n.SKIP = "skip";
+  n.SWITCH_TO_DEFAULT_AGENT_MODE = "switchToDefaultAgentMode";
+  n.ACCEPT_AND_ALLOW_FOLDER = "acceptAndAllowFolder";
+})(n8 ||= {});
+(function (n) {
+  n.NONE = "none";
+  n.APPROVE = "approve";
+  n.REJECT_AND_TELL_WHAT_TO_DO_DIFFERENTLY = "rejectAndTellWhatToDoDifferently";
+  n.EDIT = "edit";
+})(cQ ||= {});
+(function (n) {
+  n.USER = "user";
+  n.ALLOWLIST = "allowlist";
+  n.FULL_AUTO = "full_auto";
+  n.NONE = "none";
+})(dtu ||= {});
+(function (n) {
+  n.RUN = "run";
+  n.SKIP = "skip";
+  n.ALLOWLIST_DOMAIN = "allowlistDomain";
+})(cV ||= {});

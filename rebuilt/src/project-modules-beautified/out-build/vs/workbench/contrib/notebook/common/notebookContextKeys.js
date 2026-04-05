@@ -1,0 +1,54 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/notebook/common/notebookContextKeys.js
+// Offset: 30826791 (bundle byte offset)
+// Size: 2055 bytes
+si();
+ph();
+uxf = new Sn("userHasOpenedNotebook", false);
+V0a = new Sn("notebookFindWidgetFocused", false);
+fpu = new Sn("interactiveWindowOpen", false);
+mit = new Sn("mostRecentReplEditor", undefined);
+SE = Ee.equals("activeEditor", lCt);
+bpu = Ee.equals("activeEditor", Uun);
+dxf = Ee.equals("activeEditor", Wca);
+Kq = new Sn("isCompositeNotebook", false);
+dv = new Sn("notebookEditorFocused", false);
+a5 = new Sn("notebookCellListFocused", false);
+kMe = new Sn("notebookOutputFocused", false);
+Cgn = new Sn("notebookOutputInputFocused", false);
+n1 = new Sn("notebookEditable", true);
+pit = new Sn("notebookHasRunningCell", false);
+EMe = new Sn("notebookHasSomethingRunning", false);
+K0a = new Sn("notebookUseConsolidatedOutputButton", false);
+pry = new Sn("notebookBreakpointMargin", false);
+hxf = new Sn("notebookCellToolbarLocation", "left");
+Y0a = new Sn("notebookCursorNavigationMode", false);
+v_i = new Sn("notebookLastCellFailed", false);
+mxf = new Sn("notebookType", undefined);
+LV = new Sn("notebookCellType", undefined);
+pX = new Sn("notebookCellEditable", false);
+Sgn = new Sn("notebookCellFocused", false);
+Yq = new Sn("notebookCellEditorFocused", false);
+kgn = new Sn("notebookCellMarkdownEditMode", false);
+Z0a = new Sn("notebookCellLineNumbers", "inherit");
+A_i = new Sn("notebookCellExecutionState", undefined);
+vpu = new Sn("notebookCellExecuting", false);
+zEe = new Sn("notebookCellHasOutputs", false);
+Apu = new Sn("notebookCellIsFirstOutput", false);
+ypu = new Sn("hasHiddenOutputs", false);
+wpu = new Sn("notebookCellOutputMimeType", undefined);
+y_i = new Sn("notebookCellInputIsCollapsed", false);
+X0a = new Sn("notebookCellOutputIsCollapsed", false);
+pxf = new Sn("notebookCellResource", "");
+_pu = new Sn("notebookCellGenerateByChat", false);
+Egn = new Sn("notebookCellHasErrorDiagnostics", false);
+Cpu = new Sn("notebookCellOutputMimeTypeListForChat", []);
+eCa = new Sn("notebookKernel", undefined);
+w_i = new Sn("notebookKernelCount", 0);
+tCa = new Sn("notebookKernelSourceCount", 0);
+gxf = new Sn("notebookKernelSelected", false);
+xMe = new Sn("notebookInterruptibleKernel", false);
+Spu = new Sn("notebookMissingKernelExtension", false);
+kpu = new Sn("notebookHasOutputs", false);
+__i = new Sn("kernelHasVariableProvider", false);

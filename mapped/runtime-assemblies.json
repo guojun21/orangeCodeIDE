@@ -1,0 +1,89 @@
+{
+  "baseline": {
+    "runtime_root": ".",
+    "phase2_overlay_root": "recovered/phase2/core-entrypoints",
+    "phase2_overlay_files": [
+      "out/bootstrap-fork.js",
+      "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "out/vs/base/parts/sandbox/electron-sandbox/preload.js"
+    ],
+    "rsync_excludes": [
+      ".git",
+      ".cursor",
+      "archived",
+      "reference",
+      "raw",
+      "recovered",
+      "mapped",
+      "rebuilt",
+      "notes",
+      ".runtime-user-data",
+      ".runtime-assembly.lock",
+      ".prepare-rebuilt-runtime.lock",
+      "scripts",
+      "AGENTS.md",
+      "WORKSPACE.md",
+      "run-electron-dev.sh",
+      "run-electron-rebuilt.sh",
+      "run-electron-phase2.sh",
+      "run-electron-phase4.sh",
+      "run-electron-phase5.sh",
+      "run-electron-phase6.sh"
+    ]
+  },
+  "assemblies": [
+    {
+      "assembly_id": "phase2-runtime",
+      "phase": "phase2",
+      "output_root": "recovered/phase2/runtime-app",
+      "override_roots": [],
+      "status": "archived"
+    },
+    {
+      "assembly_id": "phase4-runtime",
+      "phase": "phase4",
+      "output_root": "recovered/phase4/runtime-app",
+      "override_roots": [
+        "recovered/phase4/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assembly_id": "phase5-runtime",
+      "phase": "phase5",
+      "output_root": "recovered/phase5/runtime-app",
+      "override_roots": [
+        "recovered/phase5/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assembly_id": "phase6-runtime",
+      "phase": "phase6",
+      "output_root": "recovered/phase6/runtime-app",
+      "override_roots": [
+        "recovered/phase6/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assembly_id": "rebuilt-runtime",
+      "phase": "rebuilt",
+      "output_root": "recovered/rebuilt/runtime-app",
+      "override_roots": [
+        "recovered/rebuilt/overrides"
+      ],
+      "status": "active"
+    },
+    {
+      "assembly_id": "startup-loader-runtime",
+      "phase": "startup-loader",
+      "output_root": "recovered/startup-loader/runtime-app",
+      "override_roots": [
+        "recovered/rebuilt/overrides",
+        "recovered/startup-loader/overrides"
+      ],
+      "status": "active-experimental"
+    }
+  ]
+}

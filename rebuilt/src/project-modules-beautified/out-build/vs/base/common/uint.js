@@ -1,0 +1,13 @@
+"use strict";
+
+// Module: out-build/vs/base/common/uint.js
+// Offset: 708641 (bundle byte offset)
+// Size: 425 bytes
+(function (n) {
+  n[n.MAX_SAFE_SMALL_INTEGER = 1073741824] = "MAX_SAFE_SMALL_INTEGER";
+  n[n.MIN_SAFE_SMALL_INTEGER = -1073741824] = "MIN_SAFE_SMALL_INTEGER";
+  n[n.MAX_UINT_8 = 255] = "MAX_UINT_8";
+  n[n.MAX_UINT_16 = 65535] = "MAX_UINT_16";
+  n[n.MAX_UINT_32 = 4294967295] = "MAX_UINT_32";
+  n[n.UNICODE_SUPPLEMENTARY_PLANE_BEGIN = 65536] = "UNICODE_SUPPLEMENTARY_PLANE_BEGIN";
+})(Cch ||= {});

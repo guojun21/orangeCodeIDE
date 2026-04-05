@@ -1,0 +1,46 @@
+// Module: out-build/vs/editor/contrib/editorState/browser/editorState.js
+// Offset: 2422273 (bundle byte offset)
+// Size: 1878 bytes
+
+oa(), ts(), Po(), rt(), ThA(), (function(n){
+  n[n.Value=1]="Value", n[n.Selection=2]="Selection", n[n.Position=4]="Position", n[n.Scroll=8]="Scroll"
+})(qSh||(qSh={
+  
+})), z3n=class Jad{
+  constructor(e, t){
+    if(this.flags=t, (this.flags&1)!==0){
+      const i=e.getModel();
+      this.modelVersionId=i?B4("{0}#{1}",i.uri.toString(),i.getVersionId()):null
+    }
+    else this.modelVersionId=null;
+    (this.flags&4)!==0?this.position=e.getPosition():this.position=null, (this.flags&2)!==0?this.selection=e.getSelection():this.selection=null, (this.flags&8)!==0?(this.scrollLeft=e.getScrollLeft(), this.scrollTop=e.getScrollTop()):(this.scrollLeft=-1, this.scrollTop=-1)
+  }
+  _equals(e){
+    if(!(e instanceof Jad))return!1;
+    const t=e;
+    return!(this.modelVersionId!==t.modelVersionId||this.scrollLeft!==t.scrollLeft||this.scrollTop!==t.scrollTop||!this.position&&t.position||this.position&&!t.position||this.position&&t.position&&!this.position.equals(t.position)||!this.selection&&t.selection||this.selection&&!t.selection||this.selection&&t.selection&&!this.selection.equalsRange(t.selection))
+  }
+  validate(e){
+    return this._equals(new Jad(e, this.flags))
+  }
+}, ERe=class extends $Sh{
+  constructor(n, e, t, i){
+    super(n, i), this._listener=new Ut, e&4&&this._listener.add(n.onDidChangeCursorPosition(r=>{
+      (!t||!Zt.containsPosition(t,r.position))&&this.cancel()
+    })), e&2&&this._listener.add(n.onDidChangeCursorSelection(r=>{
+      (!t||!Zt.containsRange(t,r.selection))&&this.cancel()
+    })), e&8&&this._listener.add(n.onDidScrollChange(r=>this.cancel())), e&1&&(this._listener.add(n.onDidChangeModel(r=>this.cancel())), this._listener.add(n.onDidChangeModelContent(r=>this.cancel())))
+  }
+  dispose(){
+    this._listener.dispose(), super.dispose()
+  }
+}, V3n=class extends Wc{
+  constructor(n, e){
+    super(e), this._listener=n.onDidChangeContent(()=>this.cancel())
+  }
+  dispose(){
+    this._listener.dispose(), super.dispose()
+  }
+}
+}
+}), IhA=

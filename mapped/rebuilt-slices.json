@@ -1,0 +1,1290 @@
+{
+  "baseline": {
+    "nodeVersion": "22.22.2",
+    "electronVersion": "39.8.3",
+    "esbuildVersion": "0.25.3",
+    "defaultBrowserTarget": "chrome118"
+  },
+  "slices": [
+    {
+      "slice_id": "workbench-rebuilt-badge",
+      "profiles": [
+        "workbench-hook-archive"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-browser/workbench/rebuiltBadge/index.js",
+      "base_recovered_path": "recovered/phase2/core-entrypoints/out/vs/code/electron-sandbox/workbench/workbench.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "build_output_template": "recovered/{phase}/built/workbench-rebuilt-badge.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/workbench/workbench.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": "__SHOPEE_WORKBENCH_BADGE_APPLY__",
+      "override_patch_strategy": "workbench-nls-init-hook",
+      "validation_marker": "__SHOPEE_WORKBENCH_REBUILT__",
+      "validation_badge_id": "__shopee_workbench_rebuilt_badge",
+      "validation_badge_text": "SHOPEE WORKBENCH REBUILT",
+      "upstream_vscode_path": "reference/vscode/src/vs/code/electron-browser/workbench/workbench.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "archived",
+      "spike_disposition": "archived",
+      "replaced_by": "workbench-shell-runtime",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "preload-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/base/parts/sandbox/electron-sandbox/preload/runtime/index.js",
+      "base_recovered_path": "recovered/phase2/core-entrypoints/out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+      "target_runtime_bundle": "out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+      "build_output_template": "recovered/{phase}/built/preload-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_marker": "__SHOPEE_PRELOAD_BRIDGE__",
+      "validation_badge_id": "__shopee_workbench_status_panel",
+      "validation_badge_text": "PRELOAD BRIDGE READY",
+      "upstream_vscode_path": "reference/vscode/src/vs/base/parts/sandbox/electron-sandbox/preload.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "electron"
+        ]
+      }
+    },
+    {
+      "slice_id": "workbench-status-panel",
+      "profiles": [
+        "workbench-hook-archive"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-browser/workbench/statusPanel/index.js",
+      "base_recovered_path": "recovered/phase2/core-entrypoints/out/vs/code/electron-sandbox/workbench/workbench.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "build_output_template": "recovered/{phase}/built/workbench-status-panel.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/workbench/workbench.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": "__SHOPEE_WORKBENCH_STATUS_APPLY__",
+      "override_patch_strategy": "workbench-nls-init-hook",
+      "validation_marker": "__SHOPEE_WORKBENCH_STATUS_PANEL__",
+      "validation_badge_id": "__shopee_workbench_status_panel",
+      "validation_badge_text": "SHOPEE RUNTIME STATUS",
+      "upstream_vscode_path": "reference/vscode/src/vs/code/electron-browser/workbench/workbench.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "archived",
+      "spike_disposition": "archived",
+      "replaced_by": "workbench-shell-runtime",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "cursor-socket-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-socket/index.js",
+      "base_recovered_path": "extensions/cursor-socket/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-socket/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-socket-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-socket/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-socket",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-socket extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-socket/Cursor Socket.log",
+      "validation_log_contains": [
+        "cursor-socket extension activating",
+        "cursor-socket extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-polyfills-remote-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-polyfills-remote/index.js",
+      "base_recovered_path": "extensions/cursor-polyfills-remote/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-polyfills-remote/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-polyfills-remote-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-polyfills-remote/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-polyfills-remote",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "Extension activated success: anysphere.cursor-polyfills-remote",
+      "validation_log_glob": "logs/*/window*/exthost/exthost.log",
+      "validation_log_contains": [
+        "ExtensionService#_doActivateExtension anysphere.cursor-polyfills-remote",
+        "Extension activated success: anysphere.cursor-polyfills-remote"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-mcp-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-mcp/index.js",
+      "base_recovered_path": "extensions/cursor-mcp/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-mcp/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-mcp-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-mcp/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-mcp",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-mcp extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-mcp/MCP Logs.log",
+      "validation_log_contains": [
+        "cursor-mcp extension activating",
+        "Initialized shared MCP manager",
+        "cursor-mcp extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-resolver-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-resolver/index.js",
+      "base_recovered_path": "extensions/cursor-resolver/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-resolver/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-resolver-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-resolver/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-resolver",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "RemoteAuthorityResolver constructor",
+      "validation_log_glob": "logs/*/window*/exthost/output_logging_*/*-Cursor Resolver.log",
+      "validation_log_contains": [
+        "[cursor-resolver] Running in Node.js extension host",
+        "[INFO]  RemoteAuthorityResolver constructor"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-ndjson-ingest-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-ndjson-ingest/index.js",
+      "base_recovered_path": "extensions/cursor-ndjson-ingest/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-ndjson-ingest/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-ndjson-ingest-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-ndjson-ingest/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-ndjson-ingest",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "NDJSON ingest server started on port",
+      "validation_command_palette_text": "Cursor NDJSON Ingest: Start Server",
+      "validation_command_startup_delay_ms": 4500,
+      "validation_command_delay_ms": 1500,
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-ndjson-ingest/NDJSON Ingest.log",
+      "validation_log_contains": [
+        "NDJSON ingest server started on port"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-commits-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-commits/index.js",
+      "base_recovered_path": "extensions/cursor-commits/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-commits/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-commits-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-commits/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-commits",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-commits extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-commits/Cursor Commits.log",
+      "validation_log_contains": [
+        "cursor-commits extension activating",
+        "Registered request tracking command (cursor.action.startTrackingRequest)",
+        "cursor-commits extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-deeplink-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-deeplink/index.js",
+      "base_recovered_path": "extensions/cursor-deeplink/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-deeplink/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-deeplink-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-deeplink/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-deeplink",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-deeplink extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-deeplink/Cursor Deeplink.log",
+      "validation_log_contains": [
+        "cursor-deeplink extension activating",
+        "cursor-deeplink extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-browser-automation-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-browser-automation/index.js",
+      "base_recovered_path": "extensions/cursor-browser-automation/dist/extension.js",
+      "target_runtime_bundle": "extensions/cursor-browser-automation/dist/extension.js",
+      "build_output_template": "recovered/{phase}/built/cursor-browser-automation-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-browser-automation/dist/extension.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-browser-automation",
+      "signature_relative_path": "dist/extension.js",
+      "validation_marker": "Cursor Browser Automation extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/cursor.cursor-browser-automation/Cursor IDE Browser Automation.log",
+      "validation_log_contains": [
+        "Cursor Browser Automation extension activated",
+        "Registered MCP provider cursor-ide-browser"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-shadow-workspace-main",
+      "profiles": [
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-shadow-workspace/index.js",
+      "base_recovered_path": "extensions/cursor-shadow-workspace/dist/extension.js",
+      "target_runtime_bundle": "extensions/cursor-shadow-workspace/dist/extension.js",
+      "build_output_template": "recovered/{phase}/built/cursor-shadow-workspace-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-shadow-workspace/dist/extension.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-shadow-workspace",
+      "signature_relative_path": "dist/extension.js",
+      "validation_marker": "cursor-shadow-workspace extension activated",
+      "validation_log_glob": "logs/*/window*/exthost/anysphere.cursor-shadow-workspace/Shadow Workspace.log",
+      "validation_log_contains": [
+        "cursor-shadow-workspace extension activating",
+        "cursor-shadow-workspace extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-always-local-main",
+      "profiles": [
+        "always-local-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-always-local/index.js",
+      "base_recovered_path": "extensions/cursor-always-local/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-always-local/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-always-local-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-always-local/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-always-local",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-always-local extension activated",
+      "validation_log_glob": "logs/*/window*/output_logging_*/*-Cursor-always-local debug logs.log",
+      "validation_log_contains": [
+        "cursor-always-local extension activating",
+        "cursor-always-local extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-retrieval-main",
+      "profiles": [
+        "retrieval-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-retrieval/index.js",
+      "base_recovered_path": "extensions/cursor-retrieval/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-retrieval/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-retrieval-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-retrieval/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-retrieval",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-retrieval extension activated",
+      "validation_log_glob": "logs/*/window*/output_logging_*/*-Cursor-retrieval debug logs.log",
+      "validation_log_contains": [
+        "cursor-retrieval extension activating",
+        "cursor-retrieval extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "spike",
+      "spike_disposition": "active-spike",
+      "spike_blocker": "source-quality API kind coverage below threshold",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "cursor-agent-exec-main",
+      "profiles": [
+        "agent-exec-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/extensions/cursor-agent-exec/index.js",
+      "base_recovered_path": "extensions/cursor-agent-exec/dist/main.js",
+      "target_runtime_bundle": "extensions/cursor-agent-exec/dist/main.js",
+      "build_output_template": "recovered/{phase}/built/cursor-agent-exec-main.js",
+      "override_output_template": "recovered/{phase}/overrides/extensions/cursor-agent-exec/dist/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "signature_extension_id": "anysphere.cursor-agent-exec",
+      "signature_relative_path": "dist/main.js",
+      "validation_marker": "cursor-agent-exec extension activated",
+      "validation_log_glob": "logs/*/window*/output_logging_*/*-Cursor Agent Exec.log",
+      "validation_log_contains": [
+        "cursor-agent-exec extension activating",
+        "cursor-agent-exec extension activated"
+      ],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "spike",
+      "spike_disposition": "active-spike",
+      "spike_blocker": "source-quality API kind coverage below threshold",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "vscode"
+        ]
+      }
+    },
+    {
+      "slice_id": "preload-aux-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/base/parts/sandbox/electron-browser/preloadAux/index.js",
+      "base_recovered_path": "out/vs/base/parts/sandbox/electron-sandbox/preload-aux.js",
+      "target_runtime_bundle": "out/vs/base/parts/sandbox/electron-sandbox/preload-aux.js",
+      "build_output_template": "recovered/{phase}/built/preload-aux-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/base/parts/sandbox/electron-sandbox/preload-aux.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_marker": null,
+      "validation_log_glob": null,
+      "validation_log_contains": [],
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/base/parts/sandbox/electron-browser/preload-aux.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "electron"
+        ]
+      }
+    },
+    {
+      "slice_id": "preload-browser-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/platform/browserView/electron-main/preloadBrowser/index.js",
+      "base_recovered_path": "out/vs/platform/browserView/electron-main/preload-browser.js",
+      "target_runtime_bundle": "out/vs/platform/browserView/electron-main/preload-browser.js",
+      "build_output_template": "recovered/{phase}/built/preload-browser-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/platform/browserView/electron-main/preload-browser.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_command_id": "workbench.action.newBrowserTab",
+      "validation_command_palette_text": "New Browser Tab",
+      "validation_command_startup_delay_ms": 2000,
+      "validation_command_delay_ms": 1800,
+      "validation_browser_view_probe": true,
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "electron"
+        ]
+      }
+    },
+    {
+      "slice_id": "service-worker-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/contrib/webview/browser/pre/serviceWorker/index.js",
+      "base_recovered_path": "out/vs/workbench/contrib/webview/browser/pre/service-worker.js",
+      "target_runtime_bundle": "out/vs/workbench/contrib/webview/browser/pre/service-worker.js",
+      "build_output_template": "recovered/{phase}/built/service-worker-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/contrib/webview/browser/pre/service-worker.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/contrib/webview/browser/pre/service-worker.js",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "extension-monitor-shell",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-sandbox/extensionMonitor/index.js",
+      "base_recovered_path": "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.js",
+      "build_output_template": "recovered/{phase}/built/extension-monitor-shell.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "process-explorer-shell",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-sandbox/processExplorer/index.js",
+      "base_recovered_path": "out/vs/code/electron-sandbox/processExplorer/processExplorer.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/processExplorer/processExplorer.js",
+      "build_output_template": "recovered/{phase}/built/process-explorer-shell.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/processExplorer/processExplorer.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "extension-monitor-main",
+      "profiles": [
+        "stable",
+        "aux-window-main-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
+      "base_recovered_path": "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.js",
+      "build_output_template": "recovered/{phase}/built/extension-monitor-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_EXTENSION_MONITOR_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "process-explorer-main",
+      "profiles": [
+        "stable",
+        "aux-window-main-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-sandbox/processExplorerMain/index.js",
+      "base_recovered_path": "out/vs/code/electron-sandbox/processExplorer/processExplorerMain.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/processExplorer/processExplorerMain.js",
+      "build_output_template": "recovered/{phase}/built/process-explorer-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/processExplorer/processExplorerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_PROCESS_EXPLORER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "composer-preload-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/contrib/composer/browser/preloadWebviewBrowser/index.js",
+      "base_recovered_path": "out/vs/workbench/contrib/composer/browser/preload-webview-browser.js",
+      "target_runtime_bundle": "out/vs/workbench/contrib/composer/browser/preload-webview-browser.js",
+      "build_output_template": "recovered/{phase}/built/composer-preload-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/contrib/composer/browser/preload-webview-browser.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": null,
+      "source_boundary": "cursor_only",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22",
+        "external": [
+          "electron"
+        ]
+      }
+    },
+    {
+      "slice_id": "bootstrap-fork-runtime",
+      "profiles": [
+        "stable",
+        "bootstrap-fork-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/bootstrapFork/index.js",
+      "base_recovered_path": "out/bootstrap-fork.js",
+      "target_runtime_bundle": "out/bootstrap-fork.js",
+      "build_output_template": "recovered/{phase}/built/bootstrap-fork-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/bootstrap-fork.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_marker": "__SHOPEE_BOOTSTRAP_FORK__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/bootstrap-fork.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "external": [
+          "@vscode/windows-process-tree"
+        ]
+      }
+    },
+    {
+      "slice_id": "workbench-shell-runtime",
+      "profiles": [
+        "stable",
+        "workbench-shell-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-browser/workbench/workbenchShell/index.js",
+      "base_recovered_path": "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "target_runtime_bundle": "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "build_output_template": "recovered/{phase}/built/workbench-shell-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-sandbox/workbench/workbench.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "validation_marker": "__SHOPEE_WORKBENCH_REBUILT__",
+      "validation_badge_id": "__shopee_workbench_rebuilt_badge",
+      "validation_badge_text": "SHOPEE WORKBENCH REBUILT",
+      "upstream_vscode_path": "reference/vscode/src/vs/code/electron-browser/workbench/workbench.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "iife",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "textmate-tokenization-worker-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorkerMain/index.js",
+      "base_recovered_path": "out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorker.workerMain.js",
+      "target_runtime_bundle": "out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorker.workerMain.js",
+      "build_output_template": "recovered/{phase}/built/textmate-tokenization-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorker.workerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+    "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_TEXTMATE_TOKENIZATION_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorker.workerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "notebook-web-worker-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/contrib/notebook/common/services/notebookWebWorkerMain/index.js",
+      "base_recovered_path": "out/vs/workbench/contrib/notebook/common/services/notebookWebWorkerMain.js",
+      "target_runtime_bundle": "out/vs/workbench/contrib/notebook/common/services/notebookWebWorkerMain.js",
+      "build_output_template": "recovered/{phase}/built/notebook-web-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/contrib/notebook/common/services/notebookWebWorkerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_NOTEBOOK_WEB_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/contrib/notebook/common/services/notebookWebWorkerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "output-link-computer-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/contrib/output/common/outputLinkComputerMain/index.js",
+      "base_recovered_path": "out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+      "target_runtime_bundle": "out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+      "build_output_template": "recovered/{phase}/built/output-link-computer-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_OUTPUT_LINK_COMPUTER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/contrib/output/common/outputLinkComputerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "editor-web-worker-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/editor/common/services/editorWebWorkerMain/index.js",
+      "base_recovered_path": "out/vs/editor/common/services/editorWebWorkerMain.js",
+      "target_runtime_bundle": "out/vs/editor/common/services/editorWebWorkerMain.js",
+      "build_output_template": "recovered/{phase}/built/editor-web-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/editor/common/services/editorWebWorkerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_EDITOR_WEB_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/editor/common/services/editorWebWorkerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "language-detection-web-worker-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/services/languageDetection/browser/languageDetectionWebWorkerMain/index.js",
+      "base_recovered_path": "out/vs/workbench/services/languageDetection/browser/languageDetectionWebWorkerMain.js",
+      "target_runtime_bundle": "out/vs/workbench/services/languageDetection/browser/languageDetectionWebWorkerMain.js",
+      "build_output_template": "recovered/{phase}/built/language-detection-web-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/services/languageDetection/browser/languageDetectionWebWorkerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_LANGUAGE_DETECTION_WEB_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/services/languageDetection/browser/languageDetectionWorkerServiceImpl.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "local-file-search-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/services/search/worker/localFileSearchMain/index.js",
+      "base_recovered_path": "out/vs/workbench/services/search/worker/localFileSearchMain.js",
+      "target_runtime_bundle": "out/vs/workbench/services/search/worker/localFileSearchMain.js",
+      "build_output_template": "recovered/{phase}/built/local-file-search-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/services/search/worker/localFileSearchMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_LOCAL_FILE_SEARCH_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/services/search/worker/localFileSearchMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "profile-analysis-worker-main",
+      "profiles": [
+        "stable",
+        "worker-proxy-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/index.js",
+      "base_recovered_path": "out/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain.js",
+      "target_runtime_bundle": "out/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain.js",
+      "build_output_template": "recovered/{phase}/built/profile-analysis-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_PROFILE_ANALYSIS_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/platform/profiling/electron-browser/profileAnalysisWorkerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "shared-process-runtime",
+      "profiles": [
+        "shared-process-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/index.js",
+      "base_recovered_path": "out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+      "target_runtime_bundle": "out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+      "build_output_template": "recovered/{phase}/built/shared-process-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_SHARED_PROCESS_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/code/electron-utility/sharedProcess/sharedProcessMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external",
+        "external": [
+          "electron",
+          "@vscode/policy-watcher",
+        "@vscode/windows-registry",
+        "@vscode/windows-ca-certs",
+        "@vscode/deviceid",
+        "@vscode/windows-process-tree"
+      ]
+    }
+  },
+    {
+      "slice_id": "cli-runtime",
+      "profiles": [
+        "cli-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/cli/index.js",
+      "base_recovered_path": "out/cli.js",
+      "target_runtime_bundle": "out/cli.js",
+      "build_output_template": "recovered/{phase}/built/cli-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/cli.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+    "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_CLI_RUNTIME__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/cli.js",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external"
+      }
+    },
+    {
+      "slice_id": "cli-process-main",
+      "profiles": [
+        "cli-process-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/code/node/cliProcessMain/index.js",
+      "base_recovered_path": "out/vs/code/node/cliProcessMain.js",
+      "target_runtime_bundle": "out/vs/code/node/cliProcessMain.js",
+      "build_output_template": "recovered/{phase}/built/cli-process-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/code/node/cliProcessMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_CLI_PROCESS_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/code/node/cliProcessMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external",
+        "external": [
+          "@vscode/policy-watcher",
+          "@vscode/windows-registry",
+          "@vscode/windows-ca-certs",
+          "@vscode/deviceid"
+        ]
+      }
+    },
+    {
+      "slice_id": "telemetry-app-runtime",
+      "profiles": [
+        "telemetry-app-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/index.js",
+      "base_recovered_path": "out/vs/workbench/contrib/debug/node/telemetryApp.js",
+      "target_runtime_bundle": "out/vs/workbench/contrib/debug/node/telemetryApp.js",
+      "build_output_template": "recovered/{phase}/built/telemetry-app.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/contrib/debug/node/telemetryApp.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_TELEMETRY_APP__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/contrib/debug/node/telemetryApp.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external"
+      }
+    },
+    {
+      "slice_id": "pty-host-main",
+      "profiles": [
+        "ptyhost-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js",
+      "base_recovered_path": "out/vs/platform/terminal/node/ptyHostMain.js",
+      "target_runtime_bundle": "out/vs/platform/terminal/node/ptyHostMain.js",
+      "build_output_template": "recovered/{phase}/built/pty-host-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/platform/terminal/node/ptyHostMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_PTY_HOST_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/platform/terminal/node/ptyHostMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external",
+        "external": [
+          "@vscode/windows-process-tree"
+        ]
+      }
+    },
+    {
+      "slice_id": "watcher-main",
+      "profiles": [
+        "watcher-spike",
+        "stable"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/platform/files/node/watcherMain/index.js",
+      "base_recovered_path": "out/vs/platform/files/node/watcher/watcherMain.js",
+      "target_runtime_bundle": "out/vs/platform/files/node/watcher/watcherMain.js",
+      "build_output_template": "recovered/{phase}/built/watcher-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/platform/files/node/watcher/watcherMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "default",
+      "validation_marker": "__SHOPEE_WATCHER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/platform/files/node/watcher/watcherMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "validated",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22",
+        "packages": "external",
+        "external": [
+          "@parcel/watcher"
+        ]
+      }
+    },
+    {
+      "slice_id": "extension-host-worker-main",
+      "profiles": [
+        "extension-host-worker-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/api/worker/extensionHostWorkerMain/index.js",
+      "base_recovered_path": "out/vs/workbench/api/worker/extensionHostWorkerMain.js",
+      "target_runtime_bundle": "out/vs/workbench/api/worker/extensionHostWorkerMain.js",
+      "build_output_template": "recovered/{phase}/built/extension-host-worker-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/api/worker/extensionHostWorkerMain.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "proxy-worker",
+      "validation_marker": "__SHOPEE_EXTENSION_HOST_WORKER_MAIN__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/api/worker/extensionHostWorkerMain.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "spike",
+      "spike_disposition": "parked-spike",
+      "spike_blocker": "worker-proxy hangs on stable verify",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118"
+      }
+    },
+    {
+      "slice_id": "extension-host-process-main",
+      "profiles": [
+        "extension-host-process-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/api/node/extensionHostProcess/index.js",
+      "base_recovered_path": "out/vs/workbench/api/node/extensionHostProcess.js",
+      "target_runtime_bundle": "out/vs/workbench/api/node/extensionHostProcess.js",
+      "build_output_template": "recovered/{phase}/built/extension-host-process-main.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/api/node/extensionHostProcess.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "proxy-node-entry",
+      "validation_marker": "__SHOPEE_EXTENSION_HOST_PROCESS__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/api/node/extensionHostProcess.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "spike",
+      "spike_disposition": "parked-spike",
+      "spike_blocker": "runtime-direct-slices hash mismatch",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22"
+      }
+    },
+    {
+      "slice_id": "main-runtime",
+      "profiles": [
+        "main-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/main/index.js",
+      "base_recovered_path": "out/main.js",
+      "target_runtime_bundle": "out/main.js",
+      "build_output_template": "recovered/{phase}/built/main-runtime.js",
+      "override_output_template": "recovered/{phase}/overrides/out/main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "proxy-node-entry",
+      "validation_marker": "__SHOPEE_MAIN_PROCESS__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/main.ts",
+      "source_boundary": "vscode+cursor",
+      "status": "spike",
+      "spike_disposition": "watch-only-spike",
+      "spike_blocker": "core entry is too risky for stable without deeper validation",
+      "esbuild": {
+        "platform": "node",
+        "format": "esm",
+        "target": "node22"
+      }
+    },
+    {
+      "slice_id": "workbench-desktop-main-proxy",
+      "profiles": [
+        "workbench-desktop-main-spike"
+      ],
+      "rebuilt_entry": "rebuilt/src/vs/workbench/workbenchDesktopMain/index.js",
+      "base_recovered_path": "out/vs/workbench/workbench.desktop.main.js",
+      "target_runtime_bundle": "out/vs/workbench/workbench.desktop.main.js",
+      "build_output_template": "recovered/{phase}/built/workbench-desktop-main-proxy.js",
+      "override_output_template": "recovered/{phase}/overrides/out/vs/workbench/workbench.desktop.main.js",
+      "runtime_phase": "rebuilt",
+      "runtime_hook_name": null,
+      "override_patch_strategy": "direct-file-replace",
+      "source_quality_mode": "proxy-browser-module",
+      "validation_marker": "__SHOPEE_WORKBENCH_DESKTOP_MAIN_PROXY__",
+      "validation_badge_id": null,
+      "validation_badge_text": null,
+      "upstream_vscode_path": "reference/vscode/src/vs/workbench/browser/workbench.ts",
+      "source_boundary": "vscode+cursor mega-bundle",
+      "status": "spike",
+      "spike_disposition": "active-spike",
+      "spike_blocker": "active interception frontier; not suitable for stable yet",
+      "esbuild": {
+        "platform": "browser",
+        "format": "esm",
+        "target": "chrome118",
+        "external": [
+          "./workbench.desktop.main.original.js"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+"use strict";
+
+// Module: out-build/vs/editor/common/tokens/contiguousTokensEditing.js
+// Offset: 1197801 (bundle byte offset)
+// Size: 1300 bytes
+LH();
+lRe = new Uint32Array(0).buffer;
+cz = class mad {
+  static deleteBeginning(e, t) {
+    if (e === null || e === lRe) {
+      return e;
+    } else {
+      return mad.delete(e, 0, t);
+    }
+  }
+  static deleteEnding(e, t) {
+    if (e === null || e === lRe) {
+      return e;
+    }
+    const i = s9e(e);
+    const r = i[i.length - 2];
+    return mad.delete(e, t, r);
+  }
+  static delete(e, t, i) {
+    if (e === null || e === lRe || t === i) {
+      return e;
+    }
+    const r = s9e(e);
+    const s = r.length >>> 1;
+    if (t === 0 && r[r.length - 2] === i) {
+      return lRe;
+    }
+    const o = OB.findIndexInTokensArray(r, t);
+    const a = o > 0 ? r[o - 1 << 1] : 0;
+    const l = r[o << 1];
+    if (i < l) {
+      const g = i - t;
+      for (let f = o; f < s; f++) {
+        r[f << 1] -= g;
+      }
+      return e;
+    }
+    let u;
+    let d;
+    if (a !== t) {
+      r[o << 1] = t;
+      u = o + 1 << 1;
+      d = t;
+    } else {
+      u = o << 1;
+      d = a;
+    }
+    const m = i - t;
+    for (let g = o + 1; g < s; g++) {
+      const f = r[g << 1] - m;
+      if (f > d) {
+        r[u++] = f;
+        r[u++] = r[(g << 1) + 1];
+        d = f;
+      }
+    }
+    if (u === r.length) {
+      return e;
+    }
+    const p = new Uint32Array(u);
+    p.set(r.subarray(0, u), 0);
+    return p.buffer;
+  }
+  static append(e, t) {
+    if (t === lRe) {
+      return e;
+    }
+    if (e === lRe) {
+      return t;
+    }
+    if (e === null) {
+      return e;
+    }
+    if (t === null) {
+      return null;
+    }
+    const i = s9e(e);
+    const r = s9e(t);
+    const s = r.length >>> 1;
+    const o = new Uint32Array(i.length + r.length);
+    o.set(i, 0);
+    let a = i.length;
+    const l = i[i.length - 2];
+    for (let u = 0; u < s; u++) {
+      o[a++] = r[u << 1] + l;
+      o[a++] = r[(u << 1) + 1];
+    }
+    return o.buffer;
+  }
+  static insert(e, t, i) {
+    if (e === null || e === lRe) {
+      return e;
+    }
+    const r = s9e(e);
+    const s = r.length >>> 1;
+    let o = OB.findIndexInTokensArray(r, t);
+    if (o > 0 && r[o - 1 << 1] === t) {
+      o--;
+    }
+    for (let a = o; a < s; a++) {
+      r[a << 1] += i;
+    }
+    return e;
+  }
+};

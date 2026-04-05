@@ -1,0 +1,182 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/terminal/common/terminal.js
+// Offset: 31294657 (bundle byte offset)
+// Size: 12630 bytes
+ml();
+_r();
+Ht();
+Wt();
+hRf();
+yD = "terminal";
+mRf = ["workbench.action.terminal.toggleTerminal", "workbench.action.terminal.new", "workbench.action.togglePanel", "workbench.action.terminal.focus"];
+OV = "terminal.integrated";
+hbu = 0;
+pRf = -5;
+mbu = xv ? 1.1 : 1;
+qka = 1;
+Hka = 1000;
+gRf = "normal";
+fRf = "bold";
+pbu = ["normal", "bold", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
+AX = xi("terminalProfileResolverService");
+qie = xi("terminalProfileService");
+bRf = n => typeof n.write == "function";
+(function(n) {
+    n[n.Uninitialized = 1] = "Uninitialized";
+    n[n.Launching = 2] = "Launching";
+    n[n.Running = 3] = "Running";
+    n[n.KilledDuringLaunch = 4] = "KilledDuringLaunch";
+    n[n.KilledByUser = 5] = "KilledByUser";
+    n[n.KilledByProcess = 6] = "KilledByProcess";
+})(vRf ||= {});
+(function(n) {
+    n.AddTooltip = "workbench.action.terminal.addTooltip";
+    n.Toggle = "workbench.action.terminal.toggleTerminal";
+    n.Kill = "workbench.action.terminal.kill";
+    n.KillViewOrEditor = "workbench.action.terminal.killViewOrEditor";
+    n.KillEditor = "workbench.action.terminal.killEditor";
+    n.KillActiveTab = "workbench.action.terminal.killActiveTab";
+    n.KillAll = "workbench.action.terminal.killAll";
+    n.QuickKill = "workbench.action.terminal.quickKill";
+    n.ConfigureTerminalSettings = "workbench.action.terminal.openSettings";
+    n.ShellIntegrationLearnMore = "workbench.action.terminal.learnMore";
+    n.CopyLastCommand = "workbench.action.terminal.copyLastCommand";
+    n.CopyLastCommandOutput = "workbench.action.terminal.copyLastCommandOutput";
+    n.CopyLastCommandAndLastCommandOutput = "workbench.action.terminal.copyLastCommandAndLastCommandOutput";
+    n.CopyAndClearSelection = "workbench.action.terminal.copyAndClearSelection";
+    n.CopySelection = "workbench.action.terminal.copySelection";
+    n.CopySelectionAsHtml = "workbench.action.terminal.copySelectionAsHtml";
+    n.SelectAll = "workbench.action.terminal.selectAll";
+    n.DeleteWordLeft = "workbench.action.terminal.deleteWordLeft";
+    n.DeleteWordRight = "workbench.action.terminal.deleteWordRight";
+    n.DeleteToLineStart = "workbench.action.terminal.deleteToLineStart";
+    n.MoveToLineStart = "workbench.action.terminal.moveToLineStart";
+    n.MoveToLineEnd = "workbench.action.terminal.moveToLineEnd";
+    n.New = "workbench.action.terminal.new";
+    n.NewWithCwd = "workbench.action.terminal.newWithCwd";
+    n.NewLocal = "workbench.action.terminal.newLocal";
+    n.NewInActiveWorkspace = "workbench.action.terminal.newInActiveWorkspace";
+    n.NewWithProfile = "workbench.action.terminal.newWithProfile";
+    n.Split = "workbench.action.terminal.split";
+    n.SplitActiveTab = "workbench.action.terminal.splitActiveTab";
+    n.SplitInActiveWorkspace = "workbench.action.terminal.splitInActiveWorkspace";
+    n.Unsplit = "workbench.action.terminal.unsplit";
+    n.JoinActiveTab = "workbench.action.terminal.joinActiveTab";
+    n.Join = "workbench.action.terminal.join";
+    n.Relaunch = "workbench.action.terminal.relaunch";
+    n.FocusPreviousPane = "workbench.action.terminal.focusPreviousPane";
+    n.CreateTerminalEditor = "workbench.action.createTerminalEditor";
+    n.CreateTerminalEditorSameGroup = "workbench.action.createTerminalEditorSameGroup";
+    n.CreateTerminalEditorSide = "workbench.action.createTerminalEditorSide";
+    n.FocusTabs = "workbench.action.terminal.focusTabs";
+    n.FocusNextPane = "workbench.action.terminal.focusNextPane";
+    n.ResizePaneLeft = "workbench.action.terminal.resizePaneLeft";
+    n.ResizePaneRight = "workbench.action.terminal.resizePaneRight";
+    n.ResizePaneUp = "workbench.action.terminal.resizePaneUp";
+    n.SizeToContentWidth = "workbench.action.terminal.sizeToContentWidth";
+    n.SizeToContentWidthActiveTab = "workbench.action.terminal.sizeToContentWidthActiveTab";
+    n.ResizePaneDown = "workbench.action.terminal.resizePaneDown";
+    n.Focus = "workbench.action.terminal.focus";
+    n.FocusNext = "workbench.action.terminal.focusNext";
+    n.FocusPrevious = "workbench.action.terminal.focusPrevious";
+    n.Paste = "workbench.action.terminal.paste";
+    n.PasteSelection = "workbench.action.terminal.pasteSelection";
+    n.SelectDefaultProfile = "workbench.action.terminal.selectDefaultShell";
+    n.RunSelectedText = "workbench.action.terminal.runSelectedText";
+    n.RunActiveFile = "workbench.action.terminal.runActiveFile";
+    n.SwitchTerminal = "workbench.action.terminal.switchTerminal";
+    n.ScrollDownLine = "workbench.action.terminal.scrollDown";
+    n.ScrollDownPage = "workbench.action.terminal.scrollDownPage";
+    n.ScrollToBottom = "workbench.action.terminal.scrollToBottom";
+    n.ScrollUpLine = "workbench.action.terminal.scrollUp";
+    n.ScrollUpPage = "workbench.action.terminal.scrollUpPage";
+    n.ScrollToTop = "workbench.action.terminal.scrollToTop";
+    n.Clear = "workbench.action.terminal.clear";
+    n.ClearSelection = "workbench.action.terminal.clearSelection";
+    n.ChangeIcon = "workbench.action.terminal.changeIcon";
+    n.ChangeIconActiveTab = "workbench.action.terminal.changeIconActiveTab";
+    n.ChangeColor = "workbench.action.terminal.changeColor";
+    n.ChangeColorActiveTab = "workbench.action.terminal.changeColorActiveTab";
+    n.Rename = "workbench.action.terminal.rename";
+    n.RenameActiveTab = "workbench.action.terminal.renameActiveTab";
+    n.RenameWithArgs = "workbench.action.terminal.renameWithArg";
+    n.ScrollToPreviousCommand = "workbench.action.terminal.scrollToPreviousCommand";
+    n.ScrollToNextCommand = "workbench.action.terminal.scrollToNextCommand";
+    n.SelectToPreviousCommand = "workbench.action.terminal.selectToPreviousCommand";
+    n.SelectToNextCommand = "workbench.action.terminal.selectToNextCommand";
+    n.SelectToPreviousLine = "workbench.action.terminal.selectToPreviousLine";
+    n.SelectToNextLine = "workbench.action.terminal.selectToNextLine";
+    n.SendSequence = "workbench.action.terminal.sendSequence";
+    n.AttachToSession = "workbench.action.terminal.attachToSession";
+    n.DetachSession = "workbench.action.terminal.detachSession";
+    n.MoveToEditor = "workbench.action.terminal.moveToEditor";
+    n.MoveToTerminalPanel = "workbench.action.terminal.moveToTerminalPanel";
+    n.MoveIntoNewWindow = "workbench.action.terminal.moveIntoNewWindow";
+    n.SetDimensions = "workbench.action.terminal.setDimensions";
+    n.FocusHover = "workbench.action.terminal.focusHover";
+    n.ShowEnvironmentContributions = "workbench.action.terminal.showEnvironmentContributions";
+    n.StartVoice = "workbench.action.terminal.startVoice";
+    n.StopVoice = "workbench.action.terminal.stopVoice";
+    n.DebugCheckExecutionServiceVersion = "workbench.action.terminal.debugCheckExecutionServiceVersion";
+})(ARf ||= {});
+gbu = ["workbench.action.terminal.clearSelection", "workbench.action.terminal.clear", "workbench.action.terminal.copyAndClearSelection", "workbench.action.terminal.copySelection", "workbench.action.terminal.copySelectionAsHtml", "workbench.action.terminal.copyLastCommand", "workbench.action.terminal.copyLastCommandOutput", "workbench.action.terminal.copyLastCommandAndLastCommandOutput", "workbench.action.terminal.deleteToLineStart", "workbench.action.terminal.deleteWordLeft", "workbench.action.terminal.deleteWordRight", "workbench.action.terminal.focusNextPane", "workbench.action.terminal.focusNext", "workbench.action.terminal.focusPreviousPane", "workbench.action.terminal.focusPrevious", "workbench.action.terminal.focus", "workbench.action.terminal.sizeToContentWidth", "workbench.action.terminal.kill", "workbench.action.terminal.killEditor", "workbench.action.terminal.moveToEditor", "workbench.action.terminal.moveToLineEnd", "workbench.action.terminal.moveToLineStart", "workbench.action.terminal.moveToTerminalPanel", "workbench.action.terminal.newInActiveWorkspace", "workbench.action.terminal.new", "workbench.action.terminal.paste", "workbench.action.terminal.pasteSelection", "workbench.action.terminal.resizePaneDown", "workbench.action.terminal.resizePaneLeft", "workbench.action.terminal.resizePaneRight", "workbench.action.terminal.resizePaneUp", "workbench.action.terminal.runActiveFile", "workbench.action.terminal.runSelectedText", "workbench.action.terminal.scrollDown", "workbench.action.terminal.scrollDownPage", "workbench.action.terminal.scrollToBottom", "workbench.action.terminal.scrollToNextCommand", "workbench.action.terminal.scrollToPreviousCommand", "workbench.action.terminal.scrollToTop", "workbench.action.terminal.scrollUp", "workbench.action.terminal.scrollUpPage", "workbench.action.terminal.sendSequence", "workbench.action.terminal.selectAll", "workbench.action.terminal.selectToNextCommand", "workbench.action.terminal.selectToNextLine", "workbench.action.terminal.selectToPreviousCommand", "workbench.action.terminal.selectToPreviousLine", "workbench.action.terminal.splitInActiveWorkspace", "workbench.action.terminal.split", "workbench.action.terminal.toggleTerminal", "workbench.action.terminal.focusHover", kFn, N2o, a4t, EFn, xFn, "editor.action.accessibilityHelp", "workbench.action.tasks.rerunForActiveTerminal", "editor.action.toggleTabFocusMode", "notifications.hideList", "notifications.hideToasts", "workbench.action.closeQuickOpen", "workbench.action.quickOpen", "workbench.action.quickOpenPreviousEditor", "workbench.action.showCommands", "workbench.action.tasks.build", "workbench.action.tasks.restartTask", "workbench.action.tasks.runTask", "workbench.action.tasks.reRunTask", "workbench.action.tasks.showLog", "workbench.action.tasks.showTasks", "workbench.action.tasks.terminate", "workbench.action.tasks.test", "workbench.action.toggleFullScreen", "workbench.action.terminal.focusAtIndex1", "workbench.action.terminal.focusAtIndex2", "workbench.action.terminal.focusAtIndex3", "workbench.action.terminal.focusAtIndex4", "workbench.action.terminal.focusAtIndex5", "workbench.action.terminal.focusAtIndex6", "workbench.action.terminal.focusAtIndex7", "workbench.action.terminal.focusAtIndex8", "workbench.action.terminal.focusAtIndex9", "workbench.action.focusSecondEditorGroup", "workbench.action.focusThirdEditorGroup", "workbench.action.focusFourthEditorGroup", "workbench.action.focusFifthEditorGroup", "workbench.action.focusSixthEditorGroup", "workbench.action.focusSeventhEditorGroup", "workbench.action.focusEighthEditorGroup", "workbench.action.focusNextPart", "workbench.action.focusPreviousPart", "workbench.action.nextPanelView", "workbench.action.previousPanelView", "workbench.action.nextSideBarView", "workbench.action.previousSideBarView", "workbench.action.debug.disconnect", "workbench.action.debug.start", "workbench.action.debug.stop", "workbench.action.debug.run", "workbench.action.debug.restart", "workbench.action.debug.continue", "workbench.action.debug.pause", "workbench.action.debug.stepInto", "workbench.action.debug.stepOut", "workbench.action.debug.stepOver", "workbench.action.nextEditor", "workbench.action.previousEditor", "workbench.action.nextEditorInGroup", "workbench.action.previousEditorInGroup", "workbench.action.openNextRecentlyUsedEditor", "workbench.action.openPreviousRecentlyUsedEditor", "workbench.action.openNextRecentlyUsedEditorInGroup", "workbench.action.openPreviousRecentlyUsedEditorInGroup", "workbench.action.quickOpenPreviousRecentlyUsedEditor", "workbench.action.quickOpenLeastRecentlyUsedEditor", "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup", "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup", "workbench.action.focusActiveEditorGroup", "workbench.action.focusFirstEditorGroup", "workbench.action.focusLastEditorGroup", "workbench.action.firstEditorInGroup", "workbench.action.lastEditorInGroup", "workbench.action.navigateUp", "workbench.action.navigateDown", "workbench.action.navigateRight", "workbench.action.navigateLeft", "workbench.action.togglePanel", "workbench.action.quickOpenView", "workbench.action.toggleMaximizedPanel", "notification.acceptPrimaryAction", "runCommands", oSc, "workbench.action.terminal.chat.start", "workbench.action.terminal.chat.close", "workbench.action.terminal.chat.discard", "workbench.action.terminal.chat.makeRequest", "workbench.action.terminal.chat.cancel", "workbench.action.terminal.chat.feedbackHelpful", "workbench.action.terminal.chat.feedbackUnhelpful", "workbench.action.terminal.chat.feedbackReportIssue", "workbench.action.terminal.chat.runCommand", "workbench.action.terminal.chat.insertCommand", "workbench.action.terminal.chat.viewInChat", "workbench.action.backgroundComposer.escapeToClose", ...dRf, "glass.nextTab", "glass.previousTab", "glass.openChangesTab", "glass.openBrowserTab", "glass.openFilesTab", "glass.togglePanel", "glass.toggleTerminal"];
+yRf = {
+    extensionPoint: "terminal",
+    defaultExtensionKind: ["workspace"],
+    activationEventsGenerator: (n, e) => {
+        for (const t of n) {
+            for (const i of t.profiles ?? []) {
+                e.push(`onTerminalProfile:${i.id}`);
+            }
+        }
+    },
+    jsonSchema: {
+        description: _(11596, null),
+        type: "object",
+        properties: {
+            profiles: {
+                type: "array",
+                description: _(11597, null),
+                items: {
+                    type: "object",
+                    required: ["id", "title"],
+                    defaultSnippets: [{
+                        body: {
+                            id: "$1",
+                            title: "$2"
+                        }
+                    }],
+                    properties: {
+                        id: {
+                            description: _(11598, null),
+                            type: "string"
+                        },
+                        title: {
+                            description: _(11599, null),
+                            type: "string"
+                        },
+                        icon: {
+                            description: _(11600, null),
+                            anyOf: [{
+                                type: "string"
+                            }, {
+                                type: "object",
+                                properties: {
+                                    light: {
+                                        description: _(11601, null),
+                                        type: "string"
+                                    },
+                                    dark: {
+                                        description: _(11602, null),
+                                        type: "string"
+                                    }
+                                }
+                            }]
+                        }
+                    }
+                }
+            }
+        }
+    }
+};

@@ -1,0 +1,55 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/reviewChanges/browser/components/ReviewChangesFileList/ReviewChangesFileItem.js
+// Offset: 34086860 (bundle byte offset)
+// Size: 1261 bytes
+Ie();
+Ie();
+Ie();
+Ie();
+Ie();
+Ie();
+Ie();
+Ie();
+Ie();
+Ti();
+Tb();
+nl();
+qi();
+ml();
+Jr();
+Yn();
+Cu();
+VI();
+TW();
+Y$f();
+KDa();
+Tw();
+ss();
+gE();
+uQ();
+cpy();
+upy();
+mpy();
+es();
+h8();
+t0();
+cX();
+Ek();
+pqf();
+gpy();
+lqf();
+vqf();
+_Cu = qe("<span><span class=icon-container><span>");
+Aqf = qe("<span class=app-layout-multi-diff-file-added>(New)");
+yqf = qe("<span class=app-layout-multi-diff-file-deleted>(Deleted)");
+wqf = qe("<span class=app-layout-multi-diff-count-added>+");
+_qf = qe("<span class=app-layout-multi-diff-count-deleted>-");
+Cqf = qe("<div>");
+Sqf = qe("<div><div>");
+kqf = qe("<span>");
+Eqf = qe("<div>Renamed");
+xqf = qe("<div><div class=app-layout-multi-diff-item-header><div class=app-layout-multi-diff-item-header-content><div class=app-layout-multi-diff-file-info><div class=app-layout-multi-diff-file-dot><span class=app-layout-multi-diff-filename><span></span></span><span class=app-layout-multi-diff-counts-left aria-hidden=true></span></div></div><div class=app-layout-multi-diff-trailing-actions>");
+Tqf = qe("<span class=icon-container>");
+Iqf = qe("<span class=app-layout-multi-diff-path-filename>");
+Dqf = qe("<span class=app-layout-multi-diff-path-prefix><span>/");

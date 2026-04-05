@@ -1,0 +1,340 @@
+// Module: out-build/vs/workbench/contrib/chat/common/chatEntitlementService.js
+// Offset: 28269049 (bundle byte offset)
+// Size: 16306 bytes
+
+U$(), vr(), Po(), yn(), L0(), rt(), Ht(), Ei(), si(), ru(), HA(), Wt(), jr(), Rl(), qq(), kr(), Pa(), SU(), kS(), v0(), _E(), Fc(), Yn(), Vf(), eu(), _r(), Op(), uyi=xi("chatEntitlementService"), (function(n){
+  n[n.Unknown=1]="Unknown", n[n.Unresolved=2]="Unresolved", n[n.Available=3]="Available", n[n.Unavailable=4]="Unavailable", n[n.Limited=5]="Limited", n[n.Pro=6]="Pro"
+})(TT||(TT={
+  
+})), (function(n){
+  n[n.Standard=1]="Standard", n[n.Disabled=2]="Disabled", n[n.Installed=3]="Installed"
+})(Akt||(Akt={
+  
+})), SV={
+  extensionId:av.defaultChatAgent?.extensionId??"", chatExtensionId:av.defaultChatAgent?.chatExtensionId??"", upgradePlanUrl:av.defaultChatAgent?.upgradePlanUrl??"", providerId:av.defaultChatAgent?.providerId??"", enterpriseProviderId:av.defaultChatAgent?.enterpriseProviderId??"", providerScopes:av.defaultChatAgent?.providerScopes??[[]], entitlementUrl:av.defaultChatAgent?.entitlementUrl??"", entitlementSignupLimitedUrl:av.defaultChatAgent?.entitlementSignupLimitedUrl??"", completionsAdvancedSetting:av.defaultChatAgent?.completionsAdvancedSetting??"", chatQuotaExceededContext:av.defaultChatAgent?.chatQuotaExceededContext??"", completionsQuotaExceededContext:av.defaultChatAgent?.completionsQuotaExceededContext??""
+}, zva=class extends at{
+  constructor(e, t, i, r){
+    if(super(), this.contextKeyService=r, this._onDidChangeQuotaExceeded=this._register(new Qe), this.onDidChangeQuotaExceeded=this._onDidChangeQuotaExceeded.event, this._onDidChangeQuotaRemaining=this._register(new Qe), this.onDidChangeQuotaRemaining=this._onDidChangeQuotaRemaining.event, this._quotas={
+      chatQuotaExceeded:!1,completionsQuotaExceeded:!1,quotaResetDate:void 0
+    }, this.ExtensionQuotaContextKeys={
+      chatQuotaExceeded:SV.chatQuotaExceededContext,completionsQuotaExceeded:SV.completionsQuotaExceededContext
+    }, this._onDidChangeSentiment=this._register(new Qe), this.onDidChangeSentiment=this._onDidChangeSentiment.event, this.chatQuotaExceededContextKey=qa.chatQuotaExceeded.bindTo(this.contextKeyService), this.completionsQuotaExceededContextKey=qa.completionsQuotaExceeded.bindTo(this.contextKeyService), this.onDidChangeEntitlement=In.map(In.filter(this.contextKeyService.onDidChangeContext, o=>o.affectsSome(new Set([qa.Entitlement.pro.key, qa.Entitlement.limited.key, qa.Entitlement.canSignUp.key, qa.Entitlement.signedOut.key])), this._store), ()=>{
+      
+    }, this._store), this.onDidChangeSentiment=In.map(In.filter(this.contextKeyService.onDidChangeContext, o=>o.affectsSome(new Set([qa.Setup.hidden.key, qa.Setup.installed.key])), this._store), ()=>{
+      
+    }, this._store), !t.defaultChatAgent||Eu&&!i.remoteAuthority){
+      qa.Setup.hidden.bindTo(this.contextKeyService).set(!0);
+      return
+    }
+    const s=this.context=new Ob(()=>this._register(e.createInstance(Kva)));
+    this.requests=new Ob(()=>this._register(e.createInstance(Vva, s.value, {
+      clearQuotas:()=>this.clearQuotas(),acceptQuotas:o=>this.acceptQuotas(o)
+    }))), this.registerListeners()
+  }
+  get entitlement(){
+    return this.contextKeyService.getContextKeyValue(qa.Entitlement.pro.key)===!0?TT.Pro:this.contextKeyService.getContextKeyValue(qa.Entitlement.limited.key)===!0?TT.Limited:this.contextKeyService.getContextKeyValue(qa.Entitlement.canSignUp.key)===!0?TT.Available:this.contextKeyService.getContextKeyValue(qa.Entitlement.signedOut.key)===!0?TT.Unknown:TT.Unresolved
+  }
+  get quotas(){
+    return this._quotas
+  }
+  registerListeners(){
+    const e=new Set([this.ExtensionQuotaContextKeys.chatQuotaExceeded]), t=new Set([this.ExtensionQuotaContextKeys.completionsQuotaExceeded]);
+    this._register(this.contextKeyService.onDidChangeContext(i=>{
+      let r=!1;
+      if(i.affectsSome(e)){
+        const s=this.contextKeyService.getContextKeyValue(this.ExtensionQuotaContextKeys.chatQuotaExceeded);
+        typeof s=="boolean"&&s!==this._quotas.chatQuotaExceeded&&(this._quotas={
+          ...this._quotas,chatQuotaExceeded:s
+        },r=!0)
+      }
+      if(i.affectsSome(t)){
+        const s=this.contextKeyService.getContextKeyValue(this.ExtensionQuotaContextKeys.completionsQuotaExceeded);
+        typeof s=="boolean"&&s!==this._quotas.completionsQuotaExceeded&&(this._quotas={
+          ...this._quotas,completionsQuotaExceeded:s
+        },r=!0)
+      }
+      r&&(this.updateContextKeys(),this._onDidChangeQuotaExceeded.fire())
+    }))
+  }
+  acceptQuotas(e){
+    const t=this._quotas;
+    this._quotas=e, this.updateContextKeys(), (t.chatQuotaExceeded!==this._quotas.chatQuotaExceeded||t.completionsQuotaExceeded!==this._quotas.completionsQuotaExceeded)&&this._onDidChangeQuotaExceeded.fire(), (t.chatRemaining!==this._quotas.chatRemaining||t.completionsRemaining!==this._quotas.completionsRemaining)&&this._onDidChangeQuotaRemaining.fire()
+  }
+  clearQuotas(){
+    (this.quotas.chatQuotaExceeded||this.quotas.completionsQuotaExceeded)&&this.acceptQuotas({
+      chatQuotaExceeded:!1,completionsQuotaExceeded:!1,quotaResetDate:void 0
+    })
+  }
+  updateContextKeys(){
+    this.chatQuotaExceededContextKey.set(this._quotas.chatQuotaExceeded), this.completionsQuotaExceededContextKey.set(this._quotas.completionsQuotaExceeded)
+  }
+  get sentiment(){
+    return this.contextKeyService.getContextKeyValue(qa.Setup.installed.key)===!0?Akt.Installed:this.contextKeyService.getContextKeyValue(qa.Setup.hidden.key)===!0?Akt.Disabled:Akt.Standard
+  }
+  async update(e){
+    await this.requests?.value.forceResolveEntitlement(void 0, e)
+  }
+}, zva=__decorate([__param(0, ln), __param(1, za), __param(2, Cc), __param(3, wi)], zva), Vva=Nnt=class extends at{
+  static providerId(e){
+    return e.getValue(`${SV.completionsAdvancedSetting}.authProvider`)===SV.enterpriseProviderId?SV.enterpriseProviderId:SV.providerId
+  }
+  constructor(e, t, i, r, s, o, a, l, u, d, m){
+    super(), this.context=e, this.chatQuotasAccessor=t, this.telemetryService=i, this.authenticationService=r, this.logService=s, this.requestService=o, this.dialogService=a, this.openerService=l, this.configurationService=u, this.authenticationExtensionsService=d, this.lifecycleService=m, this.pendingResolveCts=new Wc, this.didResolveEntitlements=!1, this.state={
+      entitlement:this.context.state.entitlement
+    }, this.registerListeners(), this.resolve()
+  }
+  registerListeners(){
+    this._register(this.authenticationService.onDidChangeDeclaredProviders(()=>this.resolve())), this._register(this.authenticationService.onDidChangeSessions(e=>{
+      e.providerId===Nnt.providerId(this.configurationService)&&this.resolve()
+    })), this._register(this.authenticationService.onDidRegisterAuthenticationProvider(e=>{
+      e.id===Nnt.providerId(this.configurationService)&&this.resolve()
+    })), this._register(this.authenticationService.onDidUnregisterAuthenticationProvider(e=>{
+      e.id===Nnt.providerId(this.configurationService)&&this.resolve()
+    })), this._register(this.context.onDidChange(()=>{
+      (!this.context.state.installed||this.context.state.entitlement===TT.Unknown)&&(this.state={
+        entitlement:this.state.entitlement,quotas:void 0
+      },this.chatQuotasAccessor.clearQuotas())
+    }))
+  }
+  async resolve(){
+    this.pendingResolveCts.dispose(!0);
+    const e=this.pendingResolveCts=new Wc, t=await this.findMatchingProviderSession(e.token);
+    if(e.token.isCancellationRequested)return;
+    let i;
+    t?this.state.entitlement===TT.Unknown&&(i={
+      entitlement:TT.Unresolved
+    }):(this.didResolveEntitlements=!1, i={
+      entitlement:TT.Unknown
+    }), i&&this.update(i), t&&!this.didResolveEntitlements&&await this.resolveEntitlement(t, e.token)
+  }
+  async findMatchingProviderSession(e){
+    const t=await this.doGetSessions(Nnt.providerId(this.configurationService));
+    if(!e.isCancellationRequested){
+      for(const i of t)for(const r of SV.providerScopes)if(this.scopesMatch(i.scopes,r))return i
+    }
+  }
+  async doGetSessions(e){
+    try{
+      return await this.authenticationService.getSessions(e)
+    }
+    catch{
+      
+    }
+    return[]
+  }
+  scopesMatch(e, t){
+    return e.length===t.length&&t.every(i=>e.includes(i))
+  }
+  async resolveEntitlement(e, t){
+    const i=await this.doResolveEntitlement(e, t);
+    return typeof i?.entitlement=="number"&&!t.isCancellationRequested&&(this.didResolveEntitlements=!0, this.update(i)), i
+  }
+  async doResolveEntitlement(e, t){
+    if(Nnt.providerId(this.configurationService)===SV.enterpriseProviderId)return this.logService.trace("[chat entitlement]: enterprise provider, assuming Pro"), {
+      entitlement:TT.Pro
+    };
+    if(t.isCancellationRequested)return;
+    const i=await this.request(SV.entitlementUrl, "GET", void 0, e, t);
+    if(t.isCancellationRequested)return;
+    if(!i)return this.logService.trace("[chat entitlement]: no response"), {
+      entitlement:TT.Unresolved
+    };
+    if(i.res.statusCode&&i.res.statusCode!==200)return this.logService.trace(`[chat entitlement]: unexpected status code ${i.res.statusCode}`), i.res.statusCode===401||i.res.statusCode===403||i.res.statusCode===404?{
+      entitlement:TT.Unknown
+    }
+    :{
+      entitlement:TT.Unresolved
+    };
+    let r=null;
+    try{
+      r=await Lnt(i)
+    }
+    catch{
+      
+    }
+    if(t.isCancellationRequested)return;
+    if(!r)return this.logService.trace("[chat entitlement]: response has no content"), {
+      entitlement:TT.Unresolved
+    };
+    let s;
+    try{
+      s=JSON.parse(r),this.logService.trace(`[chat entitlement]: parsed result is ${JSON.stringify(s)}`)
+    }
+    catch(d){
+      return this.logService.trace(`[chat entitlement]: error parsing response (${d})`),{
+        entitlement:TT.Unresolved
+      }
+    }
+    let o;
+    s.access_type_sku==="free_limited_copilot"?o=TT.Limited:s.can_signup_for_limited?o=TT.Available:s.chat_enabled?o=TT.Pro:o=TT.Unavailable;
+    const a=s.limited_user_quotas?.chat, l=s.limited_user_quotas?.completions, u={
+      entitlement:o,quotas:{
+        chatTotal:s.monthly_quotas?.chat,completionsTotal:s.monthly_quotas?.completions,chatRemaining:typeof a=="number"?Math.max(0,a):void 0,completionsRemaining:typeof l=="number"?Math.max(0,l):void 0,resetDate:s.limited_user_reset_date
+      }
+    };
+    return this.logService.trace(`[chat entitlement]: resolved to ${u.entitlement}, quotas: ${JSON.stringify(u.quotas)}`), this.telemetryService.publicLog2("chatInstallEntitlement", {
+      entitlement:u.entitlement,tid:s.analytics_tracking_id,quotaChat:s.limited_user_quotas?.chat,quotaCompletions:s.limited_user_quotas?.completions,quotaResetDate:s.limited_user_reset_date
+    }), u
+  }
+  async request(e, t, i, r, s){
+    try{
+      return await this.requestService.request({
+        type:t,url:e,data:t==="POST"?JSON.stringify(i):void 0,disableCache:!0,headers:{
+          Authorization:`Bearer ${r.accessToken}`
+        }
+      },s)
+    }
+    catch(o){
+      s.isCancellationRequested||this.logService.error(`[chat entitlement] request: error ${o}`);
+      return
+    }
+  }
+  update(e){
+    this.state=e, this.context.update({
+      entitlement:this.state.entitlement
+    }), e.quotas&&this.chatQuotasAccessor.acceptQuotas({
+      chatQuotaExceeded:typeof e.quotas.chatRemaining=="number"?e.quotas.chatRemaining<=0:!1,completionsQuotaExceeded:typeof e.quotas.completionsRemaining=="number"?e.quotas.completionsRemaining<=0:!1,quotaResetDate:e.quotas.resetDate?new Date(e.quotas.resetDate):void 0,chatTotal:e.quotas.chatTotal,completionsTotal:e.quotas.completionsTotal,chatRemaining:e.quotas.chatRemaining,completionsRemaining:e.quotas.completionsRemaining
+    })
+  }
+  async forceResolveEntitlement(e, t=Cs.None){
+    if(e||(e=await this.findMatchingProviderSession(t)), !!e)return this.resolveEntitlement(e, t)
+  }
+  async signUpLimited(e){
+    const t={
+      restricted_telemetry:this.telemetryService.telemetryLevel===0?"disabled":"enabled",public_code_suggestions:"enabled"
+    }, i=await this.request(SV.entitlementSignupLimitedUrl, "POST", t, e, Cs.None);
+    if(!i)return await this.onUnknownSignUpError(_(5626, null), "[chat entitlement] sign-up: no response")?this.signUpLimited(e):{
+      errorCode:1
+    };
+    if(i.res.statusCode&&i.res.statusCode!==200){
+      if(i.res.statusCode===422)try{
+        const a=await Lnt(i);
+        if(a){
+          const l=JSON.parse(a);
+          if(typeof l.message=="string"&&l.message)return this.onUnprocessableSignUpError(`[chat entitlement] sign-up: unprocessable entity (${l.message})`,l.message),{
+            errorCode:i.res.statusCode
+          }
+        }
+      }
+      catch{
+        
+      }
+      return await this.onUnknownSignUpError(_(5627,null,i.res.statusCode),`[chat entitlement] sign-up: unexpected status code ${i.res.statusCode}`)?this.signUpLimited(e):{
+        errorCode:i.res.statusCode
+      }
+    }
+    let r=null;
+    try{
+      r=await Lnt(i)
+    }
+    catch{
+      
+    }
+    if(!r)return await this.onUnknownSignUpError(_(5628, null), "[chat entitlement] sign-up: response has no content")?this.signUpLimited(e):{
+      errorCode:2
+    };
+    let s;
+    try{
+      s=JSON.parse(r),this.logService.trace(`[chat entitlement] sign-up: response is ${r}`)
+    }
+    catch(o){
+      return await this.onUnknownSignUpError(_(5629,null),`[chat entitlement] sign-up: error parsing response (${o})`)?this.signUpLimited(e):{
+        errorCode:3
+      }
+    }
+    return this.update({
+      entitlement:TT.Limited
+    }), !!s?.subscribed
+  }
+  async onUnknownSignUpError(e, t){
+    if(this.logService.error(t), !this.lifecycleService.willShutdown){
+      const{
+        confirmed:i
+      }
+      =await this.dialogService.confirm({
+        type:Ha.Error,message:_(5630,null),detail:e,primaryButton:_(5631,null)
+      });
+      return i
+    }
+    return!1
+  }
+  onUnprocessableSignUpError(e, t){
+    this.logService.error(e), this.lifecycleService.willShutdown||this.dialogService.prompt({
+      type:Ha.Error,message:_(5632,null),detail:t,buttons:[{
+        label:_(5633,null),run:()=>{
+          
+        }
+      },{
+        label:_(5634,null),run:()=>this.openerService.open(je.parse(SV.upgradePlanUrl))
+      }
+      ]
+    })
+  }
+  async signIn(){
+    const e=Nnt.providerId(this.configurationService), t=await this.authenticationService.createSession(e, SV.providerScopes[0]);
+    this.authenticationExtensionsService.updateAccountPreference(SV.extensionId, e, t.account), this.authenticationExtensionsService.updateAccountPreference(SV.chatExtensionId, e, t.account);
+    const i=await this.forceResolveEntitlement(t);
+    return{
+      session:t,entitlements:i
+    }
+  }
+  dispose(){
+    this.pendingResolveCts.dispose(!0), super.dispose()
+  }
+}, Vva=Nnt=__decorate([__param(2, ea), __param(3, WF), __param(4, Rr), __param(5, u8), __param(6, Ml), __param(7, Ja), __param(8, Fn), __param(9, cyi), __param(10, ap)], Vva), Kva=class extends at{
+  static{
+    jva=this
+  }
+  static{
+    this.CHAT_ENTITLEMENT_CONTEXT_STORAGE_KEY="chat.setupContext"
+  }
+  get state(){
+    return this.suspendedState??this._state
+  }
+  constructor(e, t, i, r, s){
+    super(), this.storageService=t, this.extensionEnablementService=i, this.logService=r, this.extensionsWorkbenchService=s, this.suspendedState=void 0, this._onDidChange=this._register(new Qe), this.onDidChange=this._onDidChange.event, this.updateBarrier=void 0, this.canSignUpContextKey=qa.Entitlement.canSignUp.bindTo(e), this.signedOutContextKey=qa.Entitlement.signedOut.bindTo(e), this.limitedContextKey=qa.Entitlement.limited.bindTo(e), this.proContextKey=qa.Entitlement.pro.bindTo(e), this.hiddenContext=qa.Setup.hidden.bindTo(e), this.installedContext=qa.Setup.installed.bindTo(e), this._state=this.storageService.getObject(jva.CHAT_ENTITLEMENT_CONTEXT_STORAGE_KEY, 0)??{
+      entitlement:TT.Unknown
+    }, this.checkExtensionInstallation(), this.updateContextSync()
+  }
+  async checkExtensionInstallation(){
+    await this.extensionsWorkbenchService.queryLocal(), this._register(In.runAndSubscribe(this.extensionsWorkbenchService.onChange, e=>{
+      if(e&&!$h.equals(e.identifier.id,SV.extensionId))return;
+      const t=this.extensionsWorkbenchService.local.find(i=>$h.equals(i.identifier.id,SV.extensionId));
+      this.update({
+        installed:!!t?.local&&this.extensionEnablementService.isEnabled(t.local)
+      })
+    }))
+  }
+  update(e){
+    return this.logService.trace(`[chat entitlement context] update(): ${JSON.stringify(e)}`), typeof e.installed=="boolean"&&(this._state.installed=e.installed, e.installed&&(e.hidden=!1)), typeof e.hidden=="boolean"&&(this._state.hidden=e.hidden), typeof e.entitlement=="number"&&(this._state.entitlement=e.entitlement, this._state.entitlement===TT.Limited||this._state.entitlement===TT.Pro?this._state.registered=!0:this._state.entitlement===TT.Available&&(this._state.registered=!1)), this.storageService.store(jva.CHAT_ENTITLEMENT_CONTEXT_STORAGE_KEY, this._state, 0, 1), this.updateContext()
+  }
+  async updateContext(){
+    await this.updateBarrier?.wait(), this.updateContextSync()
+  }
+  updateContextSync(){
+    this.logService.trace(`[chat entitlement context] updateContext(): ${JSON.stringify(this._state)}`), this.signedOutContextKey.set(this._state.entitlement===TT.Unknown), this.canSignUpContextKey.set(this._state.entitlement===TT.Available), this.limitedContextKey.set(this._state.entitlement===TT.Limited), this.proContextKey.set(this._state.entitlement===TT.Pro), this.hiddenContext.set(!!this._state.hidden), this.installedContext.set(!!this._state.installed), this._onDidChange.fire()
+  }
+  suspend(){
+    this.suspendedState={
+      ...this._state
+    }, this.updateBarrier=new x6
+  }
+  resume(){
+    this.suspendedState=void 0, this.updateBarrier?.open(), this.updateBarrier=void 0
+  }
+}, Kva=jva=__decorate([__param(0, wi), __param(1, Hi), __param(2, nS), __param(3, Rr), __param(4, Em)], Kva)
+}
+});
+function Q9A(n){
+  return n&&Qt.isThemeIcon(n.icon)&&typeof n.title=="string"&&bT(n.message)
+}
+function dyi(n){
+  return`${n.extensionId.value}.${n.id}`
+}
+function Yef(n){
+  const e="name"in n?n:{
+    ...n, name:n.id
+  };
+  return"extensionPublisherId"in e||(e.extensionPublisherId=e.extensionPublisher??""), "extensionDisplayName"in e||(e.extensionDisplayName=""), "extensionId"in e||(e.extensionId=new $h("")), XT(e)
+}
+var hyi, EI, Yva, myi, cpn, Zva, hR=

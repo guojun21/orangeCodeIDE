@@ -1,0 +1,30 @@
+// Module: out-build/vs/workbench/contrib/composer/browser/components/cssInspector/AppearanceSection.js
+// Offset: 31964543 (bundle byte offset)
+// Size: 2456 bytes
+
+Ie(), Ie(), Ie(), Ie(), Ie(), Ie(), Ie(), Ie(), Ti(), qi(), Jr(), es(), Ek(), mB(), _L(), jit(), PMf=qe('<div class=css-corner-grid aria-label="Individual corner radius inputs">'), LMf=qe('<section class=css-inspector-section><div class=css-section-header><div><div class=css-section-title>Appearance</div></div><div class=css-section-header-actions><button type=button aria-label="Change theme"aria-haspopup=menu><i></i></button><button type=button><i></i></button></div></div><div class="css-section-body css-appearance-grid"><div class=css-control-block><div class=css-control-label>Opacity</div><div class=css-input-group><label class=css-input-label-draggable aria-label=Opacity><i></i></label><div class=css-input-field><input class=css-number-input type=number min=0 max=100><span class=css-input-suffix title="Drag to adjust opacity"aria-label="Drag to adjust opacity">%</span></div></div></div><div class=css-control-block><div class=css-control-label>Corner Radius</div><div class=css-corner-radius-row><div class="css-input-group css-corner-radius-group"><label class=css-input-label-draggable aria-label="Corner radius"><i></i></label><div class=css-input-field><input class=css-number-input min=0 inputmode=numeric><span class=css-input-suffix>px</span></div></div><button type=button class=css-corner-toggle-button aria-label="Edit corners"><i>'), NMf=qe('<div class="css-input-group css-corner-input"><label class=css-input-label-draggable><i></i></label><div class=css-input-field><input class=css-number-input type=number min=0><span class=css-input-suffix>px'), MMf=[{
+  mode:"light", label:"Light"
+}, {
+  mode:"dark", label:"Dark"
+}, {
+  mode:"system", label:"System"
+}
+], FMf=["topLeft", "topRight", "bottomRight", "bottomLeft"], OMf={
+  topLeft:"Top left", topRight:"Top right", bottomRight:"Bottom right", bottomLeft:"Bottom left"
+}, UMf={
+  topLeft:Be.cornerTl, topRight:Be.cornerTr, bottomRight:Be.cornerBr, bottomLeft:Be.cornerBl
+}
+}
+});
+function scy(n){
+  return(()=>{
+    var e=$Mf(), t=e.firstChild, i=t.firstChild, r=i.nextSibling;
+    return i.addEventListener("click", ()=>n.setViewMode("visual")), r.addEventListener("click", ()=>n.setViewMode("code")), tn(s=>{
+      var o=`css-inspector-toggle-btn ${n.viewMode()==="visual"?"active":""}`,a=`css-inspector-toggle-btn ${n.viewMode()==="code"?"active":""}`;
+      return o!==s.e&&Un(i,s.e=o),a!==s.t&&Un(r,s.t=a),s
+    }, {
+      e:void 0,t:void 0
+    }), e
+  })()
+}
+var $Mf, ocy=

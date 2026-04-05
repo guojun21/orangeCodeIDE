@@ -1,0 +1,396 @@
+"use strict";
+
+// Module: out-build/vs/workbench/contrib/controlCommon/browser/solid.js
+// Offset: 33876950 (bundle byte offset)
+// Size: 6321 bytes
+Ie();
+Ti();
+Ie();
+ri();
+pmn();
+iu();
+rt();
+Oh();
+sie();
+F$e();
+_M();
+Y0h();
+Ku();
+Hk();
+Cm();
+YOt();
+hd();
+td();
+sw();
+eV();
+QS();
+Kf();
+hs();
+Ei();
+si();
+pl();
+dQ();
+ru();
+qg();
+Gv();
+ns();
+Id();
+Wt();
+ka();
+Pd();
+Px();
+ay();
+Uvi();
+So();
+Fc();
+Rl();
+Xg();
+DJg();
+Kl();
+Dd();
+kr();
+vE();
+Pa();
+Io();
+Rde();
+VA();
+hQ();
+VD();
+Aye();
+ps();
+vL();
+sba();
+jh();
+vN();
+wlu();
+m0a();
+Fhu();
+imu();
+Ony();
+qIa();
+Ud();
+Vw();
+Ntt();
+f$e();
+Cie();
+HIa();
+b2e();
+Fhy();
+sB();
+omy();
+Mrt();
+zCf();
+Iie();
+eSf();
+fE();
+f0u();
+lmy();
+Fme();
+PAa();
+rce();
+OUf();
+y0u();
+tDa();
+mce();
+evn();
+$me();
+nie();
+SJ();
+SU();
+umy();
+Rb();
+Hnt();
+Nce();
+jq();
+Ime();
+uO();
+Jye();
+Dce();
+od();
+ss();
+eu();
+Wu();
+kS();
+_u();
+$Uf();
+wm();
+SSt();
+jSt();
+Pwi();
+zp();
+k0u();
+Op();
+JUf();
+fN();
+ET();
+_g();
+Wf();
+mie();
+wE();
+MEe();
+CE();
+Ff();
+S9();
+x0u();
+Kw();
+Bp();
+Uye();
+RNe();
+mmy();
+r8();
+GUf();
+CJ();
+Mwi();
+pmy();
+t$f();
+hD();
+fDa();
+rie();
+m8();
+e1i();
+Hhn();
+Hkt();
+U0u();
+Git();
+J0();
+Bie();
+bqe();
+yhn();
+Ott();
+pQ();
+lie();
+cp();
+$wi();
+Uwi();
+Zk();
+a$f();
+uce();
+nvi();
+wSt();
+ign();
+wDa();
+vEe();
+kQ();
+oP();
+CDa();
+$J();
+nkt();
+qJ();
+bfa();
+i1i();
+xDa();
+fQ();
+d$f();
+m$f();
+WNe();
+H0u();
+AO();
+IAa();
+vva();
+Pf();
+tit();
+uvn();
+WV();
+W0u = "solid-devtools-enabled";
+WBc.clear();
+b$f = ["queryBuilder", "symbolsQuickAccessProvider", "editorQuickAccessProvider", "quickAccessController", "anythingQuickAccessProvider"];
+v$f = n => n === "quickAccessController" || n === "symbolsQuickAccessProvider" || n === "editorQuickAccessProvider" || n === "anythingQuickAccessProvider";
+Q0u = Symbol("allowedServices");
+c1i = Symbol("serviceCache");
+j0u = Symbol("registerDisposable");
+z0u = new WeakMap();
+A$f = undefined;
+V0u = () => A$f ??= {
+  aiService: Jv,
+  contextMenuService: kc,
+  inlineDiffService: fL,
+  diffChangeSourceRegistry: K3,
+  diffDecorationVisibilityService: CEe,
+  aiSettingsService: vU,
+  adminSettingsService: i8,
+  clipboardService: jm,
+  configurationService: Fn,
+  cursorAuthenticationService: wg,
+  cursorRulesService: FJ,
+  cursorIgnoreService: s5,
+  gitIgnoreService: iDa,
+  appLayoutService: xM,
+  agentLayoutService: sP,
+  reviewChangesService: vce,
+  browserAutomationService: qkt,
+  browserViewStore: BC,
+  browserScreenshotService: t1i,
+  openBrowserUrlsService: BDa,
+  voiceInputService: HUe,
+  agentLayoutEventService: NEt,
+  editorService: yi,
+  editorGroupService: da,
+  dialogService: Ml,
+  fileDialogService: oy,
+  progressService: Ib,
+  fileService: Gr,
+  workspacesService: CM,
+  instantiationService: ln,
+  aiContextSessionService: LEt,
+  composerService: ag,
+  composerDataService: Oa,
+  quickAgentService: n1i,
+  composerStorageService: Zkt,
+  composerTerminalService: ovn,
+  composerTextModelService: iie,
+  composerEventService: BA,
+  composerCheckpointService: bMe,
+  composerCheckpointStorageService: Ctt,
+  composerMessageStorageService: Ftt,
+  composerMessageRequestContextStorageService: Ghn,
+  composerCodeBlockDiffStorageService: _$e,
+  composerFileService: YZ,
+  composerChatService: wM,
+  worktreeManagerService: C$e,
+  composerViewsService: rw,
+  composerExtensibilityService: bDa,
+  composerUtilsService: IM,
+  composerCodeBlockService: EJ,
+  composerPlanService: IV,
+  planStorageService: TAi,
+  planEditorModeService: s1i,
+  markdownEditorModeService: cvn,
+  composerProjectService: _0u,
+  keybindingService: mo,
+  keybindingEditingService: dnt,
+  languageService: Jl,
+  languageFeaturesService: $u,
+  backgroundComposerDataService: Yk,
+  backgroundComposerEventService: zkt,
+  worktreeComposerDataService: I0u,
+  cmdKService: eDa,
+  workbenchEnvironmentService: Cc,
+  workbenchLayoutService: Vu,
+  editorWorkerService: c_,
+  diffProviderFactoryService: b5o,
+  cmdKService2: Frt,
+  cmdKStateService: I2,
+  modelService: Il,
+  textModelService: El,
+  openerService: Ja,
+  textResourceConfigurationService: uy,
+  themeService: bo,
+  workspaceContextService: Lr,
+  tokenStreamingDiffService: O0u,
+  commandService: fr,
+  workspaceEditingService: uX,
+  webviewService: Wie,
+  structuredLogService: Kk,
+  hostService: wd,
+  storageService: Hi,
+  reactiveStorageService: ku,
+  repositoryService: oX,
+  textFileService: Gg,
+  codeEditorService: fl,
+  backgroundComposerService: rx,
+  backgroundWorkService: ogn,
+  magicLinkService: E0u,
+  urlService: fce,
+  cursorCredsService: MJ,
+  applyToFileActionsService: T0u,
+  metricsService: R1,
+  telemetryService: ea,
+  extensionGalleryService: yE,
+  extensionManagementService: CS,
+  markerDecorationsService: Hft,
+  markerService: bk,
+  aiDocsService: g0u,
+  notificationService: ms,
+  systemNotificationRendererService: bmn,
+  cppService: gM,
+  mcpService: IU,
+  mcpWellKnownDetectionService: z_a,
+  mcpInstallationService: G_a,
+  composerNotificationService: g$e,
+  networkAccessNotificationService: b0u,
+  searchService: bQ,
+  serverConfigService: Vk,
+  labelService: Ol,
+  outlineService: Gne,
+  contextViewService: sy,
+  terminalConfigurationService: zq,
+  statusbarService: V0,
+  terminalService: Jb,
+  simpleTestService: v0u,
+  undoRedoService: qB,
+  aiErrorService: Qkt,
+  aiFileInfoService: gnt,
+  viewsService: yu,
+  viewDescriptorService: fp,
+  fastContextService: wxe,
+  remoteAgentService: Vp,
+  hoverService: Kc,
+  productService: za,
+  gitContextService: AE,
+  githubPRService: EX,
+  githubPRAuthDetectionService: p0u,
+  contextKeyService: wi,
+  environmentService: lg,
+  diffingService: Kbn,
+  everythingProviderService: AU,
+  fastSemSearchService: a0u,
+  tooltipService: FY,
+  cursorPredictionService: yet,
+  importPredictionService: Z0t,
+  lexicalReducerService: S0u,
+  layoutService: vS,
+  scmService: yN,
+  queryBuilder: n => n.createInstance(yV),
+  symbolsQuickAccessProvider: n => n.createInstance(wnt),
+  editorQuickAccessProvider: n => n.createInstance(q$e),
+  anythingQuickAccessProvider: n => n.createInstance(sqe),
+  quickAccessController: n => n.createInstance($vi),
+  recentFilesTrackerService: $0u,
+  extensionService: su,
+  paneCompositeService: b0,
+  selectedContextService: Nye,
+  terminalExecutionService: eit,
+  decorationsService: Nie,
+  lifecycleService: ap,
+  customEditorLabelService: _ie,
+  analyticsService: uh,
+  aiCodeTrackingService: Yz,
+  aiCodeEventTrackingService: Xki,
+  telemService: Une,
+  prettyDialogService: JF,
+  pathService: kp,
+  userDataProfileService: Py,
+  composerContextService: hV,
+  composerDecisionsService: Kkt,
+  composerEffectiveAllowlistService: Xpn,
+  composerModesService: DT,
+  usageDataService: smn,
+  usageLimitPolicyStatusService: Dwi,
+  quickInputService: ha,
+  extensionEnablementService: nS,
+  knowledgeBaseService: jkt,
+  backgroundComposerCachedDetailsStorageService: cDa,
+  tunnelService: D2,
+  cursorCommandsService: hMe,
+  authenticationService: WF,
+  toolCallHumanReviewService: WEe,
+  modelConfigService: ix,
+  experimentService: Tl,
+  updateNotificationService: Vki,
+  uiOverlayService: YD,
+  cursorHooksService: lX,
+  clientNumericMetricsService: y$e,
+  clientDebugLogService: tie,
+  subagentsService: kkt,
+  pluginsProviderService: uie,
+  semanticReviewService: PDa,
+  cloudAgentStorageService: Swi,
+  artifactCacheService: Tmu,
+  agentPrewarmService: Nyi,
+  asyncOperationRegistry: Htt,
+  patchGraphService: $tt,
+  accessibilitySignalService: fS
+};
+S7e = GS();
+y$f = GS();
+kmy = GS();
