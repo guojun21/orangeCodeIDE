@@ -5,6 +5,8 @@ AGENTS.md
 dist/
 out/
 extensions/
+!rebuilt/src/extensions/
+!rebuilt/src/extensions/**
 node_modules/
 bin/
 resources/
