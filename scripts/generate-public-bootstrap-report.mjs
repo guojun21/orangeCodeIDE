@@ -46,6 +46,8 @@ const result = {
           source: runtimeBootstrap.source ?? null,
           archive: runtimeBootstrap.archive ?? null,
           url: runtimeBootstrap.url ?? null,
+          cursorRelease: runtimeBootstrap.cursorRelease ?? null,
+          distributionUrl: runtimeBootstrap.distributionUrl ?? null,
         }
       : null,
     vscodeBootstrap: vscodeBootstrap

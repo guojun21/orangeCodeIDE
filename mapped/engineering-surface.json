@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-05T16:11:41.866Z",
+  "generatedAt": "2026-04-05T17:15:54.763Z",
   "repoRoot": "/Users/ruicheng.gu/Documents/project/orangeCodeIDE",
   "posture": "post-100-runtime-gui-closure",
   "health": {
@@ -22,6 +22,7 @@
       "EXTENSION_INDEX.md",
       "READABILITY.md",
       "CODE_INDEX.md",
+      "docs/DEPENDENCY_MODEL.md",
       "docs/PUBLIC_BOOTSTRAP.md",
       "docs/ENGINEERING_SURFACE.md",
       "WORKSPACE.md",
@@ -99,7 +100,9 @@
         "role": "仓库导航、工程入口和阶段说明。",
         "editPolicy": "primary",
         "anchorPaths": [
-          "docs/ENGINEERING_SURFACE.md"
+          "docs/ENGINEERING_SURFACE.md",
+          "docs/DEPENDENCY_MODEL.md",
+          "docs/PUBLIC_BOOTSTRAP.md"
         ]
       }
     ],

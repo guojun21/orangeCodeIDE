@@ -61,6 +61,7 @@ const report = {
       'EXTENSION_INDEX.md',
       'READABILITY.md',
       'CODE_INDEX.md',
+      'docs/DEPENDENCY_MODEL.md',
       'docs/PUBLIC_BOOTSTRAP.md',
       'docs/ENGINEERING_SURFACE.md',
       'WORKSPACE.md',
@@ -139,6 +140,8 @@ const report = {
         editPolicy: 'primary',
         anchorPaths: [
           'docs/ENGINEERING_SURFACE.md',
+          'docs/DEPENDENCY_MODEL.md',
+          'docs/PUBLIC_BOOTSTRAP.md',
         ],
       },
     ],

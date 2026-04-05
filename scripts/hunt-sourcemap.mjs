@@ -6,10 +6,31 @@ import path from 'node:path';
 
 import { ROOT } from './paths.mjs';
 
-const installedAppRoot = '/Applications/Cursor.app/Contents/Resources/app';
+function parseArgs(argv) {
+  const args = {
+    installedRoot: process.env.ORANGECODEIDE_INSTALLED_RUNTIME_ROOT
+      ? path.resolve(process.env.ORANGECODEIDE_INSTALLED_RUNTIME_ROOT)
+      : null
+  };
+
+  for (let index = 2; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (token === '--installed-root') {
+      args.installedRoot = path.resolve(argv[index + 1]);
+      index += 1;
+    }
+  }
+
+  return args;
+}
+
+const args = parseArgs(process.argv);
+const installedAppRoot = args.installedRoot;
 const repoBundlePath = path.join(ROOT, 'out', 'vs', 'workbench', 'workbench.desktop.main.js');
-const installedBundlePath = path.join(installedAppRoot, 'out', 'vs', 'workbench', 'workbench.desktop.main.js');
-const productJsonPath = path.join(installedAppRoot, 'product.json');
+const installedBundlePath = installedAppRoot
+  ? path.join(installedAppRoot, 'out', 'vs', 'workbench', 'workbench.desktop.main.js')
+  : null;
+const productJsonPath = installedAppRoot ? path.join(installedAppRoot, 'product.json') : null;
 const outputPath = path.join(ROOT, 'mapped', 'sourcemap-hunt-result.json');
 
 function toRelativeMaybe(filePath) {
@@ -81,6 +102,12 @@ function parseSourceMapReference(rawValue, bundlePath) {
 }
 
 function readProductMetadata() {
+  if (!productJsonPath) {
+    return {
+      exists: false,
+      path: null
+    };
+  }
   if (!fs.existsSync(productJsonPath)) {
     return {
       exists: false,
@@ -248,15 +275,22 @@ function buildVerdict({ repoRef, installedRef, product, repoSiblingMapExists, in
 }
 
 const repoBundle = readTailMetadata(repoBundlePath);
-const installedBundle = readTailMetadata(installedBundlePath);
+const installedBundle = installedBundlePath
+  ? readTailMetadata(installedBundlePath)
+  : {
+      exists: false,
+      path: null
+    };
 const product = readProductMetadata();
 
 const repoRef = parseSourceMapReference(repoBundle.rawSourceMapRef, repoBundlePath);
-const installedRef = parseSourceMapReference(installedBundle.rawSourceMapRef, installedBundlePath);
+const installedRef = installedBundlePath
+  ? parseSourceMapReference(installedBundle.rawSourceMapRef, installedBundlePath)
+  : { kind: 'missing', raw: null };
 const repoSiblingMapPath = `${repoBundlePath}.map`;
-const installedSiblingMapPath = `${installedBundlePath}.map`;
+const installedSiblingMapPath = installedBundlePath ? `${installedBundlePath}.map` : null;
 const repoSiblingMapExists = fs.existsSync(repoSiblingMapPath);
-const installedSiblingMapExists = fs.existsSync(installedSiblingMapPath);
+const installedSiblingMapExists = installedSiblingMapPath ? fs.existsSync(installedSiblingMapPath) : false;
 
 const basename =
   repoRef.kind === 'remote-url'
@@ -267,14 +301,14 @@ const repoNamedMatches = findNamedFiles([path.join(ROOT, 'out'), path.join(ROOT,
   path: toRelativeMaybe(filePath),
   sizeBytes: fs.statSync(filePath).size
 }));
-const installedNamedMatches = findNamedFiles([installedAppRoot], basename).map((filePath) => ({
+const installedNamedMatches = installedAppRoot ? findNamedFiles([installedAppRoot], basename).map((filePath) => ({
   path: toRelativeMaybe(filePath),
   sizeBytes: fs.statSync(filePath).size
-}));
-const installedMapFiles = listMapFiles(installedAppRoot).map((filePath) => ({
+})) : [];
+const installedMapFiles = installedAppRoot ? listMapFiles(installedAppRoot).map((filePath) => ({
   path: toRelativeMaybe(filePath),
   sizeBytes: fs.statSync(filePath).size
-}));
+})) : [];
 
 let remoteProbe = null;
 if (repoRef.kind === 'remote-url') {
@@ -297,8 +331,8 @@ const report = {
     ...repoBundle,
     sourceMapReference: repoRef
   },
-  installedCursorApp: {
-    appRoot: installedAppRoot,
+  installedRuntime: {
+    root: installedAppRoot,
     product,
     bundle: {
       ...installedBundle,
@@ -308,7 +342,7 @@ const report = {
   localCandidates: {
     repoSiblingMapPath: toRelativeMaybe(repoSiblingMapPath),
     repoSiblingMapExists,
-    installedSiblingMapPath,
+    installedSiblingMapPath: toRelativeMaybe(installedSiblingMapPath),
     installedSiblingMapExists,
     repoNamedMatches,
     installedNamedMatches,

@@ -1,7 +1,7 @@
 # orangeCodeIDE
 
 这是一个 **公开的 Cursor runtime rebuilt 工程仓**。  
-它不是单纯插件仓，也不是把整个 Cursor.app 直接塞进 git 的运行时快照仓。
+它不是单纯插件仓，也不是把宿主运行时快照直接塞进 git 的仓。
 
 这里提交的是：
 
@@ -33,16 +33,22 @@ npm run dev
 
 `npm run bootstrap` 会做两件事：
 
-1. 从 **版本化 runtime baseline tarball** 把运行时输入同步到仓库根目录  
+1. 从 **官方 Cursor distribution** 下载运行时依赖并同步到仓库根目录  
 2. 下载固定版本的 `reference/vscode` 参考源码
 
 想直接验证“别人 clone 下来能不能装依赖并跑起来”，先看：
 
 - [docs/PUBLIC_BOOTSTRAP.md](docs/PUBLIC_BOOTSTRAP.md)
 
-默认目标不是依赖本机 `.app`。
+默认目标不是依赖本机 `.app`，也不是让仓库自己托管 100MB 级 runtime blob。
 
-推荐这样提供 runtime baseline：
+默认什么都不传，直接走官方依赖下载：
+
+```bash
+npm run bootstrap:runtime
+```
+
+如果你要覆盖默认依赖来源，可以显式传：
 
 ```bash
 ORANGECODEIDE_RUNTIME_BASELINE_ARCHIVE=/absolute/path/orangeCodeIDE-runtime-baseline.tar.gz npm run bootstrap:runtime
@@ -54,13 +60,7 @@ ORANGECODEIDE_RUNTIME_BASELINE_ARCHIVE=/absolute/path/orangeCodeIDE-runtime-base
 ORANGECODEIDE_RUNTIME_BASELINE_URL=https://.../orangeCodeIDE-runtime-baseline.tar.gz npm run bootstrap:runtime
 ```
 
-只有在本地临时验证时，才允许显式 fallback：
-
-```bash
-npm run bootstrap:runtime -- --cursor-app /Applications/Cursor.app
-```
-
-如果你是这个仓的维护者，要从当前已经验证过的工程根重新打 baseline 包，不要从 `.app` 打：
+如果你是这个仓的维护者，`pack:runtime-baseline` 只是内部诊断/回归工具，不是公开 bootstrap 的主路径：
 
 ```bash
 npm run pack:runtime-baseline -- --source-root /absolute/path/to/validated/runtime-root
@@ -126,6 +126,10 @@ npm run bootstrap:vscode
 | `scripts/` | 构建、恢复、报告、装配自动化 | 主要编辑面 |
 | `test/` | runtime、GUI、smoke、agent、spike 校验 | 主要编辑面 |
 | `docs/` | 仓库导航、工程面说明、阶段收口文档 | 主要编辑面 |
+
+公开依赖模型见：
+
+- [docs/DEPENDENCY_MODEL.md](docs/DEPENDENCY_MODEL.md)
 
 ## 这些不是主源码
 
