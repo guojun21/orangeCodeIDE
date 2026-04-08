@@ -2,13 +2,14 @@
 
 import fs from 'fs';
 import path from 'path';
-import { spawnSync } from 'child_process';
+import { spawn } from 'child_process';
 import { ROOT } from './paths.mjs';
 
 const USE_NODE22 = path.join(ROOT, 'scripts', 'use-node22.sh');
 const OUTPUT_DIR = path.join(ROOT, 'test', '.output');
 const STATUS_PATH = path.join(OUTPUT_DIR, 'runtime-burn-in-status.json');
 const HISTORY_PATH = path.join(OUTPUT_DIR, 'runtime-burn-in-history.jsonl');
+const HEARTBEAT_INTERVAL_MS = 5000;
 
 function parseArgs(argv) {
   const args = {};
@@ -93,14 +94,34 @@ function createSteps({ forceBootstrap }) {
   ];
 }
 
-function runCommand(command, iteration) {
-  return spawnSync('bash', [USE_NODE22, ...command], {
-    cwd: ROOT,
-    stdio: 'inherit',
-    env: {
-      ...process.env,
-      ORANGECODEIDE_BURN_IN_ITERATION: String(iteration),
-    },
+function runCommand(command, iteration, onHeartbeat) {
+  return new Promise((resolve, reject) => {
+    const child = spawn('bash', [USE_NODE22, ...command], {
+      cwd: ROOT,
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        ORANGECODEIDE_BURN_IN_ITERATION: String(iteration),
+      },
+    });
+    const heartbeat = setInterval(() => {
+      onHeartbeat?.();
+    }, HEARTBEAT_INTERVAL_MS);
+    heartbeat.unref();
+
+    child.on('error', (error) => {
+      clearInterval(heartbeat);
+      reject(error);
+    });
+
+    child.on('exit', (code, signal) => {
+      clearInterval(heartbeat);
+      if (signal) {
+        resolve({ status: 1, signal });
+        return;
+      }
+      resolve({ status: code ?? 1, signal: null });
+    });
   });
 }
 
@@ -136,6 +157,8 @@ const baseStatus = {
   currentIteration: 0,
   completedIterations: 0,
   currentStep: null,
+  currentStepStartedAt: null,
+  currentStepHeartbeatAt: null,
   lastSuccessfulStep: null,
   lastSuccessfulStepAt: null,
   stopReason: null,
@@ -194,6 +217,8 @@ for (let iteration = 1; ; iteration += 1) {
     updateStatus({
       currentIteration: iteration,
       currentStep: step.id,
+      currentStepStartedAt: stepStart.iso,
+      currentStepHeartbeatAt: stepStart.iso,
     });
     recordHistory({
       event: 'step-start',
@@ -205,7 +230,15 @@ for (let iteration = 1; ; iteration += 1) {
       startedAtLocal: stepStart.local,
     });
 
-    const result = runCommand(step.command, iteration);
+    const result = await runCommand(step.command, iteration, () => {
+      const heartbeat = nowState();
+      updateStatus({
+        currentIteration: iteration,
+        currentStep: step.id,
+        currentStepStartedAt: stepStart.iso,
+        currentStepHeartbeatAt: heartbeat.iso,
+      });
+    });
     const stepEnd = nowState();
     const exitCode = result.status ?? 1;
     const success = exitCode === 0;
@@ -231,6 +264,7 @@ for (let iteration = 1; ; iteration += 1) {
         awaitingFix: true,
         currentIteration: iteration,
         currentStep: step.id,
+        currentStepHeartbeatAt: stepEnd.iso,
         stopReason: 'step-failed-awaiting-fix',
         failure: {
           iteration,
@@ -258,6 +292,7 @@ for (let iteration = 1; ; iteration += 1) {
       awaitingFix: false,
       lastSuccessfulStep: step.id,
       lastSuccessfulStepAt: stepEnd.iso,
+      currentStepHeartbeatAt: stepEnd.iso,
     });
   }
 
@@ -265,6 +300,8 @@ for (let iteration = 1; ; iteration += 1) {
   updateStatus({
     completedIterations: iteration,
     currentStep: null,
+    currentStepStartedAt: null,
+    currentStepHeartbeatAt: null,
   });
   recordHistory({
     event: 'iteration-complete',
@@ -284,6 +321,8 @@ for (let iteration = 1; ; iteration += 1) {
       passed: true,
       awaitingFix: false,
       currentStep: null,
+      currentStepStartedAt: null,
+      currentStepHeartbeatAt: null,
       stopReason: reachedMaxIterations
         ? 'max-iterations-reached'
         : 'deadline-reached-after-green-cycle',
