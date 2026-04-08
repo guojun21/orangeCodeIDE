@@ -2,11 +2,15 @@
 
 import fs from 'fs';
 import path from 'path';
-import { spawnSync } from 'child_process';
 
 import { ROOT } from './paths.mjs';
 import { acquireDirectoryLock, releaseDirectoryLock } from './directory-lock.mjs';
-const ASSEMBLIES_MANIFEST = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
+import {
+  getAssemblyById,
+  getRequiredRuntimeItems,
+  readRuntimeAssemblies,
+  resolveRuntimeInputRoot,
+} from './runtime-config.mjs';
 const ASSEMBLY_LOCK_PATH = path.join(ROOT, '.runtime-assembly.lock');
 
 function parseArgs(argv) {
@@ -41,6 +45,30 @@ function copyTree(sourceRoot, outputRoot) {
   fs.cpSync(sourceRoot, outputRoot, { recursive: true, force: true });
 }
 
+function copyGeneratedRuntimeAssets(outputRoot) {
+  const sourcePackageJson = path.join(ROOT, 'package.json');
+  const targetPackageJson = path.join(outputRoot, 'package.json');
+  fs.copyFileSync(sourcePackageJson, targetPackageJson);
+  return ['package.json'];
+}
+
+function copyRequiredRuntimeItems(sourceRoot, outputRoot, relativePaths) {
+  for (const relativePath of relativePaths) {
+    const sourcePath = path.join(sourceRoot, relativePath);
+    const outputPath = path.join(outputRoot, relativePath);
+    if (!fs.existsSync(sourcePath)) {
+      throw new Error(`Missing runtime input item: ${sourcePath}`);
+    }
+    const stat = fs.statSync(sourcePath);
+    if (stat.isDirectory()) {
+      fs.cpSync(sourcePath, outputPath, { recursive: true, force: true, dereference: true });
+    } else {
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+      fs.copyFileSync(sourcePath, outputPath);
+    }
+  }
+}
+
 function removeTree(targetPath) {
   fs.rmSync(targetPath, {
     recursive: true,
@@ -52,22 +80,24 @@ function removeTree(targetPath) {
 
 const args = parseArgs(process.argv);
 const assemblyId = args.assembly;
+const explicitRuntimeInputRoot = args['runtime-input-root'] ?? process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null;
 
 if (!assemblyId) {
   throw new Error('Usage: assemble-runtime-from-slices.mjs --assembly <assembly-id>');
 }
 
-const manifest = JSON.parse(fs.readFileSync(ASSEMBLIES_MANIFEST, 'utf8'));
+const manifest = readRuntimeAssemblies({ runtimeInputRoot: explicitRuntimeInputRoot });
 const baseline = manifest.baseline;
-const assembly = manifest.assemblies.find((entry) => entry.assembly_id === assemblyId);
+const assembly = getAssemblyById(assemblyId, manifest);
 
 if (!assembly) {
   throw new Error(`Unknown assembly: ${assemblyId}`);
 }
 
-const runtimeRoot = path.join(ROOT, baseline.runtime_root);
-const outputRoot = path.join(ROOT, assembly.output_root);
-const phase2OverlayRoot = path.join(ROOT, baseline.phase2_overlay_root);
+const runtimeInputRoot = resolveRuntimeInputRoot({ explicitRoot: explicitRuntimeInputRoot });
+const outputRoot = path.join(ROOT, assembly.outputRoot);
+const phase2OverlayRoot = path.join(ROOT, baseline.phase2OverlayRoot);
+const requiredRuntimeItems = getRequiredRuntimeItems();
 
 await acquireDirectoryLock(ASSEMBLY_LOCK_PATH, {
   label: 'assembly lock',
@@ -77,34 +107,30 @@ try {
   removeTree(outputRoot);
   fs.mkdirSync(outputRoot, { recursive: true });
 
-  const rsyncArgs = ['-a'];
-  for (const exclude of baseline.rsync_excludes) {
-    rsyncArgs.push('--exclude', exclude);
-  }
-  rsyncArgs.push(`${runtimeRoot}/`, `${outputRoot}/`);
+  copyRequiredRuntimeItems(runtimeInputRoot, outputRoot, requiredRuntimeItems);
+  const generatedRuntimeAssets = copyGeneratedRuntimeAssets(outputRoot);
 
-  const rsync = spawnSync('rsync', rsyncArgs, { stdio: 'inherit' });
-  if (rsync.status !== 0) {
-    process.exit(rsync.status ?? 1);
-  }
-
-  for (const relativePath of baseline.phase2_overlay_files) {
+  for (const relativePath of baseline.phase2OverlayFiles) {
     copyFile(relativePath, phase2OverlayRoot, outputRoot);
   }
 
-  for (const overrideRoot of assembly.override_roots) {
+  for (const overrideRoot of assembly.overrideRoots) {
     copyTree(path.join(ROOT, overrideRoot), outputRoot);
   }
 
   const assemblyManifest = {
     generatedAt: new Date().toISOString(),
-    assemblyId: assembly.assembly_id,
+    sourceOfTruth: 'config/runtime/assemblies.json',
+    assemblyId: assembly.assemblyId,
     phase: assembly.phase,
     outputRoot,
+    runtimeInputRoot,
+    runtimeInputMode: 'external-runtime-input',
+    copiedRuntimeItems: requiredRuntimeItems,
+    generatedRuntimeAssets,
     phase2OverlayRoot,
-    copiedBaseOverlayFiles: baseline.phase2_overlay_files,
-    overrideRoots: assembly.override_roots.map((entry) => path.join(ROOT, entry)),
-    rsyncExcludes: baseline.rsync_excludes
+    copiedBaseOverlayFiles: baseline.phase2OverlayFiles,
+    overrideRoots: assembly.overrideRoots.map((entry) => path.join(ROOT, entry)),
   };
   const assemblyManifestPath = path.join(
     ROOT,

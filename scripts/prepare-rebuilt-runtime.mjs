@@ -5,6 +5,7 @@ import path from 'path';
 import { spawnSync } from 'child_process';
 import { getAllSliceIds, ROOT } from './watch-rebuilt-slices.mjs';
 import { acquireDirectoryLock, releaseDirectoryLock } from './directory-lock.mjs';
+import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 
 const PHASE = 'rebuilt';
 const ASSEMBLY = 'rebuilt-runtime';
@@ -21,6 +22,10 @@ function runNodeScript(scriptName, args = []) {
   }
 }
 
+const runtimeInputRoot = resolveRuntimeInputRoot({
+  explicitRoot: process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null,
+});
+
 const sliceIds = getAllSliceIds();
 
 await acquireDirectoryLock(PREPARE_LOCK_PATH, {
@@ -28,7 +33,7 @@ await acquireDirectoryLock(PREPARE_LOCK_PATH, {
 });
 
 try {
-  runNodeScript('prepare-phase2-entrypoints.mjs');
+  runNodeScript('prepare-phase2-entrypoints.mjs', ['--runtime-input-root', runtimeInputRoot]);
   for (const sliceId of sliceIds) {
     runNodeScript('build-rebuilt-slice.mjs', ['--slice', sliceId, '--phase', PHASE]);
   }
@@ -40,8 +45,8 @@ try {
   overrideArgs.push('--phase', PHASE);
 
   runNodeScript('prepare-runtime-override.mjs', overrideArgs);
-  runNodeScript('sync-rebuilt-extension-signatures.mjs');
-  runNodeScript('assemble-runtime-from-slices.mjs', ['--assembly', ASSEMBLY]);
+  runNodeScript('sync-rebuilt-extension-signatures.mjs', ['--runtime-input-root', runtimeInputRoot]);
+  runNodeScript('assemble-runtime-from-slices.mjs', ['--assembly', ASSEMBLY, '--runtime-input-root', runtimeInputRoot]);
 } finally {
   releaseDirectoryLock(PREPARE_LOCK_PATH);
 }

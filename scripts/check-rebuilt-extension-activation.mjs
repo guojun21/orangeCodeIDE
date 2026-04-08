@@ -6,7 +6,7 @@ import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
 import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mjs';
 
 import { ROOT } from './paths.mjs';
-const EXTENSIONS_ROOT = path.join(ROOT, 'extensions');
+import { getAssemblyById, readRuntimeAssemblies } from './runtime-config.mjs';
 const SLICES_PATH = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-extension-activation.json');
 
@@ -80,13 +80,13 @@ function parseArgs(argv) {
   return args;
 }
 
-function getCursorExtensions() {
+function getCursorExtensions(extensionsRoot) {
   const results = [];
-  for (const entry of fs.readdirSync(EXTENSIONS_ROOT, { withFileTypes: true })) {
+  for (const entry of fs.readdirSync(extensionsRoot, { withFileTypes: true })) {
     if (!entry.isDirectory() || !entry.name.startsWith('cursor-')) {
       continue;
     }
-    const packagePath = path.join(EXTENSIONS_ROOT, entry.name, 'package.json');
+    const packagePath = path.join(extensionsRoot, entry.name, 'package.json');
     if (!fs.existsSync(packagePath)) {
       continue;
     }
@@ -105,9 +105,16 @@ const userDataDir = args['user-data-dir'] ?? getSharedRebuiltUserDataDir(
   'SHOPEECODE_REBUILT_PROBE_USER_DATA_DIR',
   'SHOPEECODE_REBUILT_USER_DATA_DIR'
 );
+const runtimeRootArg = args['runtime-root'] ?? process.env.SHOPEECODE_REBUILT_RUNTIME_ROOT ?? null;
 const activeProfile = getActiveProfile();
 const previousPath = fs.existsSync(RESULT_PATH) ? RESULT_PATH : null;
 const previous = previousPath ? JSON.parse(fs.readFileSync(previousPath, 'utf8')) : null;
+const assemblies = readRuntimeAssemblies();
+const rebuiltAssembly = getAssemblyById('rebuilt-runtime', assemblies);
+const runtimeRoot = runtimeRootArg
+  ? path.resolve(runtimeRootArg)
+  : path.join(ROOT, rebuiltAssembly?.outputRoot ?? 'recovered/rebuilt/runtime-app');
+const extensionsRoot = path.join(runtimeRoot, 'extensions');
 
 const exthostLogPath = findLatestLog(userDataDir, 'logs/*/window*/exthost/exthost.log');
 const exthostLogText = exthostLogPath ? fs.readFileSync(exthostLogPath, 'utf8') : '';
@@ -123,7 +130,7 @@ const rebuiltExtensionDirs = new Set(
   [...slicesByExtensionDir.keys()]
 );
 
-const checks = getCursorExtensions().map((extension) => {
+const checks = getCursorExtensions(extensionsRoot).map((extension) => {
   const slice = slicesByExtensionDir.get(extension.dirName);
   const activationAttempted = exthostLogText.includes(`ExtensionService#_doActivateExtension ${extension.extensionId}`);
   const activationSucceeded = exthostLogText.includes(`Extension activated success: ${extension.extensionId}`);
@@ -159,6 +166,8 @@ const result = {
   generatedAt: new Date().toISOString(),
   activeProfile,
   userDataDir,
+  runtimeRoot,
+  extensionsRoot,
   exthostLogPath,
   passed:
     !!exthostLogPath &&

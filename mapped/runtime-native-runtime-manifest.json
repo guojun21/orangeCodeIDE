@@ -1,0 +1,288 @@
+{
+  "generatedAt": "2026-04-08T16:58:18.378Z",
+  "sourceOfTruth": {
+    "nodeModules": "mapped/runtime-node-modules-model-report.json",
+    "hostAssets": "mapped/runtime-host-assets-model-report.json"
+  },
+  "kind": "native-runtime-manifest",
+  "nativeRuntimePackageCount": 13,
+  "nativeRuntimePackages": [
+    {
+      "name": "@anysphere/policy-watcher",
+      "version": "1.3.2-cursor.2",
+      "ownerSurface": "policies",
+      "kind": "native-runtime",
+      "notes": "策略文件监听器；后续需要和 policies 资产一起定义编译/分发模型。",
+      "nativeAddons": [
+        {
+          "package": "@anysphere/policy-watcher",
+          "path": "node_modules/@anysphere/policy-watcher/build/Release/vscode-policy-watcher.node",
+          "fileName": "vscode-policy-watcher.node"
+        }
+      ]
+    },
+    {
+      "name": "@parcel/watcher",
+      "version": "2.5.1-cursor",
+      "ownerSurface": "watcher",
+      "kind": "native-runtime",
+      "notes": "文件监听 native 模块；属于 watcher 运行链的硬依赖。",
+      "nativeAddons": [
+        {
+          "package": "@parcel/watcher",
+          "path": "node_modules/@parcel/watcher/build/Release/watcher.node",
+          "fileName": "watcher.node"
+        }
+      ]
+    },
+    {
+      "name": "@vscode/deviceid",
+      "version": "0.1.1",
+      "ownerSurface": "platform-device",
+      "kind": "native-runtime",
+      "notes": "设备标识 native 依赖；需要保留平台产物管理。",
+      "nativeAddons": [
+        {
+          "package": "@vscode/deviceid",
+          "path": "node_modules/@vscode/deviceid/build/Release/windows.node",
+          "fileName": "windows.node"
+        }
+      ]
+    },
+    {
+      "name": "@vscode/spdlog",
+      "version": "0.15.1",
+      "ownerSurface": "logging",
+      "kind": "native-runtime",
+      "notes": "日志 native 绑定；后续进入平台二进制管理。",
+      "nativeAddons": [
+        {
+          "package": "@vscode/spdlog",
+          "path": "node_modules/@vscode/spdlog/build/Release/spdlog.node",
+          "fileName": "spdlog.node"
+        }
+      ]
+    },
+    {
+      "name": "@vscode/sqlite3",
+      "version": "5.1.8-vscode",
+      "ownerSurface": "storage",
+      "kind": "native-runtime",
+      "notes": "SQLite native 绑定；属于宿主存储硬依赖。",
+      "nativeAddons": [
+        {
+          "package": "@vscode/sqlite3",
+          "path": "node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node",
+          "fileName": "vscode-sqlite3.node"
+        }
+      ]
+    },
+    {
+      "name": "cursor-proclist",
+      "version": "1.0.0",
+      "ownerSurface": "process-introspection",
+      "kind": "native-runtime",
+      "notes": "Cursor 进程列表 native 依赖。",
+      "nativeAddons": [
+        {
+          "package": "cursor-proclist",
+          "path": "node_modules/cursor-proclist/build/Release/cursor_proclist.node",
+          "fileName": "cursor_proclist.node"
+        }
+      ]
+    },
+    {
+      "name": "kerberos",
+      "version": "2.1.1",
+      "ownerSurface": "auth",
+      "kind": "native-runtime",
+      "notes": "认证相关 native 包；短期继续 external。",
+      "nativeAddons": [
+        {
+          "package": "kerberos",
+          "path": "node_modules/kerberos/build/Release/kerberos.node",
+          "fileName": "kerberos.node"
+        }
+      ]
+    },
+    {
+      "name": "keytar",
+      "version": "7.9.0",
+      "ownerSurface": "credential-storage",
+      "kind": "native-runtime",
+      "notes": "钥匙串/凭据存储 native 绑定。",
+      "nativeAddons": [
+        {
+          "package": "keytar",
+          "path": "node_modules/keytar/build/Release/keytar.node",
+          "fileName": "keytar.node"
+        }
+      ]
+    },
+    {
+      "name": "native-is-elevated",
+      "version": "0.7.0",
+      "ownerSurface": "platform-privilege",
+      "kind": "native-runtime",
+      "notes": "权限检测 native 依赖。",
+      "nativeAddons": [
+        {
+          "package": "native-is-elevated",
+          "path": "node_modules/native-is-elevated/build/Release/iselevated.node",
+          "fileName": "iselevated.node"
+        }
+      ]
+    },
+    {
+      "name": "native-keymap",
+      "version": "3.3.5",
+      "ownerSurface": "keyboard",
+      "kind": "native-runtime",
+      "notes": "键盘映射 native 依赖。",
+      "nativeAddons": [
+        {
+          "package": "native-keymap",
+          "path": "node_modules/native-keymap/build/Release/keymapping.node",
+          "fileName": "keymapping.node"
+        }
+      ]
+    },
+    {
+      "name": "native-watchdog",
+      "version": "1.4.2",
+      "ownerSurface": "watchdog",
+      "kind": "native-runtime",
+      "notes": "watchdog native 模块。",
+      "nativeAddons": [
+        {
+          "package": "native-watchdog",
+          "path": "node_modules/native-watchdog/build/Release/watchdog.node",
+          "fileName": "watchdog.node"
+        }
+      ]
+    },
+    {
+      "name": "node-pty",
+      "version": "1.1.0-beta42",
+      "ownerSurface": "terminal",
+      "kind": "native-runtime",
+      "notes": "terminal/pty 硬依赖；后续进入平台构建与分发模型。",
+      "nativeAddons": [
+        {
+          "package": "node-pty",
+          "path": "node_modules/node-pty/build/Release/pty.node",
+          "fileName": "pty.node"
+        }
+      ]
+    },
+    {
+      "name": "windows-foreground-love",
+      "version": "0.5.0",
+      "ownerSurface": "platform-windowing",
+      "kind": "native-runtime",
+      "notes": "Windows 前台窗口相关 native 依赖；当前 macOS 路径仍保留为 external。",
+      "nativeAddons": [
+        {
+          "package": "windows-foreground-love",
+          "path": "node_modules/windows-foreground-love/build/Release/foreground_love.node",
+          "fileName": "foreground_love.node"
+        }
+      ]
+    }
+  ],
+  "hostAssetSectionCount": 5,
+  "hostAssets": [
+    {
+      "section": "resources.darwinTrayAssets",
+      "kind": "brand-asset",
+      "notes": "tray 图标资产，后续进入品牌资源模板链。",
+      "files": [
+        {
+          "path": "resources/darwin/trayNotifyWhite.png",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/darwin/trayNotifyWhite@2x.png",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/darwin/trayTemplate.png",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/darwin/trayTemplate@2x.png",
+          "existsInRuntime": true
+        }
+      ]
+    },
+    {
+      "section": "resources.helperBinaries",
+      "kind": "external-binary",
+      "notes": "helper/runtime 可执行文件；短期继续 external，后续建立平台二进制产出链。",
+      "files": [
+        {
+          "path": "resources/helpers/crepectl",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/helpers/cursor-terminal-wrapper",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/helpers/cursorsandbox",
+          "existsInRuntime": true
+        },
+        {
+          "path": "resources/helpers/node",
+          "existsInRuntime": true
+        }
+      ]
+    },
+    {
+      "section": "bin.launcherScripts",
+      "kind": "generated-launcher",
+      "notes": "轻量 shell launcher；后续应可模板化生成。",
+      "files": [
+        {
+          "path": "bin/code",
+          "existsInRuntime": true
+        },
+        {
+          "path": "bin/cursor",
+          "existsInRuntime": true
+        }
+      ]
+    },
+    {
+      "section": "bin.tunnelBinaries",
+      "kind": "external-binary",
+      "notes": "tunnel 二进制；当前继续 external，后续独立定义分发模型。",
+      "files": [
+        {
+          "path": "bin/code-tunnel",
+          "existsInRuntime": true
+        },
+        {
+          "path": "bin/cursor-tunnel",
+          "existsInRuntime": true
+        }
+      ]
+    },
+    {
+      "section": "policies.policyProfiles",
+      "kind": "policy-asset",
+      "notes": "企业策略配置文件；后续与 policy watcher/native 配合收敛。",
+      "files": [
+        {
+          "path": "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
+          "existsInRuntime": true
+        },
+        {
+          "path": "policies/en-us/com.todesktop.230313mzl4w4u92.plist",
+          "existsInRuntime": true
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

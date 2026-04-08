@@ -5,8 +5,8 @@ import path from 'path';
 import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mjs';
 
 import { ROOT } from './paths.mjs';
+import { readRuntimeAssemblies, getAssemblyById } from './runtime-config.mjs';
 const SLICES_MANIFEST = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
-const ASSEMBLIES_MANIFEST = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-artifact-check.json');
 
 function materialize(template, phase) {
@@ -14,8 +14,8 @@ function materialize(template, phase) {
 }
 
 const slicesManifest = JSON.parse(fs.readFileSync(SLICES_MANIFEST, 'utf8'));
-const assembliesManifest = JSON.parse(fs.readFileSync(ASSEMBLIES_MANIFEST, 'utf8'));
-const rebuiltAssembly = assembliesManifest.assemblies.find((entry) => entry.assembly_id === 'rebuilt-runtime');
+const assembliesManifest = readRuntimeAssemblies();
+const rebuiltAssembly = getAssemblyById('rebuilt-runtime', assembliesManifest);
 const activeProfile = getActiveProfile();
 
 if (!rebuiltAssembly) {
@@ -36,8 +36,8 @@ const sliceChecks = slicesManifest.slices.filter((slice) => sliceMatchesProfile(
   };
 });
 
-const runtimeRoot = path.join(ROOT, rebuiltAssembly.output_root);
-const baseOverlayChecks = assembliesManifest.baseline.phase2_overlay_files.map((relativePath) => ({
+const runtimeRoot = path.join(ROOT, rebuiltAssembly.outputRoot);
+const baseOverlayChecks = assembliesManifest.baseline.phase2OverlayFiles.map((relativePath) => ({
   relativePath,
   existsInRuntime: fs.existsSync(path.join(runtimeRoot, relativePath)),
 }));

@@ -7,8 +7,8 @@ import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mj
 import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
 
 import { ROOT } from './paths.mjs';
+import { readRuntimeAssemblies, getAssemblyById } from './runtime-config.mjs';
 const SLICES_MANIFEST = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
-const ASSEMBLIES_MANIFEST = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-extension-check.json');
 
 function sha256(filePath) {
@@ -102,15 +102,15 @@ const logMode = args['log-mode'] ?? 'require';
 const activeProfile = getActiveProfile();
 
 const slicesManifest = JSON.parse(fs.readFileSync(SLICES_MANIFEST, 'utf8'));
-const assembliesManifest = JSON.parse(fs.readFileSync(ASSEMBLIES_MANIFEST, 'utf8'));
-const rebuiltAssembly = assembliesManifest.assemblies.find((entry) => entry.assembly_id === 'rebuilt-runtime');
+const assembliesManifest = readRuntimeAssemblies();
+const rebuiltAssembly = getAssemblyById('rebuilt-runtime', assembliesManifest);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
 }
 
 const phase = rebuiltAssembly.phase;
-const runtimeRoot = path.join(ROOT, rebuiltAssembly.output_root);
+const runtimeRoot = path.join(ROOT, rebuiltAssembly.outputRoot);
 const extensionSlices = slicesManifest.slices.filter(
   (slice) => slice.target_runtime_bundle.startsWith('extensions/') && sliceMatchesProfile(slice, activeProfile)
 );

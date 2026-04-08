@@ -21,7 +21,27 @@
 - `policies/`
 - `product.json`
 
-这些都通过 bootstrap 在本地准备。
+这些都通过 bootstrap 在本地准备，而且默认不会再被灌进 repo root。
+
+当前 runtime 的正式边界是：
+
+- `.runtime-deps/`：外部 runtime 依赖缓存
+- `recovered/rebuilt/overrides/`：rebuilt 覆盖层
+- `recovered/rebuilt/runtime-app/`：本地装配产物
+
+当前 runtime 诊断报告：
+
+- `mapped/runtime-origin-report.json`
+- `mapped/runtime-residuals-report.json`
+- `mapped/runtime-ownership-report.json`
+- `mapped/runtime-external-dependencies-report.json`
+- `mapped/runtime-node-modules-model-report.json`
+- `mapped/runtime-host-assets-model-report.json`
+- `mapped/runtime-package-manager-manifest.json`
+- `mapped/runtime-native-runtime-manifest.json`
+- `mapped/runtime-package-manager-resolution-report.json`
+- `mapped/runtime-boundary-check.json`
+- `mapped/runtime-independence-report.json`
 
 ## Clone 后怎么跑
 
@@ -33,7 +53,7 @@ npm run dev
 
 `npm run bootstrap` 会做两件事：
 
-1. 从 **官方 Cursor distribution** 下载运行时依赖并同步到仓库根目录  
+1. 从 **官方 Cursor distribution** 下载运行时依赖并缓存到 `.runtime-deps/`  
 2. 下载固定版本的 `reference/vscode` 参考源码
 
 想直接验证“别人 clone 下来能不能装依赖并跑起来”，先看：
@@ -42,7 +62,7 @@ npm run dev
 
 默认目标不是依赖本机 `.app`，也不是让仓库自己托管 100MB 级 runtime blob。
 
-默认什么都不传，直接走官方依赖下载：
+默认什么都不传，直接走官方依赖下载并 staged 到 `.runtime-deps`：
 
 ```bash
 npm run bootstrap:runtime
@@ -123,6 +143,7 @@ npm run bootstrap:vscode
 | --- | --- | --- |
 | `src/` | 顶层源码入口，直接指向 `rebuilt/src/` | 主要编辑面 |
 | `rebuilt/` | 真正的工程源码层 | 主要编辑面 |
+| `config/runtime/` | runtime 依赖、装配、ownership source-of-truth | 主要编辑面 |
 | `scripts/` | 构建、恢复、报告、装配自动化 | 主要编辑面 |
 | `test/` | runtime、GUI、smoke、agent、spike 校验 | 主要编辑面 |
 | `docs/` | 仓库导航、工程面说明、阶段收口文档 | 主要编辑面 |
@@ -137,7 +158,8 @@ npm run bootstrap:vscode
 
 | 目录 | 性质 | 处理方式 |
 | --- | --- | --- |
-| `out/` `extensions/` `resources/` `bin/` `node_modules/` | 运行时基线输入 | 以运行时兼容为先，默认不直接开发 |
+| `.runtime-deps/` | 外部 runtime 依赖缓存 | 默认只读，不进 git |
+| `out/` `extensions/` `resources/` `bin/` `node_modules/` | 运行时兼容层 | 不再作为默认 runtime 输入根 |
 | `recovered/` | 恢复过程产物 | 可重建，不当最终源码 |
 | `mapped/` | 机器报告和映射结果 | 自动生成，不当业务源码 |
 | `reference/` `raw/` | 只读参考层 | 不直接演进 |
@@ -166,6 +188,14 @@ npm run bootstrap:vscode
 npm run status:engineering
 npm run check:core
 npm run verify:public-bootstrap
+npm run verify:runtime-boundary
+npm run verify:runtime-independence
+npm run report:runtime-external-dependencies
+npm run report:runtime-node-modules-model
+npm run report:runtime-host-assets-model
+npm run report:runtime-package-manager-manifest
+npm run report:runtime-native-runtime-manifest
+npm run verify:runtime-package-manager-resolution
 npm run dev
 npm run dev:auth
 npm run test:watcher:spike

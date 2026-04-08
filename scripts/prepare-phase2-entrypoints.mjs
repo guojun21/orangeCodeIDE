@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
 import { ROOT } from './paths.mjs';
+import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 
 const root = ROOT;
 const rawRoot = path.join(root, 'raw', 'phase2', 'core-entrypoints');
@@ -24,6 +25,24 @@ const readableTargets = [
   'out/vs/code/electron-sandbox/workbench/workbench.js',
   'out/vs/base/parts/sandbox/electron-sandbox/preload.js'
 ];
+
+function parseArgs(argv) {
+  const args = {};
+  for (let index = 2; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (!token.startsWith('--')) {
+      continue;
+    }
+    const key = token.slice(2);
+    const value = argv[index + 1];
+    if (!value || value.startsWith('--')) {
+      throw new Error(`Missing value for --${key}`);
+    }
+    args[key] = value;
+    index += 1;
+  }
+  return args;
+}
 
 function ensureParent(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -46,18 +65,23 @@ function resetDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
+const args = parseArgs(process.argv);
+const runtimeInputRoot = resolveRuntimeInputRoot({
+  explicitRoot: args['runtime-input-root'] ?? process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null,
+});
+
 resetDir(rawRoot);
 resetDir(recoveredRoot);
 
 for (const rel of rawTargets) {
-  const src = path.join(root, rel);
+  const src = path.join(runtimeInputRoot, rel);
   const dst = path.join(rawRoot, rel);
   ensureParent(dst);
   fs.copyFileSync(src, dst);
 }
 
 for (const rel of readableTargets) {
-  const src = path.join(root, rel);
+  const src = path.join(runtimeInputRoot, rel);
   const dst = path.join(recoveredRoot, rel);
   ensureParent(dst);
   const formatted = execFileSync(
@@ -70,6 +94,7 @@ for (const rel of readableTargets) {
 
 const manifest = {
   generatedAt: new Date().toISOString(),
+  runtimeInputRoot,
   rawTargets,
   readableTargets
 };

@@ -4,8 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 import { getActiveProfile, loadSliceManifest, sliceMatchesProfile, ROOT } from './watch-rebuilt-slices.mjs';
+import { readRuntimeAssemblies, getAssemblyById } from './runtime-config.mjs';
 
-const ASSEMBLIES_PATH = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'worker-proxy-check.json');
 
 function materialize(template, phase) {
@@ -133,8 +133,8 @@ async function checkSlice(slice, phase) {
   }
 }
 
-const assembliesManifest = JSON.parse(fs.readFileSync(ASSEMBLIES_PATH, 'utf8'));
-const rebuiltAssembly = assembliesManifest.assemblies.find((entry) => entry.assembly_id === 'rebuilt-runtime');
+const assembliesManifest = readRuntimeAssemblies();
+const rebuiltAssembly = getAssemblyById('rebuilt-runtime', assembliesManifest);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');

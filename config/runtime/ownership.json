@@ -1,0 +1,101 @@
+{
+  "topLevel": {
+    "out": {
+      "kind": "generated",
+      "notes": "由 phase2 overlay、rebuilt slice build 和 runtime assembly 共同生成。"
+    },
+    "extensions": {
+      "kind": "generated",
+      "notes": "目标是内置扩展 dist 由 repo 内源码和构建链生成；当前仍允许 residual external 输入。"
+    },
+    "node_modules": {
+      "kind": "external-package",
+      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。"
+    },
+    "node_modules.asar": {
+      "kind": "external-package",
+      "notes": "兼容期 external 输入，后续应逐步退休。"
+    },
+    "resources": {
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。"
+    },
+    "bin": {
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。"
+    },
+    "product.json": {
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入产品配置模板。"
+    },
+    "policies": {
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution。"
+    }
+  },
+  "groups": {
+    "out": {
+      "workbench/preload": [
+        "out/bootstrap-fork.js",
+        "out/vs/code/electron-sandbox/workbench/workbench.js",
+        "out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+        "out/vs/workbench/workbench.desktop.main.js"
+      ],
+      "worker-mains": [
+        "out/vs/platform/files/node/watcher/watcherMain.js",
+        "out/vs/workbench/services/search/worker/localFileSearchMain.js",
+        "out/vs/editor/common/services/editorWebWorkerMain.js",
+        "out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+        "out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorkerMain.js"
+      ],
+      "shared-cli-pty-watcher": [
+        "out/main.js",
+        "out/bootstrap-fork.js",
+        "out/vs/code/node/cli.js",
+        "out/vs/code/node/cliProcessMain.js",
+        "out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+        "out/vs/platform/terminal/node/ptyHostMain.js",
+        "out/vs/platform/files/node/watcher/watcherMain.js"
+      ],
+      "extension-host-sidecars": [
+        "out/vs/workbench/api/node/extensionHostProcess.js",
+        "out/vs/workbench/api/worker/extensionHostWorker.js"
+      ]
+    },
+    "resources": {
+      "darwin-tray-assets": [
+        "resources/darwin/trayTemplate.png",
+        "resources/darwin/trayTemplate@2x.png",
+        "resources/darwin/trayNotifyWhite.png",
+        "resources/darwin/trayNotifyWhite@2x.png"
+      ],
+      "helper-binaries": [
+        "resources/helpers/cursorsandbox",
+        "resources/helpers/cursor-terminal-wrapper",
+        "resources/helpers/crepectl",
+        "resources/helpers/node"
+      ]
+    },
+    "bin": {
+      "launcher-binaries": [
+        "bin/code",
+        "bin/cursor"
+      ],
+      "tunnel-binaries": [
+        "bin/code-tunnel",
+        "bin/cursor-tunnel"
+      ]
+    },
+    "policies": {
+      "policy-profiles": [
+        "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
+        "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
+      ]
+    },
+    "product": {
+      "product-config": [
+        "product.json"
+      ]
+    }
+  }
+}

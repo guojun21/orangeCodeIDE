@@ -1,4 +1,5 @@
 .runtime-user-data/
+.runtime-deps/
 .runtime-assembly.lock/
 .prepare-rebuilt-runtime.lock/
 AGENTS.md
@@ -20,6 +21,17 @@ reference/vscode/
 mapped/*
 !mapped/rebuilt-slices.json
 !mapped/runtime-assemblies.json
+!mapped/runtime-origin-report.json
+!mapped/runtime-residuals-report.json
+!mapped/runtime-ownership-report.json
+!mapped/runtime-external-dependencies-report.json
+!mapped/runtime-node-modules-model-report.json
+!mapped/runtime-host-assets-model-report.json
+!mapped/runtime-package-manager-manifest.json
+!mapped/runtime-native-runtime-manifest.json
+!mapped/runtime-package-manager-resolution-report.json
+!mapped/runtime-boundary-check.json
+!mapped/runtime-independence-report.json
 !mapped/engineering-surface.json
 !mapped/readability-report.json
 mapped/accept-latest.json

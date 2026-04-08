@@ -12,9 +12,15 @@
 - 想只看扩展层，先看 [EXTENSION_INDEX.md](../EXTENSION_INDEX.md)
 - 想改“工程本体”，去 `rebuilt/`、`scripts/`、`test/`、`docs/`
 - 想看“当前状态”，去 `mapped/engineering-surface.json`、`mapped/quality-report.json`
+- 想看 runtime 外部残留，先看 `mapped/runtime-residuals-report.json`
+- 想看 external 依赖到底是什么，去 `mapped/runtime-external-dependencies-report.json`
+- 想看 `node_modules` 已经拆到哪一步，去 `mapped/runtime-node-modules-model-report.json`
+- 想看宿主资产怎么拆，去 `mapped/runtime-host-assets-model-report.json`
+- 想直接拿 install/native 清单，去 `mapped/runtime-package-manager-manifest.json` 和 `mapped/runtime-native-runtime-manifest.json`
 - 想查“恢复证据”，去 `recovered/`
 - 想找“上游参考”，去 `reference/`
 - 不要把 `out/`、`extensions/`、`node_modules/` 当作默认开发入口
+- `.runtime-deps/` 是外部 runtime 输入缓存，不是工程源码
 
 ## 默认阅读顺序
 
@@ -34,11 +40,13 @@
 | 层 | 目录 | 该怎么对待 |
 | --- | --- | --- |
 | 顶层代码入口 | `src/` | 直接进入真正源码，不用先钻 `rebuilt/src/` |
+| runtime 配置层 | `config/runtime/` | runtime 依赖、装配、ownership 的 source-of-truth |
 | 真工程层 | `rebuilt/` | 默认主要编辑面 |
 | 真工程层 | `scripts/` | 默认主要编辑面 |
 | 真工程层 | `test/` | 默认主要编辑面 |
 | 真工程层 | `docs/` | 默认主要编辑面 |
-| 运行时输入层 | `out/` `extensions/` `resources/` `bin/` `node_modules/` | 默认不直接改，除非在修启动/运行时兼容 |
+| 外部依赖缓存层 | `.runtime-deps/` | 默认只读，不进 git |
+| 运行时输入兼容层 | `out/` `extensions/` `resources/` `bin/` `node_modules/` | 不再作为默认 runtime 输入根 |
 | 生成产物层 | `recovered/` `mapped/` | 读、比对、重建，不当最终源码 |
 | 只读参考层 | `reference/` `raw/` | 只读 |
 | 历史层 | `notes/` `archived/` `wrapDoc/` | 查阶段结论，不当当前工程面 |

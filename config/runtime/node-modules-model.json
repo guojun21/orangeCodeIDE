@@ -1,0 +1,79 @@
+{
+  "packageManager": {
+    "kind": "npm-installable-js",
+    "notes": "纯 JS 包优先进入 package manager 可安装来源，而不是继续依赖 external runtime copy。"
+  },
+  "nativeRuntimePackages": {
+    "@anysphere/policy-watcher": {
+      "kind": "native-runtime",
+      "ownerSurface": "policies",
+      "notes": "策略文件监听器；后续需要和 policies 资产一起定义编译/分发模型。"
+    },
+    "@parcel/watcher": {
+      "kind": "native-runtime",
+      "ownerSurface": "watcher",
+      "notes": "文件监听 native 模块；属于 watcher 运行链的硬依赖。"
+    },
+    "@vscode/deviceid": {
+      "kind": "native-runtime",
+      "ownerSurface": "platform-device",
+      "notes": "设备标识 native 依赖；需要保留平台产物管理。"
+    },
+    "@vscode/spdlog": {
+      "kind": "native-runtime",
+      "ownerSurface": "logging",
+      "notes": "日志 native 绑定；后续进入平台二进制管理。"
+    },
+    "@vscode/sqlite3": {
+      "kind": "native-runtime",
+      "ownerSurface": "storage",
+      "notes": "SQLite native 绑定；属于宿主存储硬依赖。"
+    },
+    "cursor-proclist": {
+      "kind": "native-runtime",
+      "ownerSurface": "process-introspection",
+      "notes": "Cursor 进程列表 native 依赖。"
+    },
+    "kerberos": {
+      "kind": "native-runtime",
+      "ownerSurface": "auth",
+      "notes": "认证相关 native 包；短期继续 external。"
+    },
+    "keytar": {
+      "kind": "native-runtime",
+      "ownerSurface": "credential-storage",
+      "notes": "钥匙串/凭据存储 native 绑定。"
+    },
+    "native-is-elevated": {
+      "kind": "native-runtime",
+      "ownerSurface": "platform-privilege",
+      "notes": "权限检测 native 依赖。"
+    },
+    "native-keymap": {
+      "kind": "native-runtime",
+      "ownerSurface": "keyboard",
+      "notes": "键盘映射 native 依赖。"
+    },
+    "native-watchdog": {
+      "kind": "native-runtime",
+      "ownerSurface": "watchdog",
+      "notes": "watchdog native 模块。"
+    },
+    "node-pty": {
+      "kind": "native-runtime",
+      "ownerSurface": "terminal",
+      "notes": "terminal/pty 硬依赖；后续进入平台构建与分发模型。"
+    },
+    "windows-foreground-love": {
+      "kind": "native-runtime",
+      "ownerSurface": "platform-windowing",
+      "notes": "Windows 前台窗口相关 native 依赖；当前 macOS 路径仍保留为 external。"
+    }
+  },
+  "compatibilityArtifacts": {
+    "node_modules.asar": {
+      "kind": "compatibility-artifact",
+      "notes": "兼容期保留项；目标是最终退休。"
+    }
+  }
+}

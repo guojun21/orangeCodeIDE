@@ -1,0 +1,67 @@
+{
+  "baseline": {
+    "runtimeDependencyId": "cursor-official-distribution",
+    "runtimeInputRootTemplate": ".runtime-deps/cursor/{cursorRelease}/app",
+    "phase2OverlayRoot": "recovered/phase2/core-entrypoints",
+    "phase2OverlayFiles": [
+      "out/bootstrap-fork.js",
+      "out/vs/code/electron-sandbox/workbench/workbench.js",
+      "out/vs/base/parts/sandbox/electron-sandbox/preload.js"
+    ]
+  },
+  "assemblies": [
+    {
+      "assemblyId": "phase2-runtime",
+      "phase": "phase2",
+      "outputRoot": "recovered/phase2/runtime-app",
+      "overrideRoots": [],
+      "status": "archived"
+    },
+    {
+      "assemblyId": "phase4-runtime",
+      "phase": "phase4",
+      "outputRoot": "recovered/phase4/runtime-app",
+      "overrideRoots": [
+        "recovered/phase4/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assemblyId": "phase5-runtime",
+      "phase": "phase5",
+      "outputRoot": "recovered/phase5/runtime-app",
+      "overrideRoots": [
+        "recovered/phase5/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assemblyId": "phase6-runtime",
+      "phase": "phase6",
+      "outputRoot": "recovered/phase6/runtime-app",
+      "overrideRoots": [
+        "recovered/phase6/overrides"
+      ],
+      "status": "archived"
+    },
+    {
+      "assemblyId": "rebuilt-runtime",
+      "phase": "rebuilt",
+      "outputRoot": "recovered/rebuilt/runtime-app",
+      "overrideRoots": [
+        "recovered/rebuilt/overrides"
+      ],
+      "status": "active"
+    },
+    {
+      "assemblyId": "startup-loader-runtime",
+      "phase": "startup-loader",
+      "outputRoot": "recovered/startup-loader/runtime-app",
+      "overrideRoots": [
+        "recovered/rebuilt/overrides",
+        "recovered/startup-loader/overrides"
+      ],
+      "status": "active-experimental"
+    }
+  ]
+}

@@ -5,8 +5,8 @@ import path from 'path';
 import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mjs';
 
 import { ROOT } from './paths.mjs';
+import { readRuntimeAssemblies } from './runtime-config.mjs';
 const SLICES_PATH = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
-const ASSEMBLIES_PATH = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-source-quality.json');
 
 const RUNTIME_SIZE_LOWER_BOUND = 0.3;
@@ -322,8 +322,8 @@ function buildRuntimeCheck(slice, phase) {
 }
 
 const manifest = readJson(SLICES_PATH);
-const assemblies = readJson(ASSEMBLIES_PATH);
-const rebuiltAssembly = assemblies.assemblies.find((entry) => entry.assembly_id === 'rebuilt-runtime');
+const assemblies = readRuntimeAssemblies();
+const rebuiltAssembly = assemblies.assemblies.find((entry) => entry.assemblyId === 'rebuilt-runtime');
 const activeProfile = getActiveProfile();
 
 if (!rebuiltAssembly) {

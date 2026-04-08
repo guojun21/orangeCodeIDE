@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-04-08T16:58:20.142Z",
+  "bootstrapSource": "official-cursor-distribution",
+  "stagedRuntimeRoot": ".runtime-deps/cursor/2.6/app",
+  "stagedRootInsideRuntimeDeps": true,
+  "assemblySourceOfTruth": "config/runtime/assemblies.json",
+  "rebuiltAssemblyRuntimeInputRoot": ".runtime-deps/cursor/2.6/app",
+  "rebuiltAssemblyUsesRepoRoot": false,
+  "repoRootRuntimeItems": [
+    {
+      "path": "bin",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "extensions",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "node_modules",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "node_modules.asar",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "out",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "policies",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "product.json",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "resources",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "LICENSE.txt",
+      "present": true,
+      "gitTracked": false
+    },
+    {
+      "path": "ThirdPartyNotices.txt",
+      "present": true,
+      "gitTracked": false
+    }
+  ],
+  "passed": true
+}

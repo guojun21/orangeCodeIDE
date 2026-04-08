@@ -7,9 +7,9 @@ import vm from 'vm';
 import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mjs';
 
 import { ROOT } from './paths.mjs';
+import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 const SLICES_MANIFEST = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-extension-signatures.json');
-const SOURCE_FILE = path.join(ROOT, 'out', 'vs', 'workbench', 'api', 'node', 'extensionHostProcess.js');
 const OVERRIDE_FILE = path.join(
   ROOT,
   'recovered',
@@ -23,6 +23,24 @@ const OVERRIDE_FILE = path.join(
   'extensionHostProcess.js'
 );
 
+function parseArgs(argv) {
+  const args = {};
+  for (let index = 2; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (!token.startsWith('--')) {
+      continue;
+    }
+    const key = token.slice(2);
+    const value = argv[index + 1];
+    if (!value || value.startsWith('--')) {
+      throw new Error(`Missing value for --${key}`);
+    }
+    args[key] = value;
+    index += 1;
+  }
+  return args;
+}
+
 function sha256(filePath) {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
@@ -30,6 +48,20 @@ function sha256(filePath) {
 function materialize(template, phase) {
   return template.replaceAll('{phase}', phase);
 }
+
+const args = parseArgs(process.argv);
+const runtimeInputRoot = resolveRuntimeInputRoot({
+  explicitRoot: args['runtime-input-root'] ?? process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null,
+});
+const SOURCE_FILE = path.join(
+  runtimeInputRoot,
+  'out',
+  'vs',
+  'workbench',
+  'api',
+  'node',
+  'extensionHostProcess.js'
+);
 
 const manifest = JSON.parse(fs.readFileSync(SLICES_MANIFEST, 'utf8'));
 const phase = 'rebuilt';
@@ -90,6 +122,7 @@ fs.writeFileSync(OVERRIDE_FILE, patched);
 const result = {
   generatedAt: new Date().toISOString(),
   activeProfile,
+  runtimeInputRoot,
   sourceFile: SOURCE_FILE,
   overrideFile: OVERRIDE_FILE,
   updates,

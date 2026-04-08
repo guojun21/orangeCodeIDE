@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-04-08T16:58:15.918Z",
+  "sourceOfTruth": "config/runtime/host-assets-model.json",
+  "resources": {
+    "fileCount": 8,
+    "sections": [
+      {
+        "section": "resources.darwinTrayAssets",
+        "kind": "brand-asset",
+        "notes": "tray 图标资产，后续进入品牌资源模板链。",
+        "files": [
+          {
+            "path": "resources/darwin/trayNotifyWhite.png",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/darwin/trayNotifyWhite@2x.png",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/darwin/trayTemplate.png",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/darwin/trayTemplate@2x.png",
+            "existsInRuntime": true
+          }
+        ]
+      },
+      {
+        "section": "resources.helperBinaries",
+        "kind": "external-binary",
+        "notes": "helper/runtime 可执行文件；短期继续 external，后续建立平台二进制产出链。",
+        "files": [
+          {
+            "path": "resources/helpers/crepectl",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/helpers/cursor-terminal-wrapper",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/helpers/cursorsandbox",
+            "existsInRuntime": true
+          },
+          {
+            "path": "resources/helpers/node",
+            "existsInRuntime": true
+          }
+        ]
+      }
+    ],
+    "unclassifiedFiles": []
+  },
+  "bin": {
+    "fileCount": 4,
+    "sections": [
+      {
+        "section": "bin.launcherScripts",
+        "kind": "generated-launcher",
+        "notes": "轻量 shell launcher；后续应可模板化生成。",
+        "files": [
+          {
+            "path": "bin/code",
+            "existsInRuntime": true
+          },
+          {
+            "path": "bin/cursor",
+            "existsInRuntime": true
+          }
+        ]
+      },
+      {
+        "section": "bin.tunnelBinaries",
+        "kind": "external-binary",
+        "notes": "tunnel 二进制；当前继续 external，后续独立定义分发模型。",
+        "files": [
+          {
+            "path": "bin/code-tunnel",
+            "existsInRuntime": true
+          },
+          {
+            "path": "bin/cursor-tunnel",
+            "existsInRuntime": true
+          }
+        ]
+      }
+    ],
+    "unclassifiedFiles": []
+  },
+  "policies": {
+    "fileCount": 2,
+    "sections": [
+      {
+        "section": "policies.policyProfiles",
+        "kind": "policy-asset",
+        "notes": "企业策略配置文件；后续与 policy watcher/native 配合收敛。",
+        "files": [
+          {
+            "path": "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
+            "existsInRuntime": true
+          },
+          {
+            "path": "policies/en-us/com.todesktop.230313mzl4w4u92.plist",
+            "existsInRuntime": true
+          }
+        ]
+      }
+    ],
+    "unclassifiedFiles": []
+  },
+  "product": {
+    "exists": true,
+    "sections": [
+      {
+        "section": "product.branding",
+        "kind": "template-config",
+        "notes": "品牌标识与 bundle id，最终应由产品模板生成。",
+        "presentInSummary": true
+      },
+      {
+        "section": "product.serviceEndpoints",
+        "kind": "template-config",
+        "notes": "更新、license、gallery 等 endpoint 配置，后续需要模板化并环境化。",
+        "presentInSummary": true
+      },
+      {
+        "section": "product.featureFlags",
+        "kind": "product-config",
+        "notes": "内置扩展、默认 agent、sync keys 等运行配置。",
+        "presentInSummary": true
+      }
+    ],
+    "summary": {
+      "exists": true,
+      "path": "recovered/rebuilt/runtime-app/product.json",
+      "branding": {
+        "nameShort": "Cursor",
+        "nameLong": "Cursor",
+        "applicationName": "cursor",
+        "dataFolderName": ".cursor",
+        "darwinBundleIdentifier": "com.todesktop.230313mzl4w4u92",
+        "linuxIconName": "co.anysphere.cursor",
+        "win32AppUserModelId": "Anysphere.Cursor"
+      },
+      "serviceEndpoints": {
+        "licenseUrl": "https://cursor.com/license.txt",
+        "updateUrl": "https://api2.cursor.sh/updates",
+        "documentationUrl": null,
+        "extensionsGallery": {
+          "serviceUrl": "https://marketplace.cursorapi.com/_apis/public/gallery",
+          "itemUrl": "https://marketplace.cursorapi.com/items",
+          "resourceUrlTemplate": "https://marketplace.cursorapi.com/{publisher}/{name}/{version}/{path}",
+          "controlUrl": "https://api2.cursor.sh/extensions-control"
+        }
+      },
+      "featureFlags": {
+        "builtInExtensionsCount": 3,
+        "trustedExtensionAuthAccessCount": 5,
+        "extensionSyncedKeysCount": 1,
+        "hasDefaultChatAgent": true
+      }
+    }
+  },
+  "passed": true
+}

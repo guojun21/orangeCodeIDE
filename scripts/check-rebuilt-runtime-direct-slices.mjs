@@ -6,8 +6,8 @@ import path from 'path';
 import { getActiveProfile, sliceMatchesProfile } from './watch-rebuilt-slices.mjs';
 
 import { ROOT } from './paths.mjs';
+import { readRuntimeAssemblies, getAssemblyById } from './runtime-config.mjs';
 const SLICES_MANIFEST = path.join(ROOT, 'mapped', 'rebuilt-slices.json');
-const ASSEMBLIES_MANIFEST = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-runtime-direct-check.json');
 
 function sha256(filePath) {
@@ -19,8 +19,8 @@ function materialize(template, phase) {
 }
 
 const slicesManifest = JSON.parse(fs.readFileSync(SLICES_MANIFEST, 'utf8'));
-const assembliesManifest = JSON.parse(fs.readFileSync(ASSEMBLIES_MANIFEST, 'utf8'));
-const rebuiltAssembly = assembliesManifest.assemblies.find((entry) => entry.assembly_id === 'rebuilt-runtime');
+const assembliesManifest = readRuntimeAssemblies();
+const rebuiltAssembly = getAssemblyById('rebuilt-runtime', assembliesManifest);
 const activeProfile = getActiveProfile();
 
 if (!rebuiltAssembly) {
@@ -28,7 +28,7 @@ if (!rebuiltAssembly) {
 }
 
 const phase = rebuiltAssembly.phase;
-const runtimeRoot = path.join(ROOT, rebuiltAssembly.output_root);
+const runtimeRoot = path.join(ROOT, rebuiltAssembly.outputRoot);
 const runtimeDirectSlices = slicesManifest.slices.filter(
   (slice) =>
     slice.target_runtime_bundle.startsWith('out/') &&

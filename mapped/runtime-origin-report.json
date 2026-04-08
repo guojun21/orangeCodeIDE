@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-04-08T16:58:08.712Z",
+  "assemblyId": "rebuilt-runtime",
+  "sourceOfTruth": "config/runtime/assemblies.json",
+  "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
+  "outputRoot": "recovered/rebuilt/runtime-app",
+  "topLevelOrigins": [
+    {
+      "path": "bin",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "extensions",
+      "existsInRuntime": true,
+      "source": "rebuilt-override",
+      "contributors": [
+        "external-runtime-input",
+        "rebuilt-override"
+      ]
+    },
+    {
+      "path": "node_modules",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "node_modules.asar",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "out",
+      "existsInRuntime": true,
+      "source": "rebuilt-override",
+      "contributors": [
+        "external-runtime-input",
+        "phase2-overlay",
+        "rebuilt-override"
+      ]
+    },
+    {
+      "path": "policies",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "product.json",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "resources",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "LICENSE.txt",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    },
+    {
+      "path": "ThirdPartyNotices.txt",
+      "existsInRuntime": true,
+      "source": "external-runtime-input",
+      "contributors": [
+        "external-runtime-input"
+      ]
+    }
+  ],
+  "meta": [
+    {
+      "path": "package.json",
+      "source": "generated-report"
+    },
+    {
+      "path": "mapped/runtime-origin-report.json",
+      "source": "generated-report"
+    }
+  ],
+  "passed": true
+}

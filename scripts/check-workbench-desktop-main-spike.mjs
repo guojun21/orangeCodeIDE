@@ -10,6 +10,7 @@ import {
   createIsolatedProbeUserDataDir,
 } from './rebuilt-user-data.mjs';
 import { ROOT } from './paths.mjs';
+import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 
 const REAL_ROOT = fs.realpathSync(ROOT);
 const PROFILE = 'workbench-desktop-main-spike';
@@ -22,7 +23,6 @@ const EXPORT_BASELINE_PATH = path.join(ROOT, 'mapped', 'workbench-desktop-main-e
 const SHORT_PROBE_ROOT = path.join('/tmp', 'shc-spk');
 const BUILT_PATH = path.join(ROOT, 'recovered', PHASE, 'built', 'workbench-desktop-main-proxy.js');
 const RUNTIME_PATH = path.join(ROOT, 'recovered', PHASE, 'runtime-app', 'out', 'vs', 'workbench', 'workbench.desktop.main.js');
-const ORIGINAL_MODULE_PATH = path.join(ROOT, 'out', 'vs', 'workbench', 'workbench.desktop.main.js');
 const RUNTIME_ORIGINAL_MODULE_PATH = path.join(
   ROOT,
   'recovered',
@@ -43,6 +43,24 @@ const ORIGINAL_MODULE_URL = `vscode-file://vscode-app${path.join(
   'workbench',
   'workbench.desktop.main.original.js'
 )}`;
+
+function parseArgs(argv) {
+  const args = {};
+  for (let index = 2; index < argv.length; index += 1) {
+    const token = argv[index];
+    if (!token.startsWith('--')) {
+      continue;
+    }
+    const key = token.slice(2);
+    const value = argv[index + 1];
+    if (!value || value.startsWith('--')) {
+      throw new Error(`Missing value for --${key}`);
+    }
+    args[key] = value;
+    index += 1;
+  }
+  return args;
+}
 
 function debug(message, detail = null) {
   if (!DEBUG) {
@@ -122,6 +140,18 @@ function readExportBaseline() {
 
   return JSON.parse(fs.readFileSync(EXPORT_BASELINE_PATH, 'utf8'));
 }
+
+const args = parseArgs(process.argv);
+const runtimeInputRoot = resolveRuntimeInputRoot({
+  explicitRoot: args['runtime-input-root'] ?? process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null,
+});
+const ORIGINAL_MODULE_PATH = path.join(
+  runtimeInputRoot,
+  'out',
+  'vs',
+  'workbench',
+  'workbench.desktop.main.js'
+);
 
 const runtimeBackup = readOptionalBuffer(RUNTIME_PATH);
 const runtimeOriginalBackup = readOptionalBuffer(RUNTIME_ORIGINAL_MODULE_PATH);
@@ -321,6 +351,7 @@ checks.push({
 const payload = {
   generatedAt: new Date().toISOString(),
   profile: PROFILE,
+  runtimeInputRoot,
   passed: checks.every((entry) => entry.passed || entry.advisory === true),
   configurationBaselinePath: CONFIG_BASELINE_PATH,
   configurationDelta,

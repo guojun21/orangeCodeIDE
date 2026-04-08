@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+export {
+  ROOT,
+  RUNTIME_DEPENDENCIES_CONFIG_PATH,
+  RUNTIME_ASSEMBLIES_CONFIG_PATH,
+  RUNTIME_OWNERSHIP_CONFIG_PATH,
+  RUNTIME_NODE_MODULES_MODEL_CONFIG_PATH,
+  RUNTIME_HOST_ASSETS_MODEL_CONFIG_PATH,
+  RUNTIME_ASSEMBLIES_REPORT_PATH,
+  RUNTIME_BOOTSTRAP_MANIFEST_PATH,
+  materializeTemplate,
+  readRuntimeDependencies,
+  readRuntimeAssembliesConfig,
+  readRuntimeOwnershipConfig,
+  readRuntimeNodeModulesModelConfig,
+  readRuntimeHostAssetsModelConfig,
+  readBootstrapRuntimeManifest,
+  getRequiredRuntimeItems,
+  readPackageVersion,
+  resolveDefaultCursorRelease,
+  getStagedRuntimeRoot,
+  resolveRuntimeInputRoot,
+  syncRuntimeAssembliesReport,
+  readRuntimeAssemblies,
+  getAssemblyById,
+} from './runtime-config.mjs';

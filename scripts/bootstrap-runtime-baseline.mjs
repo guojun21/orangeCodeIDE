@@ -6,23 +6,19 @@ import path from 'path';
 import { Readable } from 'stream';
 import { spawnSync } from 'child_process';
 import { ROOT } from './paths.mjs';
+import {
+  getRequiredRuntimeItems,
+  getStagedRuntimeRoot,
+  readRuntimeDependencies,
+  resolveDefaultCursorRelease,
+  RUNTIME_BOOTSTRAP_MANIFEST_PATH,
+} from './runtime-config.mjs';
 
 const DEFAULT_ARCHIVE_PATH = process.env.ORANGECODEIDE_RUNTIME_BASELINE_ARCHIVE || null;
 const DEFAULT_ARCHIVE_URL = process.env.ORANGECODEIDE_RUNTIME_BASELINE_URL || null;
 const DEFAULT_DIST_URL = process.env.ORANGECODEIDE_RUNTIME_DIST_URL || null;
 const DEFAULT_CURSOR_RELEASE = process.env.ORANGECODEIDE_CURSOR_RELEASE || null;
-const REQUIRED_RUNTIME_ITEMS = [
-  'bin',
-  'extensions',
-  'node_modules',
-  'node_modules.asar',
-  'out',
-  'policies',
-  'product.json',
-  'resources',
-  'LICENSE.txt',
-  'ThirdPartyNotices.txt',
-];
+const REQUIRED_RUNTIME_ITEMS = getRequiredRuntimeItems();
 
 function parseArgs(argv) {
   const args = {
@@ -79,26 +75,25 @@ async function downloadFile(url, outputPath) {
   });
 }
 
-function resetRuntimeTargets() {
-  for (const relativePath of REQUIRED_RUNTIME_ITEMS) {
-    fs.rmSync(path.join(ROOT, relativePath), {
-      recursive: true,
-      force: true,
-      maxRetries: 10,
-      retryDelay: 100,
-    });
-  }
+function resetDirectory(targetPath) {
+  fs.rmSync(targetPath, {
+    recursive: true,
+    force: true,
+    maxRetries: 10,
+    retryDelay: 100,
+  });
+  fs.mkdirSync(targetPath, { recursive: true });
 }
 
-function copyFromRuntimeRoot(runtimeRoot) {
+function copyFromRuntimeRoot(runtimeRoot, targetRoot) {
   if (!fs.existsSync(runtimeRoot)) {
     throw new Error(`Runtime root not found: ${runtimeRoot}`);
   }
 
-  resetRuntimeTargets();
+  resetDirectory(targetRoot);
   for (const relativePath of REQUIRED_RUNTIME_ITEMS) {
     const sourcePath = path.join(runtimeRoot, relativePath);
-    const targetPath = path.join(ROOT, relativePath);
+    const targetPath = path.join(targetRoot, relativePath);
     const stat = fs.statSync(sourcePath);
     if (stat.isDirectory()) {
       fs.cpSync(sourcePath, targetPath, { recursive: true, force: true, dereference: true });
@@ -109,9 +104,9 @@ function copyFromRuntimeRoot(runtimeRoot) {
   }
 }
 
-function extractArchive(archivePath) {
-  resetRuntimeTargets();
-  const tar = spawnSync('tar', ['-xzf', archivePath, '-C', ROOT], {
+function extractArchive(archivePath, targetRoot) {
+  resetDirectory(targetRoot);
+  const tar = spawnSync('tar', ['-xzf', archivePath, '-C', targetRoot], {
     stdio: 'inherit',
   });
   if (tar.status !== 0) {
@@ -119,42 +114,25 @@ function extractArchive(archivePath) {
   }
 }
 
-function ensureRuntimeTargetsPresent() {
-  const missing = REQUIRED_RUNTIME_ITEMS.filter((relativePath) => !fs.existsSync(path.join(ROOT, relativePath)));
+function ensureRuntimeTargetsPresent(targetRoot) {
+  const missing = REQUIRED_RUNTIME_ITEMS.filter((relativePath) => !fs.existsSync(path.join(targetRoot, relativePath)));
   if (missing.length > 0) {
     throw new Error(`Runtime baseline bootstrap incomplete. Missing: ${missing.join(', ')}`);
   }
-}
-
-function readPackageVersion() {
-  const packageJsonPath = path.join(ROOT, 'package.json');
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-  return packageJson.version;
-}
-
-function resolveCursorReleaseSeries(explicitValue) {
-  if (explicitValue) {
-    return explicitValue;
-  }
-  const version = readPackageVersion();
-  const [major, minor] = String(version).split('.');
-  if (!major || !minor) {
-    throw new Error(`Unable to derive Cursor release series from package version: ${version}`);
-  }
-  return `${major}.${minor}`;
 }
 
 function resolveOfficialDistributionUrl(explicitUrl, cursorRelease) {
   if (explicitUrl) {
     return explicitUrl;
   }
+  const dependencies = readRuntimeDependencies();
   if (process.platform !== 'darwin') {
     throw new Error(
       'No runtime baseline source configured. ' +
       'On non-macOS, pass --archive <tar.gz>, --url <tar.gz-url>, or --dist-url <official-runtime-url>.'
     );
   }
-  return `https://api2.cursor.sh/updates/download/golden/darwin-universal/cursor/${cursorRelease}`;
+  return dependencies.runtime.cursorDistribution.distributionUrlTemplate.replace('{cursorRelease}', cursorRelease);
 }
 
 function findMountedRuntimeRoot(mountRoot) {
@@ -173,7 +151,7 @@ function findMountedRuntimeRoot(mountRoot) {
   return runtimeRoot;
 }
 
-function copyFromDownloadedDistribution(distributionPath) {
+function copyFromDownloadedDistribution(distributionPath, targetRoot) {
   if (process.platform !== 'darwin') {
     throw new Error('Official distribution extraction is currently implemented for macOS only.');
   }
@@ -190,7 +168,7 @@ function copyFromDownloadedDistribution(distributionPath) {
 
   try {
     const runtimeRoot = findMountedRuntimeRoot(mountRoot);
-    copyFromRuntimeRoot(runtimeRoot);
+    copyFromRuntimeRoot(runtimeRoot, targetRoot);
     return runtimeRoot;
   } finally {
     const detach = spawnSync('hdiutil', ['detach', mountRoot, '-quiet'], { stdio: 'inherit' });
@@ -206,14 +184,21 @@ const manifest = {
   force: args.force,
   source: null,
 };
+const cursorRelease = resolveDefaultCursorRelease(args.cursorRelease);
+const stagedRuntimeRoot = getStagedRuntimeRoot(cursorRelease);
+manifest.cursorRelease = cursorRelease;
+manifest.stagedRuntimeRoot = stagedRuntimeRoot;
+manifest.requiredRuntimeItems = REQUIRED_RUNTIME_ITEMS;
 
 if (!args.force) {
-  const allPresent = REQUIRED_RUNTIME_ITEMS.every((relativePath) => fs.existsSync(path.join(ROOT, relativePath)));
+  const allPresent = REQUIRED_RUNTIME_ITEMS.every((relativePath) => fs.existsSync(path.join(stagedRuntimeRoot, relativePath)));
   if (allPresent) {
-    const manifestPath = path.join(ROOT, 'mapped', 'bootstrap-runtime-baseline.json');
-    fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
-    fs.writeFileSync(manifestPath, JSON.stringify({ ...manifest, source: 'kept-existing' }, null, 2) + '\n');
-    console.log(manifestPath);
+    fs.mkdirSync(path.dirname(RUNTIME_BOOTSTRAP_MANIFEST_PATH), { recursive: true });
+    fs.writeFileSync(
+      RUNTIME_BOOTSTRAP_MANIFEST_PATH,
+      JSON.stringify({ ...manifest, source: 'kept-existing' }, null, 2) + '\n'
+    );
+    console.log(RUNTIME_BOOTSTRAP_MANIFEST_PATH);
     process.exit(0);
   }
 }
@@ -222,33 +207,30 @@ if (args.archive) {
   if (!fs.existsSync(args.archive)) {
     throw new Error(`Runtime baseline archive not found: ${args.archive}`);
   }
-  extractArchive(args.archive);
+  extractArchive(args.archive, stagedRuntimeRoot);
   manifest.source = 'local-archive';
   manifest.archive = args.archive;
 } else if (args.url) {
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'orangecodeide-runtime-baseline-'));
   const archivePath = path.join(tmpRoot, 'runtime-baseline.tar.gz');
   await downloadFile(args.url, archivePath);
-  extractArchive(archivePath);
+  extractArchive(archivePath, stagedRuntimeRoot);
   manifest.source = 'remote-archive';
   manifest.url = args.url;
 } else {
-  const cursorRelease = resolveCursorReleaseSeries(args.cursorRelease);
   const distributionUrl = resolveOfficialDistributionUrl(args.distUrl, cursorRelease);
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'orangecodeide-runtime-distribution-'));
   const distributionPath = path.join(tmpRoot, path.basename(new URL(distributionUrl).pathname) || 'Cursor.dmg');
   await downloadFile(distributionUrl, distributionPath);
-  const runtimeRoot = copyFromDownloadedDistribution(distributionPath);
+  const runtimeRoot = copyFromDownloadedDistribution(distributionPath, stagedRuntimeRoot);
   manifest.source = 'official-cursor-distribution';
-  manifest.cursorRelease = cursorRelease;
   manifest.distributionUrl = distributionUrl;
   manifest.distributionPath = distributionPath;
-  manifest.runtimeRoot = runtimeRoot;
+  manifest.downloadedRuntimeRoot = runtimeRoot;
 }
 
-ensureRuntimeTargetsPresent();
+ensureRuntimeTargetsPresent(stagedRuntimeRoot);
 
-const manifestPath = path.join(ROOT, 'mapped', 'bootstrap-runtime-baseline.json');
-fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
-fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
-console.log(manifestPath);
+fs.mkdirSync(path.dirname(RUNTIME_BOOTSTRAP_MANIFEST_PATH), { recursive: true });
+fs.writeFileSync(RUNTIME_BOOTSTRAP_MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
+console.log(RUNTIME_BOOTSTRAP_MANIFEST_PATH);

@@ -1,0 +1,694 @@
+{
+  "generatedAt": "2026-04-08T16:58:11.873Z",
+  "assemblyId": "rebuilt-runtime",
+  "activeProfile": "stable",
+  "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
+  "outputRoot": "recovered/rebuilt/runtime-app",
+  "topLevelOwnership": [
+    {
+      "path": "out",
+      "kind": "generated",
+      "notes": "由 phase2 overlay、rebuilt slice build 和 runtime assembly 共同生成。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "extensions",
+      "kind": "generated",
+      "notes": "目标是内置扩展 dist 由 repo 内源码和构建链生成；当前仍允许 residual external 输入。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "node_modules",
+      "kind": "external-package",
+      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "node_modules.asar",
+      "kind": "external-package",
+      "notes": "兼容期 external 输入，后续应逐步退休。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "resources",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "bin",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "product.json",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入产品配置模板。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    },
+    {
+      "path": "policies",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution。",
+      "existsInRuntime": true,
+      "trackedInRepoRoot": false
+    }
+  ],
+  "extensions": {
+    "trackedEntryCount": 10,
+    "totalEntryCount": 10,
+    "entries": [
+      {
+        "sliceId": "cursor-socket-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-socket/index.js",
+        "targetRuntimeBundle": "extensions/cursor-socket/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-polyfills-remote-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-polyfills-remote/index.js",
+        "targetRuntimeBundle": "extensions/cursor-polyfills-remote/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-mcp-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-mcp/index.js",
+        "targetRuntimeBundle": "extensions/cursor-mcp/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-resolver-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-resolver/index.js",
+        "targetRuntimeBundle": "extensions/cursor-resolver/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-ndjson-ingest-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-ndjson-ingest/index.js",
+        "targetRuntimeBundle": "extensions/cursor-ndjson-ingest/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-commits-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-commits/index.js",
+        "targetRuntimeBundle": "extensions/cursor-commits/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-deeplink-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-deeplink/index.js",
+        "targetRuntimeBundle": "extensions/cursor-deeplink/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-browser-automation-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-browser-automation/index.js",
+        "targetRuntimeBundle": "extensions/cursor-browser-automation/dist/extension.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-shadow-workspace-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-shadow-workspace/index.js",
+        "targetRuntimeBundle": "extensions/cursor-shadow-workspace/dist/extension.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-always-local-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-always-local/index.js",
+        "targetRuntimeBundle": "extensions/cursor-always-local/dist/main.js",
+        "repoTracked": true
+      }
+    ]
+  },
+  "groupedOwnership": {
+    "out": [
+      {
+        "group": "workbench/preload",
+        "members": [
+          {
+            "path": "out/bootstrap-fork.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/code/electron-sandbox/workbench/workbench.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/workbench/workbench.desktop.main.js",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      },
+      {
+        "group": "worker-mains",
+        "members": [
+          {
+            "path": "out/vs/platform/files/node/watcher/watcherMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/workbench/services/search/worker/localFileSearchMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/editor/common/services/editorWebWorkerMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorkerMain.js",
+            "existsInRuntime": false,
+            "coveredBySlice": false
+          }
+        ]
+      },
+      {
+        "group": "shared-cli-pty-watcher",
+        "members": [
+          {
+            "path": "out/main.js",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "out/bootstrap-fork.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/code/node/cli.js",
+            "existsInRuntime": false,
+            "coveredBySlice": false
+          },
+          {
+            "path": "out/vs/code/node/cliProcessMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/platform/terminal/node/ptyHostMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          },
+          {
+            "path": "out/vs/platform/files/node/watcher/watcherMain.js",
+            "existsInRuntime": true,
+            "coveredBySlice": true
+          }
+        ]
+      },
+      {
+        "group": "extension-host-sidecars",
+        "members": [
+          {
+            "path": "out/vs/workbench/api/node/extensionHostProcess.js",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "out/vs/workbench/api/worker/extensionHostWorker.js",
+            "existsInRuntime": false,
+            "coveredBySlice": false
+          }
+        ]
+      }
+    ],
+    "resources": [
+      {
+        "group": "darwin-tray-assets",
+        "members": [
+          {
+            "path": "resources/darwin/trayTemplate.png",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/darwin/trayTemplate@2x.png",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/darwin/trayNotifyWhite.png",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/darwin/trayNotifyWhite@2x.png",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      },
+      {
+        "group": "helper-binaries",
+        "members": [
+          {
+            "path": "resources/helpers/cursorsandbox",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/helpers/cursor-terminal-wrapper",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/helpers/crepectl",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "resources/helpers/node",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      }
+    ],
+    "bin": [
+      {
+        "group": "launcher-binaries",
+        "members": [
+          {
+            "path": "bin/code",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "bin/cursor",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      },
+      {
+        "group": "tunnel-binaries",
+        "members": [
+          {
+            "path": "bin/code-tunnel",
+            "existsInRuntime": false,
+            "coveredBySlice": false
+          },
+          {
+            "path": "bin/cursor-tunnel",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      }
+    ],
+    "policies": [
+      {
+        "group": "policy-profiles",
+        "members": [
+          {
+            "path": "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          },
+          {
+            "path": "policies/en-us/com.todesktop.230313mzl4w4u92.plist",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      }
+    ],
+    "product": [
+      {
+        "group": "product-config",
+        "members": [
+          {
+            "path": "product.json",
+            "existsInRuntime": true,
+            "coveredBySlice": false
+          }
+        ]
+      }
+    ]
+  },
+  "outGroups": [
+    {
+      "group": "workbench/preload",
+      "members": [
+        {
+          "path": "out/bootstrap-fork.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/code/electron-sandbox/workbench/workbench.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/base/parts/sandbox/electron-sandbox/preload.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/workbench/workbench.desktop.main.js",
+          "existsInRuntime": true,
+          "coveredBySlice": false
+        }
+      ]
+    },
+    {
+      "group": "worker-mains",
+      "members": [
+        {
+          "path": "out/vs/platform/files/node/watcher/watcherMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/workbench/services/search/worker/localFileSearchMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/editor/common/services/editorWebWorkerMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/workbench/contrib/output/common/outputLinkComputerMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/workbench/services/textMate/browser/backgroundTokenization/worker/textMateTokenizationWorkerMain.js",
+          "existsInRuntime": false,
+          "coveredBySlice": false
+        }
+      ]
+    },
+    {
+      "group": "shared-cli-pty-watcher",
+      "members": [
+        {
+          "path": "out/main.js",
+          "existsInRuntime": true,
+          "coveredBySlice": false
+        },
+        {
+          "path": "out/bootstrap-fork.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/code/node/cli.js",
+          "existsInRuntime": false,
+          "coveredBySlice": false
+        },
+        {
+          "path": "out/vs/code/node/cliProcessMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/platform/terminal/node/ptyHostMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        },
+        {
+          "path": "out/vs/platform/files/node/watcher/watcherMain.js",
+          "existsInRuntime": true,
+          "coveredBySlice": true
+        }
+      ]
+    },
+    {
+      "group": "extension-host-sidecars",
+      "members": [
+        {
+          "path": "out/vs/workbench/api/node/extensionHostProcess.js",
+          "existsInRuntime": true,
+          "coveredBySlice": false
+        },
+        {
+          "path": "out/vs/workbench/api/worker/extensionHostWorker.js",
+          "existsInRuntime": false,
+          "coveredBySlice": false
+        }
+      ]
+    }
+  ],
+  "residuals": {
+    "topLevelSummary": [
+      {
+        "path": "node_modules",
+        "count": 16473,
+        "sample": [
+          "node_modules/@anysphere/policy-watcher/LICENSE",
+          "node_modules/@anysphere/policy-watcher/build/Release/vscode-policy-watcher.node",
+          "node_modules/@anysphere/policy-watcher/index.js",
+          "node_modules/@anysphere/policy-watcher/mise.toml",
+          "node_modules/@anysphere/policy-watcher/package.json",
+          "node_modules/@apm-js-collab/code-transformer/LICENSE",
+          "node_modules/@apm-js-collab/code-transformer/NOTICE",
+          "node_modules/@apm-js-collab/code-transformer/index.js",
+          "node_modules/@apm-js-collab/code-transformer/package.json",
+          "node_modules/@apm-js-collab/code-transformer/pkg/orchestrion_js.js",
+          "node_modules/@apm-js-collab/tracing-hooks/LICENSE",
+          "node_modules/@apm-js-collab/tracing-hooks/hook.mjs",
+          "node_modules/@apm-js-collab/tracing-hooks/index.js",
+          "node_modules/@apm-js-collab/tracing-hooks/lib/get-package-version.js",
+          "node_modules/@apm-js-collab/tracing-hooks/package.json",
+          "node_modules/@azure/core-auth/LICENSE",
+          "node_modules/@azure/core-auth/dist/browser/azureKeyCredential.js",
+          "node_modules/@azure/core-auth/dist/browser/azureNamedKeyCredential.js",
+          "node_modules/@azure/core-auth/dist/browser/azureSASCredential.js",
+          "node_modules/@azure/core-auth/dist/browser/index.js"
+        ],
+        "ownershipKind": "external-package"
+      },
+      {
+        "path": "extensions",
+        "count": 902,
+        "sample": [
+          "extensions/bat/language-configuration.json",
+          "extensions/bat/package.json",
+          "extensions/bat/package.nls.json",
+          "extensions/bat/snippets/batchfile.code-snippets",
+          "extensions/bat/syntaxes/batchfile.tmLanguage.json",
+          "extensions/clojure/language-configuration.json",
+          "extensions/clojure/package.json",
+          "extensions/clojure/package.nls.json",
+          "extensions/clojure/syntaxes/clojure.tmLanguage.json",
+          "extensions/coffeescript/language-configuration.json",
+          "extensions/coffeescript/package.json",
+          "extensions/coffeescript/package.nls.json",
+          "extensions/coffeescript/snippets/coffeescript.code-snippets",
+          "extensions/coffeescript/syntaxes/coffeescript.tmLanguage.json",
+          "extensions/configuration-editing/dist/configurationEditingMain.js",
+          "extensions/configuration-editing/images/icon.png",
+          "extensions/configuration-editing/package.json",
+          "extensions/configuration-editing/package.nls.json",
+          "extensions/configuration-editing/schemas/attachContainer.schema.json",
+          "extensions/cpp/language-configuration.json"
+        ],
+        "ownershipKind": "generated"
+      },
+      {
+        "path": "out",
+        "count": 123,
+        "sample": [
+          "out/main.js",
+          "out/media/agents-toggle-filled.svg",
+          "out/media/agents-toggle-outline.svg",
+          "out/media/code-icon.svg",
+          "out/media/codicon.ttf",
+          "out/media/cursor-icons-outline.woff2",
+          "out/media/jetbrains-mono-regular.ttf",
+          "out/media/loading-dark.svg",
+          "out/media/loading-hc.svg",
+          "out/media/loading.svg",
+          "out/media/logo.png",
+          "out/media/opacity-background.png",
+          "out/nls.keys.json",
+          "out/nls.messages.json",
+          "out/vs/base/node/cpuUsage.sh",
+          "out/vs/base/node/ps.sh",
+          "out/vs/base/node/terminateProcess.sh",
+          "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.html",
+          "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.css",
+          "out/vs/code/electron-sandbox/processExplorer/processExplorer.html"
+        ],
+        "ownershipKind": "generated"
+      },
+      {
+        "path": "resources",
+        "count": 8,
+        "sample": [
+          "resources/darwin/trayNotifyWhite.png",
+          "resources/darwin/trayNotifyWhite@2x.png",
+          "resources/darwin/trayTemplate.png",
+          "resources/darwin/trayTemplate@2x.png",
+          "resources/helpers/crepectl",
+          "resources/helpers/cursor-terminal-wrapper",
+          "resources/helpers/cursorsandbox",
+          "resources/helpers/node"
+        ],
+        "ownershipKind": "external-runtime-input"
+      },
+      {
+        "path": "bin",
+        "count": 4,
+        "sample": [
+          "bin/code",
+          "bin/code-tunnel",
+          "bin/cursor",
+          "bin/cursor-tunnel"
+        ],
+        "ownershipKind": "external-runtime-input"
+      },
+      {
+        "path": "policies",
+        "count": 2,
+        "sample": [
+          "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
+          "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
+        ],
+        "ownershipKind": "external-runtime-input"
+      },
+      {
+        "path": "LICENSE.txt",
+        "count": 1,
+        "sample": [
+          "LICENSE.txt"
+        ],
+        "ownershipKind": "unknown"
+      },
+      {
+        "path": "ThirdPartyNotices.txt",
+        "count": 1,
+        "sample": [
+          "ThirdPartyNotices.txt"
+        ],
+        "ownershipKind": "unknown"
+      },
+      {
+        "path": "node_modules.asar",
+        "count": 1,
+        "sample": [
+          "node_modules.asar"
+        ],
+        "ownershipKind": "external-package"
+      },
+      {
+        "path": "product.json",
+        "count": 1,
+        "sample": [
+          "product.json"
+        ],
+        "ownershipKind": "external-runtime-input"
+      }
+    ],
+    "outResidualGroups": [
+      {
+        "group": "unclassified",
+        "count": 120,
+        "sample": [
+          "out/media/agents-toggle-filled.svg",
+          "out/media/agents-toggle-outline.svg",
+          "out/media/code-icon.svg",
+          "out/media/codicon.ttf",
+          "out/media/cursor-icons-outline.woff2",
+          "out/media/jetbrains-mono-regular.ttf",
+          "out/media/loading-dark.svg",
+          "out/media/loading-hc.svg",
+          "out/media/loading.svg",
+          "out/media/logo.png",
+          "out/media/opacity-background.png",
+          "out/nls.keys.json",
+          "out/nls.messages.json",
+          "out/vs/base/node/cpuUsage.sh",
+          "out/vs/base/node/ps.sh",
+          "out/vs/base/node/terminateProcess.sh",
+          "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.html",
+          "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.css",
+          "out/vs/code/electron-sandbox/processExplorer/processExplorer.html",
+          "out/vs/code/electron-sandbox/processExplorer/processExplorerMain.css"
+        ]
+      },
+      {
+        "group": "shared-cli-pty-watcher",
+        "count": 1,
+        "sample": [
+          "out/main.js"
+        ]
+      },
+      {
+        "group": "extension-host-sidecars",
+        "count": 1,
+        "sample": [
+          "out/vs/workbench/api/node/extensionHostProcess.js"
+        ]
+      },
+      {
+        "group": "workbench/preload",
+        "count": 1,
+        "sample": [
+          "out/vs/workbench/workbench.desktop.main.js"
+        ]
+      }
+    ],
+    "extensionResidualSample": [
+      "extensions/bat/language-configuration.json",
+      "extensions/bat/package.json",
+      "extensions/bat/package.nls.json",
+      "extensions/bat/snippets/batchfile.code-snippets",
+      "extensions/bat/syntaxes/batchfile.tmLanguage.json",
+      "extensions/clojure/language-configuration.json",
+      "extensions/clojure/package.json",
+      "extensions/clojure/package.nls.json",
+      "extensions/clojure/syntaxes/clojure.tmLanguage.json",
+      "extensions/coffeescript/language-configuration.json",
+      "extensions/coffeescript/package.json",
+      "extensions/coffeescript/package.nls.json",
+      "extensions/coffeescript/snippets/coffeescript.code-snippets",
+      "extensions/coffeescript/syntaxes/coffeescript.tmLanguage.json",
+      "extensions/configuration-editing/dist/configurationEditingMain.js",
+      "extensions/configuration-editing/images/icon.png",
+      "extensions/configuration-editing/package.json",
+      "extensions/configuration-editing/package.nls.json",
+      "extensions/configuration-editing/schemas/attachContainer.schema.json",
+      "extensions/cpp/language-configuration.json"
+    ]
+  },
+  "passed": true
+}

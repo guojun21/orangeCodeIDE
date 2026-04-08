@@ -1,0 +1,219 @@
+{
+  "generatedAt": "2026-04-08T16:58:21.890Z",
+  "assemblyId": "rebuilt-runtime",
+  "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
+  "outputRoot": "recovered/rebuilt/runtime-app",
+  "boundaryPassed": true,
+  "sourceOfTruth": {
+    "assemblies": "config/runtime/assemblies.json",
+    "ownership": "config/runtime/ownership.json",
+    "nodeModulesModel": "config/runtime/node-modules-model.json",
+    "hostAssetsModel": "config/runtime/host-assets-model.json"
+  },
+  "externalDependencyInventory": {
+    "nodeModules": {
+      "packageCount": 457,
+      "nativePackageCount": 13,
+      "nativeAddonCount": 13
+    },
+    "extensions": {
+      "generatedExtensionDirCount": 10,
+      "externalExtensionDirCount": 97
+    },
+    "resources": {
+      "fileCount": 8
+    },
+    "bin": {
+      "fileCount": 4
+    },
+    "policies": {
+      "fileCount": 2
+    },
+    "product": {
+      "exists": true
+    },
+    "nodeModulesAsar": {
+      "exists": true,
+      "sizeBytes": 28
+    }
+  },
+  "nodeModulesModel": {
+    "packageCount": 457,
+    "jsInstallablePackageCount": 444,
+    "nativeRuntimePackageCount": 13,
+    "nativeAddonCount": 13,
+    "unexpectedNativePackages": [],
+    "missingConfiguredNativePackages": []
+  },
+  "hostAssetsModel": {
+    "resources": {
+      "fileCount": 8,
+      "unclassifiedFiles": []
+    },
+    "bin": {
+      "fileCount": 4,
+      "unclassifiedFiles": []
+    },
+    "policies": {
+      "fileCount": 2,
+      "unclassifiedFiles": []
+    },
+    "product": {
+      "exists": true
+    }
+  },
+  "runtimeManifests": {
+    "packageManager": {
+      "dependencyCount": 444,
+      "passed": true
+    },
+    "nativeRuntime": {
+      "nativeRuntimePackageCount": 13,
+      "hostAssetSectionCount": 5,
+      "passed": true
+    }
+  },
+  "topLevelSummary": [
+    {
+      "path": "out",
+      "ownershipKind": "generated",
+      "runtimeOrigin": "rebuilt-override"
+    },
+    {
+      "path": "extensions",
+      "ownershipKind": "generated",
+      "runtimeOrigin": "rebuilt-override"
+    },
+    {
+      "path": "node_modules",
+      "ownershipKind": "external-package",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "node_modules.asar",
+      "ownershipKind": "external-package",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "resources",
+      "ownershipKind": "external-runtime-input",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "bin",
+      "ownershipKind": "external-runtime-input",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "product.json",
+      "ownershipKind": "external-runtime-input",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "policies",
+      "ownershipKind": "external-runtime-input",
+      "runtimeOrigin": "external-runtime-input"
+    }
+  ],
+  "residualFileCounts": {
+    "node_modules": 16473,
+    "extensions": 902,
+    "out": 123,
+    "resources": 8,
+    "bin": 4,
+    "policies": 2,
+    "LICENSE.txt": 1,
+    "ThirdPartyNotices.txt": 1,
+    "node_modules.asar": 1,
+    "product.json": 1
+  },
+  "outResidualGroups": [
+    {
+      "group": "unclassified",
+      "count": 120,
+      "sample": [
+        "out/media/agents-toggle-filled.svg",
+        "out/media/agents-toggle-outline.svg",
+        "out/media/code-icon.svg",
+        "out/media/codicon.ttf",
+        "out/media/cursor-icons-outline.woff2",
+        "out/media/jetbrains-mono-regular.ttf",
+        "out/media/loading-dark.svg",
+        "out/media/loading-hc.svg",
+        "out/media/loading.svg",
+        "out/media/logo.png",
+        "out/media/opacity-background.png",
+        "out/nls.keys.json",
+        "out/nls.messages.json",
+        "out/vs/base/node/cpuUsage.sh",
+        "out/vs/base/node/ps.sh",
+        "out/vs/base/node/terminateProcess.sh",
+        "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitor.html",
+        "out/vs/code/electron-sandbox/extensionMonitor/extensionMonitorMain.css",
+        "out/vs/code/electron-sandbox/processExplorer/processExplorer.html",
+        "out/vs/code/electron-sandbox/processExplorer/processExplorerMain.css"
+      ]
+    },
+    {
+      "group": "shared-cli-pty-watcher",
+      "count": 1,
+      "sample": [
+        "out/main.js"
+      ]
+    },
+    {
+      "group": "extension-host-sidecars",
+      "count": 1,
+      "sample": [
+        "out/vs/workbench/api/node/extensionHostProcess.js"
+      ]
+    },
+    {
+      "group": "workbench/preload",
+      "count": 1,
+      "sample": [
+        "out/vs/workbench/workbench.desktop.main.js"
+      ]
+    }
+  ],
+  "residualExternalItems": [
+    {
+      "path": "node_modules",
+      "kind": "external-package",
+      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "node_modules.asar",
+      "kind": "external-package",
+      "notes": "兼容期 external 输入，后续应逐步退休。",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "resources",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "bin",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "product.json",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution，后续进入产品配置模板。",
+      "runtimeOrigin": "external-runtime-input"
+    },
+    {
+      "path": "policies",
+      "kind": "external-runtime-input",
+      "notes": "当前仍来自官方 runtime distribution。",
+      "runtimeOrigin": "external-runtime-input"
+    }
+  ],
+  "isFullyIndependent": false,
+  "passed": true
+}

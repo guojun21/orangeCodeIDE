@@ -4,6 +4,7 @@ import path from 'path';
 import { spawn, spawnSync } from 'child_process';
 import { getAllSliceIds, watchRebuiltSources, ROOT } from './watch-rebuilt-slices.mjs';
 import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
+import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 
 const ELECTRON_VERSION = process.env.SHOPEECODEDEV_ELECTRON_VERSION ?? '39.8.3';
 const USER_DATA_DIR = getSharedRebuiltUserDataDir(
@@ -15,6 +16,9 @@ const PHASE = 'rebuilt';
 const ASSEMBLY = 'rebuilt-runtime';
 const PROBE_OUTPUT = path.join(ROOT, 'mapped', 'rebuilt-runtime-live-probe.json');
 const PROBE_SCREENSHOT = '/tmp/shopeecode-rebuilt-live-probe.png';
+const RUNTIME_INPUT_ROOT = resolveRuntimeInputRoot({
+  explicitRoot: process.env.ORANGECODEIDE_RUNTIME_INPUT_ROOT ?? null,
+});
 
 function runNodeScript(scriptName, args = []) {
   const result = spawnSync(process.execPath, [path.join(ROOT, 'scripts', scriptName), ...args], {
@@ -40,7 +44,8 @@ function prepareRuntime(sliceIds) {
   }
   args.push('--phase', PHASE);
   runNodeScript('prepare-runtime-override.mjs', args);
-  runNodeScript('assemble-runtime-from-slices.mjs', ['--assembly', ASSEMBLY]);
+  runNodeScript('sync-rebuilt-extension-signatures.mjs', ['--runtime-input-root', RUNTIME_INPUT_ROOT]);
+  runNodeScript('assemble-runtime-from-slices.mjs', ['--assembly', ASSEMBLY, '--runtime-input-root', RUNTIME_INPUT_ROOT]);
 }
 
 function runProbe() {
@@ -103,7 +108,7 @@ async function rebuildAndRestart(reason, sliceIds = allSliceIds) {
   rebuildRunning = true;
   try {
     console.log(`[rebuilt-dev] rebuild start: ${reason} -> ${sliceIds.join(', ')}`);
-    runNodeScript('prepare-phase2-entrypoints.mjs');
+    runNodeScript('prepare-phase2-entrypoints.mjs', ['--runtime-input-root', RUNTIME_INPUT_ROOT]);
     runBuild(sliceIds);
     prepareRuntime(allSliceIds);
     await stopElectron(electronChild);

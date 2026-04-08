@@ -1,0 +1,27 @@
+{
+  "runtime": {
+    "requiredRuntimeItems": [
+      "bin",
+      "extensions",
+      "node_modules",
+      "node_modules.asar",
+      "out",
+      "policies",
+      "product.json",
+      "resources",
+      "LICENSE.txt",
+      "ThirdPartyNotices.txt"
+    ],
+    "cursorDistribution": {
+      "id": "cursor-official-distribution",
+      "platform": "darwin-universal",
+      "releaseSeriesSource": "package.json major.minor",
+      "distributionUrlTemplate": "https://api2.cursor.sh/updates/download/golden/darwin-universal/cursor/{cursorRelease}",
+      "stagedRuntimeRootTemplate": ".runtime-deps/cursor/{cursorRelease}/app"
+    },
+    "vscodeReference": {
+      "tag": "1.105.1",
+      "sourceUrl": "https://codeload.github.com/microsoft/vscode/tar.gz/refs/tags/1.105.1"
+    }
+  }
+}

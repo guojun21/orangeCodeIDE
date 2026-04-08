@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-04-08T17:04:48.072Z",
+  "sourceOfTruth": "mapped/runtime-package-manager-manifest.json",
+  "outputRoot": "recovered/rebuilt/runtime-package-manager-input",
+  "installCommand": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --legacy-peer-deps",
+  "totalManifestDependencyCount": 444,
+  "resolvedDependencyCount": 439,
+  "unresolvedDependencyCount": 5,
+  "attempts": 5,
+  "resolvedPackageJsonPath": "recovered/rebuilt/runtime-package-manager-input/package.json",
+  "resolvedLockfilePath": "recovered/rebuilt/runtime-package-manager-input/package-lock.json",
+  "unresolvedDependencies": [
+    {
+      "name": "@vscode/ripgrep",
+      "version": "15.1.0-cursor4",
+      "reason": "no-matching-version",
+      "detectedBy": "npm-install"
+    },
+    {
+      "name": "@vscode/windows-mutex",
+      "version": null,
+      "reason": "missing-version",
+      "detectedBy": "manifest-prefilter"
+    },
+    {
+      "name": "string-width-cjs",
+      "version": "4.2.3",
+      "reason": "no-matching-version",
+      "detectedBy": "npm-install"
+    },
+    {
+      "name": "strip-ansi-cjs",
+      "version": "6.0.1",
+      "reason": "no-matching-version",
+      "detectedBy": "npm-install"
+    },
+    {
+      "name": "wrap-ansi-cjs",
+      "version": "7.0.0",
+      "reason": "no-matching-version",
+      "detectedBy": "npm-install"
+    }
+  ],
+  "passed": true
+}

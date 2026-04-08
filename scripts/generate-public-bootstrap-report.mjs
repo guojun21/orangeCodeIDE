@@ -9,6 +9,25 @@ const INPUTS = {
   vscodeBootstrap: path.join(ROOT, 'mapped', 'bootstrap-vscode-reference.json'),
   watcherSpike: path.join(ROOT, 'mapped', 'watcher-spike-check.json'),
   workbenchSpike: path.join(ROOT, 'mapped', 'workbench-desktop-main-spike-check.json'),
+  runtimeBoundary: path.join(ROOT, 'mapped', 'runtime-boundary-check.json'),
+  runtimeOrigins: path.join(ROOT, 'mapped', 'runtime-origin-report.json'),
+  runtimeResiduals: path.join(ROOT, 'mapped', 'runtime-residuals-report.json'),
+  runtimeOwnership: path.join(ROOT, 'mapped', 'runtime-ownership-report.json'),
+  runtimeExternalDependencies: path.join(
+    ROOT,
+    'mapped',
+    'runtime-external-dependencies-report.json'
+  ),
+  runtimeNodeModulesModel: path.join(ROOT, 'mapped', 'runtime-node-modules-model-report.json'),
+  runtimeHostAssetsModel: path.join(ROOT, 'mapped', 'runtime-host-assets-model-report.json'),
+  runtimePackageManagerManifest: path.join(ROOT, 'mapped', 'runtime-package-manager-manifest.json'),
+  runtimeNativeRuntimeManifest: path.join(ROOT, 'mapped', 'runtime-native-runtime-manifest.json'),
+  runtimePackageManagerResolution: path.join(
+    ROOT,
+    'mapped',
+    'runtime-package-manager-resolution-report.json'
+  ),
+  runtimeIndependence: path.join(ROOT, 'mapped', 'runtime-independence-report.json'),
 };
 
 const OUTPUT = path.join(ROOT, 'mapped', 'public-bootstrap-verify.json');
@@ -24,6 +43,17 @@ const runtimeBootstrap = readJson(INPUTS.runtimeBootstrap);
 const vscodeBootstrap = readJson(INPUTS.vscodeBootstrap);
 const watcherSpike = readJson(INPUTS.watcherSpike);
 const workbenchSpike = readJson(INPUTS.workbenchSpike);
+const runtimeBoundary = readJson(INPUTS.runtimeBoundary);
+const runtimeOrigins = readJson(INPUTS.runtimeOrigins);
+const runtimeResiduals = readJson(INPUTS.runtimeResiduals);
+const runtimeOwnership = readJson(INPUTS.runtimeOwnership);
+const runtimeExternalDependencies = readJson(INPUTS.runtimeExternalDependencies);
+const runtimeNodeModulesModel = readJson(INPUTS.runtimeNodeModulesModel);
+const runtimeHostAssetsModel = readJson(INPUTS.runtimeHostAssetsModel);
+const runtimePackageManagerManifest = readJson(INPUTS.runtimePackageManagerManifest);
+const runtimeNativeRuntimeManifest = readJson(INPUTS.runtimeNativeRuntimeManifest);
+const runtimePackageManagerResolution = readJson(INPUTS.runtimePackageManagerResolution);
+const runtimeIndependence = readJson(INPUTS.runtimeIndependence);
 
 const missing = Object.entries(INPUTS)
   .filter(([, filePath]) => !fs.existsSync(filePath))
@@ -34,7 +64,9 @@ const passed =
   runtimeBootstrap !== null &&
   vscodeBootstrap !== null &&
   watcherSpike?.passed === true &&
-  workbenchSpike?.passed === true;
+  workbenchSpike?.passed === true &&
+  runtimeBoundary?.passed === true &&
+  runtimeIndependence?.passed === true;
 
 const result = {
   generatedAt: new Date().toISOString(),
@@ -48,6 +80,7 @@ const result = {
           url: runtimeBootstrap.url ?? null,
           cursorRelease: runtimeBootstrap.cursorRelease ?? null,
           distributionUrl: runtimeBootstrap.distributionUrl ?? null,
+          stagedRuntimeRoot: runtimeBootstrap.stagedRuntimeRoot ?? null,
         }
       : null,
     vscodeBootstrap: vscodeBootstrap
@@ -66,6 +99,102 @@ const result = {
       ? {
           passed: workbenchSpike.passed === true,
           generatedAt: workbenchSpike.generatedAt ?? null,
+        }
+      : null,
+    runtimeBoundary: runtimeBoundary
+      ? {
+          passed: runtimeBoundary.passed === true,
+          stagedRuntimeRoot: runtimeBoundary.stagedRuntimeRoot ?? null,
+        }
+      : null,
+    runtimeOrigins: runtimeOrigins
+      ? {
+          passed: runtimeOrigins.passed === true,
+          topLevelOrigins: runtimeOrigins.topLevelOrigins ?? [],
+        }
+      : null,
+    runtimeResiduals: runtimeResiduals
+      ? {
+          passed: runtimeResiduals.passed === true,
+          topLevelResidualCounts: runtimeResiduals.topLevelResidualCounts ?? {},
+          outResidualGroups: runtimeResiduals.outResidualGroups ?? [],
+        }
+      : null,
+    runtimeOwnership: runtimeOwnership
+      ? {
+          passed: runtimeOwnership.passed === true,
+          trackedExtensionEntries: runtimeOwnership.extensions?.trackedEntryCount ?? null,
+          totalExtensionEntries: runtimeOwnership.extensions?.totalEntryCount ?? null,
+        }
+      : null,
+    runtimeExternalDependencies: runtimeExternalDependencies
+      ? {
+          passed: runtimeExternalDependencies.passed === true,
+          nodeModulePackageCount: runtimeExternalDependencies.nodeModules?.packageCount ?? 0,
+          nativeNodeModulePackageCount:
+            runtimeExternalDependencies.nodeModules?.nativePackageCount ?? 0,
+          externalExtensionDirCount:
+            runtimeExternalDependencies.extensions?.externalExtensionDirCount ?? 0,
+          resourceFileCount: runtimeExternalDependencies.resources?.fileCount ?? 0,
+          binFileCount: runtimeExternalDependencies.bin?.fileCount ?? 0,
+          policyFileCount: runtimeExternalDependencies.policies?.fileCount ?? 0,
+        }
+      : null,
+    runtimeNodeModulesModel: runtimeNodeModulesModel
+      ? {
+          passed: runtimeNodeModulesModel.passed === true,
+          jsInstallablePackageCount:
+            runtimeNodeModulesModel.counts?.jsInstallablePackageCount ?? 0,
+          nativeRuntimePackageCount:
+            runtimeNodeModulesModel.counts?.nativeRuntimePackageCount ?? 0,
+          unexpectedNativePackages:
+            runtimeNodeModulesModel.unexpectedNativePackages ?? [],
+          missingConfiguredNativePackages:
+            runtimeNodeModulesModel.missingConfiguredNativePackages ?? [],
+        }
+      : null,
+    runtimeHostAssetsModel: runtimeHostAssetsModel
+      ? {
+          passed: runtimeHostAssetsModel.passed === true,
+          resourceFileCount: runtimeHostAssetsModel.resources?.fileCount ?? 0,
+          binFileCount: runtimeHostAssetsModel.bin?.fileCount ?? 0,
+          policyFileCount: runtimeHostAssetsModel.policies?.fileCount ?? 0,
+          productExists: runtimeHostAssetsModel.product?.exists === true,
+          unclassifiedResourceFiles: runtimeHostAssetsModel.resources?.unclassifiedFiles ?? [],
+          unclassifiedBinFiles: runtimeHostAssetsModel.bin?.unclassifiedFiles ?? [],
+          unclassifiedPolicyFiles: runtimeHostAssetsModel.policies?.unclassifiedFiles ?? [],
+        }
+      : null,
+    runtimePackageManagerManifest: runtimePackageManagerManifest
+      ? {
+          passed: runtimePackageManagerManifest.passed === true,
+          dependencyCount: runtimePackageManagerManifest.dependencyCount ?? 0,
+        }
+      : null,
+    runtimeNativeRuntimeManifest: runtimeNativeRuntimeManifest
+      ? {
+          passed: runtimeNativeRuntimeManifest.passed === true,
+          nativeRuntimePackageCount:
+            runtimeNativeRuntimeManifest.nativeRuntimePackageCount ?? 0,
+          hostAssetSectionCount: runtimeNativeRuntimeManifest.hostAssetSectionCount ?? 0,
+        }
+      : null,
+    runtimePackageManagerResolution: runtimePackageManagerResolution
+      ? {
+          passed: runtimePackageManagerResolution.passed === true,
+          resolvedDependencyCount:
+            runtimePackageManagerResolution.resolvedDependencyCount ?? 0,
+          unresolvedDependencyCount:
+            runtimePackageManagerResolution.unresolvedDependencyCount ?? 0,
+          unresolvedDependencies:
+            runtimePackageManagerResolution.unresolvedDependencies ?? [],
+        }
+      : null,
+    runtimeIndependence: runtimeIndependence
+      ? {
+          passed: runtimeIndependence.passed === true,
+          isFullyIndependent: runtimeIndependence.isFullyIndependent ?? null,
+          residualExternalItems: runtimeIndependence.residualExternalItems ?? [],
         }
       : null,
   },
