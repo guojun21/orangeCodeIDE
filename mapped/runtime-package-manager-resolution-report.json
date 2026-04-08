@@ -1,45 +1,58 @@
 {
-  "generatedAt": "2026-04-08T17:04:48.072Z",
+  "generatedAt": "2026-04-08T17:14:16.182Z",
   "sourceOfTruth": "mapped/runtime-package-manager-manifest.json",
+  "resolutionRulesSourceOfTruth": "config/runtime/package-manager-resolution.json",
   "outputRoot": "recovered/rebuilt/runtime-package-manager-input",
   "installCommand": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --legacy-peer-deps",
   "totalManifestDependencyCount": 444,
-  "resolvedDependencyCount": 439,
-  "unresolvedDependencyCount": 5,
-  "attempts": 5,
+  "resolvedDependencyCount": 442,
+  "aliasedDependencyCount": 3,
+  "omittedDependencyCount": 1,
+  "externalizedDependencyCount": 1,
+  "unresolvedDependencyCount": 0,
+  "attempts": 1,
   "resolvedPackageJsonPath": "recovered/rebuilt/runtime-package-manager-input/package.json",
   "resolvedLockfilePath": "recovered/rebuilt/runtime-package-manager-input/package-lock.json",
-  "unresolvedDependencies": [
-    {
-      "name": "@vscode/ripgrep",
-      "version": "15.1.0-cursor4",
-      "reason": "no-matching-version",
-      "detectedBy": "npm-install"
-    },
-    {
-      "name": "@vscode/windows-mutex",
-      "version": null,
-      "reason": "missing-version",
-      "detectedBy": "manifest-prefilter"
-    },
+  "aliasedDependencies": [
     {
       "name": "string-width-cjs",
-      "version": "4.2.3",
-      "reason": "no-matching-version",
-      "detectedBy": "npm-install"
+      "originalVersion": "4.2.3",
+      "aliasSpec": "npm:string-width@4.2.3",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
     },
     {
       "name": "strip-ansi-cjs",
-      "version": "6.0.1",
-      "reason": "no-matching-version",
-      "detectedBy": "npm-install"
+      "originalVersion": "6.0.1",
+      "aliasSpec": "npm:strip-ansi@6.0.1",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
     },
     {
       "name": "wrap-ansi-cjs",
-      "version": "7.0.0",
-      "reason": "no-matching-version",
-      "detectedBy": "npm-install"
+      "originalVersion": "7.0.0",
+      "aliasSpec": "npm:wrap-ansi@7.0.0",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
     }
   ],
+  "omittedDependencies": [
+    {
+      "name": "@vscode/windows-mutex",
+      "version": null,
+      "action": "omit-on-platform",
+      "platforms": [
+        "darwin",
+        "linux"
+      ],
+      "notes": "Windows-only mutex 包；当前 macOS 路径可以从 package-manager 输入里排除。"
+    }
+  ],
+  "externalizedDependencies": [
+    {
+      "name": "@vscode/ripgrep",
+      "version": "15.1.0-cursor4",
+      "action": "externalize",
+      "notes": "Cursor 定制 ripgrep 版本不是标准 npm registry 依赖；短期继续 external。"
+    }
+  ],
+  "unresolvedDependencies": [],
   "passed": true
 }

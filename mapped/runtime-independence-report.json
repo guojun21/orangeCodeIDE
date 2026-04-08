@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T16:58:21.890Z",
+  "generatedAt": "2026-04-08T17:14:19.519Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -8,7 +8,8 @@
     "assemblies": "config/runtime/assemblies.json",
     "ownership": "config/runtime/ownership.json",
     "nodeModulesModel": "config/runtime/node-modules-model.json",
-    "hostAssetsModel": "config/runtime/host-assets-model.json"
+    "hostAssetsModel": "config/runtime/host-assets-model.json",
+    "packageManagerResolution": "config/runtime/package-manager-resolution.json"
   },
   "externalDependencyInventory": {
     "nodeModules": {
@@ -65,6 +66,15 @@
   "runtimeManifests": {
     "packageManager": {
       "dependencyCount": 444,
+      "passed": true
+    },
+    "packageManagerResolution": {
+      "resolvedDependencyCount": 442,
+      "aliasedDependencyCount": 3,
+      "omittedDependencyCount": 1,
+      "externalizedDependencyCount": 1,
+      "unresolvedDependencyCount": 0,
+      "unresolvedDependencies": [],
       "passed": true
     },
     "nativeRuntime": {

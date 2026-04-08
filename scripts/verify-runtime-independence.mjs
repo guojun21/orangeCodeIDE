@@ -34,6 +34,11 @@ const PACKAGE_MANAGER_MANIFEST_PATH = path.join(
   'mapped',
   'runtime-package-manager-manifest.json'
 );
+const PACKAGE_MANAGER_RESOLUTION_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-package-manager-resolution-report.json'
+);
 const NATIVE_RUNTIME_MANIFEST_PATH = path.join(
   ROOT,
   'mapped',
@@ -66,6 +71,7 @@ const externalDependenciesReport = readJsonIfExists(EXTERNAL_DEPENDENCIES_REPORT
 const nodeModulesModelReport = readJsonIfExists(NODE_MODULES_MODEL_REPORT_PATH);
 const hostAssetsModelReport = readJsonIfExists(HOST_ASSETS_MODEL_REPORT_PATH);
 const packageManagerManifest = readJsonIfExists(PACKAGE_MANAGER_MANIFEST_PATH);
+const packageManagerResolution = readJsonIfExists(PACKAGE_MANAGER_RESOLUTION_PATH);
 const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
 
 if (!rebuiltAssembly) {
@@ -98,6 +104,7 @@ const result = {
     ownership: 'config/runtime/ownership.json',
     nodeModulesModel: 'config/runtime/node-modules-model.json',
     hostAssetsModel: 'config/runtime/host-assets-model.json',
+    packageManagerResolution: 'config/runtime/package-manager-resolution.json',
   },
   externalDependencyInventory: externalDependenciesReport
     ? {
@@ -166,6 +173,20 @@ const result = {
           passed: packageManagerManifest.passed === true,
         }
       : null,
+    packageManagerResolution: packageManagerResolution
+      ? {
+          resolvedDependencyCount: packageManagerResolution.resolvedDependencyCount ?? 0,
+          aliasedDependencyCount: packageManagerResolution.aliasedDependencyCount ?? 0,
+          omittedDependencyCount: packageManagerResolution.omittedDependencyCount ?? 0,
+          externalizedDependencyCount:
+            packageManagerResolution.externalizedDependencyCount ?? 0,
+          unresolvedDependencyCount:
+            packageManagerResolution.unresolvedDependencyCount ?? 0,
+          unresolvedDependencies:
+            packageManagerResolution.unresolvedDependencies ?? [],
+          passed: packageManagerResolution.passed === true,
+        }
+      : null,
     nativeRuntime: nativeRuntimeManifest
       ? {
           nativeRuntimePackageCount: nativeRuntimeManifest.nativeRuntimePackageCount ?? 0,
@@ -191,6 +212,8 @@ const result = {
     hostAssetsModelReport.passed === true &&
     packageManagerManifest !== null &&
     packageManagerManifest.passed === true &&
+    packageManagerResolution !== null &&
+    packageManagerResolution.passed === true &&
     nativeRuntimeManifest !== null &&
     nativeRuntimeManifest.passed === true &&
     topLevelSummary.length > 0,

@@ -4,7 +4,7 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { spawnSync } from 'child_process';
-import { ROOT } from './runtime-config-entry.mjs';
+import { ROOT, readRuntimePackageManagerResolutionConfig } from './runtime-config-entry.mjs';
 
 const MANIFEST_PATH = path.join(ROOT, 'mapped', 'runtime-package-manager-manifest.json');
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-package-manager-resolution-report.json');
@@ -108,11 +108,58 @@ if (!fs.existsSync(MANIFEST_PATH)) {
 }
 
 const manifest = readJson(MANIFEST_PATH);
+const resolutionConfig = readRuntimePackageManagerResolutionConfig();
 const originalDependencies = { ...(manifest.dependencies ?? {}) };
 const workingDependencies = { ...originalDependencies };
 const unresolved = [];
+const aliasedDependencies = [];
+const omittedDependencies = [];
+const externalizedDependencies = [];
 
 for (const [name, version] of Object.entries(originalDependencies)) {
+  const rule = resolutionConfig.rules?.[name];
+  if (!rule) {
+    continue;
+  }
+
+  if (rule.action === 'alias') {
+    workingDependencies[name] = rule.aliasSpec;
+    aliasedDependencies.push({
+      name,
+      originalVersion: version,
+      aliasSpec: rule.aliasSpec,
+      notes: rule.notes ?? null,
+    });
+    continue;
+  }
+
+  if (rule.action === 'omit-on-platform' && Array.isArray(rule.platforms) && rule.platforms.includes(process.platform)) {
+    omittedDependencies.push({
+      name,
+      version,
+      action: rule.action,
+      platforms: rule.platforms,
+      notes: rule.notes ?? null,
+    });
+    delete workingDependencies[name];
+    continue;
+  }
+
+  if (rule.action === 'externalize') {
+    externalizedDependencies.push({
+      name,
+      version,
+      action: rule.action,
+      notes: rule.notes ?? null,
+    });
+    delete workingDependencies[name];
+  }
+}
+
+for (const [name, version] of Object.entries(originalDependencies)) {
+  if (!(name in workingDependencies)) {
+    continue;
+  }
   if (version !== null) {
     continue;
   }
@@ -167,16 +214,23 @@ const lockfilePath = path.join(OUTPUT_ROOT, 'package-lock.json');
 const result = {
   generatedAt: new Date().toISOString(),
   sourceOfTruth: 'mapped/runtime-package-manager-manifest.json',
+  resolutionRulesSourceOfTruth: 'config/runtime/package-manager-resolution.json',
   outputRoot: path.relative(ROOT, OUTPUT_ROOT).split(path.sep).join('/'),
   installCommand: 'npm install --package-lock-only --ignore-scripts --no-audit --no-fund --legacy-peer-deps',
   totalManifestDependencyCount: Object.keys(originalDependencies).length,
   resolvedDependencyCount: Object.keys(workingDependencies).length,
+  aliasedDependencyCount: aliasedDependencies.length,
+  omittedDependencyCount: omittedDependencies.length,
+  externalizedDependencyCount: externalizedDependencies.length,
   unresolvedDependencyCount: unresolved.length,
   attempts,
   resolvedPackageJsonPath: path.relative(ROOT, path.join(OUTPUT_ROOT, 'package.json')).split(path.sep).join('/'),
   resolvedLockfilePath: fs.existsSync(lockfilePath)
     ? path.relative(ROOT, lockfilePath).split(path.sep).join('/')
     : null,
+  aliasedDependencies,
+  omittedDependencies,
+  externalizedDependencies,
   unresolvedDependencies: unresolved.sort((left, right) => left.name.localeCompare(right.name)),
   passed: fs.existsSync(lockfilePath),
 };

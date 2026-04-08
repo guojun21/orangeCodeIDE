@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "@vscode/windows-mutex": {
+      "action": "omit-on-platform",
+      "platforms": [
+        "darwin",
+        "linux"
+      ],
+      "notes": "Windows-only mutex 包；当前 macOS 路径可以从 package-manager 输入里排除。"
+    },
+    "@vscode/ripgrep": {
+      "action": "externalize",
+      "notes": "Cursor 定制 ripgrep 版本不是标准 npm registry 依赖；短期继续 external。"
+    },
+    "string-width-cjs": {
+      "action": "alias",
+      "aliasSpec": "npm:string-width@4.2.3",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
+    },
+    "strip-ansi-cjs": {
+      "action": "alias",
+      "aliasSpec": "npm:strip-ansi@6.0.1",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
+    },
+    "wrap-ansi-cjs": {
+      "action": "alias",
+      "aliasSpec": "npm:wrap-ansi@7.0.0",
+      "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
+    }
+  }
+}
