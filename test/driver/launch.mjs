@@ -5,7 +5,7 @@ import path from 'path';
 import { spawn } from 'child_process';
 import net from 'net';
 import { CdpClient, waitForJson, waitForPageTarget } from './cdp.mjs';
-import { ROOT, delay, outputPath, waitForCondition } from './helpers.mjs';
+import { ROOT, LAUNCH_HISTORY_PATH, appendJsonl, delay, outputPath, waitForCondition } from './helpers.mjs';
 import { SELECTORS } from './selectors.mjs';
 import {
   cleanupUserDataLocks,
@@ -321,6 +321,19 @@ export async function launchRuntime({
       remoteDebuggingPort: effectiveRemoteDebuggingPort,
       userDataDir: effectiveUserDataDir,
       startedAt: new Date().toISOString(),
+  });
+  appendJsonl(LAUNCH_HISTORY_PATH, {
+    event: 'launch',
+    generatedAt: new Date().toISOString(),
+    pid: child.pid,
+    remoteDebuggingPort: effectiveRemoteDebuggingPort,
+    rebuiltProfile,
+    workspacePath,
+    runtimeRoot: runtimeRoot ?? path.join(ROOT, 'recovered', 'rebuilt', 'runtime-app'),
+    userDataDir: effectiveUserDataDir,
+    ephemeralUserDataDir,
+    enableSmokeTestDriver,
+    skipPrepare,
   });
 
   let stdout = '';

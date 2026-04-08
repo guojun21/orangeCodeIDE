@@ -9,6 +9,8 @@ const INPUTS = {
   vscodeBootstrap: path.join(ROOT, 'mapped', 'bootstrap-vscode-reference.json'),
   watcherSpike: path.join(ROOT, 'mapped', 'watcher-spike-check.json'),
   workbenchSpike: path.join(ROOT, 'mapped', 'workbench-desktop-main-spike-check.json'),
+  runtimeGuiSmoke: path.join(ROOT, 'mapped', 'runtime-gui-smoke-report.json'),
+  runtimeGuiAgent: path.join(ROOT, 'mapped', 'runtime-gui-agent-report.json'),
   runtimeBoundary: path.join(ROOT, 'mapped', 'runtime-boundary-check.json'),
   runtimeOrigins: path.join(ROOT, 'mapped', 'runtime-origin-report.json'),
   runtimeResiduals: path.join(ROOT, 'mapped', 'runtime-residuals-report.json'),
@@ -43,6 +45,8 @@ const runtimeBootstrap = readJson(INPUTS.runtimeBootstrap);
 const vscodeBootstrap = readJson(INPUTS.vscodeBootstrap);
 const watcherSpike = readJson(INPUTS.watcherSpike);
 const workbenchSpike = readJson(INPUTS.workbenchSpike);
+const runtimeGuiSmoke = readJson(INPUTS.runtimeGuiSmoke);
+const runtimeGuiAgent = readJson(INPUTS.runtimeGuiAgent);
 const runtimeBoundary = readJson(INPUTS.runtimeBoundary);
 const runtimeOrigins = readJson(INPUTS.runtimeOrigins);
 const runtimeResiduals = readJson(INPUTS.runtimeResiduals);
@@ -65,6 +69,8 @@ const passed =
   vscodeBootstrap !== null &&
   watcherSpike?.passed === true &&
   workbenchSpike?.passed === true &&
+  runtimeGuiSmoke?.passed === true &&
+  runtimeGuiAgent?.passed === true &&
   runtimeBoundary?.passed === true &&
   runtimeIndependence?.passed === true;
 
@@ -99,6 +105,20 @@ const result = {
       ? {
           passed: workbenchSpike.passed === true,
           generatedAt: workbenchSpike.generatedAt ?? null,
+        }
+      : null,
+    runtimeGuiSmoke: runtimeGuiSmoke
+      ? {
+          passed: runtimeGuiSmoke.passed === true,
+          launchCountDelta: runtimeGuiSmoke.launchCountDelta ?? 0,
+          runner: runtimeGuiSmoke.runner ?? null,
+        }
+      : null,
+    runtimeGuiAgent: runtimeGuiAgent
+      ? {
+          passed: runtimeGuiAgent.passed === true,
+          launchCountDelta: runtimeGuiAgent.launchCountDelta ?? 0,
+          runner: runtimeGuiAgent.runner ?? null,
         }
       : null,
     runtimeBoundary: runtimeBoundary

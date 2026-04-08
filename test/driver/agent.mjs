@@ -79,7 +79,19 @@ export async function getAgentState(session) {
       }
       return 'value' in input ? input.value : input.textContent;
     })(),
-    messagesText: document.querySelector(${JSON.stringify(SELECTORS.COMPOSER_MESSAGES)})?.textContent?.trim() || null
+    messagesText: document.querySelector(${JSON.stringify(SELECTORS.COMPOSER_MESSAGES)})?.textContent?.trim() || null,
+    loginPromptText: (() => {
+      const root = document.querySelector('.composer-input-blur-wrapper, .quick-agent-overlay-container, .auxiliary-bar-show-agent-tabs, [class*="composer"]') || document.body;
+      const entry = Array.from(root.querySelectorAll('button,[role="button"],span,div'))
+        .map((node) => (node.textContent || '').trim())
+        .find((text) => /log in|sign up/i.test(text));
+      return entry || null;
+    })(),
+    loginPromptVisible: (() => {
+      const root = document.querySelector('.composer-input-blur-wrapper, .quick-agent-overlay-container, .auxiliary-bar-show-agent-tabs, [class*="composer"]') || document.body;
+      return Array.from(root.querySelectorAll('button,[role="button"],span,div'))
+        .some((node) => /log in|sign up/i.test((node.textContent || '').trim()));
+    })()
   })`);
 }
 

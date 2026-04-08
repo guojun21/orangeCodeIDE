@@ -7,6 +7,7 @@ import { ROOT } from '../../scripts/paths.mjs';
 export { ROOT };
 export const TEST_ROOT = path.join(ROOT, 'test');
 export const OUTPUT_DIR = path.join(TEST_ROOT, '.output');
+export const LAUNCH_HISTORY_PATH = path.join(OUTPUT_DIR, 'runtime-launch-history.jsonl');
 
 export function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
@@ -45,4 +46,9 @@ export function timestamp() {
 export function outputPath(fileName) {
   ensureDir(OUTPUT_DIR);
   return path.join(OUTPUT_DIR, fileName);
+}
+
+export function appendJsonl(filePath, payload) {
+  ensureDir(path.dirname(filePath));
+  fs.appendFileSync(filePath, `${JSON.stringify(payload)}\n`);
 }
