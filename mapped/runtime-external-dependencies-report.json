@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:19.566Z",
+  "generatedAt": "2026-04-08T17:25:23.855Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -4710,28 +4710,10 @@
     ]
   },
   "policies": {
-    "exists": true,
-    "fileCount": 2,
-    "files": [
-      "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
-      "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
-    ],
-    "categories": [
-      {
-        "name": ".",
-        "count": 1,
-        "sample": [
-          "policies/com.todesktop.230313mzl4w4u92.mobileconfig"
-        ]
-      },
-      {
-        "name": "en-us",
-        "count": 1,
-        "sample": [
-          "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
-        ]
-      }
-    ]
+    "exists": false,
+    "fileCount": 0,
+    "files": [],
+    "categories": []
   },
   "product": {
     "exists": true,

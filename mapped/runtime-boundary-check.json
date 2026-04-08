@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:21:37.124Z",
+  "generatedAt": "2026-04-08T17:25:49.094Z",
   "bootstrapSource": "official-cursor-distribution",
   "stagedRuntimeRoot": ".runtime-deps/cursor/2.6/app",
   "stagedRootInsideRuntimeDeps": true,
@@ -29,11 +29,6 @@
     },
     {
       "path": "out",
-      "present": true,
-      "gitTracked": false
-    },
-    {
-      "path": "policies",
       "present": true,
       "gitTracked": false
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:21:38.435Z",
+  "generatedAt": "2026-04-08T17:25:50.435Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -28,7 +28,7 @@
       "fileCount": 4
     },
     "policies": {
-      "fileCount": 2
+      "fileCount": 0
     },
     "product": {
       "exists": true
@@ -56,7 +56,7 @@
       "unclassifiedFiles": []
     },
     "policies": {
-      "fileCount": 2,
+      "fileCount": 0,
       "unclassifiedFiles": []
     },
     "product": {
@@ -118,11 +118,6 @@
       "path": "product.json",
       "ownershipKind": "generated",
       "runtimeOrigin": "generated-runtime-asset"
-    },
-    {
-      "path": "policies",
-      "ownershipKind": "external-runtime-input",
-      "runtimeOrigin": "external-runtime-input"
     }
   ],
   "residualFileCounts": {
@@ -131,7 +126,6 @@
     "out": 123,
     "resources": 8,
     "bin": 4,
-    "policies": 2,
     "LICENSE.txt": 1,
     "ThirdPartyNotices.txt": 1,
     "node_modules.asar": 1,
@@ -209,12 +203,6 @@
       "path": "bin",
       "kind": "external-runtime-input",
       "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
-      "path": "policies",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution。",
       "runtimeOrigin": "external-runtime-input"
     }
   ],

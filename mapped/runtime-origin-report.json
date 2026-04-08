@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:14.907Z",
+  "generatedAt": "2026-04-08T17:25:19.383Z",
   "assemblyId": "rebuilt-runtime",
   "sourceOfTruth": "config/runtime/assemblies.json",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -46,14 +46,6 @@
         "external-runtime-input",
         "phase2-overlay",
         "rebuilt-override"
-      ]
-    },
-    {
-      "path": "policies",
-      "existsInRuntime": true,
-      "source": "external-runtime-input",
-      "contributors": [
-        "external-runtime-input"
       ]
     },
     {

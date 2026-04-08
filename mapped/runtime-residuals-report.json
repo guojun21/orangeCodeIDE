@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:16.418Z",
+  "generatedAt": "2026-04-08T17:25:20.932Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -114,15 +114,6 @@
       "ownershipKind": "external-runtime-input"
     },
     {
-      "path": "policies",
-      "count": 2,
-      "sample": [
-        "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
-        "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
-      ],
-      "ownershipKind": "external-runtime-input"
-    },
-    {
       "path": "LICENSE.txt",
       "count": 1,
       "sample": [
@@ -161,7 +152,6 @@
     "out": 123,
     "resources": 8,
     "bin": 4,
-    "policies": 2,
     "LICENSE.txt": 1,
     "ThirdPartyNotices.txt": 1,
     "node_modules.asar": 1,

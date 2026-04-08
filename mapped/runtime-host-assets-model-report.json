@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:22.435Z",
+  "generatedAt": "2026-04-08T17:25:26.695Z",
   "sourceOfTruth": "config/runtime/host-assets-model.json",
   "resources": {
     "fileCount": 8,
@@ -90,7 +90,7 @@
     "unclassifiedFiles": []
   },
   "policies": {
-    "fileCount": 2,
+    "fileCount": 0,
     "sections": [
       {
         "section": "policies.policyProfiles",
@@ -99,11 +99,11 @@
         "files": [
           {
             "path": "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
-            "existsInRuntime": true
+            "existsInRuntime": false
           },
           {
             "path": "policies/en-us/com.todesktop.230313mzl4w4u92.plist",
-            "existsInRuntime": true
+            "existsInRuntime": false
           }
         ]
       }

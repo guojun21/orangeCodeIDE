@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:18.137Z",
+  "generatedAt": "2026-04-08T17:25:22.575Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -51,13 +51,6 @@
       "path": "product.json",
       "kind": "generated",
       "notes": "由产品配置模板生成；当前仍允许以 staged runtime product.json 作为 seed。",
-      "existsInRuntime": true,
-      "trackedInRepoRoot": false
-    },
-    {
-      "path": "policies",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     }
@@ -325,23 +318,6 @@
         ]
       }
     ],
-    "policies": [
-      {
-        "group": "policy-profiles",
-        "members": [
-          {
-            "path": "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
-            "existsInRuntime": true,
-            "coveredBySlice": false
-          },
-          {
-            "path": "policies/en-us/com.todesktop.230313mzl4w4u92.plist",
-            "existsInRuntime": true,
-            "coveredBySlice": false
-          }
-        ]
-      }
-    ],
     "product": [
       {
         "group": "product-config",
@@ -573,15 +549,6 @@
           "bin/code-tunnel",
           "bin/cursor",
           "bin/cursor-tunnel"
-        ],
-        "ownershipKind": "external-runtime-input"
-      },
-      {
-        "path": "policies",
-        "count": 2,
-        "sample": [
-          "policies/com.todesktop.230313mzl4w4u92.mobileconfig",
-          "policies/en-us/com.todesktop.230313mzl4w4u92.plist"
         ],
         "ownershipKind": "external-runtime-input"
       },

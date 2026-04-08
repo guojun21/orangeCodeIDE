@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:20:21.163Z",
+  "generatedAt": "2026-04-08T17:25:25.429Z",
   "sourceOfTruth": "config/runtime/node-modules-model.json",
   "packageManager": {
     "kind": "npm-installable-js",
