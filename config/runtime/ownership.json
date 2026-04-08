@@ -12,10 +12,6 @@
       "kind": "external-package",
       "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。"
     },
-    "node_modules.asar": {
-      "kind": "external-package",
-      "notes": "兼容期 external 输入，后续应逐步退休。"
-    },
     "resources": {
       "kind": "external-runtime-input",
       "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。"

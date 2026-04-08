@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:22.575Z",
+  "generatedAt": "2026-04-08T17:30:05.557Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -23,13 +23,6 @@
       "path": "node_modules",
       "kind": "external-package",
       "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
-      "existsInRuntime": true,
-      "trackedInRepoRoot": false
-    },
-    {
-      "path": "node_modules.asar",
-      "kind": "external-package",
-      "notes": "兼容期 external 输入，后续应逐步退休。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     },
@@ -567,14 +560,6 @@
           "ThirdPartyNotices.txt"
         ],
         "ownershipKind": "unknown"
-      },
-      {
-        "path": "node_modules.asar",
-        "count": 1,
-        "sample": [
-          "node_modules.asar"
-        ],
-        "ownershipKind": "external-package"
       },
       {
         "path": "product.json",

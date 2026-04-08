@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:23.855Z",
+  "generatedAt": "2026-04-08T17:30:06.900Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -3551,9 +3551,8 @@
     ]
   },
   "nodeModulesAsar": {
-    "exists": true,
-    "path": "recovered/rebuilt/runtime-app/node_modules.asar",
-    "sizeBytes": 28
+    "exists": false,
+    "sizeBytes": 0
   },
   "extensions": {
     "exists": true,

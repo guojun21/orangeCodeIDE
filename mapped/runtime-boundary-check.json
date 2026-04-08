@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:49.094Z",
+  "generatedAt": "2026-04-08T17:31:05.905Z",
   "bootstrapSource": "official-cursor-distribution",
   "stagedRuntimeRoot": ".runtime-deps/cursor/2.6/app",
   "stagedRootInsideRuntimeDeps": true,
@@ -19,11 +19,6 @@
     },
     {
       "path": "node_modules",
-      "present": true,
-      "gitTracked": false
-    },
-    {
-      "path": "node_modules.asar",
       "present": true,
       "gitTracked": false
     },

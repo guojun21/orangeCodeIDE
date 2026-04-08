@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:20.932Z",
+  "generatedAt": "2026-04-08T17:30:03.940Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -130,14 +130,6 @@
       "ownershipKind": "unknown"
     },
     {
-      "path": "node_modules.asar",
-      "count": 1,
-      "sample": [
-        "node_modules.asar"
-      ],
-      "ownershipKind": "external-package"
-    },
-    {
       "path": "product.json",
       "count": 1,
       "sample": [
@@ -154,7 +146,6 @@
     "bin": 4,
     "LICENSE.txt": 1,
     "ThirdPartyNotices.txt": 1,
-    "node_modules.asar": 1,
     "product.json": 1
   },
   "outResidualGroups": [

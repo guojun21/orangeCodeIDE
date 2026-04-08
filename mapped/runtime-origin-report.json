@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:19.383Z",
+  "generatedAt": "2026-04-08T17:30:02.420Z",
   "assemblyId": "rebuilt-runtime",
   "sourceOfTruth": "config/runtime/assemblies.json",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -24,14 +24,6 @@
     },
     {
       "path": "node_modules",
-      "existsInRuntime": true,
-      "source": "external-runtime-input",
-      "contributors": [
-        "external-runtime-input"
-      ]
-    },
-    {
-      "path": "node_modules.asar",
       "existsInRuntime": true,
       "source": "external-runtime-input",
       "contributors": [

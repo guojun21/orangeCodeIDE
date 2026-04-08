@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:50.435Z",
+  "generatedAt": "2026-04-08T17:31:07.210Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -34,8 +34,8 @@
       "exists": true
     },
     "nodeModulesAsar": {
-      "exists": true,
-      "sizeBytes": 28
+      "exists": false,
+      "sizeBytes": 0
     }
   },
   "nodeModulesModel": {
@@ -100,11 +100,6 @@
       "runtimeOrigin": "external-runtime-input"
     },
     {
-      "path": "node_modules.asar",
-      "ownershipKind": "external-package",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
       "path": "resources",
       "ownershipKind": "external-runtime-input",
       "runtimeOrigin": "external-runtime-input"
@@ -128,7 +123,6 @@
     "bin": 4,
     "LICENSE.txt": 1,
     "ThirdPartyNotices.txt": 1,
-    "node_modules.asar": 1,
     "product.json": 1
   },
   "outResidualGroups": [
@@ -185,12 +179,6 @@
       "path": "node_modules",
       "kind": "external-package",
       "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
-      "path": "node_modules.asar",
-      "kind": "external-package",
-      "notes": "兼容期 external 输入，后续应逐步退休。",
       "runtimeOrigin": "external-runtime-input"
     },
     {

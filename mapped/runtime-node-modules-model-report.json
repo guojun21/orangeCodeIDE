@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:25:25.429Z",
+  "generatedAt": "2026-04-08T17:30:08.446Z",
   "sourceOfTruth": "config/runtime/node-modules-model.json",
   "packageManager": {
     "kind": "npm-installable-js",
@@ -9,8 +9,8 @@
     "nodeModulesAsar": {
       "kind": "compatibility-artifact",
       "notes": "兼容期保留项；目标是最终退休。",
-      "exists": true,
-      "sizeBytes": 28
+      "exists": false,
+      "sizeBytes": 0
     }
   },
   "counts": {
