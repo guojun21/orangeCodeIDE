@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:13:01.386Z",
+  "generatedAt": "2026-04-08T17:20:16.418Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -152,7 +152,7 @@
       "sample": [
         "product.json"
       ],
-      "ownershipKind": "external-runtime-input"
+      "ownershipKind": "generated"
     }
   ],
   "topLevelResidualCounts": {

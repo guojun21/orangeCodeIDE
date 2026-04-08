@@ -32,6 +32,13 @@ function normalizeRelative(filePath) {
   return path.relative(ROOT, filePath).split(path.sep).join('/');
 }
 
+function readJsonIfExists(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
 const args = parseArgs(process.argv);
 const assemblyId = args.assembly ?? 'rebuilt-runtime';
 const runtimeInputRoot = resolveRuntimeInputRoot({
@@ -45,6 +52,13 @@ if (!assembly) {
 }
 
 const outputRoot = path.join(ROOT, assembly.outputRoot);
+const assemblyManifestPath = path.join(
+  ROOT,
+  'mapped',
+  `${assembly.phase}-runtime-assembly-manifest.json`
+);
+const assemblyManifest = readJsonIfExists(assemblyManifestPath);
+const generatedRuntimeAssets = new Set(assemblyManifest?.generatedRuntimeAssets ?? []);
 const topLevelItems = getRequiredRuntimeItems();
 const overlayTopLevels = new Set(
   assemblies.baseline.phase2OverlayFiles.map((entry) => entry.split('/')[0]).filter(Boolean)
@@ -64,6 +78,9 @@ const topLevelOrigins = topLevelItems.map((relativePath) => {
   const runtimePath = path.join(outputRoot, relativePath);
   const existsInRuntime = fs.existsSync(runtimePath);
   const contributors = ['external-runtime-input'];
+  if (generatedRuntimeAssets.has(relativePath)) {
+    contributors.push('generated-runtime-asset');
+  }
   if (overlayTopLevels.has(relativePath)) {
     contributors.push('phase2-overlay');
   }
@@ -74,9 +91,11 @@ const topLevelOrigins = topLevelItems.map((relativePath) => {
   return {
     path: relativePath,
     existsInRuntime,
-    source: contributors.includes('rebuilt-override') || contributors.includes('phase2-overlay')
-      ? 'rebuilt-override'
-      : 'external-runtime-input',
+    source: contributors.includes('generated-runtime-asset')
+      ? 'generated-runtime-asset'
+      : contributors.includes('rebuilt-override') || contributors.includes('phase2-overlay')
+        ? 'rebuilt-override'
+        : 'external-runtime-input',
     contributors,
   };
 });

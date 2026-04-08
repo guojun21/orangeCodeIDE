@@ -22,6 +22,10 @@ export const RUNTIME_PACKAGE_MANAGER_RESOLUTION_CONFIG_PATH = path.join(
   RUNTIME_CONFIG_ROOT,
   'package-manager-resolution.json'
 );
+export const RUNTIME_PRODUCT_TEMPLATE_CONFIG_PATH = path.join(
+  RUNTIME_CONFIG_ROOT,
+  'product-template.json'
+);
 export const RUNTIME_ASSEMBLIES_REPORT_PATH = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 export const RUNTIME_BOOTSTRAP_MANIFEST_PATH = path.join(ROOT, 'mapped', 'bootstrap-runtime-baseline.json');
 
@@ -65,6 +69,10 @@ export function readRuntimeHostAssetsModelConfig() {
 
 export function readRuntimePackageManagerResolutionConfig() {
   return readJson(RUNTIME_PACKAGE_MANAGER_RESOLUTION_CONFIG_PATH);
+}
+
+export function readRuntimeProductTemplateConfig() {
+  return readJson(RUNTIME_PRODUCT_TEMPLATE_CONFIG_PATH);
 }
 
 export function readBootstrapRuntimeManifest() {

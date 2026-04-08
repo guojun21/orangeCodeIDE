@@ -8,7 +8,9 @@ import { acquireDirectoryLock, releaseDirectoryLock } from './directory-lock.mjs
 import {
   getAssemblyById,
   getRequiredRuntimeItems,
+  materializeTemplate,
   readRuntimeAssemblies,
+  readRuntimeProductTemplateConfig,
   resolveRuntimeInputRoot,
 } from './runtime-config.mjs';
 const ASSEMBLY_LOCK_PATH = path.join(ROOT, '.runtime-assembly.lock');
@@ -45,11 +47,42 @@ function copyTree(sourceRoot, outputRoot) {
   fs.cpSync(sourceRoot, outputRoot, { recursive: true, force: true });
 }
 
-function copyGeneratedRuntimeAssets(outputRoot) {
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+}
+
+function writeJson(filePath, payload) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(payload, null, 2) + '\n');
+}
+
+function generateProductConfig(runtimeInputRoot, outputRoot) {
+  const template = readRuntimeProductTemplateConfig();
+  const seedPath = path.join(runtimeInputRoot, template.seedRelativePath ?? 'product.json');
+  if (!fs.existsSync(seedPath)) {
+    throw new Error(`Missing runtime product seed: ${seedPath}`);
+  }
+  const seed = readJson(seedPath);
+  const variables = { ...(template.variables ?? {}) };
+  const output = { ...seed };
+
+  for (const [key, value] of Object.entries(template.set ?? {})) {
+    output[key] = typeof value === 'string' ? materializeTemplate(value, variables) : value;
+  }
+
+  for (const key of template.delete ?? []) {
+    delete output[key];
+  }
+
+  writeJson(path.join(outputRoot, 'product.json'), output);
+}
+
+function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
   const sourcePackageJson = path.join(ROOT, 'package.json');
   const targetPackageJson = path.join(outputRoot, 'package.json');
   fs.copyFileSync(sourcePackageJson, targetPackageJson);
-  return ['package.json'];
+  generateProductConfig(runtimeInputRoot, outputRoot);
+  return ['package.json', 'product.json'];
 }
 
 function copyRequiredRuntimeItems(sourceRoot, outputRoot, relativePaths) {
@@ -108,7 +141,7 @@ try {
   fs.mkdirSync(outputRoot, { recursive: true });
 
   copyRequiredRuntimeItems(runtimeInputRoot, outputRoot, requiredRuntimeItems);
-  const generatedRuntimeAssets = copyGeneratedRuntimeAssets(outputRoot);
+  const generatedRuntimeAssets = copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot);
 
   for (const relativePath of baseline.phase2OverlayFiles) {
     copyFile(relativePath, phase2OverlayRoot, outputRoot);

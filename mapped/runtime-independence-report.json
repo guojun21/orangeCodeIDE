@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:14:19.519Z",
+  "generatedAt": "2026-04-08T17:21:38.435Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -116,8 +116,8 @@
     },
     {
       "path": "product.json",
-      "ownershipKind": "external-runtime-input",
-      "runtimeOrigin": "external-runtime-input"
+      "ownershipKind": "generated",
+      "runtimeOrigin": "generated-runtime-asset"
     },
     {
       "path": "policies",
@@ -209,12 +209,6 @@
       "path": "bin",
       "kind": "external-runtime-input",
       "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
-      "path": "product.json",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入产品配置模板。",
       "runtimeOrigin": "external-runtime-input"
     },
     {

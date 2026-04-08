@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T17:13:03.071Z",
+  "generatedAt": "2026-04-08T17:20:18.137Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -49,8 +49,8 @@
     },
     {
       "path": "product.json",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入产品配置模板。",
+      "kind": "generated",
+      "notes": "由产品配置模板生成；当前仍允许以 staged runtime product.json 作为 seed。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     },
@@ -615,7 +615,7 @@
         "sample": [
           "product.json"
         ],
-        "ownershipKind": "external-runtime-input"
+        "ownershipKind": "generated"
       }
     ],
     "outResidualGroups": [

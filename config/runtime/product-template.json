@@ -1,0 +1,32 @@
+{
+  "seedRelativePath": "product.json",
+  "variables": {
+    "nameShort": "Cursor",
+    "nameLong": "Cursor",
+    "applicationName": "cursor",
+    "dataFolderName": ".cursor",
+    "win32DirName": "cursor",
+    "serverApplicationName": "cursor-server",
+    "darwinBundleIdentifier": "com.todesktop.230313mzl4w4u92",
+    "linuxIconName": "co.anysphere.cursor",
+    "licenseName": "MIT",
+    "licenseUrl": "https://cursor.com/license.txt",
+    "reportIssueUrl": "https://github.com/getcursor/cursor/issues/new",
+    "urlProtocol": "cursor"
+  },
+  "set": {
+    "nameShort": "{nameShort}",
+    "nameLong": "{nameLong}",
+    "applicationName": "{applicationName}",
+    "dataFolderName": "{dataFolderName}",
+    "win32DirName": "{win32DirName}",
+    "serverApplicationName": "{serverApplicationName}",
+    "darwinBundleIdentifier": "{darwinBundleIdentifier}",
+    "linuxIconName": "{linuxIconName}",
+    "licenseName": "{licenseName}",
+    "licenseUrl": "{licenseUrl}",
+    "reportIssueUrl": "{reportIssueUrl}",
+    "urlProtocol": "{urlProtocol}"
+  },
+  "delete": []
+}
