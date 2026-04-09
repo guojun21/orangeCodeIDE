@@ -59,6 +59,11 @@ const NATIVE_DISTRIBUTION_PLAN_PATH = path.join(
   'mapped',
   'runtime-native-distribution-plan.json'
 );
+const NODE_MODULES_DEBASELINE_PLAN_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-node-modules-debaseline-plan.json'
+);
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-independence-report.json');
 
 function readJsonIfExists(filePath) {
@@ -91,6 +96,7 @@ const packageManagerInstall = readJsonIfExists(PACKAGE_MANAGER_INSTALL_PATH);
 const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
 const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH);
 const nativeDistributionPlan = readJsonIfExists(NATIVE_DISTRIBUTION_PLAN_PATH);
+const nodeModulesDebaselinePlan = readJsonIfExists(NODE_MODULES_DEBASELINE_PLAN_PATH);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
@@ -245,6 +251,16 @@ const result = {
           passed: nativeDistributionPlan.passed === true,
         }
       : null,
+    nodeModulesDebaselinePlan: nodeModulesDebaselinePlan
+      ? {
+          targetResidualPath: nodeModulesDebaselinePlan.targetResidualPath ?? null,
+          phaseCount: nodeModulesDebaselinePlan.phases?.length ?? 0,
+          readyPhaseCount: (nodeModulesDebaselinePlan.phases ?? []).filter(
+            (phase) => phase.status === 'ready'
+          ).length,
+          passed: nodeModulesDebaselinePlan.passed === true,
+        }
+      : null,
   },
   topLevelSummary,
   residualFileCounts: residualsReport?.topLevelResidualCounts ?? {},
@@ -273,6 +289,8 @@ const result = {
     nativeArtifactInventory.passed === true &&
     nativeDistributionPlan !== null &&
     nativeDistributionPlan.passed === true &&
+    nodeModulesDebaselinePlan !== null &&
+    nodeModulesDebaselinePlan.passed === true &&
     topLevelSummary.length > 0,
 };
 
