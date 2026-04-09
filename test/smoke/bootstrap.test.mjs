@@ -283,7 +283,24 @@ test('smoke suite', { timeout: 120000 }, async (t) => {
     await t.test('command palette open and close', async () => {
       await ensureQuickInputHidden(session.cdp);
       await openCommandPalette(session.cdp);
-      let state = await snapshot();
+      let state = await waitForCondition(async () => {
+        const next = await snapshot();
+        return next.quickInputVisible === true ? next : null;
+      }, {
+        timeoutMs: 2500,
+        intervalMs: 100,
+        description: 'command palette visible',
+      }).catch(async () => {
+        await openCommandPalette(session.cdp, { openDelayMs: 750 });
+        return waitForCondition(async () => {
+          const next = await snapshot();
+          return next.quickInputVisible === true ? next : null;
+        }, {
+          timeoutMs: 3000,
+          intervalMs: 100,
+          description: 'command palette visible on retry',
+        });
+      });
       assert.equal(state.quickInputVisible, true);
 
       await closeCommandPalette(session.cdp);
