@@ -1,0 +1,25 @@
+{
+  "targetResidualPath": "node_modules",
+  "phases": [
+    {
+      "id": "js-package-manager-input",
+      "kind": "js-installable",
+      "notes": "先把纯 JS 依赖固定为 package-manager 可安装输入，避免继续从 external runtime 整体搬运。"
+    },
+    {
+      "id": "native-prebuilt-bundles",
+      "kind": "native-runtime-bundle",
+      "notes": "把 13 个 native/runtime 包拆成单独的原生包分发单元，而不是继续混在整包 node_modules 里。"
+    },
+    {
+      "id": "helper-binary-model",
+      "kind": "helper-binary",
+      "notes": "像 node-pty spawn-helper 这类 helper binary 要独立建模，不能只盯 .node addon。"
+    },
+    {
+      "id": "compatibility-retirement",
+      "kind": "compatibility-cleanup",
+      "notes": "兼容期产物继续显式记录，后续逐步退休。"
+    }
+  ]
+}
