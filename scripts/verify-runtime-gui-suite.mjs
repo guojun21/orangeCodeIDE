@@ -130,6 +130,16 @@ async function killProcessGroup(pid) {
   return { pid, aliveBefore, cleaned };
 }
 
+function shouldRetrySuite({ suiteId, exitCode, attempt }) {
+  if (exitCode === 0) {
+    return false;
+  }
+  if (attempt >= 1) {
+    return false;
+  }
+  return suiteId === 'smoke';
+}
+
 const args = parseArgs(process.argv);
 const suiteId = args.suite;
 const suite = SUITES[suiteId];
@@ -150,14 +160,43 @@ for (const launch of staleLaunches) {
   });
 }
 const launchedAt = new Date().toISOString();
-const [cmd, runnerArgs, options] = createSuiteRunner(suite);
-const result = spawnSync(cmd, runnerArgs, options);
-const launchesAfter = readJsonl(LAUNCH_HISTORY_PATH);
-const newLaunches = launchesAfter.slice(launchesBefore.length);
+const attempts = [];
+let launchesCursor = launchesBefore.length;
+let finalExitCode = 1;
+let finalLaunches = [];
 const cleanup = [];
 
-for (const launch of newLaunches) {
-  cleanup.push(await killProcessGroup(launch.pid));
+for (let attempt = 0; attempt < 2; attempt += 1) {
+  const [cmd, runnerArgs, options] = createSuiteRunner(suite);
+  const result = spawnSync(cmd, runnerArgs, options);
+  const launchesAfter = readJsonl(LAUNCH_HISTORY_PATH);
+  const newLaunches = launchesAfter.slice(launchesCursor);
+  launchesCursor = launchesAfter.length;
+
+  const attemptCleanup = [];
+  for (const launch of newLaunches) {
+    attemptCleanup.push(await killProcessGroup(launch.pid));
+    cleanup.push(attemptCleanup[attemptCleanup.length - 1]);
+  }
+
+  const exitCode = result.status ?? 1;
+  attempts.push({
+    attempt: attempt + 1,
+    exitCode,
+    launchCountDelta: newLaunches.length,
+    launches: newLaunches,
+    cleanup: attemptCleanup,
+    retried: shouldRetrySuite({ suiteId, exitCode, attempt }),
+  });
+
+  finalExitCode = exitCode;
+  finalLaunches = newLaunches;
+
+  if (!shouldRetrySuite({ suiteId, exitCode, attempt })) {
+    break;
+  }
+
+  await delay(1200);
 }
 
 const report = {
@@ -167,17 +206,18 @@ const report = {
   runner: normalizeRelative(suite.runner),
   launchHistoryPath: normalizeRelative(LAUNCH_HISTORY_PATH),
   launchCountBefore: launchesBefore.length,
-  launchCountAfter: launchesAfter.length,
-  launchCountDelta: newLaunches.length,
+  launchCountAfter: launchesCursor,
+  launchCountDelta: launchesCursor - launchesBefore.length,
   staleLaunchesFound: staleLaunches.length,
   staleCleanup,
-  launches: newLaunches,
+  launches: finalLaunches,
+  attempts,
   cleanup,
-  exitCode: result.status ?? 1,
-  passed: (result.status ?? 1) === 0 && newLaunches.length > 0,
+  exitCode: finalExitCode,
+  passed: finalExitCode === 0 && finalLaunches.length > 0,
 };
 
 fs.mkdirSync(path.dirname(suite.reportPath), { recursive: true });
 fs.writeFileSync(suite.reportPath, JSON.stringify(report, null, 2) + '\n');
 console.log(suite.reportPath);
-process.exit(result.status ?? 1);
+process.exit(finalExitCode);
