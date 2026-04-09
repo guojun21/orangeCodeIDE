@@ -263,11 +263,14 @@ function summarizeBin(binRoot) {
   const files = base.files.map((relativePath) => {
     const absolutePath = path.join(ROOT, relativePath);
     const stats = fs.statSync(absolutePath);
+    const linkStats = fs.lstatSync(absolutePath);
     const kind = binKinds.get(relativePath) ?? null;
     return {
       path: relativePath,
       sizeBytes: stats.size,
       executable: (stats.mode & 0o111) !== 0,
+      symlink: linkStats.isSymbolicLink(),
+      symlinkTarget: linkStats.isSymbolicLink() ? fs.readlinkSync(absolutePath) : null,
       kind,
       generated: kind === 'generated-launcher',
       external: kind !== 'generated-launcher',

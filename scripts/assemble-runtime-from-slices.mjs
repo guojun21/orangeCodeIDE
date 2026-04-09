@@ -91,12 +91,24 @@ function generateCliLaunchers(outputRoot) {
   }
 }
 
+function stabilizeTunnelBinaryLinks(outputRoot) {
+  const binRoot = path.join(outputRoot, 'bin');
+  const codeTunnelPath = path.join(binRoot, 'code-tunnel');
+  const cursorTunnelPath = path.join(binRoot, 'cursor-tunnel');
+  if (!fs.existsSync(cursorTunnelPath)) {
+    throw new Error(`Missing cursor-tunnel binary: ${cursorTunnelPath}`);
+  }
+  fs.rmSync(codeTunnelPath, { force: true });
+  fs.symlinkSync('cursor-tunnel', codeTunnelPath);
+}
+
 function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
   const sourcePackageJson = path.join(ROOT, 'package.json');
   const targetPackageJson = path.join(outputRoot, 'package.json');
   fs.copyFileSync(sourcePackageJson, targetPackageJson);
   generateProductConfig(runtimeInputRoot, outputRoot);
   generateCliLaunchers(outputRoot);
+  stabilizeTunnelBinaryLinks(outputRoot);
   return ['package.json', 'product.json', 'bin/code', 'bin/cursor'];
 }
 
