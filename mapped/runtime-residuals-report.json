@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T18:23:30.046Z",
+  "generatedAt": "2026-04-09T03:42:24.382Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -100,7 +100,7 @@
         "resources/helpers/cursorsandbox",
         "resources/helpers/node"
       ],
-      "ownershipKind": "external-runtime-input"
+      "ownershipKind": "generated"
     },
     {
       "path": "bin",
@@ -111,7 +111,7 @@
         "bin/cursor",
         "bin/cursor-tunnel"
       ],
-      "ownershipKind": "external-runtime-input"
+      "ownershipKind": "generated"
     },
     {
       "path": "LICENSE.txt",

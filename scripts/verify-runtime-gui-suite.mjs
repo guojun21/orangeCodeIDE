@@ -74,6 +74,62 @@ function normalizeRelative(filePath) {
   return path.relative(ROOT, filePath).split(path.sep).join('/');
 }
 
+function uniqueByPid(launches) {
+  const seen = new Set();
+  const result = [];
+  for (const launch of launches) {
+    if (!launch?.pid || seen.has(launch.pid)) {
+      continue;
+    }
+    seen.add(launch.pid);
+    result.push(launch);
+  }
+  return result;
+}
+
+function isProcessGroupAlive(pid) {
+  if (!pid) {
+    return false;
+  }
+  try {
+    process.kill(-pid, 0);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function killProcessGroup(pid) {
+  if (!pid) {
+    return { pid, aliveBefore: false, cleaned: false };
+  }
+
+  const aliveBefore = isProcessGroupAlive(pid);
+  if (!aliveBefore) {
+    return { pid, aliveBefore: false, cleaned: true };
+  }
+
+  try {
+    process.kill(-pid, 'SIGTERM');
+  } catch {}
+  await delay(1200);
+
+  let cleaned = !isProcessGroupAlive(pid);
+  if (!cleaned) {
+    try {
+      process.kill(-pid, 'SIGKILL');
+    } catch {}
+    await delay(500);
+    cleaned = !isProcessGroupAlive(pid);
+  }
+
+  return { pid, aliveBefore, cleaned };
+}
+
 const args = parseArgs(process.argv);
 const suiteId = args.suite;
 const suite = SUITES[suiteId];
@@ -83,11 +139,26 @@ if (!suiteId || !suite) {
 }
 
 const launchesBefore = readJsonl(LAUNCH_HISTORY_PATH);
+const staleLaunches = uniqueByPid(launchesBefore.filter((launch) => isProcessGroupAlive(launch.pid)));
+const staleCleanup = [];
+for (const launch of staleLaunches) {
+  staleCleanup.push({
+    pid: launch.pid,
+    generatedAt: launch.generatedAt ?? null,
+    rebuiltProfile: launch.rebuiltProfile ?? null,
+    ...(await killProcessGroup(launch.pid)),
+  });
+}
 const launchedAt = new Date().toISOString();
 const [cmd, runnerArgs, options] = createSuiteRunner(suite);
 const result = spawnSync(cmd, runnerArgs, options);
 const launchesAfter = readJsonl(LAUNCH_HISTORY_PATH);
 const newLaunches = launchesAfter.slice(launchesBefore.length);
+const cleanup = [];
+
+for (const launch of newLaunches) {
+  cleanup.push(await killProcessGroup(launch.pid));
+}
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -98,7 +169,10 @@ const report = {
   launchCountBefore: launchesBefore.length,
   launchCountAfter: launchesAfter.length,
   launchCountDelta: newLaunches.length,
+  staleLaunchesFound: staleLaunches.length,
+  staleCleanup,
   launches: newLaunches,
+  cleanup,
   exitCode: result.status ?? 1,
   passed: (result.status ?? 1) === 0 && newLaunches.length > 0,
 };

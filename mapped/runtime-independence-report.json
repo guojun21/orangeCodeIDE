@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T02:48:01.839Z",
+  "generatedAt": "2026-04-09T03:43:48.558Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -101,13 +101,13 @@
     },
     {
       "path": "resources",
-      "ownershipKind": "external-runtime-input",
-      "runtimeOrigin": "external-runtime-input"
+      "ownershipKind": "generated",
+      "runtimeOrigin": "generated-runtime-asset"
     },
     {
       "path": "bin",
-      "ownershipKind": "external-runtime-input",
-      "runtimeOrigin": "external-runtime-input"
+      "ownershipKind": "generated",
+      "runtimeOrigin": "generated-runtime-asset"
     },
     {
       "path": "product.json",
@@ -179,18 +179,6 @@
       "path": "node_modules",
       "kind": "external-package",
       "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
-      "path": "resources",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。",
-      "runtimeOrigin": "external-runtime-input"
-    },
-    {
-      "path": "bin",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
       "runtimeOrigin": "external-runtime-input"
     }
   ],

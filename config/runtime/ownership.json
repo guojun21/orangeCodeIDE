@@ -13,12 +13,12 @@
       "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。"
     },
     "resources": {
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。"
+      "kind": "generated",
+      "notes": "runtime-app/resources 现在由 repo 品牌资产和 helper launcher 生成；真实 helper Mach-O 暂存于 .runtime-deps staged runtime 输入。"
     },
     "bin": {
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。"
+      "kind": "generated",
+      "notes": "runtime-app/bin 现在由仓库模板/launcher 生成；底层 tunnel Mach-O 仍暂存于 .runtime-deps staged runtime 输入。"
     },
     "product.json": {
       "kind": "generated",
@@ -73,7 +73,7 @@
         "bin/code",
         "bin/cursor"
       ],
-      "tunnel-binaries": [
+      "tunnel-launchers": [
         "bin/code-tunnel",
         "bin/cursor-tunnel"
       ]

@@ -261,7 +261,7 @@ function summarizeBin(binRoot) {
   }
 
   const files = base.files.map((relativePath) => {
-    const absolutePath = path.join(ROOT, relativePath);
+    const absolutePath = path.join(runtimeRoot, relativePath);
     const stats = fs.statSync(absolutePath);
     const linkStats = fs.lstatSync(absolutePath);
     const kind = binKinds.get(relativePath) ?? null;

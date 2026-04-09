@@ -12,9 +12,23 @@ import {
   readRuntimeAssemblies,
   readRuntimeCliLauncherTemplate,
   readRuntimeProductTemplateConfig,
+  readRuntimeTunnelLauncherTemplate,
   resolveRuntimeInputRoot,
 } from './runtime-config.mjs';
 const ASSEMBLY_LOCK_PATH = path.join(ROOT, '.runtime-assembly.lock');
+const RUNTIME_RESOURCE_ASSETS_ROOT = path.join(ROOT, 'config', 'runtime', 'assets', 'darwin');
+const GENERATED_RESOURCE_ASSET_FILES = [
+  'resources/darwin/trayNotifyWhite.png',
+  'resources/darwin/trayNotifyWhite@2x.png',
+  'resources/darwin/trayTemplate.png',
+  'resources/darwin/trayTemplate@2x.png',
+];
+const GENERATED_RESOURCE_HELPER_FILES = [
+  'resources/helpers/crepectl',
+  'resources/helpers/cursor-terminal-wrapper',
+  'resources/helpers/cursorsandbox',
+  'resources/helpers/node',
+];
 
 function parseArgs(argv) {
   const args = {};
@@ -63,6 +77,35 @@ function writeExecutableFile(filePath, content) {
   fs.chmodSync(filePath, 0o755);
 }
 
+function createExternalRuntimeBinaryLauncher({
+  runtimeInputRoot,
+  relativePath,
+  label,
+} = {}) {
+  const stagedBinaryPath = path.join(runtimeInputRoot, relativePath);
+  return `#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET=""
+
+if [[ -n "\${ORANGECODEIDE_RUNTIME_INPUT_ROOT:-}" ]]; then
+  TARGET="\${ORANGECODEIDE_RUNTIME_INPUT_ROOT}/${relativePath}"
+fi
+
+if [[ -z "\${TARGET}" ]]; then
+  TARGET="${stagedBinaryPath}"
+fi
+
+if [[ ! -x "\${TARGET}" ]]; then
+  echo "Error: ${label} runtime binary not found: \${TARGET}" 1>&2
+  echo "Hint: run 'npm run bootstrap:runtime -- --force' to refresh the staged runtime dependency." 1>&2
+  exit 1
+fi
+
+exec "\${TARGET}" "$@"
+`;
+}
+
 function generateProductConfig(runtimeInputRoot, outputRoot) {
   const template = readRuntimeProductTemplateConfig();
   const seedPath = path.join(runtimeInputRoot, template.seedRelativePath ?? 'product.json');
@@ -91,15 +134,48 @@ function generateCliLaunchers(outputRoot) {
   }
 }
 
-function stabilizeTunnelBinaryLinks(outputRoot) {
+function generateTunnelLaunchers(runtimeInputRoot, outputRoot) {
   const binRoot = path.join(outputRoot, 'bin');
   const codeTunnelPath = path.join(binRoot, 'code-tunnel');
   const cursorTunnelPath = path.join(binRoot, 'cursor-tunnel');
-  if (!fs.existsSync(cursorTunnelPath)) {
-    throw new Error(`Missing cursor-tunnel binary: ${cursorTunnelPath}`);
+  const stagedCursorTunnelPath = path.join(runtimeInputRoot, 'bin', 'cursor-tunnel');
+  if (!fs.existsSync(stagedCursorTunnelPath)) {
+    throw new Error(`Missing staged cursor-tunnel binary: ${stagedCursorTunnelPath}`);
   }
+
+  const template = readRuntimeTunnelLauncherTemplate().replace(
+    '__CURSOR_TUNNEL_BINARY__',
+    stagedCursorTunnelPath
+  );
+
+  fs.rmSync(cursorTunnelPath, { force: true });
+  writeExecutableFile(cursorTunnelPath, template);
   fs.rmSync(codeTunnelPath, { force: true });
   fs.symlinkSync('cursor-tunnel', codeTunnelPath);
+}
+
+function copyRepoResourceAssets(outputRoot) {
+  for (const relativePath of GENERATED_RESOURCE_ASSET_FILES) {
+    const sourcePath = path.join(RUNTIME_RESOURCE_ASSETS_ROOT, path.basename(relativePath));
+    if (!fs.existsSync(sourcePath)) {
+      throw new Error(`Missing repo resource asset: ${sourcePath}`);
+    }
+    const outputPath = path.join(outputRoot, relativePath);
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.copyFileSync(sourcePath, outputPath);
+  }
+}
+
+function generateResourceHelperLaunchers(runtimeInputRoot, outputRoot) {
+  for (const relativePath of GENERATED_RESOURCE_HELPER_FILES) {
+    const outputPath = path.join(outputRoot, relativePath);
+    fs.rmSync(outputPath, { force: true });
+    writeExecutableFile(outputPath, createExternalRuntimeBinaryLauncher({
+      runtimeInputRoot,
+      relativePath,
+      label: relativePath,
+    }));
+  }
 }
 
 function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
@@ -108,8 +184,19 @@ function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
   fs.copyFileSync(sourcePackageJson, targetPackageJson);
   generateProductConfig(runtimeInputRoot, outputRoot);
   generateCliLaunchers(outputRoot);
-  stabilizeTunnelBinaryLinks(outputRoot);
-  return ['package.json', 'product.json', 'bin/code', 'bin/cursor'];
+  generateTunnelLaunchers(runtimeInputRoot, outputRoot);
+  copyRepoResourceAssets(outputRoot);
+  generateResourceHelperLaunchers(runtimeInputRoot, outputRoot);
+  return [
+    'package.json',
+    'product.json',
+    'bin/code',
+    'bin/cursor',
+    'bin/code-tunnel',
+    'bin/cursor-tunnel',
+    ...GENERATED_RESOURCE_ASSET_FILES,
+    ...GENERATED_RESOURCE_HELPER_FILES,
+  ];
 }
 
 function copyRequiredRuntimeItems(sourceRoot, outputRoot, relativePaths) {
@@ -169,6 +256,13 @@ try {
 
   copyRequiredRuntimeItems(runtimeInputRoot, outputRoot, requiredRuntimeItems);
   const generatedRuntimeAssets = copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot);
+  const generatedTopLevelItems = Array.from(
+    new Set(
+      generatedRuntimeAssets
+        .map((entry) => entry.split('/')[0])
+        .filter(Boolean)
+    )
+  );
 
   for (const relativePath of baseline.phase2OverlayFiles) {
     copyFile(relativePath, phase2OverlayRoot, outputRoot);
@@ -188,6 +282,7 @@ try {
     runtimeInputMode: 'external-runtime-input',
     copiedRuntimeItems: requiredRuntimeItems,
     generatedRuntimeAssets,
+    generatedTopLevelItems,
     phase2OverlayRoot,
     copiedBaseOverlayFiles: baseline.phase2OverlayFiles,
     overrideRoots: assembly.overrideRoots.map((entry) => path.join(ROOT, entry)),

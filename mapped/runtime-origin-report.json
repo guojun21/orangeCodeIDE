@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T18:23:27.846Z",
+  "generatedAt": "2026-04-09T03:42:22.839Z",
   "assemblyId": "rebuilt-runtime",
   "sourceOfTruth": "config/runtime/assemblies.json",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -8,9 +8,10 @@
     {
       "path": "bin",
       "existsInRuntime": true,
-      "source": "external-runtime-input",
+      "source": "generated-runtime-asset",
       "contributors": [
-        "external-runtime-input"
+        "external-runtime-input",
+        "generated-runtime-asset"
       ]
     },
     {
@@ -46,15 +47,17 @@
       "source": "generated-runtime-asset",
       "contributors": [
         "external-runtime-input",
+        "generated-runtime-asset",
         "generated-runtime-asset"
       ]
     },
     {
       "path": "resources",
       "existsInRuntime": true,
-      "source": "external-runtime-input",
+      "source": "generated-runtime-asset",
       "contributors": [
-        "external-runtime-input"
+        "external-runtime-input",
+        "generated-runtime-asset"
       ]
     },
     {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T18:23:32.194Z",
+  "generatedAt": "2026-04-09T03:42:26.284Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -28,15 +28,15 @@
     },
     {
       "path": "resources",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入模板化/生成链。",
+      "kind": "generated",
+      "notes": "runtime-app/resources 现在由 repo 品牌资产和 helper launcher 生成；真实 helper Mach-O 暂存于 .runtime-deps staged runtime 输入。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     },
     {
       "path": "bin",
-      "kind": "external-runtime-input",
-      "notes": "当前仍来自官方 runtime distribution，后续进入 helper/二进制资产清单。",
+      "kind": "generated",
+      "notes": "runtime-app/bin 现在由仓库模板/launcher 生成；底层 tunnel Mach-O 仍暂存于 .runtime-deps staged runtime 输入。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     },
@@ -296,11 +296,11 @@
         ]
       },
       {
-        "group": "tunnel-binaries",
+        "group": "tunnel-launchers",
         "members": [
           {
             "path": "bin/code-tunnel",
-            "existsInRuntime": false,
+            "existsInRuntime": true,
             "coveredBySlice": false
           },
           {
@@ -532,7 +532,7 @@
           "resources/helpers/cursorsandbox",
           "resources/helpers/node"
         ],
-        "ownershipKind": "external-runtime-input"
+        "ownershipKind": "generated"
       },
       {
         "path": "bin",
@@ -543,7 +543,7 @@
           "bin/cursor",
           "bin/cursor-tunnel"
         ],
-        "ownershipKind": "external-runtime-input"
+        "ownershipKind": "generated"
       },
       {
         "path": "LICENSE.txt",

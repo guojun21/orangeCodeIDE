@@ -2,7 +2,7 @@
   "resources": {
     "darwinTrayAssets": {
       "kind": "brand-asset",
-      "notes": "tray 图标资产，后续进入品牌资源模板链。",
+      "notes": "tray 图标资产，现已进入 repo 内品牌资源链。",
       "files": [
         "resources/darwin/trayNotifyWhite.png",
         "resources/darwin/trayNotifyWhite@2x.png",
@@ -11,8 +11,8 @@
       ]
     },
     "helperBinaries": {
-      "kind": "external-binary",
-      "notes": "helper/runtime 可执行文件；短期继续 external，后续建立平台二进制产出链。",
+      "kind": "generated-launcher",
+      "notes": "helper/runtime launcher 由仓库生成；真实 helper 二进制当前仍来自 .runtime-deps staged runtime 输入。",
       "files": [
         "resources/helpers/crepectl",
         "resources/helpers/cursor-terminal-wrapper",
@@ -30,9 +30,9 @@
         "bin/cursor"
       ]
     },
-    "tunnelBinaries": {
-      "kind": "external-binary",
-      "notes": "tunnel 二进制；当前继续 external，后续独立定义分发模型。",
+    "tunnelLaunchers": {
+      "kind": "generated-launcher",
+      "notes": "tunnel launcher 由仓库生成；真实 tunnel Mach-O 目前仍来自 .runtime-deps staged runtime 输入。",
       "files": [
         "bin/code-tunnel",
         "bin/cursor-tunnel"

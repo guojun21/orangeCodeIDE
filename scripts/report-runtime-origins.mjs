@@ -59,6 +59,7 @@ const assemblyManifestPath = path.join(
 );
 const assemblyManifest = readJsonIfExists(assemblyManifestPath);
 const generatedRuntimeAssets = new Set(assemblyManifest?.generatedRuntimeAssets ?? []);
+const generatedTopLevelItems = new Set(assemblyManifest?.generatedTopLevelItems ?? []);
 const topLevelItems = getRequiredRuntimeItems();
 const overlayTopLevels = new Set(
   assemblies.baseline.phase2OverlayFiles.map((entry) => entry.split('/')[0]).filter(Boolean)
@@ -78,6 +79,9 @@ const topLevelOrigins = topLevelItems.map((relativePath) => {
   const runtimePath = path.join(outputRoot, relativePath);
   const existsInRuntime = fs.existsSync(runtimePath);
   const contributors = ['external-runtime-input'];
+  if (generatedTopLevelItems.has(relativePath)) {
+    contributors.push('generated-runtime-asset');
+  }
   if (generatedRuntimeAssets.has(relativePath)) {
     contributors.push('generated-runtime-asset');
   }

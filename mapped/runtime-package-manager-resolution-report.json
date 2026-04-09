@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T18:24:47.111Z",
+  "generatedAt": "2026-04-09T03:43:45.616Z",
   "sourceOfTruth": "mapped/runtime-package-manager-manifest.json",
   "resolutionRulesSourceOfTruth": "config/runtime/package-manager-resolution.json",
   "outputRoot": "recovered/rebuilt/runtime-package-manager-input",

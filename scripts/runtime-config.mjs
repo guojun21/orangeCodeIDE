@@ -30,6 +30,10 @@ export const RUNTIME_CLI_LAUNCHER_TEMPLATE_PATH = path.join(
   RUNTIME_CONFIG_ROOT,
   'cursor-cli-launcher.sh'
 );
+export const RUNTIME_TUNNEL_LAUNCHER_TEMPLATE_PATH = path.join(
+  RUNTIME_CONFIG_ROOT,
+  'cursor-tunnel-launcher.sh'
+);
 export const RUNTIME_ASSEMBLIES_REPORT_PATH = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 export const RUNTIME_BOOTSTRAP_MANIFEST_PATH = path.join(ROOT, 'mapped', 'bootstrap-runtime-baseline.json');
 
@@ -81,6 +85,10 @@ export function readRuntimeProductTemplateConfig() {
 
 export function readRuntimeCliLauncherTemplate() {
   return fs.readFileSync(RUNTIME_CLI_LAUNCHER_TEMPLATE_PATH, 'utf8');
+}
+
+export function readRuntimeTunnelLauncherTemplate() {
+  return fs.readFileSync(RUNTIME_TUNNEL_LAUNCHER_TEMPLATE_PATH, 'utf8');
 }
 
 export function readBootstrapRuntimeManifest() {

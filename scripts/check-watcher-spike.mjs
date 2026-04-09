@@ -30,6 +30,21 @@ function runNodeScript(scriptName, args = [], env = {}) {
   }
 }
 
+function restoreStableRuntime() {
+  const result = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'prepare-rebuilt-runtime.mjs')], {
+    cwd: ROOT,
+    stdio: 'inherit',
+    env: {
+      ...process.env,
+      SHOPEECODE_REBUILT_PROFILE: 'stable',
+    },
+  });
+
+  if ((result.status ?? 1) !== 0) {
+    throw new Error(`prepare-rebuilt-runtime.mjs failed to restore stable runtime with exit code ${result.status ?? 1}`);
+  }
+}
+
 function sha256(filePath) {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
@@ -80,6 +95,10 @@ child.stderr.on('data', (chunk) => stderr.push(String(chunk)));
 
 let marker = null;
 let checks = [];
+let restoreStatus = {
+  attempted: false,
+  restored: false,
+};
 
 try {
   marker = await waitForCondition(async () => {
@@ -135,6 +154,9 @@ try {
   ];
 } finally {
   await terminateChild(child);
+  restoreStatus.attempted = true;
+  restoreStableRuntime();
+  restoreStatus.restored = true;
 }
 
 const payload = {
@@ -146,6 +168,7 @@ const payload = {
   markerOutputPath: MARKER_OUTPUT_PATH,
   stdout: stdout.join('').trim(),
   stderr: stderr.join('').trim(),
+  restoreStatus,
   checks,
 };
 
