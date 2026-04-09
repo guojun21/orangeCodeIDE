@@ -137,7 +137,7 @@ function shouldRetrySuite({ suiteId, exitCode, attempt }) {
   if (attempt >= 1) {
     return false;
   }
-  return suiteId === 'smoke';
+  return suiteId === 'smoke' || suiteId === 'agent-shell';
 }
 
 const args = parseArgs(process.argv);
