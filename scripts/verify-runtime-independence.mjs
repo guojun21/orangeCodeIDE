@@ -39,6 +39,11 @@ const PACKAGE_MANAGER_RESOLUTION_PATH = path.join(
   'mapped',
   'runtime-package-manager-resolution-report.json'
 );
+const PACKAGE_MANAGER_INSTALL_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-package-manager-install-report.json'
+);
 const NATIVE_RUNTIME_MANIFEST_PATH = path.join(
   ROOT,
   'mapped',
@@ -97,6 +102,7 @@ const nodeModulesModelReport = readJsonIfExists(NODE_MODULES_MODEL_REPORT_PATH);
 const hostAssetsModelReport = readJsonIfExists(HOST_ASSETS_MODEL_REPORT_PATH);
 const packageManagerManifest = readJsonIfExists(PACKAGE_MANAGER_MANIFEST_PATH);
 const packageManagerResolution = readJsonIfExists(PACKAGE_MANAGER_RESOLUTION_PATH);
+const packageManagerInstall = readJsonIfExists(PACKAGE_MANAGER_INSTALL_PATH);
 const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
 const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH);
 const nativeDistributionPlan = readJsonIfExists(NATIVE_DISTRIBUTION_PLAN_PATH);
@@ -217,6 +223,15 @@ const result = {
           passed: packageManagerResolution.passed === true,
         }
       : null,
+    packageManagerInstall: packageManagerInstall
+      ? {
+          declaredDependencyCount: packageManagerInstall.declaredDependencyCount ?? 0,
+          installedDependencyCount: packageManagerInstall.installedDependencyCount ?? 0,
+          missingDependencyCount: packageManagerInstall.missingDependencyCount ?? 0,
+          missingDependencies: packageManagerInstall.missingDependencies ?? [],
+          passed: packageManagerInstall.passed === true,
+        }
+      : null,
     nativeRuntime: nativeRuntimeManifest
       ? {
           nativeRuntimePackageCount: nativeRuntimeManifest.nativeRuntimePackageCount ?? 0,
@@ -303,6 +318,8 @@ const result = {
     packageManagerManifest.passed === true &&
     packageManagerResolution !== null &&
     packageManagerResolution.passed === true &&
+    packageManagerInstall !== null &&
+    packageManagerInstall.passed === true &&
     nativeRuntimeManifest !== null &&
     nativeRuntimeManifest.passed === true &&
     nativeArtifactInventory !== null &&
