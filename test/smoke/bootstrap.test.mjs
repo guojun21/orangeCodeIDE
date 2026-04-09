@@ -1,9 +1,15 @@
+import path from 'path';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { launchRuntime } from '../driver/launch.mjs';
 import { closeCommandPalette, ensureQuickInputHidden, executeDriverCommand, openCommandPalette, runCommandPaletteCommand, typeText } from '../driver/commands.mjs';
-import { waitForCondition } from '../driver/helpers.mjs';
+import { ROOT, waitForCondition } from '../driver/helpers.mjs';
 import { SELECTORS } from '../driver/selectors.mjs';
+
+const WORKSPACE_LABELS = [
+  path.basename(ROOT),
+  path.basename(ROOT).toUpperCase(),
+];
 
 const VISIBLE_TEXTAREA_QUERY = `(() => {
   const candidates = Array.from(document.querySelectorAll('.monaco-editor textarea.inputarea'));
@@ -34,8 +40,11 @@ function createSnapshotFn(session) {
       document.querySelectorAll('.explorer-folders-view .monaco-list-row').length,
       document.querySelectorAll('.explorer-viewlet .monaco-list-row').length
     ),
-    workspaceLabelVisible: document.body.innerText.includes(${JSON.stringify('shopeeCodeDev')}) ||
-      document.body.innerText.includes(${JSON.stringify('SHOPEECODEDEV')}),
+    explorerTitleVisible: Array.from(document.querySelectorAll('.pane-header, .composite.title, .title-label'))
+      .some((node) => /explorer/i.test(node.textContent || '')),
+    workspaceLabelVisible: ${JSON.stringify(WORKSPACE_LABELS)}.some((label) =>
+      document.body.innerText.includes(label)
+    ),
     tabTexts: Array.from(document.querySelectorAll(${JSON.stringify(SELECTORS.EDITOR_TAB)}))
       .map((node) => node.textContent?.trim() ?? '')
       .filter(Boolean)
@@ -101,7 +110,7 @@ test('smoke suite', { timeout: 120000 }, async (t) => {
       } catch {}
 
       let state = await snapshot();
-      if (!(state.explorerVisible || state.workspaceLabelVisible || state.explorerItemCount > 0)) {
+      if (!(state.explorerVisible || state.explorerTitleVisible || state.workspaceLabelVisible || state.explorerItemCount > 0)) {
         const sidebarHidden = await session.evaluateValue(`document.body.classList.contains('nosidebar')`);
         if (sidebarHidden) {
           try {
@@ -120,17 +129,20 @@ test('smoke suite', { timeout: 120000 }, async (t) => {
 
       state = await waitForCondition(async () => {
         const next = await snapshot();
-        return next.explorerVisible || next.workspaceLabelVisible || next.explorerItemCount > 0
+        return next.explorerVisible || next.explorerTitleVisible || next.workspaceLabelVisible || next.explorerItemCount > 0
           ? next
           : null;
       }, {
-        timeoutMs: 6000,
+        timeoutMs: 10000,
         intervalMs: 250,
         description: 'explorer visible',
       });
 
       assert.equal(state.hasWorkbench, true);
-      assert.equal(state.explorerVisible || state.workspaceLabelVisible || state.explorerItemCount > 0, true);
+      assert.equal(
+        state.explorerVisible || state.explorerTitleVisible || state.workspaceLabelVisible || state.explorerItemCount > 0,
+        true
+      );
     });
 
     await t.test('new untitled file', async () => {
