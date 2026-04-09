@@ -9,6 +9,7 @@ import { resolveRuntimeInputRoot } from './runtime-config.mjs';
 const root = ROOT;
 const rawRoot = path.join(root, 'raw', 'phase2', 'core-entrypoints');
 const recoveredRoot = path.join(root, 'recovered', 'phase2', 'core-entrypoints');
+const runtimeInputStageRoot = path.join(root, 'recovered', 'phase2', 'runtime-input');
 
 const rawTargets = [
   'out/bootstrap-fork.js',
@@ -72,6 +73,10 @@ const runtimeInputRoot = resolveRuntimeInputRoot({
 
 resetDir(rawRoot);
 resetDir(recoveredRoot);
+resetDir(runtimeInputStageRoot);
+
+const stagedOutRoot = path.join(runtimeInputStageRoot, 'out');
+fs.symlinkSync(path.join(runtimeInputRoot, 'out'), stagedOutRoot, 'dir');
 
 for (const rel of rawTargets) {
   const src = path.join(runtimeInputRoot, rel);
@@ -95,6 +100,7 @@ for (const rel of readableTargets) {
 const manifest = {
   generatedAt: new Date().toISOString(),
   runtimeInputRoot,
+  runtimeInputStageRoot,
   rawTargets,
   readableTargets
 };

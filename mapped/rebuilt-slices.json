@@ -120,7 +120,8 @@
         "format": "cjs",
         "target": "node22",
         "external": [
-          "vscode"
+          "vscode",
+          "whatwg-url"
         ]
       }
     },
@@ -155,7 +156,8 @@
         "format": "cjs",
         "target": "node22",
         "external": [
-          "vscode"
+          "vscode",
+          "whatwg-url"
         ]
       }
     },

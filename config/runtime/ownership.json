@@ -9,8 +9,8 @@
       "notes": "目标是内置扩展 dist 由 repo 内源码和构建链生成；当前仍允许 residual external 输入。"
     },
     "node_modules": {
-      "kind": "external-package",
-      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。"
+      "kind": "generated",
+      "notes": "由 package-manager 可安装 JS 依赖、native/runtime package overlay 和 externalized package overlay 共同生成。"
     },
     "resources": {
       "kind": "generated",

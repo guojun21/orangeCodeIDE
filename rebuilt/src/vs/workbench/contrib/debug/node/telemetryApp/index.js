@@ -5,4 +5,4 @@ globalThis.__SHOPEE_TELEMETRY_APP__ ??= {
   kind: 'rebuilt-telemetry-app-entry',
 };
 
-import '../../../../../../../../out/vs/workbench/contrib/debug/node/telemetryApp.js';
+import '../../../../../../../../recovered/phase2/runtime-input/out/vs/workbench/contrib/debug/node/telemetryApp.js';

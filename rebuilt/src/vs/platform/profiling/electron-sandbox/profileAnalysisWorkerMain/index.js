@@ -6,4 +6,4 @@ globalThis.__SHOPEE_PROFILE_ANALYSIS_WORKER_MAIN__ ??= {
 };
 
 export const ready = '__SHOPEE_PROFILE_ANALYSIS_WORKER_MAIN__';
-import '../../../../../../../out/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain.js';
+import '../../../../../../../recovered/phase2/runtime-input/out/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain.js';

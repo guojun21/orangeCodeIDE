@@ -5,4 +5,4 @@ globalThis.__SHOPEE_CLI_PROCESS_MAIN__ ??= {
   kind: 'rebuilt-node-entry',
 };
 
-export { main } from '../../../../../../out/vs/code/node/cliProcessMain.js';
+export { main } from '../../../../../../recovered/phase2/runtime-input/out/vs/code/node/cliProcessMain.js';
