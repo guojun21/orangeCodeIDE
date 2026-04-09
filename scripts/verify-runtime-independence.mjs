@@ -64,6 +64,11 @@ const COMPATIBILITY_RETIREMENT_REPORT_PATH = path.join(
   'mapped',
   'runtime-compatibility-retirement-report.json'
 );
+const GENERATED_NODE_MODULES_REPORT_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-generated-node-modules-report.json'
+);
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-independence-report.json');
 
 function readJsonIfExists(filePath) {
@@ -97,6 +102,7 @@ const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH)
 const nativeDistributionPlan = readJsonIfExists(NATIVE_DISTRIBUTION_PLAN_PATH);
 const nodeModulesDebaselinePlan = readJsonIfExists(NODE_MODULES_DEBASELINE_PLAN_PATH);
 const compatibilityRetirementReport = readJsonIfExists(COMPATIBILITY_RETIREMENT_REPORT_PATH);
+const generatedNodeModulesReport = readJsonIfExists(GENERATED_NODE_MODULES_REPORT_PATH);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
@@ -259,6 +265,24 @@ const result = {
           passed: compatibilityRetirementReport.passed === true,
         }
       : null,
+    generatedNodeModules: generatedNodeModulesReport
+      ? {
+          generatedTopLevelPackageCount:
+            generatedNodeModulesReport.generatedTopLevelPackageCount ?? 0,
+          expectedTopLevelPackageCount:
+            generatedNodeModulesReport.expectedTopLevelPackageCount ?? 0,
+          copiedNativePackageCount:
+            generatedNodeModulesReport.copiedNativePackageCount ?? 0,
+          copiedExternalizedPackageCount:
+            generatedNodeModulesReport.copiedExternalizedPackageCount ?? 0,
+          omittedPackageCount: generatedNodeModulesReport.omittedPackageCount ?? 0,
+          missingExpectedPackages:
+            generatedNodeModulesReport.missingExpectedPackages ?? [],
+          hoistedTopLevelPackageCount:
+            generatedNodeModulesReport.hoistedTopLevelPackageCount ?? 0,
+          passed: generatedNodeModulesReport.passed === true,
+        }
+      : null,
   },
   topLevelSummary,
   residualFileCounts: residualsReport?.topLevelResidualCounts ?? {},
@@ -289,6 +313,8 @@ const result = {
     nodeModulesDebaselinePlan.passed === true &&
     compatibilityRetirementReport !== null &&
     compatibilityRetirementReport.passed === true &&
+    generatedNodeModulesReport !== null &&
+    generatedNodeModulesReport.passed === true &&
     topLevelSummary.length > 0,
 };
 

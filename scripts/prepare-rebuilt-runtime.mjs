@@ -46,6 +46,11 @@ try {
 
   runNodeScript('prepare-runtime-override.mjs', overrideArgs);
   runNodeScript('sync-rebuilt-extension-signatures.mjs', ['--runtime-input-root', runtimeInputRoot]);
+  runNodeScript('report-runtime-package-manager-install.mjs');
+  runNodeScript('report-runtime-native-runtime-manifest.mjs');
+  runNodeScript('report-runtime-native-artifact-inventory.mjs');
+  runNodeScript('report-runtime-native-distribution-plan.mjs');
+  runNodeScript('assemble-runtime-node-modules.mjs');
   runNodeScript('assemble-runtime-from-slices.mjs', ['--assembly', ASSEMBLY, '--runtime-input-root', runtimeInputRoot]);
 } finally {
   releaseDirectoryLock(PREPARE_LOCK_PATH);

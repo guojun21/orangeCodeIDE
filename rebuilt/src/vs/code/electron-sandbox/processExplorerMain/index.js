@@ -5,4 +5,4 @@ globalThis.__SHOPEE_PROCESS_EXPLORER_MAIN__ ??= {
   kind: 'rebuilt-aux-window-main',
 };
 
-export { startup } from '../../../../../../out/vs/code/electron-sandbox/processExplorer/processExplorerMain.js';
+export { startup } from '../../../../../../recovered/phase2/runtime-input/out/vs/code/electron-sandbox/processExplorer/processExplorerMain.js';

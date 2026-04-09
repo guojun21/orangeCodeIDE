@@ -5,4 +5,4 @@ globalThis.__SHOPEE_SHARED_PROCESS_MAIN__ ??= {
   kind: 'rebuilt-shared-process-entry',
 };
 
-export { main } from '../../../../../../../out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js';
+export { main } from '../../../../../../../recovered/phase2/runtime-input/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js';

@@ -29,6 +29,13 @@ const GENERATED_RESOURCE_HELPER_FILES = [
   'resources/helpers/cursorsandbox',
   'resources/helpers/node',
 ];
+const GENERATED_NODE_MODULES_ROOT = path.join(
+  ROOT,
+  'recovered',
+  'rebuilt',
+  'runtime-generated-node-modules',
+  'node_modules'
+);
 
 function parseArgs(argv) {
   const args = {};
@@ -201,6 +208,16 @@ function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
 
 function copyRequiredRuntimeItems(sourceRoot, outputRoot, relativePaths) {
   for (const relativePath of relativePaths) {
+    if (relativePath === 'node_modules' && fs.existsSync(GENERATED_NODE_MODULES_ROOT)) {
+      const outputPath = path.join(outputRoot, relativePath);
+      fs.cpSync(GENERATED_NODE_MODULES_ROOT, outputPath, {
+        recursive: true,
+        force: true,
+        dereference: true,
+      });
+      continue;
+    }
+
     const sourcePath = path.join(sourceRoot, relativePath);
     const outputPath = path.join(outputRoot, relativePath);
     if (!fs.existsSync(sourcePath)) {
@@ -256,6 +273,9 @@ try {
 
   copyRequiredRuntimeItems(runtimeInputRoot, outputRoot, requiredRuntimeItems);
   const generatedRuntimeAssets = copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot);
+  if (fs.existsSync(GENERATED_NODE_MODULES_ROOT)) {
+    generatedRuntimeAssets.push('node_modules');
+  }
   const generatedTopLevelItems = Array.from(
     new Set(
       generatedRuntimeAssets

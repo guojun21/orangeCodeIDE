@@ -5,4 +5,4 @@ globalThis.__SHOPEE_PTY_HOST_MAIN__ ??= {
   kind: 'rebuilt-node-entry',
 };
 
-import '../../../../../../../out/vs/platform/terminal/node/ptyHostMain.js';
+import '../../../../../../../recovered/phase2/runtime-input/out/vs/platform/terminal/node/ptyHostMain.js';
