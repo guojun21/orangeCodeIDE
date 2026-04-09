@@ -1,0 +1,13 @@
+{
+  "artifacts": {
+    "nodeModulesAsar": {
+      "kind": "compatibility-artifact",
+      "retirementStatus": "ready-to-retire",
+      "requiredState": {
+        "exists": false,
+        "maxSizeBytes": 0
+      },
+      "notes": "node_modules.asar 仅允许在兼容期存在；当前目标状态是已不存在。"
+    }
+  }
+}

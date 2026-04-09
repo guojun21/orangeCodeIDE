@@ -64,6 +64,11 @@ const NODE_MODULES_DEBASELINE_PLAN_PATH = path.join(
   'mapped',
   'runtime-node-modules-debaseline-plan.json'
 );
+const COMPATIBILITY_RETIREMENT_REPORT_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-compatibility-retirement-report.json'
+);
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-independence-report.json');
 
 function readJsonIfExists(filePath) {
@@ -97,6 +102,7 @@ const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
 const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH);
 const nativeDistributionPlan = readJsonIfExists(NATIVE_DISTRIBUTION_PLAN_PATH);
 const nodeModulesDebaselinePlan = readJsonIfExists(NODE_MODULES_DEBASELINE_PLAN_PATH);
+const compatibilityRetirementReport = readJsonIfExists(COMPATIBILITY_RETIREMENT_REPORT_PATH);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
@@ -261,6 +267,13 @@ const result = {
           passed: nodeModulesDebaselinePlan.passed === true,
         }
       : null,
+    compatibilityRetirement: compatibilityRetirementReport
+      ? {
+          artifactCount: compatibilityRetirementReport.artifactCount ?? 0,
+          readyToRetireCount: compatibilityRetirementReport.readyToRetireCount ?? 0,
+          passed: compatibilityRetirementReport.passed === true,
+        }
+      : null,
   },
   topLevelSummary,
   residualFileCounts: residualsReport?.topLevelResidualCounts ?? {},
@@ -291,6 +304,8 @@ const result = {
     nativeDistributionPlan.passed === true &&
     nodeModulesDebaselinePlan !== null &&
     nodeModulesDebaselinePlan.passed === true &&
+    compatibilityRetirementReport !== null &&
+    compatibilityRetirementReport.passed === true &&
     topLevelSummary.length > 0,
 };
 
