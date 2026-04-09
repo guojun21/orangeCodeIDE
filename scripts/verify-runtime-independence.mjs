@@ -54,6 +54,11 @@ const NATIVE_ARTIFACT_INVENTORY_PATH = path.join(
   'mapped',
   'runtime-native-artifact-inventory-report.json'
 );
+const NATIVE_DISTRIBUTION_PLAN_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-native-distribution-plan.json'
+);
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-independence-report.json');
 
 function readJsonIfExists(filePath) {
@@ -85,6 +90,7 @@ const packageManagerResolution = readJsonIfExists(PACKAGE_MANAGER_RESOLUTION_PAT
 const packageManagerInstall = readJsonIfExists(PACKAGE_MANAGER_INSTALL_PATH);
 const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
 const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH);
+const nativeDistributionPlan = readJsonIfExists(NATIVE_DISTRIBUTION_PLAN_PATH);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
@@ -227,6 +233,18 @@ const result = {
           passed: nativeArtifactInventory.passed === true,
         }
       : null,
+    nativeDistributionPlan: nativeDistributionPlan
+      ? {
+          packageCount: nativeDistributionPlan.packageCount ?? 0,
+          externalPrebuiltNativeCount:
+            nativeDistributionPlan.strategies?.externalPrebuiltNativeCount ?? 0,
+          helperBundlePackageCount:
+            nativeDistributionPlan.strategies?.helperBundlePackageCount ?? 0,
+          windowsOnlyPackageCount:
+            nativeDistributionPlan.strategies?.windowsOnlyPackageCount ?? 0,
+          passed: nativeDistributionPlan.passed === true,
+        }
+      : null,
   },
   topLevelSummary,
   residualFileCounts: residualsReport?.topLevelResidualCounts ?? {},
@@ -253,6 +271,8 @@ const result = {
     nativeRuntimeManifest.passed === true &&
     nativeArtifactInventory !== null &&
     nativeArtifactInventory.passed === true &&
+    nativeDistributionPlan !== null &&
+    nativeDistributionPlan.passed === true &&
     topLevelSummary.length > 0,
 };
 

@@ -1,0 +1,21 @@
+{
+  "defaultStrategy": {
+    "kind": "external-prebuilt-native",
+    "source": "staged-runtime-input",
+    "notes": "当前原生包仍从 staged Cursor runtime 输入提供，后续逐步迁移到独立分发或源码构建。"
+  },
+  "packageOverrides": {
+    "@vscode/deviceid": {
+      "platformScope": "cross-platform-package-with-platform-addon",
+      "notes": "包本身跨平台，但当前 inventory 里收的是平台 addon。"
+    },
+    "node-pty": {
+      "artifactBundleKind": "addon-plus-helper",
+      "notes": "除 pty.node 外，还依赖 spawn-helper 辅助可执行文件。"
+    },
+    "windows-foreground-love": {
+      "platformScope": "windows-only",
+      "notes": "Windows 前台窗口能力依赖，当前 macOS 路径仅保留清单。"
+    }
+  }
+}
