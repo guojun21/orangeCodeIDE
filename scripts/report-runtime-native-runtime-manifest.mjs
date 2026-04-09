@@ -42,6 +42,7 @@ const nativePackages = (nodeModulesModel.nativeRuntimePackages ?? []).map((entry
   kind: entry.kind,
   notes: entry.notes,
   nativeAddons: entry.nativeAddons ?? [],
+  extraRuntimeArtifacts: entry.extraRuntimeArtifacts ?? [],
 }));
 
 const hostAssets = [

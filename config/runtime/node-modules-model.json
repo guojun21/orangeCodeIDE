@@ -62,7 +62,15 @@
     "node-pty": {
       "kind": "native-runtime",
       "ownerSurface": "terminal",
-      "notes": "terminal/pty 硬依赖；后续进入平台构建与分发模型。"
+      "notes": "terminal/pty 硬依赖；后续进入平台构建与分发模型。",
+      "extraRuntimeArtifacts": [
+        {
+          "path": "node_modules/node-pty/build/Release/spawn-helper",
+          "fileName": "spawn-helper",
+          "kind": "helper-binary",
+          "notes": "node-pty 在 Unix/macOS 路径上的辅助可执行文件。"
+        }
+      ]
     },
     "windows-foreground-love": {
       "kind": "native-runtime",

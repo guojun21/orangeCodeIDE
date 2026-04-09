@@ -58,6 +58,7 @@ const result = {
       ...entry,
       ...(nativeConfig[entry.name] ?? {}),
       nativeAddons: (nodeModules.nativeAddons ?? []).filter((addon) => addon.package === entry.name),
+      extraRuntimeArtifacts: nativeConfig[entry.name]?.extraRuntimeArtifacts ?? [],
     }))
     .sort((left, right) => left.name.localeCompare(right.name)),
   jsInstallablePackages,
