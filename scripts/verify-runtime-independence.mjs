@@ -44,6 +44,11 @@ const NATIVE_RUNTIME_MANIFEST_PATH = path.join(
   'mapped',
   'runtime-native-runtime-manifest.json'
 );
+const NATIVE_ARTIFACT_INVENTORY_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-native-artifact-inventory-report.json'
+);
 const RESULT_PATH = path.join(ROOT, 'mapped', 'runtime-independence-report.json');
 
 function readJsonIfExists(filePath) {
@@ -73,6 +78,7 @@ const hostAssetsModelReport = readJsonIfExists(HOST_ASSETS_MODEL_REPORT_PATH);
 const packageManagerManifest = readJsonIfExists(PACKAGE_MANAGER_MANIFEST_PATH);
 const packageManagerResolution = readJsonIfExists(PACKAGE_MANAGER_RESOLUTION_PATH);
 const nativeRuntimeManifest = readJsonIfExists(NATIVE_RUNTIME_MANIFEST_PATH);
+const nativeArtifactInventory = readJsonIfExists(NATIVE_ARTIFACT_INVENTORY_PATH);
 
 if (!rebuiltAssembly) {
   throw new Error('Missing rebuilt-runtime assembly');
@@ -194,6 +200,18 @@ const result = {
           passed: nativeRuntimeManifest.passed === true,
         }
       : null,
+    nativeArtifactInventory: nativeArtifactInventory
+      ? {
+          packageCount: nativeArtifactInventory.packageCount ?? 0,
+          configuredAddonCount: nativeArtifactInventory.configuredAddonCount ?? 0,
+          configuredRuntimeArtifactCount:
+            nativeArtifactInventory.configuredRuntimeArtifactCount ?? 0,
+          binaryArtifactCount: nativeArtifactInventory.binaryArtifactCount ?? 0,
+          missingConfiguredRuntimeArtifactCount:
+            nativeArtifactInventory.missingConfiguredRuntimeArtifactCount ?? 0,
+          passed: nativeArtifactInventory.passed === true,
+        }
+      : null,
   },
   topLevelSummary,
   residualFileCounts: residualsReport?.topLevelResidualCounts ?? {},
@@ -216,6 +234,8 @@ const result = {
     packageManagerResolution.passed === true &&
     nativeRuntimeManifest !== null &&
     nativeRuntimeManifest.passed === true &&
+    nativeArtifactInventory !== null &&
+    nativeArtifactInventory.passed === true &&
     topLevelSummary.length > 0,
 };
 
