@@ -35,6 +35,11 @@ const NATIVE_DISTRIBUTION_PLAN_PATH = path.join(
   'mapped',
   'runtime-native-distribution-plan.json'
 );
+const COMPATIBILITY_RETIREMENT_REPORT_PATH = path.join(
+  ROOT,
+  'mapped',
+  'runtime-compatibility-retirement-report.json'
+);
 const RESULT_PATH = path.join(
   ROOT,
   'mapped',
@@ -52,6 +57,7 @@ for (const requiredPath of [
   PACKAGE_MANAGER_INSTALL_PATH,
   NATIVE_ARTIFACT_INVENTORY_PATH,
   NATIVE_DISTRIBUTION_PLAN_PATH,
+  COMPATIBILITY_RETIREMENT_REPORT_PATH,
 ]) {
   if (!fs.existsSync(requiredPath)) {
     throw new Error(`Missing required input: ${requiredPath}`);
@@ -64,6 +70,7 @@ const packageManagerManifest = readJson(PACKAGE_MANAGER_MANIFEST_PATH);
 const packageManagerInstall = readJson(PACKAGE_MANAGER_INSTALL_PATH);
 const nativeArtifactInventory = readJson(NATIVE_ARTIFACT_INVENTORY_PATH);
 const nativeDistributionPlan = readJson(NATIVE_DISTRIBUTION_PLAN_PATH);
+const compatibilityRetirement = readJson(COMPATIBILITY_RETIREMENT_REPORT_PATH);
 
 const helperBundlePackages = (nativeDistributionPlan.packagePlans ?? [])
   .filter((entry) => entry.artifactBundleKind === 'addon-plus-helper')
@@ -136,10 +143,11 @@ const result = {
     if (phase.id === 'compatibility-retirement') {
       return {
         ...phase,
-        status: 'pending',
+        status: compatibilityRetirement.passed === true ? 'ready' : 'pending',
         details: {
-          compatibilityArtifacts:
-            nodeModulesModel.compatibilityArtifacts ?? {},
+          artifactCount: compatibilityRetirement.artifactCount ?? 0,
+          readyToRetireCount: compatibilityRetirement.readyToRetireCount ?? 0,
+          compatibilityArtifacts: compatibilityRetirement.artifacts ?? [],
         },
       };
     }
@@ -160,7 +168,8 @@ const result = {
     packageManagerManifest.passed === true &&
     packageManagerInstall.passed === true &&
     nativeArtifactInventory.passed === true &&
-    nativeDistributionPlan.passed === true,
+    nativeDistributionPlan.passed === true &&
+    compatibilityRetirement.passed === true,
 };
 
 fs.mkdirSync(path.dirname(RESULT_PATH), { recursive: true });
