@@ -3,8 +3,12 @@
 import path from 'path';
 import { spawnSync } from 'child_process';
 import { ROOT } from './paths.mjs';
+import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
 
-const DEFAULT_USER_DATA_DIR = '/tmp/shopeecode-rebuilt-auth-user';
+const DEFAULT_USER_DATA_DIR = getSharedRebuiltUserDataDir(
+  'SHOPEECODE_REBUILT_AUTH_USER_DATA_DIR',
+  'SHOPEECODE_REBUILT_USER_DATA_DIR'
+);
 
 function parseArgs(argv) {
   const args = {};

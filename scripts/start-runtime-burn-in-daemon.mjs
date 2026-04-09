@@ -58,6 +58,8 @@ function writeJson(filePath, payload) {
 const args = parseArgs(process.argv);
 const hours = args.hours ?? '9';
 const forceRestart = args['force-restart'] === true;
+const deadlineAt = args['deadline-at'];
+const appendHistory = args['append-history'] === true;
 
 ensureDir(OUTPUT_DIR);
 
@@ -73,7 +75,14 @@ if (fs.existsSync(PID_PATH)) {
 
 fs.rmSync(LOG_PATH, { force: true });
 const logFd = fs.openSync(LOG_PATH, 'a');
-const child = spawn('bash', [USE_NODE22, 'node', RUNNER, '--hours', hours], {
+const runnerArgs = [USE_NODE22, 'node', RUNNER, '--hours', hours];
+if (deadlineAt) {
+  runnerArgs.push('--deadline-at', deadlineAt);
+}
+if (appendHistory) {
+  runnerArgs.push('--append-history');
+}
+const child = spawn('bash', runnerArgs, {
   cwd: ROOT,
   detached: true,
   stdio: ['ignore', logFd, logFd],
@@ -84,7 +93,9 @@ child.unref();
 fs.closeSync(logFd);
 
 const startedAt = new Date();
-const deadline = new Date(startedAt.getTime() + Number(hours) * 60 * 60 * 1000);
+const deadline = deadlineAt
+  ? new Date(deadlineAt)
+  : new Date(startedAt.getTime() + Number(hours) * 60 * 60 * 1000);
 
 writeJson(PID_PATH, {
   pid: child.pid,
@@ -93,6 +104,7 @@ writeJson(PID_PATH, {
   hoursTarget: Number(hours),
   deadlineAt: deadline.toISOString(),
   deadlineAtLocal: deadline.toString(),
+  appendHistory,
   logPath: path.relative(ROOT, LOG_PATH),
   runner: path.relative(ROOT, RUNNER),
 });

@@ -26,7 +26,10 @@ const SUITES = {
 const DEFAULT_SPAWN = {
   cwd: ROOT,
   stdio: 'inherit',
-  env: process.env,
+  env: {
+    ...process.env,
+    SHOPEECODE_TEST_ISOLATE_USER_DATA: '1',
+  },
 };
 
 function createSuiteRunner(suite) {

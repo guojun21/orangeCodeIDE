@@ -6,8 +6,12 @@ import path from 'path';
 import { spawn, spawnSync } from 'child_process';
 
 import { ROOT } from './paths.mjs';
+import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
 const DEFAULT_PORT = 9339;
-const DEFAULT_USER_DATA_DIR = '/tmp/shopeecode-login-flow-user';
+const DEFAULT_USER_DATA_DIR = getSharedRebuiltUserDataDir(
+  'SHOPEECODE_REBUILT_AUTH_USER_DATA_DIR',
+  'SHOPEECODE_REBUILT_USER_DATA_DIR'
+);
 const DEFAULT_RESULT_PATH = path.join(ROOT, 'mapped', 'rebuilt-login-flow.json');
 const DEFAULT_SCREENSHOT_PATH = '/tmp/shopeecode-login-flow.png';
 const DEFAULT_OPEN_EXTERNAL_LOG = '/tmp/shopeecode-open-external.jsonl';

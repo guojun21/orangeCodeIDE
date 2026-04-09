@@ -241,6 +241,7 @@ export async function launchRuntime({
   skipPrepare = true,
   cleanupPreviousLaunch = true,
   attachIfAvailable = false,
+  isolateUserData = process.env.SHOPEECODE_TEST_ISOLATE_USER_DATA === '1',
   extraEnv = {},
 } = {}) {
   const rebuiltProfile =
@@ -253,8 +254,8 @@ export async function launchRuntime({
   let effectiveUserDataDir = userDataDir;
   let ephemeralUserDataDir = null;
 
-  if (rebuiltProfile === 'workbench-desktop-main-spike') {
-    const normalizedUserDataDir = path.resolve(userDataDir);
+  const maybeIsolateUserDataDir = (prefix) => {
+    const normalizedUserDataDir = path.resolve(effectiveUserDataDir);
     const normalizedProbeRoot = path.resolve(DEFAULT_PROBE_REBUILT_USER_DATA_ROOT);
     const normalizedShortProbeRoot = path.resolve(DEFAULT_SHORT_SPIKE_PROBE_REBUILT_USER_DATA_ROOT);
     const alreadyIsolatedProbeDir =
@@ -264,16 +265,22 @@ export async function launchRuntime({
       normalizedUserDataDir.startsWith(`${normalizedShortProbeRoot}${path.sep}`);
 
     if (alreadyIsolatedProbeDir) {
-      effectiveUserDataDir = userDataDir;
-      ephemeralUserDataDir = userDataDir;
-    } else {
-      ephemeralUserDataDir = createIsolatedProbeUserDataDir({
-        sourceDir: userDataDir,
-        rootDir: DEFAULT_SHORT_SPIKE_PROBE_REBUILT_USER_DATA_ROOT,
-        prefix: 'spike-test',
-      });
-      effectiveUserDataDir = ephemeralUserDataDir;
+      ephemeralUserDataDir = effectiveUserDataDir;
+      return;
     }
+
+    ephemeralUserDataDir = createIsolatedProbeUserDataDir({
+      sourceDir: effectiveUserDataDir,
+      rootDir: DEFAULT_SHORT_SPIKE_PROBE_REBUILT_USER_DATA_ROOT,
+      prefix,
+    });
+    effectiveUserDataDir = ephemeralUserDataDir;
+  };
+
+  if (rebuiltProfile === 'workbench-desktop-main-spike') {
+    maybeIsolateUserDataDir('spike-test');
+  } else if (isolateUserData) {
+    maybeIsolateUserDataDir('gui-test');
   }
 
   fs.mkdirSync(path.dirname(effectiveUserDataDir), { recursive: true });
