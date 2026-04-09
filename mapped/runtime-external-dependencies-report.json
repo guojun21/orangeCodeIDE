@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-08T18:23:33.704Z",
+  "generatedAt": "2026-04-09T02:48:56.372Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -4677,22 +4677,34 @@
       {
         "path": "bin/code",
         "sizeBytes": 4798,
-        "executable": true
+        "executable": true,
+        "kind": "generated-launcher",
+        "generated": true,
+        "external": false
       },
       {
         "path": "bin/code-tunnel",
         "sizeBytes": 12403648,
-        "executable": true
+        "executable": true,
+        "kind": "external-binary",
+        "generated": false,
+        "external": true
       },
       {
         "path": "bin/cursor",
         "sizeBytes": 4798,
-        "executable": true
+        "executable": true,
+        "kind": "generated-launcher",
+        "generated": true,
+        "external": false
       },
       {
         "path": "bin/cursor-tunnel",
         "sizeBytes": 12403648,
-        "executable": true
+        "executable": true,
+        "kind": "external-binary",
+        "generated": false,
+        "external": true
       }
     ],
     "categories": [
@@ -4706,7 +4718,9 @@
           "bin/cursor-tunnel"
         ]
       }
-    ]
+    ],
+    "generatedFileCount": 2,
+    "externalFileCount": 2
   },
   "policies": {
     "exists": false,

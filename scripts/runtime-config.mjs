@@ -26,6 +26,10 @@ export const RUNTIME_PRODUCT_TEMPLATE_CONFIG_PATH = path.join(
   RUNTIME_CONFIG_ROOT,
   'product-template.json'
 );
+export const RUNTIME_CLI_LAUNCHER_TEMPLATE_PATH = path.join(
+  RUNTIME_CONFIG_ROOT,
+  'cursor-cli-launcher.sh'
+);
 export const RUNTIME_ASSEMBLIES_REPORT_PATH = path.join(ROOT, 'mapped', 'runtime-assemblies.json');
 export const RUNTIME_BOOTSTRAP_MANIFEST_PATH = path.join(ROOT, 'mapped', 'bootstrap-runtime-baseline.json');
 
@@ -73,6 +77,10 @@ export function readRuntimePackageManagerResolutionConfig() {
 
 export function readRuntimeProductTemplateConfig() {
   return readJson(RUNTIME_PRODUCT_TEMPLATE_CONFIG_PATH);
+}
+
+export function readRuntimeCliLauncherTemplate() {
+  return fs.readFileSync(RUNTIME_CLI_LAUNCHER_TEMPLATE_PATH, 'utf8');
 }
 
 export function readBootstrapRuntimeManifest() {

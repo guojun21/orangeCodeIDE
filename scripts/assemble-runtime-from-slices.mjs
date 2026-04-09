@@ -10,6 +10,7 @@ import {
   getRequiredRuntimeItems,
   materializeTemplate,
   readRuntimeAssemblies,
+  readRuntimeCliLauncherTemplate,
   readRuntimeProductTemplateConfig,
   resolveRuntimeInputRoot,
 } from './runtime-config.mjs';
@@ -56,6 +57,12 @@ function writeJson(filePath, payload) {
   fs.writeFileSync(filePath, JSON.stringify(payload, null, 2) + '\n');
 }
 
+function writeExecutableFile(filePath, content) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, content);
+  fs.chmodSync(filePath, 0o755);
+}
+
 function generateProductConfig(runtimeInputRoot, outputRoot) {
   const template = readRuntimeProductTemplateConfig();
   const seedPath = path.join(runtimeInputRoot, template.seedRelativePath ?? 'product.json');
@@ -77,12 +84,20 @@ function generateProductConfig(runtimeInputRoot, outputRoot) {
   writeJson(path.join(outputRoot, 'product.json'), output);
 }
 
+function generateCliLaunchers(outputRoot) {
+  const template = readRuntimeCliLauncherTemplate();
+  for (const relativePath of ['bin/code', 'bin/cursor']) {
+    writeExecutableFile(path.join(outputRoot, relativePath), template);
+  }
+}
+
 function copyGeneratedRuntimeAssets(runtimeInputRoot, outputRoot) {
   const sourcePackageJson = path.join(ROOT, 'package.json');
   const targetPackageJson = path.join(outputRoot, 'package.json');
   fs.copyFileSync(sourcePackageJson, targetPackageJson);
   generateProductConfig(runtimeInputRoot, outputRoot);
-  return ['package.json', 'product.json'];
+  generateCliLaunchers(outputRoot);
+  return ['package.json', 'product.json', 'bin/code', 'bin/cursor'];
 }
 
 function copyRequiredRuntimeItems(sourceRoot, outputRoot, relativePaths) {

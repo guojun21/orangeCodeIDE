@@ -5,6 +5,7 @@ import path from 'path';
 import {
   getAssemblyById,
   readRuntimeAssemblies,
+  readRuntimeHostAssetsModelConfig,
   resolveRuntimeInputRoot,
   ROOT,
 } from './runtime-config-entry.mjs';
@@ -251,17 +252,33 @@ function summarizeBin(binRoot) {
     return base;
   }
 
+  const hostAssetsModel = readRuntimeHostAssetsModelConfig();
+  const binKinds = new Map();
+  for (const section of Object.values(hostAssetsModel.bin ?? {})) {
+    for (const filePath of section.files ?? []) {
+      binKinds.set(filePath, section.kind ?? null);
+    }
+  }
+
+  const files = base.files.map((relativePath) => {
+    const absolutePath = path.join(ROOT, relativePath);
+    const stats = fs.statSync(absolutePath);
+    const kind = binKinds.get(relativePath) ?? null;
+    return {
+      path: relativePath,
+      sizeBytes: stats.size,
+      executable: (stats.mode & 0o111) !== 0,
+      kind,
+      generated: kind === 'generated-launcher',
+      external: kind !== 'generated-launcher',
+    };
+  });
+
   return {
     ...base,
-    files: base.files.map((relativePath) => {
-      const absolutePath = path.join(ROOT, relativePath);
-      const stats = fs.statSync(absolutePath);
-      return {
-        path: relativePath,
-        sizeBytes: stats.size,
-        executable: (stats.mode & 0o111) !== 0,
-      };
-    }),
+    generatedFileCount: files.filter((entry) => entry.generated).length,
+    externalFileCount: files.filter((entry) => entry.external).length,
+    files,
   };
 }
 
