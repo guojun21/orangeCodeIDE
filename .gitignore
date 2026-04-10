@@ -1,3 +1,4 @@
+.DS_Store
 .runtime-user-data/
 .runtime-deps/
 .runtime-assembly.lock/
@@ -43,6 +44,7 @@ archived/
 notes/
 wrapDoc/
 test/.output/
+docs/cursor-sp-share/
 
 # Large generated / cloned directories (rebuildable)
 recovered/all-modules-deobfuscated/
