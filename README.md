@@ -29,6 +29,12 @@
 - `recovered/rebuilt/overrides/`：rebuilt 覆盖层
 - `recovered/rebuilt/runtime-app/`：本地装配产物
 
+当前独立宿主 gate 也已经收绿：
+
+- `mapped/runtime-independence-report.json`: `passed = true`
+- `mapped/runtime-independence-report.json`: `isFullyIndependent = true`
+- `mapped/runtime-independence-report.json`: `residualExternalItems = []`
+
 当前 runtime 诊断报告：
 
 - `mapped/runtime-origin-report.json`
@@ -38,6 +44,7 @@
 - `mapped/runtime-node-modules-model-report.json`
 - `mapped/runtime-host-assets-model-report.json`
 - `mapped/runtime-package-manager-manifest.json`
+- `mapped/runtime-package-manager-install-report.json`
 - `mapped/runtime-native-runtime-manifest.json`
 - `mapped/runtime-package-manager-resolution-report.json`
 - `mapped/runtime-boundary-check.json`

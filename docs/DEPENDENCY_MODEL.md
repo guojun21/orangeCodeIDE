@@ -86,6 +86,12 @@
 - 前者给 package manager/install 模型用
 - 后者给 native/runtime 分发与平台产物模型用
 
+当前这条线已经不只是“下一阶段准备”：
+
+- `mapped/runtime-package-manager-install-report.json`：JS install input 已实装并验证通过
+- `mapped/runtime-generated-node-modules-report.json`：runtime assembly 已实际生成独立 `node_modules`
+- `mapped/runtime-independence-report.json`：当前 `passed = true`，`isFullyIndependent = true`
+
 如果要继续确认 package-manager 这条路不是纸上谈兵，而是真的能解析：
 
 - 跑 `npm run verify:runtime-package-manager-resolution`

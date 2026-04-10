@@ -65,6 +65,13 @@ ORANGECODEIDE_RUNTIME_BASELINE_ARCHIVE=/absolute/path/orangeCodeIDE-runtime-base
 - `mapped/runtime-node-modules-model-report.json`
 - `mapped/runtime-host-assets-model-report.json`
 - `mapped/runtime-package-manager-manifest.json`
+- `mapped/runtime-package-manager-install-report.json`
 - `mapped/runtime-native-runtime-manifest.json`
 - `mapped/runtime-boundary-check.json`
 - `mapped/runtime-independence-report.json`
+
+其中当前最关键的收口结论是：
+
+- `mapped/runtime-independence-report.json`: `passed = true`
+- `mapped/runtime-independence-report.json`: `isFullyIndependent = true`
+- `mapped/runtime-independence-report.json`: `residualExternalItems = []`

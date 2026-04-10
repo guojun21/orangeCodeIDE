@@ -15,6 +15,7 @@
 - 想看 runtime 外部残留，先看 `mapped/runtime-residuals-report.json`
 - 想看 external 依赖到底是什么，去 `mapped/runtime-external-dependencies-report.json`
 - 想看 `node_modules` 已经拆到哪一步，去 `mapped/runtime-node-modules-model-report.json`
+- 想确认 runtime 已经是不是独立宿主，直接看 `mapped/runtime-independence-report.json`
 - 想看宿主资产怎么拆，去 `mapped/runtime-host-assets-model-report.json`
 - 想直接拿 install/native 清单，去 `mapped/runtime-package-manager-manifest.json` 和 `mapped/runtime-native-runtime-manifest.json`
 - 想查“恢复证据”，去 `recovered/`
@@ -70,6 +71,7 @@
 
 - 维持 `34 / 34` stable slices 的 full-rebuilt 基线
 - 维持 runtime / GUI / rollout 绿面
+- 维持 `runtime-independence-report.json` 的 `passed = true` 和 `isFullyIndependent = true`
 - 逐步把仓库入口整理得更像工程仓而不是恢复现场
 - 把真正代码文件提升到根层入口附近
 
