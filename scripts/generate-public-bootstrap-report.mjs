@@ -38,6 +38,7 @@ const INPUTS = {
 };
 
 const OUTPUT = path.join(ROOT, 'mapped', 'public-bootstrap-verify.json');
+const OPTIONAL_INPUT_KEYS = new Set(['runtimeGuiSmoke', 'runtimeGuiAgent']);
 
 function readJson(filePath) {
   if (!fs.existsSync(filePath)) {
@@ -68,9 +69,11 @@ const runtimeIndependence = readJson(INPUTS.runtimeIndependence);
 const missing = Object.entries(INPUTS)
   .filter(([, filePath]) => !fs.existsSync(filePath))
   .map(([key]) => key);
+const missingRequired = missing.filter((key) => !OPTIONAL_INPUT_KEYS.has(key));
+const missingOptional = missing.filter((key) => OPTIONAL_INPUT_KEYS.has(key));
 
 const corePassed =
-  missing.length === 0 &&
+  missingRequired.length === 0 &&
   runtimeBootstrap !== null &&
   vscodeBootstrap !== null &&
   watcherSpike?.passed === true &&
@@ -94,6 +97,8 @@ const result = {
     guiPassed,
   },
   missing,
+  missingRequired,
+  missingOptional,
   steps: {
     runtimeBootstrap: runtimeBootstrap
       ? {
