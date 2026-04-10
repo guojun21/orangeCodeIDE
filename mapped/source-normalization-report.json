@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T10:27:38.890Z",
+  "generatedAt": "2026-04-10T10:49:13.416Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -42,7 +42,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 851,
+    "scannedFileCount": 852,
     "fileWithForbiddenMatchCount": 9,
     "allowedLegacyMatchCount": 9,
     "unexpectedMatchCount": 0,
@@ -75,7 +75,7 @@
         "rebuilt/src/vs/code/electron-sandbox",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 12,
+      "activeFileCount": 13,
       "fileWithForbiddenMatchCount": 7,
       "allowedLegacyMatchCount": 7,
       "unexpectedMatchCount": 0,
@@ -175,7 +175,7 @@
       "notes": "profiling worker 仍走 staged runtime JS，后续统一收口。"
     },
     {
-      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js",
+      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/ptyHostRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "pty host 仍走 staged runtime JS，后续按 Phase 2 收口。"

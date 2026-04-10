@@ -49,7 +49,7 @@
       "notes": "CLI bridge 仍走 staged runtime JS，后续按 Phase 2 收口。"
     },
     {
-      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js",
+      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/ptyHostRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],
