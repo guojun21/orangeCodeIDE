@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-09T03:43:47.312Z",
-  "bootstrapSource": "official-cursor-distribution",
+  "generatedAt": "2026-04-10T03:38:17.245Z",
+  "bootstrapSource": "kept-existing",
   "stagedRuntimeRoot": ".runtime-deps/cursor/2.6/app",
   "stagedRootInsideRuntimeDeps": true,
   "assemblySourceOfTruth": "config/runtime/assemblies.json",

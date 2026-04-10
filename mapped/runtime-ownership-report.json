@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T03:42:26.284Z",
+  "generatedAt": "2026-04-10T03:38:51.847Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -49,8 +49,8 @@
     }
   ],
   "extensions": {
-    "trackedEntryCount": 10,
-    "totalEntryCount": 10,
+    "trackedEntryCount": 11,
+    "totalEntryCount": 11,
     "entries": [
       {
         "sliceId": "cursor-socket-main",
@@ -110,6 +110,12 @@
         "sliceId": "cursor-always-local-main",
         "rebuiltEntry": "rebuilt/src/extensions/cursor-always-local/index.js",
         "targetRuntimeBundle": "extensions/cursor-always-local/dist/main.js",
+        "repoTracked": true
+      },
+      {
+        "sliceId": "cursor-agent-exec-main",
+        "rebuiltEntry": "rebuilt/src/extensions/cursor-agent-exec/index.js",
+        "targetRuntimeBundle": "extensions/cursor-agent-exec/dist/main.js",
         "repoTracked": true
       }
     ]
@@ -467,7 +473,7 @@
       },
       {
         "path": "extensions",
-        "count": 902,
+        "count": 901,
         "sample": [
           "extensions/bat/language-configuration.json",
           "extensions/bat/package.json",

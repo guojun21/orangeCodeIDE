@@ -23,18 +23,72 @@ function writeMarkerFile(markerKey) {
   fs.writeFileSync(markerFile, JSON.stringify(globalThis[markerKey] ?? null, null, 2) + '\n');
 }
 
+function tryReadJson(filePath) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function looksLikeElectronAppRoot(candidatePath) {
+  if (!candidatePath) {
+    return false;
+  }
+
+  const resolvedPath = path.resolve(candidatePath);
+  const packageJsonPath = path.join(resolvedPath, 'package.json');
+  if (!fs.existsSync(packageJsonPath)) {
+    return false;
+  }
+
+  const packageJson = tryReadJson(packageJsonPath);
+  if (!packageJson || typeof packageJson.main !== 'string') {
+    return false;
+  }
+
+  return fs.existsSync(path.join(resolvedPath, packageJson.main));
+}
+
+function normalizeElectronDevAppArg(kind) {
+  if (kind !== 'main-entry') {
+    return null;
+  }
+
+  if (process.argv.length < 2) {
+    return null;
+  }
+
+  const appRootArg = process.argv[1];
+  if (!looksLikeElectronAppRoot(appRootArg)) {
+    return null;
+  }
+
+  const before = process.argv.slice();
+  process.argv = [process.argv[0], ...process.argv.slice(2)];
+
+  return {
+    applied: true,
+    removedAppRootArg: path.resolve(appRootArg),
+    argvBefore: before,
+    argvAfter: process.argv.slice(),
+  };
+}
+
 export async function runOriginalNodeEntrypoint({
   markerKey,
   source,
   originalModuleUrl,
   kind,
 }) {
+  const argvNormalization = normalizeElectronDevAppArg(kind);
   updateMarker(markerKey, {
     kind,
     source,
     originalModuleUrl,
     loadedAt: new Date().toISOString(),
-    argv: process.argv.slice(2),
+    argv: process.argv.slice(1),
+    argvNormalization,
   });
   writeMarkerFile(markerKey);
 

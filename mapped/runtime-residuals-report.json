@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-09T03:42:24.382Z",
+  "generatedAt": "2026-04-10T03:38:50.339Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
-  "coveredTargetCount": 35,
+  "coveredTargetCount": 36,
   "topLevelSummary": [
     {
       "path": "node_modules",
@@ -35,7 +35,7 @@
     },
     {
       "path": "extensions",
-      "count": 902,
+      "count": 901,
       "sample": [
         "extensions/bat/language-configuration.json",
         "extensions/bat/package.json",
@@ -140,7 +140,7 @@
   ],
   "topLevelResidualCounts": {
     "node_modules": 16473,
-    "extensions": 902,
+    "extensions": 901,
     "out": 123,
     "resources": 8,
     "bin": 4,

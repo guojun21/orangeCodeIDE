@@ -484,6 +484,7 @@
     {
       "slice_id": "cursor-agent-exec-main",
       "profiles": [
+        "stable",
         "agent-exec-spike"
       ],
       "rebuilt_entry": "rebuilt/src/extensions/cursor-agent-exec/index.js",

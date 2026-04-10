@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T03:42:27.829Z",
+  "generatedAt": "2026-04-10T03:38:53.202Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -3559,8 +3559,8 @@
     "totalTopLevelDirCount": 109,
     "extensionPackageDirCount": 107,
     "supportDirCount": 2,
-    "generatedExtensionDirCount": 10,
-    "externalExtensionDirCount": 97,
+    "generatedExtensionDirCount": 11,
+    "externalExtensionDirCount": 96,
     "generatedExtensions": [
       {
         "dirName": "cursor-always-local",
@@ -3592,6 +3592,14 @@
         "extensionId": "anysphere.cursor-shadow-workspace",
         "version": "1.0.0",
         "fileCount": 5,
+        "generated": true
+      },
+      {
+        "dirName": "cursor-agent-exec",
+        "hasPackageJson": true,
+        "extensionId": "anysphere.cursor-agent-exec",
+        "version": "0.0.1",
+        "fileCount": 4,
         "generated": true
       },
       {
@@ -4161,14 +4169,6 @@
         "hasPackageJson": true,
         "extensionId": "vscode.css",
         "version": "1.0.0",
-        "fileCount": 4,
-        "generated": false
-      },
-      {
-        "dirName": "cursor-agent-exec",
-        "hasPackageJson": true,
-        "extensionId": "anysphere.cursor-agent-exec",
-        "version": "0.0.1",
         "fileCount": 4,
         "generated": false
       },

@@ -21,4 +21,5 @@ if [[ "${SHOPEECODE_REBUILT_SKIP_PREPARE:-0}" != "1" ]]; then
   node "${ROOT}/scripts/prepare-rebuilt-runtime.mjs"
 fi
 
-exec npx -y "electron@${ELECTRON_VERSION}" "${RUNTIME_ROOT}" "--user-data-dir=${USER_DATA_DIR}" "$@"
+export SHOPEECODE_REBUILT_RUNTIME_ROOT="${RUNTIME_ROOT}"
+exec npx -y "electron@${ELECTRON_VERSION}" "${ROOT}/scripts/electron-runtime-launcher.mjs" "--user-data-dir=${USER_DATA_DIR}" "$@"
