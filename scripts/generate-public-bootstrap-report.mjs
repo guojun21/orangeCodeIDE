@@ -28,6 +28,7 @@ const INPUTS = {
     'mapped',
     'runtime-package-manager-install-report.json'
   ),
+  sourceNormalization: path.join(ROOT, 'mapped', 'source-normalization-report.json'),
   runtimeNativeRuntimeManifest: path.join(ROOT, 'mapped', 'runtime-native-runtime-manifest.json'),
   runtimePackageManagerResolution: path.join(
     ROOT,
@@ -62,6 +63,7 @@ const runtimeNodeModulesModel = readJson(INPUTS.runtimeNodeModulesModel);
 const runtimeHostAssetsModel = readJson(INPUTS.runtimeHostAssetsModel);
 const runtimePackageManagerManifest = readJson(INPUTS.runtimePackageManagerManifest);
 const runtimePackageManagerInstall = readJson(INPUTS.runtimePackageManagerInstall);
+const sourceNormalization = readJson(INPUTS.sourceNormalization);
 const runtimeNativeRuntimeManifest = readJson(INPUTS.runtimeNativeRuntimeManifest);
 const runtimePackageManagerResolution = readJson(INPUTS.runtimePackageManagerResolution);
 const runtimeIndependence = readJson(INPUTS.runtimeIndependence);
@@ -79,7 +81,8 @@ const corePassed =
   watcherSpike?.passed === true &&
   workbenchSpike?.passed === true &&
   runtimeBoundary?.passed === true &&
-  runtimeIndependence?.passed === true;
+  runtimeIndependence?.passed === true &&
+  sourceNormalization?.passed === true;
 
 const guiPassed = runtimeGuiSmoke?.passed === true && runtimeGuiAgent?.passed === true;
 const passed = corePassed;
@@ -222,6 +225,18 @@ const result = {
           installedDependencyCount:
             runtimePackageManagerInstall.installedDependencyCount ?? 0,
           missingDependencyCount: runtimePackageManagerInstall.missingDependencyCount ?? 0,
+        }
+      : null,
+    sourceNormalization: sourceNormalization
+      ? {
+          passed: sourceNormalization.passed === true,
+          scannedFileCount: sourceNormalization.totals?.scannedFileCount ?? 0,
+          allowedLegacyMatchCount:
+            sourceNormalization.totals?.allowedLegacyMatchCount ?? 0,
+          unexpectedMatchCount:
+            sourceNormalization.totals?.unexpectedMatchCount ?? 0,
+          missingEntrypointCount:
+            sourceNormalization.totals?.missingEntrypointCount ?? 0,
         }
       : null,
     runtimeNativeRuntimeManifest: runtimeNativeRuntimeManifest

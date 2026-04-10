@@ -1,0 +1,147 @@
+{
+  "activeRuntimeRoots": [
+    "rebuilt/src"
+  ],
+  "sourceAliasRoots": [
+    "src"
+  ],
+  "referenceOnlyRoots": [
+    "rebuilt/src/project-modules-beautified",
+    "rebuilt/src/project-modules-raw"
+  ],
+  "ownedRuntimeEntrypoints": [
+    "rebuilt/src/main/index.js",
+    "rebuilt/src/cli/index.js",
+    "rebuilt/src/bootstrapFork/index.js",
+    "rebuilt/src/vs/workbench/workbenchDesktopMain/index.js",
+    "rebuilt/src/vs/platform/files/node/watcherMain/index.js",
+    "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js"
+  ],
+  "ownedBusinessFamilies": [
+    "rebuilt/src/vs/workbench/contrib/composer/browser",
+    "rebuilt/src/extensions"
+  ],
+  "forbiddenImportKinds": {
+    "runtime_input_out": {
+      "needle": "recovered/phase2/runtime-input/out/",
+      "description": "active runtime source 不允许继续直接依赖 staged runtime JS bundle。"
+    },
+    "original_js": {
+      "needle": ".original.js",
+      "description": "active runtime source 不允许继续通过 *.original.js 作为主逻辑。"
+    },
+    "beautified_ref": {
+      "needle": "project-modules-beautified/",
+      "description": "beautified 恢复层只允许做参考，不允许 active runtime import。"
+    },
+    "raw_ref": {
+      "needle": "project-modules-raw/",
+      "description": "raw 恢复层只允许做参考，不允许 active runtime import。"
+    }
+  },
+  "legacyAllowlist": [
+    {
+      "path": "rebuilt/src/cli/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "host-entrypoints",
+      "notes": "CLI bridge 仍走 staged runtime JS，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "pty host 仍走 staged runtime JS，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "profiling worker 仍走 staged runtime JS，后续统一收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "shared process bridge 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/node/cliProcessMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "cli process bridge 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "extension monitor 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-sandbox/processExplorerMain/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "process explorer 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/index.js",
+      "kinds": [
+        "runtime_input_out"
+      ],
+      "family": "runtime-sidecars",
+      "notes": "telemetry app 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/workbench/workbenchDesktopMain/index.js",
+      "kinds": [
+        "original_js"
+      ],
+      "family": "workbench-main",
+      "notes": "workbench desktop main 仍依赖 *.original.js，后续按高风险 family 收口。"
+    }
+  ],
+  "families": {
+    "host-entrypoints": [
+      "rebuilt/src/main",
+      "rebuilt/src/cli",
+      "rebuilt/src/bootstrapFork"
+    ],
+    "runtime-sidecars": [
+      "rebuilt/src/vs/platform/files/node",
+      "rebuilt/src/vs/platform/terminal/node",
+      "rebuilt/src/vs/platform/profiling/electron-sandbox",
+      "rebuilt/src/vs/code/electron-utility/sharedProcess",
+      "rebuilt/src/vs/code/node",
+      "rebuilt/src/vs/code/electron-sandbox",
+      "rebuilt/src/vs/workbench/contrib/debug/node"
+    ],
+    "workbench-main": [
+      "rebuilt/src/vs/workbench/workbenchDesktopMain"
+    ],
+    "composer-browser": [
+      "rebuilt/src/vs/workbench/contrib/composer/browser"
+    ],
+    "extensions-business": [
+      "rebuilt/src/extensions"
+    ],
+    "reference-beautified": [
+      "rebuilt/src/project-modules-beautified"
+    ],
+    "reference-raw": [
+      "rebuilt/src/project-modules-raw"
+    ]
+  }
+}

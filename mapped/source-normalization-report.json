@@ -1,0 +1,199 @@
+{
+  "generatedAt": "2026-04-10T10:13:20.106Z",
+  "sourceOfTruth": "config/runtime/source-normalization.json",
+  "activeRuntimeRoots": [
+    "rebuilt/src"
+  ],
+  "sourceAliasRoots": [
+    "src"
+  ],
+  "referenceOnlyRoots": [
+    "rebuilt/src/project-modules-beautified",
+    "rebuilt/src/project-modules-raw"
+  ],
+  "ownedRuntimeEntrypoints": [
+    "rebuilt/src/main/index.js",
+    "rebuilt/src/cli/index.js",
+    "rebuilt/src/bootstrapFork/index.js",
+    "rebuilt/src/vs/workbench/workbenchDesktopMain/index.js",
+    "rebuilt/src/vs/platform/files/node/watcherMain/index.js",
+    "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js"
+  ],
+  "ownedBusinessFamilies": [
+    "rebuilt/src/vs/workbench/contrib/composer/browser",
+    "rebuilt/src/extensions"
+  ],
+  "forbiddenImportKinds": {
+    "runtime_input_out": {
+      "needle": "recovered/phase2/runtime-input/out/",
+      "description": "active runtime source 不允许继续直接依赖 staged runtime JS bundle。"
+    },
+    "original_js": {
+      "needle": ".original.js",
+      "description": "active runtime source 不允许继续通过 *.original.js 作为主逻辑。"
+    },
+    "beautified_ref": {
+      "needle": "project-modules-beautified/",
+      "description": "beautified 恢复层只允许做参考，不允许 active runtime import。"
+    },
+    "raw_ref": {
+      "needle": "project-modules-raw/",
+      "description": "raw 恢复层只允许做参考，不允许 active runtime import。"
+    }
+  },
+  "totals": {
+    "scannedFileCount": 850,
+    "fileWithForbiddenMatchCount": 9,
+    "allowedLegacyMatchCount": 9,
+    "unexpectedMatchCount": 0,
+    "unusedLegacyEntryCount": 0,
+    "missingEntrypointCount": 0
+  },
+  "missingEntrypoints": [],
+  "familySummary": [
+    {
+      "family": "host-entrypoints",
+      "prefixes": [
+        "rebuilt/src/main",
+        "rebuilt/src/cli",
+        "rebuilt/src/bootstrapFork"
+      ],
+      "activeFileCount": 3,
+      "fileWithForbiddenMatchCount": 1,
+      "allowedLegacyMatchCount": 1,
+      "unexpectedMatchCount": 0,
+      "status": "legacy-allowed"
+    },
+    {
+      "family": "runtime-sidecars",
+      "prefixes": [
+        "rebuilt/src/vs/platform/files/node",
+        "rebuilt/src/vs/platform/terminal/node",
+        "rebuilt/src/vs/platform/profiling/electron-sandbox",
+        "rebuilt/src/vs/code/electron-utility/sharedProcess",
+        "rebuilt/src/vs/code/node",
+        "rebuilt/src/vs/code/electron-sandbox",
+        "rebuilt/src/vs/workbench/contrib/debug/node"
+      ],
+      "activeFileCount": 12,
+      "fileWithForbiddenMatchCount": 7,
+      "allowedLegacyMatchCount": 7,
+      "unexpectedMatchCount": 0,
+      "status": "legacy-allowed"
+    },
+    {
+      "family": "workbench-main",
+      "prefixes": [
+        "rebuilt/src/vs/workbench/workbenchDesktopMain"
+      ],
+      "activeFileCount": 3,
+      "fileWithForbiddenMatchCount": 1,
+      "allowedLegacyMatchCount": 1,
+      "unexpectedMatchCount": 0,
+      "status": "legacy-allowed"
+    },
+    {
+      "family": "composer-browser",
+      "prefixes": [
+        "rebuilt/src/vs/workbench/contrib/composer/browser"
+      ],
+      "activeFileCount": 1,
+      "fileWithForbiddenMatchCount": 0,
+      "allowedLegacyMatchCount": 0,
+      "unexpectedMatchCount": 0,
+      "status": "source-owned"
+    },
+    {
+      "family": "extensions-business",
+      "prefixes": [
+        "rebuilt/src/extensions"
+      ],
+      "activeFileCount": 12,
+      "fileWithForbiddenMatchCount": 0,
+      "allowedLegacyMatchCount": 0,
+      "unexpectedMatchCount": 0,
+      "status": "source-owned"
+    },
+    {
+      "family": "reference-beautified",
+      "prefixes": [
+        "rebuilt/src/project-modules-beautified"
+      ],
+      "activeFileCount": 0,
+      "fileWithForbiddenMatchCount": 0,
+      "allowedLegacyMatchCount": 0,
+      "unexpectedMatchCount": 0,
+      "status": "reference-only"
+    },
+    {
+      "family": "reference-raw",
+      "prefixes": [
+        "rebuilt/src/project-modules-raw"
+      ],
+      "activeFileCount": 0,
+      "fileWithForbiddenMatchCount": 0,
+      "allowedLegacyMatchCount": 0,
+      "unexpectedMatchCount": 0,
+      "status": "reference-only"
+    }
+  ],
+  "allowedLegacyMatches": [
+    {
+      "path": "rebuilt/src/cli/index.js",
+      "kind": "runtime_input_out",
+      "family": "host-entrypoints",
+      "notes": "CLI bridge 仍走 staged runtime JS，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "extension monitor 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-sandbox/processExplorerMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "process explorer 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "shared process bridge 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/code/node/cliProcessMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "cli process bridge 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "profiling worker 仍走 staged runtime JS，后续统一收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/platform/terminal/node/ptyHostMain/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "pty host 仍走 staged runtime JS，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/index.js",
+      "kind": "runtime_input_out",
+      "family": "runtime-sidecars",
+      "notes": "telemetry app 仍走 staged runtime JS。"
+    },
+    {
+      "path": "rebuilt/src/vs/workbench/workbenchDesktopMain/index.js",
+      "kind": "original_js",
+      "family": "workbench-main",
+      "notes": "workbench desktop main 仍依赖 *.original.js，后续按高风险 family 收口。"
+    }
+  ],
+  "unexpectedMatches": [],
+  "unusedLegacyEntries": [],
+  "passed": true
+}

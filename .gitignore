@@ -33,6 +33,7 @@ mapped/*
 !mapped/runtime-package-manager-resolution-report.json
 !mapped/runtime-boundary-check.json
 !mapped/runtime-independence-report.json
+!mapped/source-normalization-report.json
 !mapped/engineering-surface.json
 !mapped/readability-report.json
 mapped/accept-latest.json
