@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:39:00.249Z",
+  "generatedAt": "2026-04-10T03:48:00.797Z",
   "sourceOfTruth": {
     "nodeModules": "mapped/runtime-node-modules-model-report.json",
     "hostAssets": "mapped/runtime-host-assets-model-report.json"
@@ -19,7 +19,8 @@
           "path": "node_modules/@anysphere/policy-watcher/build/Release/vscode-policy-watcher.node",
           "fileName": "vscode-policy-watcher.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "@parcel/watcher",
@@ -33,7 +34,8 @@
           "path": "node_modules/@parcel/watcher/build/Release/watcher.node",
           "fileName": "watcher.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "@vscode/deviceid",
@@ -47,7 +49,8 @@
           "path": "node_modules/@vscode/deviceid/build/Release/windows.node",
           "fileName": "windows.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "@vscode/spdlog",
@@ -61,7 +64,8 @@
           "path": "node_modules/@vscode/spdlog/build/Release/spdlog.node",
           "fileName": "spdlog.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "@vscode/sqlite3",
@@ -75,7 +79,8 @@
           "path": "node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node",
           "fileName": "vscode-sqlite3.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "cursor-proclist",
@@ -89,7 +94,8 @@
           "path": "node_modules/cursor-proclist/build/Release/cursor_proclist.node",
           "fileName": "cursor_proclist.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "kerberos",
@@ -103,7 +109,8 @@
           "path": "node_modules/kerberos/build/Release/kerberos.node",
           "fileName": "kerberos.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "keytar",
@@ -117,7 +124,8 @@
           "path": "node_modules/keytar/build/Release/keytar.node",
           "fileName": "keytar.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "native-is-elevated",
@@ -131,7 +139,8 @@
           "path": "node_modules/native-is-elevated/build/Release/iselevated.node",
           "fileName": "iselevated.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "native-keymap",
@@ -145,7 +154,8 @@
           "path": "node_modules/native-keymap/build/Release/keymapping.node",
           "fileName": "keymapping.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "native-watchdog",
@@ -159,7 +169,8 @@
           "path": "node_modules/native-watchdog/build/Release/watchdog.node",
           "fileName": "watchdog.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "node-pty",
@@ -173,7 +184,8 @@
           "path": "node_modules/node-pty/build/Release/pty.node",
           "fileName": "pty.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     },
     {
       "name": "windows-foreground-love",
@@ -187,7 +199,8 @@
           "path": "node_modules/windows-foreground-love/build/Release/foreground_love.node",
           "fileName": "foreground_love.node"
         }
-      ]
+      ],
+      "extraRuntimeArtifacts": []
     }
   ],
   "hostAssetSectionCount": 5,

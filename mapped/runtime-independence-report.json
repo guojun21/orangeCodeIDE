@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:38:25.207Z",
+  "generatedAt": "2026-04-10T03:44:59.154Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -18,8 +18,8 @@
       "nativeAddonCount": 13
     },
     "extensions": {
-      "generatedExtensionDirCount": 10,
-      "externalExtensionDirCount": 97
+      "generatedExtensionDirCount": 11,
+      "externalExtensionDirCount": 96
     },
     "resources": {
       "fileCount": 8
@@ -77,9 +77,52 @@
       "unresolvedDependencies": [],
       "passed": true
     },
+    "packageManagerInstall": {
+      "declaredDependencyCount": 442,
+      "installedDependencyCount": 442,
+      "missingDependencyCount": 0,
+      "missingDependencies": [],
+      "passed": true
+    },
     "nativeRuntime": {
       "nativeRuntimePackageCount": 13,
       "hostAssetSectionCount": 5,
+      "passed": true
+    },
+    "nativeArtifactInventory": {
+      "packageCount": 13,
+      "configuredAddonCount": 13,
+      "configuredRuntimeArtifactCount": 13,
+      "binaryArtifactCount": 14,
+      "missingConfiguredRuntimeArtifactCount": 0,
+      "passed": true
+    },
+    "nativeDistributionPlan": {
+      "packageCount": 13,
+      "externalPrebuiltNativeCount": 13,
+      "helperBundlePackageCount": 1,
+      "windowsOnlyPackageCount": 1,
+      "passed": true
+    },
+    "nodeModulesDebaselinePlan": {
+      "targetResidualPath": "node_modules",
+      "phaseCount": 4,
+      "readyPhaseCount": 4,
+      "passed": true
+    },
+    "compatibilityRetirement": {
+      "artifactCount": 1,
+      "readyToRetireCount": 1,
+      "passed": true
+    },
+    "generatedNodeModules": {
+      "generatedTopLevelPackageCount": 500,
+      "expectedTopLevelPackageCount": 456,
+      "copiedNativePackageCount": 13,
+      "copiedExternalizedPackageCount": 1,
+      "omittedPackageCount": 1,
+      "missingExpectedPackages": [],
+      "hoistedTopLevelPackageCount": 44,
       "passed": true
     }
   },
@@ -96,7 +139,7 @@
     },
     {
       "path": "node_modules",
-      "ownershipKind": "external-package",
+      "ownershipKind": "generated",
       "runtimeOrigin": "external-runtime-input"
     },
     {
@@ -117,7 +160,7 @@
   ],
   "residualFileCounts": {
     "node_modules": 16473,
-    "extensions": 902,
+    "extensions": 901,
     "out": 123,
     "resources": 8,
     "bin": 4,
@@ -174,14 +217,7 @@
       ]
     }
   ],
-  "residualExternalItems": [
-    {
-      "path": "node_modules",
-      "kind": "external-package",
-      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
-      "runtimeOrigin": "external-runtime-input"
-    }
-  ],
-  "isFullyIndependent": false,
+  "residualExternalItems": [],
+  "isFullyIndependent": true,
   "passed": true
 }
