@@ -67,6 +67,24 @@ npm run dev
 
 - [docs/PUBLIC_BOOTSTRAP.md](docs/PUBLIC_BOOTSTRAP.md)
 
+当前公开验证默认走**非手测**主路径：
+
+```bash
+npm run verify:public-bootstrap
+```
+
+如果你要额外把 GUI 套件也跑进去，再显式执行：
+
+```bash
+npm run verify:public-bootstrap:gui
+```
+
+如果你要起一个干净登录态的单窗手测实例，用：
+
+```bash
+npm run dev:auth:isolated
+```
+
 默认目标不是依赖本机 `.app`，也不是让仓库自己托管 100MB 级 runtime blob。
 
 默认什么都不传，直接走官方依赖下载并 staged 到 `.runtime-deps`：
@@ -195,6 +213,7 @@ npm run bootstrap:vscode
 npm run status:engineering
 npm run check:core
 npm run verify:public-bootstrap
+npm run verify:public-bootstrap:gui
 npm run verify:runtime-boundary
 npm run verify:runtime-independence
 npm run report:runtime-external-dependencies
@@ -205,6 +224,7 @@ npm run report:runtime-native-runtime-manifest
 npm run verify:runtime-package-manager-resolution
 npm run dev
 npm run dev:auth
+npm run dev:auth:isolated
 npm run test:watcher:spike
 npm run test:workbench-desktop-main:spike
 ```

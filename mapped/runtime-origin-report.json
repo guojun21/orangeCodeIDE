@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:38:48.253Z",
+  "generatedAt": "2026-04-10T08:43:55.700Z",
   "assemblyId": "rebuilt-runtime",
   "sourceOfTruth": "config/runtime/assemblies.json",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -26,9 +26,11 @@
     {
       "path": "node_modules",
       "existsInRuntime": true,
-      "source": "external-runtime-input",
+      "source": "generated-runtime-asset",
       "contributors": [
-        "external-runtime-input"
+        "external-runtime-input",
+        "generated-runtime-asset",
+        "generated-runtime-asset"
       ]
     },
     {

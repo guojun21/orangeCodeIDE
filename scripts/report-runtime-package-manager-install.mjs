@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import crypto from 'crypto';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -32,6 +33,13 @@ function normalizeRelative(filePath) {
   return path.relative(ROOT, filePath).split(path.sep).join('/');
 }
 
+function sha256File(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
 function runPackageInstall(outputRoot) {
   return spawnSync(
     'bash',
@@ -43,6 +51,7 @@ function runPackageInstall(outputRoot) {
       '--no-audit',
       '--no-fund',
       '--legacy-peer-deps',
+      '--prefer-offline',
     ],
     {
       cwd: outputRoot,
@@ -86,6 +95,7 @@ ensureResolutionReport();
 const resolutionReport = readJson(RESOLUTION_REPORT_PATH);
 const outputRoot = path.join(ROOT, resolutionReport.outputRoot);
 const packageJsonPath = path.join(outputRoot, 'package.json');
+const packageLockPath = path.join(outputRoot, 'package-lock.json');
 
 if (!fs.existsSync(packageJsonPath)) {
   throw new Error(`Missing generated runtime package manager package.json: ${packageJsonPath}`);
@@ -93,10 +103,40 @@ if (!fs.existsSync(packageJsonPath)) {
 
 const packageJson = readJson(packageJsonPath);
 const declaredDependencies = Object.keys(packageJson.dependencies ?? {}).sort();
-const installResult = runPackageInstall(outputRoot);
 const nodeModulesRoot = path.join(outputRoot, 'node_modules');
-const installedDependencies = declaredDependencies.filter((name) => packageExists(nodeModulesRoot, name));
-const missingDependencies = declaredDependencies.filter((name) => !packageExists(nodeModulesRoot, name));
+const packageJsonSha256 = sha256File(packageJsonPath);
+const packageLockSha256 = sha256File(packageLockPath);
+const previousReport = fs.existsSync(RESULT_PATH) ? readJson(RESULT_PATH) : null;
+
+const previousInstallMatches =
+  previousReport?.passed === true &&
+  previousReport?.packageJsonSha256 === packageJsonSha256 &&
+  previousReport?.packageLockSha256 === packageLockSha256 &&
+  previousReport?.installRoot === normalizeRelative(outputRoot) &&
+  fs.existsSync(nodeModulesRoot);
+
+let installResult = {
+  status: 0,
+  stdout: '',
+  stderr: '',
+  skipped: false,
+  reuseReason: null,
+};
+
+let installedDependencies = declaredDependencies.filter((name) => packageExists(nodeModulesRoot, name));
+let missingDependencies = declaredDependencies.filter((name) => !packageExists(nodeModulesRoot, name));
+
+if (previousInstallMatches && missingDependencies.length === 0) {
+  installResult = {
+    ...installResult,
+    skipped: true,
+    reuseReason: 'existing-node_modules-matches-package-lock',
+  };
+} else {
+  installResult = runPackageInstall(outputRoot);
+  installedDependencies = declaredDependencies.filter((name) => packageExists(nodeModulesRoot, name));
+  missingDependencies = declaredDependencies.filter((name) => !packageExists(nodeModulesRoot, name));
+}
 
 const payload = {
   generatedAt: new Date().toISOString(),
@@ -104,11 +144,16 @@ const payload = {
   installRoot: normalizeRelative(outputRoot),
   installCommand: 'npm ci --ignore-scripts --no-audit --no-fund --legacy-peer-deps',
   packageJsonPath: normalizeRelative(packageJsonPath),
+  packageLockPath: fs.existsSync(packageLockPath) ? normalizeRelative(packageLockPath) : null,
+  packageJsonSha256,
+  packageLockSha256,
   nodeModulesPath: fs.existsSync(nodeModulesRoot) ? normalizeRelative(nodeModulesRoot) : null,
   declaredDependencyCount: declaredDependencies.length,
   installedDependencyCount: installedDependencies.length,
   missingDependencyCount: missingDependencies.length,
   missingDependencies,
+  installSkipped: installResult.skipped === true,
+  reuseReason: installResult.reuseReason ?? null,
   stdoutTail: (installResult.stdout ?? '').trim().split('\n').slice(-20),
   stderrTail: (installResult.stderr ?? '').trim().split('\n').slice(-20),
   exitCode: installResult.status ?? 1,

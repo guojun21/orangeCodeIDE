@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:48:00.797Z",
+  "generatedAt": "2026-04-10T08:46:11.728Z",
   "sourceOfTruth": {
     "nodeModules": "mapped/runtime-node-modules-model-report.json",
     "hostAssets": "mapped/runtime-host-assets-model-report.json"
@@ -185,7 +185,14 @@
           "fileName": "pty.node"
         }
       ],
-      "extraRuntimeArtifacts": []
+      "extraRuntimeArtifacts": [
+        {
+          "path": "node_modules/node-pty/build/Release/spawn-helper",
+          "fileName": "spawn-helper",
+          "kind": "helper-binary",
+          "notes": "node-pty 在 Unix/macOS 路径上的辅助可执行文件。"
+        }
+      ]
     },
     {
       "name": "windows-foreground-love",

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import crypto from 'crypto';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -20,7 +21,7 @@ function writeJson(filePath, payload) {
   fs.writeFileSync(filePath, JSON.stringify(payload, null, 2) + '\n');
 }
 
-function writePackageJson(outputRoot, dependencies) {
+function renderPackageJson(dependencies) {
   const packageJson = {
     name: 'orangecodeide-runtime-js-deps',
     private: true,
@@ -28,8 +29,12 @@ function writePackageJson(outputRoot, dependencies) {
     description: 'Generated install input for orangeCodeIDE runtime JS dependencies',
     dependencies,
   };
+  return JSON.stringify(packageJson, null, 2) + '\n';
+}
+
+function writePackageJson(outputRoot, dependencies) {
   fs.mkdirSync(outputRoot, { recursive: true });
-  fs.writeFileSync(path.join(outputRoot, 'package.json'), JSON.stringify(packageJson, null, 2) + '\n');
+  fs.writeFileSync(path.join(outputRoot, 'package.json'), renderPackageJson(dependencies));
 }
 
 function resetWorkspace(outputRoot) {
@@ -101,6 +106,10 @@ function detectFailedDependency(logText) {
   return null;
 }
 
+function sha256Text(value) {
+  return crypto.createHash('sha256').update(value).digest('hex');
+}
+
 if (!fs.existsSync(MANIFEST_PATH)) {
   throw new Error(
     `Missing runtime package manager manifest: ${MANIFEST_PATH}. Run "npm run report:runtime-package-manager-manifest" first.`
@@ -156,6 +165,14 @@ for (const [name, version] of Object.entries(originalDependencies)) {
   }
 }
 
+const resolutionInputSha256 = sha256Text(
+  JSON.stringify({
+    manifestDependencies: originalDependencies,
+    resolutionRules: resolutionConfig.rules ?? {},
+    platform: process.platform,
+  })
+);
+
 for (const [name, version] of Object.entries(originalDependencies)) {
   if (!(name in workingDependencies)) {
     continue;
@@ -174,8 +191,30 @@ for (const [name, version] of Object.entries(originalDependencies)) {
 
 let attempts = 0;
 let finalResolution = null;
+const renderedPackageJson = renderPackageJson(workingDependencies);
+const resolvedPackageJsonPath = path.join(OUTPUT_ROOT, 'package.json');
+const lockfilePath = path.join(OUTPUT_ROOT, 'package-lock.json');
+const previousReport = fs.existsSync(RESULT_PATH) ? readJson(RESULT_PATH) : null;
 
-while (attempts < 50) {
+const canReuseExistingResolution =
+  previousReport?.passed === true &&
+  previousReport?.resolutionInputSha256 === resolutionInputSha256 &&
+  fs.existsSync(resolvedPackageJsonPath) &&
+  fs.readFileSync(resolvedPackageJsonPath, 'utf8') === renderedPackageJson &&
+  fs.existsSync(lockfilePath);
+
+if (canReuseExistingResolution) {
+  attempts = 0;
+  finalResolution = {
+    status: 'resolved',
+    stdout: '',
+    stderr: '',
+    skipped: true,
+    reuseReason: 'existing-package-lock-matches-resolution-input',
+  };
+}
+
+while (!finalResolution && attempts < 50) {
   attempts += 1;
   writePackageJson(OUTPUT_ROOT, workingDependencies);
   resetWorkspace(OUTPUT_ROOT);
@@ -210,11 +249,11 @@ if (!finalResolution) {
   throw new Error('Failed to resolve runtime package manager manifest within retry budget.');
 }
 
-const lockfilePath = path.join(OUTPUT_ROOT, 'package-lock.json');
 const result = {
   generatedAt: new Date().toISOString(),
   sourceOfTruth: 'mapped/runtime-package-manager-manifest.json',
   resolutionRulesSourceOfTruth: 'config/runtime/package-manager-resolution.json',
+  resolutionInputSha256,
   outputRoot: path.relative(ROOT, OUTPUT_ROOT).split(path.sep).join('/'),
   installCommand: 'npm install --package-lock-only --ignore-scripts --no-audit --no-fund --legacy-peer-deps',
   totalManifestDependencyCount: Object.keys(originalDependencies).length,
@@ -224,6 +263,8 @@ const result = {
   externalizedDependencyCount: externalizedDependencies.length,
   unresolvedDependencyCount: unresolved.length,
   attempts,
+  resolutionSkipped: finalResolution.skipped === true,
+  reuseReason: finalResolution.reuseReason ?? null,
   resolvedPackageJsonPath: path.relative(ROOT, path.join(OUTPUT_ROOT, 'package.json')).split(path.sep).join('/'),
   resolvedLockfilePath: fs.existsSync(lockfilePath)
     ? path.relative(ROOT, lockfilePath).split(path.sep).join('/')

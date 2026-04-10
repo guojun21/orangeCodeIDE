@@ -1,16 +1,19 @@
 {
-  "generatedAt": "2026-04-10T03:47:52.380Z",
+  "generatedAt": "2026-04-10T08:48:44.672Z",
   "sourceOfTruth": "mapped/runtime-package-manager-manifest.json",
   "resolutionRulesSourceOfTruth": "config/runtime/package-manager-resolution.json",
+  "resolutionInputSha256": "ce934c7b73afc7096839122e8fcff1e6637cd2f05ae3259e540712f1a42eb7f0",
   "outputRoot": "recovered/rebuilt/runtime-package-manager-input",
   "installCommand": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund --legacy-peer-deps",
-  "totalManifestDependencyCount": 444,
-  "resolvedDependencyCount": 442,
+  "totalManifestDependencyCount": 489,
+  "resolvedDependencyCount": 486,
   "aliasedDependencyCount": 3,
-  "omittedDependencyCount": 1,
+  "omittedDependencyCount": 0,
   "externalizedDependencyCount": 1,
-  "unresolvedDependencyCount": 0,
-  "attempts": 1,
+  "unresolvedDependencyCount": 2,
+  "attempts": 0,
+  "resolutionSkipped": true,
+  "reuseReason": "existing-package-lock-matches-resolution-input",
   "resolvedPackageJsonPath": "recovered/rebuilt/runtime-package-manager-input/package.json",
   "resolvedLockfilePath": "recovered/rebuilt/runtime-package-manager-input/package-lock.json",
   "aliasedDependencies": [
@@ -33,18 +36,7 @@
       "notes": "CJS alias 包；用 npm alias 重写到上游 package。"
     }
   ],
-  "omittedDependencies": [
-    {
-      "name": "@vscode/windows-mutex",
-      "version": null,
-      "action": "omit-on-platform",
-      "platforms": [
-        "darwin",
-        "linux"
-      ],
-      "notes": "Windows-only mutex 包；当前 macOS 路径可以从 package-manager 输入里排除。"
-    }
-  ],
+  "omittedDependencies": [],
   "externalizedDependencies": [
     {
       "name": "@vscode/ripgrep",
@@ -53,6 +45,19 @@
       "notes": "Cursor 定制 ripgrep 版本不是标准 npm registry 依赖；短期继续 external。"
     }
   ],
-  "unresolvedDependencies": [],
+  "unresolvedDependencies": [
+    {
+      "name": ".bin",
+      "version": null,
+      "reason": "missing-version",
+      "detectedBy": "manifest-prefilter"
+    },
+    {
+      "name": ".package-lock.json",
+      "version": null,
+      "reason": "missing-version",
+      "detectedBy": "manifest-prefilter"
+    }
+  ],
   "passed": true
 }

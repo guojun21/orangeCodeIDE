@@ -1,189 +1,189 @@
 {
-  "generatedAt": "2026-04-10T03:38:53.202Z",
+  "generatedAt": "2026-04-10T08:44:03.826Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
   "nodeModules": {
     "exists": true,
-    "packageCount": 457,
-    "fileCount": 16473,
-    "jsOnlyPackageCount": 444,
+    "packageCount": 502,
+    "fileCount": 45133,
+    "jsOnlyPackageCount": 489,
     "nativePackageCount": 13,
     "nativeAddonCount": 13,
     "topPackagesByFileCount": [
       {
-        "name": "lodash",
-        "version": "4.17.21",
-        "fileCount": 1052,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "underscore",
-        "version": "1.13.7",
-        "fileCount": 497,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "rxjs",
-        "version": "8.0.0-alpha.14",
-        "fileCount": 431,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@azure/identity",
-        "version": "4.13.0",
-        "fileCount": 378,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-print",
-        "version": "1.6.0",
-        "fileCount": 365,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/core",
-        "version": "10.25.0",
-        "fileCount": 341,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@typespec/ts-http-runtime",
-        "version": "0.3.2",
-        "fileCount": 315,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "zod",
-        "version": "4.1.11",
-        "fileCount": 302,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "node-ovsx-sign",
-        "version": "1.2.0",
-        "fileCount": 301,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-blit",
-        "version": "1.6.0",
-        "fileCount": 287,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-color",
-        "version": "1.6.0",
-        "fileCount": 283,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-resize",
-        "version": "1.6.0",
-        "fileCount": 282,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-crop",
-        "version": "1.6.0",
-        "fileCount": 277,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-circle",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-contain",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-cover",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-fisheye",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-flip",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-mask",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-quantize",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-rotate",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-threshold",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-displace",
-        "version": "1.6.0",
-        "fileCount": 274,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/types",
-        "version": "1.6.0",
-        "fileCount": 274,
+        "name": "@sentry/electron",
+        "version": "7.2.0",
+        "fileCount": 3950,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@azure/msal-browser",
         "version": "4.28.1",
-        "fileCount": 246,
+        "fileCount": 2613,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "rxjs",
+        "version": "8.0.0-alpha.14",
+        "fileCount": 1474,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry/core",
+        "version": "10.25.0",
+        "fileCount": 1391,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/identity",
+        "version": "4.13.0",
+        "fileCount": 1263,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash",
+        "version": "4.17.21",
+        "fileCount": 1054,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@typespec/ts-http-runtime",
+        "version": "0.3.2",
+        "fileCount": 932,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/msal-common",
+        "version": "15.14.1",
+        "fileCount": 757,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-print",
+        "version": "1.6.0",
+        "fileCount": 756,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "node-ovsx-sign",
+        "version": "1.2.0",
+        "fileCount": 700,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry/node",
+        "version": "10.25.0",
+        "fileCount": 683,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "zod",
+        "version": "4.1.11",
+        "fileCount": 656,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-resize",
+        "version": "1.6.0",
+        "fileCount": 650,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/api",
+        "version": "1.9.0",
+        "fileCount": 642,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-blit",
+        "version": "1.6.0",
+        "fileCount": 635,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-color",
+        "version": "1.6.0",
+        "fileCount": 634,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-crop",
+        "version": "1.6.0",
+        "fileCount": 625,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-circle",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-contain",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-cover",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-fisheye",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-flip",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-mask",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-rotate",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-threshold",
+        "version": "1.6.0",
+        "fileCount": 623,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       }
@@ -350,366 +350,541 @@
     ],
     "packages": [
       {
-        "name": "lodash",
-        "version": "4.17.21",
-        "fileCount": 1052,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "underscore",
-        "version": "1.13.7",
-        "fileCount": 497,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "rxjs",
-        "version": "8.0.0-alpha.14",
-        "fileCount": 431,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@azure/identity",
-        "version": "4.13.0",
-        "fileCount": 378,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-print",
-        "version": "1.6.0",
-        "fileCount": 365,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/core",
-        "version": "10.25.0",
-        "fileCount": 341,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@typespec/ts-http-runtime",
-        "version": "0.3.2",
-        "fileCount": 315,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "zod",
-        "version": "4.1.11",
-        "fileCount": 302,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "node-ovsx-sign",
-        "version": "1.2.0",
-        "fileCount": 301,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-blit",
-        "version": "1.6.0",
-        "fileCount": 287,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-color",
-        "version": "1.6.0",
-        "fileCount": 283,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-resize",
-        "version": "1.6.0",
-        "fileCount": 282,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-crop",
-        "version": "1.6.0",
-        "fileCount": 277,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-circle",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-contain",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-cover",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-fisheye",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-flip",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-mask",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-quantize",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-rotate",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-threshold",
-        "version": "1.6.0",
-        "fileCount": 276,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-displace",
-        "version": "1.6.0",
-        "fileCount": 274,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/types",
-        "version": "1.6.0",
-        "fileCount": 274,
+        "name": "@sentry/electron",
+        "version": "7.2.0",
+        "fileCount": 3950,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@azure/msal-browser",
         "version": "4.28.1",
-        "fileCount": 246,
+        "fileCount": 2613,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/api",
-        "version": "1.9.0",
-        "fileCount": 215,
+        "name": "rxjs",
+        "version": "8.0.0-alpha.14",
+        "fileCount": 1474,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@azure/core-rest-pipeline",
-        "version": "1.22.2",
-        "fileCount": 197,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/sdk-metrics",
-        "version": "2.2.0",
-        "fileCount": 194,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "archiver",
-        "version": "7.0.1",
-        "fileCount": 193,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/browser",
+        "name": "@sentry/core",
         "version": "10.25.0",
-        "fileCount": 180,
+        "fileCount": 1391,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/otlp-transformer",
-        "version": "0.208.0",
-        "fileCount": 166,
+        "name": "@azure/identity",
+        "version": "4.13.0",
+        "fileCount": 1263,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@tanstack/react-query",
-        "version": "5.83.0",
-        "fileCount": 166,
+        "name": "lodash",
+        "version": "4.17.21",
+        "fileCount": 1054,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@vscode/vsce",
-        "version": "2.32.0",
-        "fileCount": 157,
+        "name": "@typespec/ts-http-runtime",
+        "version": "0.3.2",
+        "fileCount": 932,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "yaml",
-        "version": "2.8.2",
-        "fileCount": 154,
+        "name": "@azure/msal-common",
+        "version": "15.14.1",
+        "fileCount": 757,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@connectrpc/connect",
-        "version": "1.6.1",
-        "fileCount": 146,
+        "name": "@jimp/plugin-print",
+        "version": "1.6.0",
+        "fileCount": 756,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "node-ovsx-sign",
+        "version": "1.2.0",
+        "fileCount": 700,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@sentry/node",
         "version": "10.25.0",
-        "fileCount": 141,
+        "fileCount": 683,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@tanstack/query-core",
-        "version": "5.83.0",
-        "fileCount": 137,
+        "name": "zod",
+        "version": "4.1.11",
+        "fileCount": 656,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-http",
-        "version": "0.204.0",
-        "fileCount": 132,
+        "name": "@jimp/plugin-resize",
+        "version": "1.6.0",
+        "fileCount": 650,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation",
-        "version": "0.204.0",
-        "fileCount": 126,
+        "name": "@opentelemetry/api",
+        "version": "1.9.0",
+        "fileCount": 642,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@azure/core-client",
-        "version": "1.10.1",
-        "fileCount": 125,
+        "name": "@jimp/plugin-blit",
+        "version": "1.6.0",
+        "fileCount": 635,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-color",
+        "version": "1.6.0",
+        "fileCount": 634,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-crop",
+        "version": "1.6.0",
+        "fileCount": 625,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-circle",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-contain",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-cover",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-fisheye",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-flip",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-mask",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-rotate",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-threshold",
+        "version": "1.6.0",
+        "fileCount": 623,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-quantize",
+        "version": "1.6.0",
+        "fileCount": 622,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-displace",
+        "version": "1.6.0",
+        "fileCount": 618,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/types",
+        "version": "1.6.0",
+        "fileCount": 617,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@sentry/node-core",
         "version": "10.25.0",
-        "fileCount": 123,
+        "fileCount": 607,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@bufbuild/protobuf",
-        "version": "1.10.0",
-        "fileCount": 122,
+        "name": "@sentry/browser",
+        "version": "10.25.0",
+        "fileCount": 591,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@prisma/instrumentation",
-        "version": "6.15.0",
-        "fileCount": 121,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/core",
+        "name": "@opentelemetry/sdk-metrics",
         "version": "2.2.0",
-        "fileCount": 119,
+        "fileCount": 579,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@connectrpc/connect-node",
-        "version": "1.6.1",
-        "fileCount": 115,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/electron",
-        "version": "7.2.0",
-        "fileCount": 115,
+        "name": "underscore",
+        "version": "1.13.7",
+        "fileCount": 507,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@azure/msal-node",
         "version": "3.8.6",
-        "fileCount": 114,
+        "fileCount": 447,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "undici",
-        "version": "7.20.0",
-        "fileCount": 114,
+        "name": "@azure/core-rest-pipeline",
+        "version": "1.22.2",
+        "fileCount": 428,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-http",
+        "version": "0.204.0",
+        "fileCount": 390,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation",
+        "version": "0.204.0",
+        "fileCount": 368,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/core",
+        "version": "2.2.0",
+        "fileCount": 354,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@prisma/instrumentation",
+        "version": "6.15.0",
+        "fileCount": 351,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@opentelemetry/otlp-exporter-base",
         "version": "0.208.0",
-        "fileCount": 110,
+        "fileCount": 327,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@opentelemetry/resources",
         "version": "2.2.0",
-        "fileCount": 110,
+        "fileCount": 327,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@tanstack/react-query",
+        "version": "5.83.0",
+        "fileCount": 325,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@tanstack/query-core",
+        "version": "5.83.0",
+        "fileCount": 294,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/otlp-transformer",
+        "version": "0.208.0",
+        "fileCount": 291,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@opentelemetry/sdk-trace-base",
         "version": "2.2.0",
-        "fileCount": 98,
+        "fileCount": 291,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@connectrpc/connect",
+        "version": "1.6.1",
+        "fileCount": 287,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry-internal/browser-utils",
+        "version": "10.25.0",
+        "fileCount": 284,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tar",
+        "version": "7.5.7",
+        "fileCount": 250,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@bufbuild/protobuf",
+        "version": "1.10.0",
+        "fileCount": 243,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "yaml",
+        "version": "2.8.2",
+        "fileCount": 233,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry-internal/replay",
+        "version": "10.25.0",
+        "fileCount": 232,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "cheerio",
+        "version": "1.2.0",
+        "fileCount": 228,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@microsoft/applicationinsights-core-js",
+        "version": "2.8.15",
+        "fileCount": 223,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/core-client",
+        "version": "1.10.1",
+        "fileCount": 212,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@connectrpc/connect-node",
+        "version": "1.6.1",
+        "fileCount": 210,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/sdk-logs",
+        "version": "0.208.0",
+        "fileCount": 210,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "undici",
+        "version": "7.20.0",
+        "fileCount": 204,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "image-q",
+        "version": "4.0.0",
+        "fileCount": 194,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "multiformats",
+        "version": "13.3.7",
+        "fileCount": 188,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "cockatiel",
+        "version": "3.2.1",
+        "fileCount": 177,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "archiver-utils",
         "version": "5.0.2",
-        "fileCount": 87,
+        "fileCount": 170,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/api-logs",
+        "version": "0.208.0",
+        "fileCount": 165,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/xterm",
+        "version": "5.6.0-beta.99",
+        "fileCount": 162,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "azure-devops-node-api",
+        "version": "12.5.0",
+        "fileCount": 156,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "htmlparser2",
+        "version": "10.1.0",
+        "fileCount": 151,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "parse5",
+        "version": "7.3.0",
+        "fileCount": 150,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "import-in-the-middle",
+        "version": "1.13.1",
+        "fileCount": 147,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "seroval",
+        "version": "1.3.2",
+        "fileCount": 141,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "async",
+        "version": "3.2.6",
+        "fileCount": 137,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/semantic-conventions",
+        "version": "1.38.0",
+        "fileCount": 129,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mnemonist",
+        "version": "0.40.3",
+        "fileCount": 104,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry/opentelemetry",
+        "version": "10.25.0",
+        "fileCount": 101,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "resolve",
+        "version": "1.22.10",
+        "fileCount": 97,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry-internal/feedback",
+        "version": "10.25.0",
+        "fileCount": 95,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/core-auth",
+        "version": "1.10.1",
+        "fileCount": 92,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "css-select",
+        "version": "5.1.0",
+        "fileCount": 92,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "opentype.js",
+        "version": "0.8.0",
+        "fileCount": 85,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@microsoft/1ds-post-js",
+        "version": "3.2.13",
+        "fileCount": 84,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
@@ -721,128 +896,163 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "azure-devops-node-api",
-        "version": "12.5.0",
+        "name": "@azure/core-tracing",
+        "version": "1.3.1",
         "fileCount": 80,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@azure/msal-common",
-        "version": "15.14.1",
-        "fileCount": 77,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry-internal/browser-utils",
-        "version": "10.25.0",
-        "fileCount": 77,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/sdk-logs",
-        "version": "0.208.0",
-        "fileCount": 71,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "gray-matter",
-        "version": "4.0.3",
-        "fileCount": 71,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tar",
-        "version": "7.5.7",
-        "fileCount": 66,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "cheerio",
-        "version": "1.2.0",
-        "fileCount": 64,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@microsoft/applicationinsights-core-js",
-        "version": "2.8.15",
-        "fileCount": 63,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "cockatiel",
-        "version": "3.2.1",
-        "fileCount": 60,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "mnemonist",
-        "version": "0.40.3",
-        "fileCount": 58,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@novnc/novnc",
-        "version": "1.6.0",
-        "fileCount": 57,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/api-logs",
-        "version": "0.208.0",
-        "fileCount": 56,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "parse5",
-        "version": "7.3.0",
-        "fileCount": 55,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@azure/core-auth",
-        "version": "1.10.1",
-        "fileCount": 54,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "compress-commons",
-        "version": "6.0.2",
-        "fileCount": 52,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "semver",
-        "version": "7.7.3",
-        "fileCount": 51,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@azure/core-util",
         "version": "1.13.1",
-        "fileCount": 50,
+        "fileCount": 80,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "opentype.js",
-        "version": "0.8.0",
-        "fileCount": 49,
+        "name": "@jimp/core",
+        "version": "1.6.0",
+        "fileCount": 78,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "gray-matter",
+        "version": "4.0.3",
+        "fileCount": 78,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "markdown-it",
+        "version": "12.3.2",
+        "fileCount": 77,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "protobufjs",
+        "version": "7.5.4",
+        "fileCount": 77,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "solid-js",
+        "version": "1.9.7",
+        "fileCount": 76,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "font-ligatures",
+        "version": "1.4.1",
+        "fileCount": 73,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@microsoft/1ds-core-js",
+        "version": "3.2.13",
+        "fileCount": 72,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@types/node",
+        "version": "22.18.12",
+        "fileCount": 72,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "domutils",
+        "version": "3.2.2",
+        "fileCount": 68,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "entities",
+        "version": "4.5.0",
+        "fileCount": 68,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/exporter-trace-otlp-proto",
+        "version": "0.208.0",
+        "fileCount": 66,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "archiver",
+        "version": "7.0.1",
+        "fileCount": 66,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "uuid",
+        "version": "8.3.2",
+        "fileCount": 66,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@novnc/novnc",
+        "version": "1.6.0",
+        "fileCount": 64,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "gifwrap",
+        "version": "0.10.1",
+        "fileCount": 64,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "ip-address",
+        "version": "9.0.5",
+        "fileCount": 59,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/abort-controller",
+        "version": "2.1.2",
+        "fileCount": 57,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jschardet",
+        "version": "3.1.4",
+        "fileCount": 57,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "compress-commons",
+        "version": "6.0.2",
+        "fileCount": 54,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "seroval-plugins",
+        "version": "1.3.2",
+        "fileCount": 54,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "semver",
+        "version": "7.7.3",
+        "fileCount": 52,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
@@ -854,253 +1064,694 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "htmlparser2",
-        "version": "10.1.0",
-        "fileCount": 48,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "react-dom",
-        "version": "19.2.0",
-        "fileCount": 46,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/semantic-conventions",
-        "version": "1.38.0",
-        "fileCount": 44,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "bluebird",
-        "version": "3.4.7",
-        "fileCount": 43,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
         "name": "crc32-stream",
         "version": "6.0.0",
-        "fileCount": 42,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "multiformats",
-        "version": "13.3.7",
-        "fileCount": 42,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "xmlbuilder",
-        "version": "11.0.1",
-        "fileCount": 42,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "solid-js",
-        "version": "1.9.7",
-        "fileCount": 40,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "zip-stream",
-        "version": "6.0.1",
-        "fileCount": 40,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "readable-web-to-node-stream",
-        "version": "3.0.4",
-        "fileCount": 39,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "chrome-remote-interface",
-        "version": "0.33.0",
-        "fileCount": 32,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "css-select",
-        "version": "5.1.0",
-        "fileCount": 32,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "js-yaml",
-        "version": "4.1.0",
-        "fileCount": 31,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@microsoft/1ds-post-js",
-        "version": "3.2.13",
-        "fileCount": 30,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "fs-extra",
-        "version": "11.2.0",
-        "fileCount": 30,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "react",
-        "version": "19.2.0",
-        "fileCount": 30,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "readable-stream",
-        "version": "2.3.7",
-        "fileCount": 30,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@isaacs/cliui",
-        "version": "8.0.2",
-        "fileCount": 29,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "pixelmatch",
-        "version": "5.3.0",
-        "fileCount": 29,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tar-stream",
-        "version": "2.2.0",
-        "fileCount": 29,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@microsoft/1ds-core-js",
-        "version": "3.2.13",
-        "fileCount": 27,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/core",
-        "version": "1.6.0",
-        "fileCount": 26,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "domutils",
-        "version": "3.2.2",
-        "fileCount": 26,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "bl",
-        "version": "4.1.0",
-        "fileCount": 25,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "pako",
-        "version": "1.0.11",
-        "fileCount": 25,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "pngjs",
-        "version": "7.0.0",
-        "fileCount": 25,
+        "fileCount": 47,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "obliterator",
         "version": "2.0.5",
-        "fileCount": 24,
+        "fileCount": 47,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/exporter-trace-otlp-proto",
-        "version": "0.208.0",
-        "fileCount": 23,
+        "name": "bluebird",
+        "version": "3.4.7",
+        "fileCount": 45,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "iconv-lite",
-        "version": "0.6.3",
-        "fileCount": 23,
+        "name": "readable-web-to-node-stream",
+        "version": "3.0.4",
+        "fileCount": 45,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "font-ligatures",
-        "version": "1.4.1",
-        "fileCount": 22,
+        "name": "xmlbuilder",
+        "version": "11.0.1",
+        "fileCount": 45,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "fstream",
-        "version": "1.0.12",
-        "fileCount": 22,
+        "name": "zip-stream",
+        "version": "6.0.1",
+        "fileCount": 45,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "foreground-child",
-        "version": "3.1.1",
-        "fileCount": 20,
+        "name": "@types/semver",
+        "version": "7.5.8",
+        "fileCount": 44,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "font-finder",
+        "version": "1.1.0",
+        "fileCount": 44,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "pg-protocol",
+        "version": "1.10.3",
+        "fileCount": 43,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.0",
+        "fileCount": 43,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "@microsoft/dynamicproto-js",
         "version": "1.1.9",
-        "fileCount": 19,
+        "fileCount": 41,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "asynckit",
-        "version": "0.4.0",
-        "fileCount": 19,
+        "name": "bmp-ts",
+        "version": "1.0.9",
+        "fileCount": 41,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "entities",
-        "version": "4.5.0",
-        "fileCount": 19,
+        "name": "undici-types",
+        "version": "6.21.0",
+        "fileCount": 41,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "wrap-ansi",
+        "version": "8.1.0",
+        "fileCount": 40,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-image",
+        "version": "0.9.0-beta.99",
+        "fileCount": 39,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/js-png",
+        "version": "1.6.0",
+        "fileCount": 38,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "math-intrinsics",
         "version": "1.1.0",
+        "fileCount": 38,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@isaacs/cliui",
+        "version": "8.0.2",
+        "fileCount": 37,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bare-fs",
+        "version": "4.7.0",
+        "fileCount": 37,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-blur",
+        "version": "1.6.0",
+        "fileCount": 36,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "chrome-remote-interface",
+        "version": "0.33.0",
+        "fileCount": 36,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bl",
+        "version": "4.1.0",
+        "fileCount": 35,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-hash",
+        "version": "1.6.0",
+        "fileCount": 34,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "object-inspect",
+        "version": "1.13.3",
+        "fileCount": 34,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "readable-stream",
+        "version": "2.3.7",
+        "fileCount": 34,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-redis",
+        "version": "0.53.0",
+        "fileCount": 33,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "iconv-lite",
+        "version": "0.6.3",
+        "fileCount": 33,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "js-yaml",
+        "version": "4.1.0",
+        "fileCount": 33,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tar-stream",
+        "version": "2.2.0",
+        "fileCount": 33,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "events",
+        "version": "3.3.0",
+        "fileCount": 32,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "socks",
+        "version": "2.8.3",
+        "fileCount": 32,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "fs-extra",
+        "version": "11.2.0",
+        "fileCount": 31,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jimp",
+        "version": "1.6.0",
+        "fileCount": 31,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "pixelmatch",
+        "version": "5.3.0",
+        "fileCount": 31,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-graphql",
+        "version": "0.52.0",
+        "fileCount": 30,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-pg",
+        "version": "0.57.0",
+        "fileCount": 30,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "fstream",
+        "version": "1.0.12",
+        "fileCount": 30,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "path-scurry",
+        "version": "1.11.1",
+        "fileCount": 30,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/js-bmp",
+        "version": "1.6.0",
+        "fileCount": 29,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "foreground-child",
+        "version": "3.1.1",
+        "fileCount": 29,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "signal-exit",
+        "version": "4.1.0",
+        "fileCount": 29,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/file-ops",
+        "version": "1.6.0",
+        "fileCount": 28,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@vscode/vsce",
+        "version": "2.32.0",
+        "fileCount": 28,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "cheerio-select",
+        "version": "2.1.0",
+        "fileCount": 28,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "typed-rest-client",
+        "version": "1.8.11",
+        "fileCount": 28,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-express",
+        "version": "0.53.0",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-webgl",
+        "version": "0.19.0-beta.99",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bare-url",
+        "version": "2.4.0",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "css-what",
+        "version": "6.1.0",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "pako",
+        "version": "1.0.11",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "pngjs",
+        "version": "7.0.0",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "react",
+        "version": "19.2.0",
+        "fileCount": 27,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/js-gif",
+        "version": "1.6.0",
+        "fileCount": 26,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/js-jpeg",
+        "version": "1.6.0",
+        "fileCount": 26,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/js-tiff",
+        "version": "1.6.0",
+        "fileCount": 26,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@microsoft/applicationinsights-shims",
+        "version": "2.0.2",
+        "fileCount": 26,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "chalk",
+        "version": "2.4.2",
+        "fileCount": 25,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "exif-parser",
+        "version": "0.1.12",
+        "fileCount": 25,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": ".bin",
+        "version": null,
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/diff",
+        "version": "1.6.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-hapi",
+        "version": "0.51.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-kafkajs",
+        "version": "0.14.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-knex",
+        "version": "0.49.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-koa",
+        "version": "0.52.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@tanstack/solid-query",
+        "version": "5.83.0",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "minimist",
+        "version": "1.2.7",
+        "fileCount": 24,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/utils",
+        "version": "1.6.0",
+        "fileCount": 23,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bare-os",
+        "version": "3.8.7",
+        "fileCount": 23,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "encoding-sniffer",
+        "version": "0.2.1",
+        "fileCount": 23,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@jimp/plugin-dither",
+        "version": "1.6.0",
+        "fileCount": 22,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "es-errors",
+        "version": "1.3.0",
+        "fileCount": 22,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-connect",
+        "version": "0.48.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-fs",
+        "version": "0.24.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-ioredis",
+        "version": "0.52.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-mysql",
+        "version": "0.50.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-undici",
+        "version": "0.15.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@vscode/tree-sitter-wasm",
+        "version": "0.1.4",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "call-bind-apply-helpers",
+        "version": "1.0.1",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "eventsource-parser",
+        "version": "3.0.6",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jackspeak",
+        "version": "3.4.3",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "minizlib",
+        "version": "3.1.0",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "prebuild-install",
+        "version": "7.1.3",
+        "fileCount": 21,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@azure/logger",
+        "version": "1.3.0",
+        "fileCount": 20,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "asynckit",
+        "version": "0.4.0",
+        "fileCount": 20,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tar-fs",
+        "version": "2.1.4",
+        "fileCount": 20,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tas-client-umd",
+        "version": "0.2.0",
+        "fileCount": 20,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "await-to-js",
+        "version": "3.0.0",
+        "fileCount": 19,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jsonc-parser",
+        "version": "3.3.1",
+        "fileCount": 19,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "strtok3",
+        "version": "6.3.0",
+        "fileCount": 19,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "unzipper",
+        "version": "0.11.6",
+        "fileCount": 19,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "ws",
+        "version": "8.18.2",
+        "fileCount": 19,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@fastify/busboy",
+        "version": "2.1.1",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/context-async-hooks",
+        "version": "2.2.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-amqplib",
+        "version": "0.51.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-mongodb",
+        "version": "0.57.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-mongoose",
+        "version": "0.51.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-mysql2",
+        "version": "0.51.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-tedious",
+        "version": "0.23.0",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "asn1.js",
+        "version": "5.4.1",
         "fileCount": 18,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -1113,79 +1764,142 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "ws",
-        "version": "8.18.2",
+        "name": "qs",
+        "version": "6.13.0",
         "fileCount": 18,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "ip-address",
-        "version": "9.0.5",
+        "name": "socks-proxy-agent",
+        "version": "8.0.4",
+        "fileCount": 18,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@pkgjs/parseargs",
+        "version": "0.11.0",
         "fileCount": 17,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "unzipper",
-        "version": "0.11.6",
+        "name": "events-universal",
+        "version": "1.0.1",
         "fileCount": 17,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "asn1.js",
-        "version": "5.4.1",
+        "name": "lru-cache",
+        "version": "11.1.0",
+        "fileCount": 17,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "parse-semver",
+        "version": "1.1.1",
+        "fileCount": 17,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "dom-serializer",
+        "version": "2.0.0",
         "fileCount": 16,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "bmp-ts",
-        "version": "1.0.9",
+        "name": "domhandler",
+        "version": "5.0.3",
         "fileCount": 16,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "cheerio-select",
-        "version": "2.1.0",
-        "fileCount": 16,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "typed-rest-client",
-        "version": "1.8.11",
-        "fileCount": 16,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@fastify/busboy",
-        "version": "2.1.1",
-        "fileCount": 15,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@microsoft/applicationinsights-shims",
+        "name": "get-system-fonts",
         "version": "2.0.2",
+        "fileCount": 16,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "has-symbols",
+        "version": "1.1.0",
+        "fileCount": 16,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "sprintf-js",
+        "version": "1.0.3",
+        "fileCount": 16,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-dataloader",
+        "version": "0.22.0",
         "fileCount": 15,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@xterm/addon-image",
-        "version": "0.9.0-beta.99",
+        "name": "@opentelemetry/sdk-trace-node",
+        "version": "2.2.0",
         "fileCount": 15,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "resolve",
-        "version": "1.22.10",
+        "name": "@tootallnate/once",
+        "version": "3.0.0",
         "fileCount": 15,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "dunder-proto",
+        "version": "1.0.1",
+        "fileCount": 15,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "get-proto",
+        "version": "1.0.1",
+        "fileCount": 15,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jsonwebtoken",
+        "version": "9.0.3",
+        "fileCount": 15,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "scheduler",
+        "version": "0.27.0",
+        "fileCount": 15,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@c4312/eventsource-umd",
+        "version": "3.0.5",
+        "fileCount": 14,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@sentry-internal/replay-canvas",
+        "version": "10.25.0",
+        "fileCount": 14,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
@@ -1197,184 +1911,268 @@
         "nativeAddonCount": 0
       },
       {
-        "name": "dom-serializer",
-        "version": "2.0.0",
+        "name": "abort-controller",
+        "version": "3.0.0",
         "fileCount": 14,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "encoding-sniffer",
-        "version": "0.2.1",
+        "name": "es-object-atoms",
+        "version": "1.0.0",
         "fileCount": 14,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "exif-parser",
-        "version": "0.1.12",
+        "name": "smart-buffer",
+        "version": "4.2.0",
         "fileCount": 14,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jsonwebtoken",
-        "version": "9.0.3",
-        "fileCount": 14,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "scheduler",
-        "version": "0.27.0",
-        "fileCount": 14,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/js-png",
-        "version": "1.6.0",
-        "fileCount": 13,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jsonc-parser",
-        "version": "3.3.1",
-        "fileCount": 13,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "path-scurry",
-        "version": "1.11.1",
-        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "tinycolor2",
         "version": "1.6.0",
+        "fileCount": 14,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tslib",
+        "version": "2.6.3",
+        "fileCount": 14,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@isaacs/fs-minipass",
+        "version": "4.0.1",
         "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@jimp/plugin-blur",
-        "version": "1.6.0",
-        "fileCount": 12,
+        "name": "@xterm/addon-ligatures",
+        "version": "0.10.0-beta.99",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-redis",
-        "version": "0.53.0",
-        "fileCount": 12,
+        "name": "bare-stream",
+        "version": "2.12.0",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "font-finder",
-        "version": "1.1.0",
-        "fileCount": 12,
+        "name": "chownr",
+        "version": "3.0.0",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "import-in-the-middle",
-        "version": "1.13.1",
-        "fileCount": 12,
+        "name": "github-from-package",
+        "version": "0.0.0",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "parse5-htmlparser2-tree-adapter",
-        "version": "7.1.0",
-        "fileCount": 12,
+        "name": "is-inside-container",
+        "version": "1.0.0",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "pg-protocol",
-        "version": "1.10.3",
-        "fileCount": 12,
+        "name": "lazystream",
+        "version": "1.0.0",
+        "fileCount": 13,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "minipass",
+        "version": "7.1.2",
+        "fileCount": 13,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "package-json-from-dist",
+        "version": "1.0.1",
+        "fileCount": 13,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "pg-types",
+        "version": "2.2.0",
+        "fileCount": 13,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "pidusage",
         "version": "4.0.1",
+        "fileCount": 13,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "side-channel-list",
+        "version": "1.0.0",
+        "fileCount": 13,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/instrumentation-generic-pool",
+        "version": "0.48.0",
         "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@azure/logger",
-        "version": "1.3.0",
-        "fileCount": 11,
+        "name": "@opentelemetry/instrumentation-lru-memoizer",
+        "version": "0.49.0",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@jimp/file-ops",
-        "version": "1.6.0",
-        "fileCount": 11,
+        "name": "@vscode/vscode-languagedetection",
+        "version": "1.0.21",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@jimp/js-bmp",
-        "version": "1.6.0",
-        "fileCount": 11,
+        "name": "function-bind",
+        "version": "1.1.2",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@jimp/plugin-hash",
-        "version": "1.6.0",
-        "fileCount": 11,
+        "name": "gopd",
+        "version": "1.2.0",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-graphql",
-        "version": "0.52.0",
-        "fileCount": 11,
+        "name": "mkdirp",
+        "version": "1.0.4",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-pg",
-        "version": "0.57.0",
-        "fileCount": 11,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "cross-spawn",
-        "version": "7.0.6",
-        "fileCount": 11,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jimp",
-        "version": "1.6.0",
-        "fileCount": 11,
+        "name": "nth-check",
+        "version": "2.0.1",
+        "fileCount": 12,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "rc",
         "version": "1.2.8",
+        "fileCount": 12,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "side-channel",
+        "version": "1.1.0",
+        "fileCount": 12,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "side-channel-map",
+        "version": "1.0.1",
+        "fileCount": 12,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "side-channel-weakmap",
+        "version": "1.0.2",
+        "fileCount": 12,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tunnel",
+        "version": "0.0.6",
+        "fileCount": 12,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@protobufjs/inquire",
+        "version": "1.1.0",
         "fileCount": 11,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-express",
-        "version": "0.53.0",
-        "fileCount": 10,
+        "name": "@sentry/types",
+        "version": "10.25.0",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@vscode/proxy-agent",
+        "version": "0.32.0",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "call-bound",
+        "version": "1.0.3",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "es-define-property",
+        "version": "1.0.1",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "fast-jwt",
+        "version": "6.0.1",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "file-type",
+        "version": "16.5.4",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "peek-readable",
+        "version": "4.1.0",
+        "fileCount": 11,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "promise-stream-reader",
+        "version": "1.0.1",
+        "fileCount": 11,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
@@ -1386,337 +2184,421 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "css-what",
-        "version": "6.1.0",
+        "name": "@vscode/vsce-sign",
+        "version": "2.0.9",
         "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "es-errors",
-        "version": "1.3.0",
+        "name": "@xterm/addon-unicode11",
+        "version": "0.9.0-beta.99",
         "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "mkdirp",
-        "version": "1.0.4",
+        "name": "acorn",
+        "version": "8.15.0",
         "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "strtok3",
-        "version": "6.3.0",
+        "name": "agent-base",
+        "version": "7.1.0",
         "fileCount": 10,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tslib",
-        "version": "2.6.3",
-        "fileCount": 10,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/diff",
-        "version": "1.6.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/js-gif",
-        "version": "1.6.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/js-jpeg",
-        "version": "1.6.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/js-tiff",
-        "version": "1.6.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-hapi",
-        "version": "0.51.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-kafkajs",
-        "version": "0.14.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-knex",
-        "version": "0.49.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-koa",
-        "version": "0.52.0",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@vscode/tree-sitter-wasm",
-        "version": "0.1.4",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "abort-controller",
-        "version": "3.0.0",
-        "fileCount": 9,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "b4a",
         "version": "1.6.4",
-        "fileCount": 9,
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "braces",
         "version": "3.0.3",
-        "fileCount": 9,
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "call-bind-apply-helpers",
-        "version": "1.0.1",
-        "fileCount": 9,
+        "name": "domelementtype",
+        "version": "2.3.0",
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "eventsource-parser",
-        "version": "3.0.6",
-        "fileCount": 9,
+        "name": "event-target-shim",
+        "version": "5.0.1",
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "gifwrap",
-        "version": "0.10.1",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "rimraf",
-        "version": "2.7.1",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "sprintf-js",
-        "version": "1.0.3",
-        "fileCount": 9,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/plugin-dither",
-        "version": "1.6.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@jimp/utils",
-        "version": "1.6.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-connect",
-        "version": "0.48.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-fs",
-        "version": "0.24.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-ioredis",
-        "version": "0.52.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-mysql",
-        "version": "0.50.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-undici",
-        "version": "0.15.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@pkgjs/parseargs",
-        "version": "0.11.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@tanstack/solid-query",
-        "version": "5.83.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/addon-clipboard",
-        "version": "0.2.0-beta.82",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "fast-jwt",
-        "version": "6.0.1",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-inside-container",
+        "name": "file-uri-to-path",
         "version": "1.0.0",
-        "fileCount": 8,
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "hasown",
+        "version": "2.0.2",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "hosted-git-info",
+        "version": "4.1.0",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "https-proxy-agent",
+        "version": "7.0.2",
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "jws",
         "version": "4.0.1",
-        "fileCount": 8,
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "lru-cache",
-        "version": "11.1.0",
-        "fileCount": 8,
+        "name": "long",
+        "version": "5.3.2",
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "minizlib",
-        "version": "3.1.0",
-        "fileCount": 8,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "parse-semver",
-        "version": "1.1.1",
-        "fileCount": 8,
+        "name": "mime",
+        "version": "1.6.0",
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "picomatch",
         "version": "2.3.1",
-        "fileCount": 8,
+        "fileCount": 10,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "socks",
-        "version": "2.8.3",
-        "fileCount": 8,
+        "name": "pump",
+        "version": "3.0.4",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "readdir-glob",
+        "version": "1.1.3",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "shimmer",
+        "version": "1.2.1",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "supports-preserve-symlinks-flag",
+        "version": "1.0.0",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "uc.micro",
+        "version": "1.0.6",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "wsl-utils",
+        "version": "0.1.0",
+        "fileCount": 10,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/redis-common",
+        "version": "0.38.2",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@opentelemetry/sql-common",
+        "version": "0.41.2",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-clipboard",
+        "version": "0.2.0-beta.82",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-progress",
+        "version": "0.2.0-beta.5",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-search",
+        "version": "0.16.0-beta.99",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bare-path",
+        "version": "3.0.0",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "crc-32",
+        "version": "1.2.2",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "cross-spawn",
+        "version": "7.0.6",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "fs-minipass",
+        "version": "2.1.0",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "get-intrinsic",
+        "version": "1.2.7",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-core-module",
+        "version": "2.16.1",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jpeg-js",
+        "version": "0.4.4",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jsbn",
+        "version": "1.1.0",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mdurl",
+        "version": "1.0.1",
+        "fileCount": 9,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
         "name": "xml2js",
         "version": "0.5.0",
+        "fileCount": 9,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@apm-js-collab/code-transformer",
+        "version": "0.8.2",
         "fileCount": 8,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/context-async-hooks",
-        "version": "2.2.0",
+        "name": "@protobufjs/float",
+        "version": "1.0.2",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@protobufjs/utf8",
+        "version": "1.1.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@vscode/sudo-prompt",
+        "version": "9.3.1",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@xterm/addon-serialize",
+        "version": "0.14.0-beta.99",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "big-integer",
+        "version": "1.6.52",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "emoji-regex",
+        "version": "8.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "fd-slicer",
+        "version": "1.1.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "form-data",
+        "version": "4.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "isarray",
+        "version": "1.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "isexe",
+        "version": "2.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "minimatch",
+        "version": "3.1.2",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "parse5-htmlparser2-tree-adapter",
+        "version": "7.1.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "parse5-parser-stream",
+        "version": "7.1.2",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "react-vnc",
+        "version": "3.2.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "url-join",
+        "version": "4.0.1",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "vscode-oniguruma",
+        "version": "1.7.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "vscode-regexpp",
+        "version": "3.1.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "whatwg-mimetype",
+        "version": "4.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "whatwg-url",
+        "version": "5.0.0",
+        "fileCount": 8,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@lukeed/ms",
+        "version": "2.0.2",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-amqplib",
-        "version": "0.51.0",
+        "name": "@protobufjs/pool",
+        "version": "1.1.0",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-mongodb",
-        "version": "0.57.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-mongoose",
-        "version": "0.51.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-mysql2",
-        "version": "0.51.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-tedious",
-        "version": "0.23.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry-internal/replay",
-        "version": "10.25.0",
+        "name": "@types/pg",
+        "version": "8.15.5",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -1729,36 +2611,113 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "@vscode/vscode-languagedetection",
-        "version": "1.0.21",
+        "name": "@xterm/headless",
+        "version": "5.6.0-beta.99",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "acorn",
-        "version": "8.15.0",
+        "name": "any-base",
+        "version": "1.1.0",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "combined-stream",
-        "version": "1.0.8",
+        "name": "argparse",
+        "version": "2.0.1",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "crc-32",
-        "version": "1.2.2",
+        "name": "buffer-equal-constant-time",
+        "version": "1.0.1",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "file-type",
-        "version": "16.5.4",
+        "name": "cjs-module-lexer",
+        "version": "1.4.3",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "color-convert",
+        "version": "2.0.1",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "concat-map",
+        "version": "0.0.1",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "debug",
+        "version": "4.4.3",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "detect-libc",
+        "version": "2.0.4",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "ecdsa-sig-formatter",
+        "version": "1.0.11",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "encoding",
+        "version": "0.1.13",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "esprima",
+        "version": "4.0.1",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "forwarded-parse",
+        "version": "2.1.2",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "graceful-fs",
+        "version": "4.2.11",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "http-proxy-agent",
+        "version": "7.0.0",
+        "fileCount": 7,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "js-base64",
+        "version": "3.7.8",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -1771,176 +2730,197 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "mime",
-        "version": "1.6.0",
+        "name": "node-fetch",
+        "version": "2.7.0",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "pg-types",
-        "version": "2.2.0",
+        "name": "process",
+        "version": "0.11.10",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "qs",
-        "version": "6.13.0",
+        "name": "proxy-from-env",
+        "version": "1.1.0",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "readdir-glob",
-        "version": "1.1.3",
+        "name": "safer-buffer",
+        "version": "2.1.2",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "socks-proxy-agent",
-        "version": "8.0.4",
+        "name": "xtend",
+        "version": "4.0.2",
         "fileCount": 7,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "whatwg-mimetype",
-        "version": "4.0.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "whatwg-url",
-        "version": "5.0.0",
-        "fileCount": 7,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@c4312/eventsource-umd",
-        "version": "3.0.5",
+        "name": "@apm-js-collab/tracing-hooks",
+        "version": "0.3.1",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@isaacs/fs-minipass",
-        "version": "4.0.1",
+        "name": "@protobufjs/aspromise",
+        "version": "1.1.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/instrumentation-dataloader",
-        "version": "0.22.0",
+        "name": "@protobufjs/base64",
+        "version": "1.1.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/sdk-trace-node",
-        "version": "2.2.0",
+        "name": "@protobufjs/codegen",
+        "version": "2.0.4",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "any-base",
+        "name": "@protobufjs/eventemitter",
         "version": "1.1.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "big-integer",
-        "version": "1.6.52",
+        "name": "@protobufjs/fetch",
+        "version": "1.1.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "debug",
-        "version": "4.4.3",
+        "name": "@protobufjs/path",
+        "version": "1.1.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "emoji-regex",
-        "version": "8.0.0",
+        "name": "@vscode/iconv-lite-umd",
+        "version": "0.7.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "es-object-atoms",
+        "name": "acorn-import-attributes",
+        "version": "1.9.5",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "base64-js",
+        "version": "1.5.1",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "bn.js",
+        "version": "4.12.2",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "buffer",
+        "version": "5.7.1",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "commander",
+        "version": "6.2.1",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "core-util-is",
+        "version": "1.0.2",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "deep-extend",
+        "version": "0.6.0",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "default-browser",
+        "version": "5.4.0",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "delayed-stream",
         "version": "1.0.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "esprima",
-        "version": "4.0.1",
+        "name": "expand-template",
+        "version": "2.0.3",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "form-data",
-        "version": "4.0.0",
+        "name": "glob",
+        "version": "7.2.3",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "fs-minipass",
-        "version": "2.1.0",
+        "name": "is-docker",
+        "version": "2.2.1",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "get-proto",
-        "version": "1.0.1",
+        "name": "jsonfile",
+        "version": "6.1.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "graceful-fs",
-        "version": "4.2.11",
+        "name": "linkify-it",
+        "version": "3.0.3",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "image-q",
-        "version": "4.0.0",
-        "fileCount": 6,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jschardet",
-        "version": "3.1.4",
-        "fileCount": 6,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "minimatch",
-        "version": "3.1.2",
-        "fileCount": 6,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "minipass",
-        "version": "7.1.2",
+        "name": "mime-db",
+        "version": "1.52.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -1960,71 +2940,85 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "object-inspect",
-        "version": "1.13.3",
+        "name": "open",
+        "version": "8.4.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "peek-readable",
-        "version": "4.1.0",
+        "name": "parse-bmfont-xml",
+        "version": "1.1.6",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "seroval",
-        "version": "1.3.2",
+        "name": "simple-concat",
+        "version": "1.0.1",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "seroval-plugins",
-        "version": "1.3.2",
+        "name": "simple-get",
+        "version": "4.0.1",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "string-width",
-        "version": "4.2.3",
+        "name": "simple-xml-to-json",
+        "version": "1.2.3",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "string-width-cjs",
-        "version": "4.2.3",
+        "name": "teex",
+        "version": "1.0.1",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "strip-ansi",
-        "version": "6.0.1",
+        "name": "text-decoder",
+        "version": "1.1.0",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "strip-ansi-cjs",
-        "version": "6.0.1",
+        "name": "tiny-inflate",
+        "version": "1.0.3",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "to-regex-range",
-        "version": "5.0.1",
+        "name": "util-deprecate",
+        "version": "1.0.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "wsl-utils",
-        "version": "0.1.0",
+        "name": "v8-inspect-profiler",
+        "version": "0.1.1",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "whatwg-encoding",
+        "version": "3.1.1",
+        "fileCount": 6,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "which",
+        "version": "2.0.2",
         "fileCount": 6,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -2037,239 +3031,183 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "@apm-js-collab/code-transformer",
-        "version": "0.8.2",
+        "name": "@types/node-fetch",
+        "version": "2.6.12",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@apm-js-collab/tracing-hooks",
-        "version": "0.3.1",
+        "name": "@types/ws",
+        "version": "8.18.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@lukeed/ms",
-        "version": "2.0.2",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-generic-pool",
-        "version": "0.48.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@opentelemetry/instrumentation-lru-memoizer",
-        "version": "0.49.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/float",
-        "version": "1.0.2",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry-internal/feedback",
-        "version": "10.25.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry-internal/replay-canvas",
-        "version": "10.25.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/opentelemetry",
-        "version": "10.25.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@sentry/types",
-        "version": "10.25.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@tootallnate/once",
-        "version": "3.0.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@vscode/sudo-prompt",
-        "version": "9.3.1",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/xterm",
-        "version": "5.6.0-beta.99",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "acorn-import-attributes",
-        "version": "1.9.5",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "argparse",
-        "version": "2.0.1",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "bn.js",
-        "version": "4.12.2",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "chownr",
-        "version": "3.0.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "cjs-module-lexer",
-        "version": "1.4.3",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "color-convert",
-        "version": "2.0.1",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "core-util-is",
-        "version": "1.0.2",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "detect-libc",
-        "version": "2.0.4",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "domelementtype",
-        "version": "2.3.0",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "dunder-proto",
-        "version": "1.0.1",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "ecdsa-sig-formatter",
-        "version": "1.0.11",
-        "fileCount": 5,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "event-target-shim",
+        "name": "ansi-regex",
         "version": "5.0.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "forwarded-parse",
-        "version": "2.1.2",
+        "name": "ansi-styles",
+        "version": "4.2.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "get-system-fonts",
-        "version": "2.0.2",
+        "name": "balanced-match",
+        "version": "1.0.2",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "gopd",
-        "version": "1.2.0",
+        "name": "bare-events",
+        "version": "2.4.2",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "has-symbols",
-        "version": "1.1.0",
+        "name": "brace-expansion",
+        "version": "2.0.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "isexe",
+        "name": "combined-stream",
+        "version": "1.0.8",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "csstype",
+        "version": "3.1.3",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "decompress-response",
+        "version": "6.0.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "define-lazy-prop",
         "version": "2.0.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "jpeg-js",
-        "version": "0.4.4",
+        "name": "fast-fifo",
+        "version": "1.3.2",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "jsbn",
-        "version": "1.1.0",
+        "name": "fs-constants",
+        "version": "1.0.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "node-fetch",
-        "version": "2.7.0",
+        "name": "fs.realpath",
+        "version": "1.0.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "nth-check",
+        "name": "ieee754",
+        "version": "1.2.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "inherits",
+        "version": "2.0.4",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-fullwidth-code-point",
+        "version": "3.0.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-stream",
         "version": "2.0.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-wsl",
+        "version": "2.2.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "jwa",
+        "version": "2.0.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "kind-of",
+        "version": "6.0.3",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "leven",
+        "version": "3.1.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mime-types",
+        "version": "2.1.35",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mimic-response",
+        "version": "3.1.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "napi-build-utils",
+        "version": "1.0.2",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "node-abi",
+        "version": "3.73.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -2282,239 +3220,393 @@
         "nativeAddonCount": 0
       },
       {
-        "name": "package-json-from-dist",
-        "version": "1.0.1",
+        "name": "path-key",
+        "version": "3.1.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "parse5-parser-stream",
-        "version": "7.1.2",
+        "name": "pend",
+        "version": "1.2.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "process",
-        "version": "0.11.10",
+        "name": "postgres-array",
+        "version": "2.0.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "safer-buffer",
-        "version": "2.1.2",
+        "name": "postgres-interval",
+        "version": "1.2.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "text-decoder",
-        "version": "1.1.0",
+        "name": "require-in-the-middle",
+        "version": "7.5.2",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "vscode-oniguruma",
-        "version": "1.7.0",
+        "name": "rimraf",
+        "version": "2.7.1",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "xtend",
-        "version": "4.0.2",
+        "name": "run-applescript",
+        "version": "7.1.0",
         "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@xterm/addon-ligatures",
-        "version": "0.10.0-beta.99",
-        "fileCount": 4,
+        "name": "safe-buffer",
+        "version": "5.2.1",
+        "fileCount": 5,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@xterm/addon-progress",
-        "version": "0.2.0-beta.5",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/addon-search",
-        "version": "0.16.0-beta.99",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/addon-unicode11",
-        "version": "0.9.0-beta.99",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/addon-webgl",
-        "version": "0.19.0-beta.99",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "await-to-js",
+        "name": "shebang-regex",
         "version": "3.0.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "string-width",
+        "version": "4.2.3",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "string-width-cjs",
+        "version": "4.2.3",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "strip-ansi",
+        "version": "6.0.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "strip-ansi-cjs",
+        "version": "6.0.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "supports-color",
+        "version": "5.5.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "token-types",
+        "version": "4.2.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tr46",
+        "version": "0.0.3",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "utif2",
+        "version": "4.1.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "vscode-textmate",
+        "version": "9.2.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "yallist",
+        "version": "4.0.0",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "yauzl",
+        "version": "3.1.1",
+        "fileCount": 5,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@types/color-name",
+        "version": "1.1.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "bare-events",
-        "version": "2.4.2",
+        "name": "@types/connect",
+        "version": "3.4.38",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "base64-js",
-        "version": "1.5.1",
+        "name": "@types/mysql",
+        "version": "2.15.27",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "buffer-equal-constant-time",
-        "version": "1.0.1",
+        "name": "@types/novnc__novnc",
+        "version": "1.6.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "call-bound",
-        "version": "1.0.3",
+        "name": "@types/pg-pool",
+        "version": "2.0.6",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "concat-map",
-        "version": "0.0.1",
+        "name": "@types/shimmer",
+        "version": "1.2.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "deep-extend",
-        "version": "0.6.0",
+        "name": "@types/tedious",
+        "version": "4.0.14",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "default-browser",
-        "version": "5.4.0",
+        "name": "bindings",
+        "version": "1.5.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "es-define-property",
-        "version": "1.0.1",
+        "name": "buffer-crc32",
+        "version": "0.2.13",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "expand-template",
-        "version": "2.0.3",
+        "name": "bundle-name",
+        "version": "4.1.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "fast-fifo",
-        "version": "1.3.2",
+        "name": "color-name",
+        "version": "1.1.4",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "fs-constants",
-        "version": "1.0.0",
+        "name": "default-browser-id",
+        "version": "5.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "fs.realpath",
-        "version": "1.0.0",
+        "name": "duplexer2",
+        "version": "0.1.4",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "function-bind",
-        "version": "1.1.2",
+        "name": "end-of-stream",
+        "version": "1.4.4",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "hasown",
-        "version": "2.0.2",
+        "name": "escape-string-regexp",
+        "version": "1.0.5",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "inherits",
-        "version": "2.0.4",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-core-module",
-        "version": "2.16.1",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-docker",
-        "version": "2.2.1",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jsonfile",
-        "version": "6.1.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "jwa",
+        "name": "extend-shallow",
         "version": "2.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "lazystream",
-        "version": "1.0.0",
+        "name": "fill-range",
+        "version": "7.1.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "mime-db",
-        "version": "1.52.0",
+        "name": "has-flag",
+        "version": "3.0.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "inflight",
+        "version": "1.0.6",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "ini",
+        "version": "1.3.8",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-extendable",
+        "version": "0.1.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-extglob",
+        "version": "2.1.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-glob",
+        "version": "4.0.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "is-number",
+        "version": "7.0.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.includes",
+        "version": "4.3.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.isboolean",
+        "version": "3.0.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.isinteger",
+        "version": "4.0.4",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.isnumber",
+        "version": "3.0.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.isplainobject",
+        "version": "4.0.6",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.isstring",
+        "version": "4.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "lodash.once",
+        "version": "4.1.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "minimalistic-assert",
+        "version": "1.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mkdirp-classic",
+        "version": "0.5.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "module-details-from-path",
+        "version": "1.0.4",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "ms",
+        "version": "2.1.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "mute-stream",
+        "version": "0.0.8",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -2527,141 +3619,155 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "node-abi",
-        "version": "3.73.0",
+        "name": "normalize-path",
+        "version": "3.0.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "open",
-        "version": "8.4.2",
+        "name": "once",
+        "version": "1.4.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "parse-bmfont-xml",
-        "version": "1.1.6",
+        "name": "parse-bmfont-binary",
+        "version": "1.0.6",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "pend",
-        "version": "1.2.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "promise-stream-reader",
+        "name": "path-is-absolute",
         "version": "1.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "proxy-from-env",
-        "version": "1.1.0",
+        "name": "path-parse",
+        "version": "1.0.7",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "react-vnc",
-        "version": "3.2.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "side-channel",
-        "version": "1.1.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "side-channel-list",
-        "version": "1.0.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "side-channel-map",
+        "name": "pg-int8",
         "version": "1.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "side-channel-weakmap",
-        "version": "1.0.2",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "simple-xml-to-json",
-        "version": "1.2.3",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "smart-buffer",
-        "version": "4.2.0",
-        "fileCount": 4,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "supports-preserve-symlinks-flag",
+        "name": "postgres-bytea",
         "version": "1.0.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "tunnel",
-        "version": "0.0.6",
+        "name": "postgres-date",
+        "version": "1.0.7",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "url-join",
-        "version": "4.0.1",
+        "name": "process-nextick-args",
+        "version": "2.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "util-deprecate",
-        "version": "1.0.2",
+        "name": "read",
+        "version": "1.0.7",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "v8-inspect-profiler",
-        "version": "0.1.1",
+        "name": "sax",
+        "version": "1.2.4",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "vscode-regexpp",
-        "version": "3.1.0",
+        "name": "section-matter",
+        "version": "1.0.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "which",
-        "version": "2.0.2",
+        "name": "shebang-command",
+        "version": "2.0.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "streamx",
+        "version": "2.22.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "string_decoder",
+        "version": "1.3.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "strip-bom-string",
+        "version": "1.0.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "strip-json-comments",
+        "version": "2.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tmp",
+        "version": "0.2.5",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "to-regex-range",
+        "version": "5.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "tunnel-agent",
+        "version": "0.6.0",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "universalify",
+        "version": "2.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "webidl-conversions",
+        "version": "3.0.1",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -2674,190 +3780,50 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "yallist",
-        "version": "4.0.0",
+        "name": "wrap-ansi-cjs",
+        "version": "7.0.0",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "yauzl",
-        "version": "3.1.1",
+        "name": "wrappy",
+        "version": "1.0.2",
         "fileCount": 4,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/redis-common",
-        "version": "0.38.2",
+        "name": "xml-parse-from-string",
+        "version": "1.0.1",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "yazl",
+        "version": "2.4.3",
+        "fileCount": 4,
+        "hasNativeAddon": false,
+        "nativeAddonCount": 0
+      },
+      {
+        "name": "@tokenizer/token",
+        "version": "0.3.0",
         "fileCount": 3,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@opentelemetry/sql-common",
-        "version": "0.41.2",
+        "name": "@vscode/vsce-sign-darwin-arm64",
+        "version": "2.0.6",
         "fileCount": 3,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "@protobufjs/aspromise",
-        "version": "1.1.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/base64",
-        "version": "1.1.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/codegen",
-        "version": "2.0.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/eventemitter",
-        "version": "1.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/fetch",
-        "version": "1.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/inquire",
-        "version": "1.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/path",
-        "version": "1.1.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/pool",
-        "version": "1.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@protobufjs/utf8",
-        "version": "1.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/pg",
-        "version": "8.15.5",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/ws",
-        "version": "8.18.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@vscode/iconv-lite-umd",
-        "version": "0.7.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@vscode/proxy-agent",
-        "version": "0.32.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/addon-serialize",
-        "version": "0.14.0-beta.99",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@xterm/headless",
-        "version": "5.6.0-beta.99",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "agent-base",
-        "version": "7.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "ansi-styles",
-        "version": "4.2.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "brace-expansion",
-        "version": "2.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "buffer",
-        "version": "5.7.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "buffer-crc32",
-        "version": "0.2.13",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "bundle-name",
-        "version": "4.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "color-name",
-        "version": "1.1.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "csstype",
-        "version": "3.1.3",
+        "name": "boolbase",
+        "version": "1.0.0",
         "fileCount": 3,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -2870,148 +3836,8 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "decompress-response",
-        "version": "6.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "default-browser-id",
-        "version": "5.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "define-lazy-prop",
-        "version": "2.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "encoding",
-        "version": "0.1.13",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "end-of-stream",
-        "version": "1.4.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "escape-string-regexp",
-        "version": "1.0.5",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "events",
-        "version": "3.3.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "extend-shallow",
-        "version": "2.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "file-uri-to-path",
-        "version": "1.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "fill-range",
-        "version": "7.1.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "get-intrinsic",
-        "version": "1.2.7",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "github-from-package",
-        "version": "0.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "http-proxy-agent",
-        "version": "7.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "https-proxy-agent",
-        "version": "7.0.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "ieee754",
-        "version": "1.2.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "inflight",
-        "version": "1.0.6",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "ini",
-        "version": "1.3.8",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-extendable",
-        "version": "0.1.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-extglob",
-        "version": "2.1.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-glob",
-        "version": "4.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "is-wsl",
-        "version": "2.2.0",
+        "name": "eastasianwidth",
+        "version": "0.2.0",
         "fileCount": 3,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
@@ -3024,525 +3850,14 @@
         "nativeAddonCount": 1
       },
       {
-        "name": "kind-of",
-        "version": "6.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "leven",
-        "version": "3.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.includes",
-        "version": "4.3.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.isboolean",
-        "version": "3.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.isinteger",
-        "version": "4.0.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.isnumber",
-        "version": "3.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.isplainobject",
-        "version": "4.0.6",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.isstring",
-        "version": "4.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "lodash.once",
-        "version": "4.1.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "mime-types",
-        "version": "2.1.35",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "mimic-response",
-        "version": "3.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "minimalistic-assert",
-        "version": "1.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "minimist",
-        "version": "1.2.7",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "mkdirp-classic",
-        "version": "0.5.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "module-details-from-path",
-        "version": "1.0.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "mute-stream",
-        "version": "0.0.8",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "napi-build-utils",
-        "version": "1.0.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "normalize-path",
-        "version": "3.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "once",
-        "version": "1.4.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "path-is-absolute",
-        "version": "1.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "path-parse",
-        "version": "1.0.7",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "pg-int8",
-        "version": "1.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "postgres-array",
-        "version": "2.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "postgres-bytea",
-        "version": "1.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "postgres-date",
-        "version": "1.0.7",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "postgres-interval",
-        "version": "1.2.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "read",
-        "version": "1.0.7",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "require-in-the-middle",
-        "version": "7.5.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "run-applescript",
-        "version": "7.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "safe-buffer",
-        "version": "5.2.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "sax",
-        "version": "1.2.4",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "section-matter",
-        "version": "1.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "shebang-command",
-        "version": "2.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "shebang-regex",
-        "version": "3.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "shimmer",
-        "version": "1.2.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "simple-concat",
-        "version": "1.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "simple-get",
-        "version": "4.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "streamx",
-        "version": "2.22.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "string_decoder",
-        "version": "1.3.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "strip-bom-string",
-        "version": "1.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tas-client-umd",
-        "version": "0.2.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tiny-inflate",
-        "version": "1.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "token-types",
-        "version": "4.2.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tr46",
-        "version": "0.0.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "tunnel-agent",
-        "version": "0.6.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "universalify",
-        "version": "2.0.1",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "utif2",
-        "version": "4.1.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "wrap-ansi-cjs",
-        "version": "7.0.0",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "wrappy",
-        "version": "1.0.2",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "yazl",
-        "version": "2.4.3",
-        "fileCount": 3,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/color-name",
-        "version": "1.1.1",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/connect",
-        "version": "3.4.38",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/mysql",
-        "version": "2.15.27",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/node",
-        "version": "22.18.12",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/node-fetch",
-        "version": "2.6.12",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/novnc__novnc",
-        "version": "1.6.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/pg-pool",
-        "version": "2.0.6",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/semver",
-        "version": "7.5.8",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/shimmer",
-        "version": "1.2.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@types/tedious",
-        "version": "4.0.14",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "balanced-match",
-        "version": "1.0.2",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "bindings",
-        "version": "1.5.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "boolbase",
-        "version": "1.0.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "duplexer2",
-        "version": "0.1.4",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "eastasianwidth",
-        "version": "0.2.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "ms",
-        "version": "2.1.3",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
         "name": "parse-bmfont-ascii",
         "version": "1.0.6",
-        "fileCount": 2,
+        "fileCount": 3,
         "hasNativeAddon": false,
         "nativeAddonCount": 0
       },
       {
-        "name": "parse-bmfont-binary",
-        "version": "1.0.6",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "process-nextick-args",
-        "version": "2.0.1",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "undici-types",
-        "version": "6.21.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "vscode-textmate",
-        "version": "9.2.0",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "webidl-conversions",
-        "version": "3.0.1",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "xml-parse-from-string",
-        "version": "1.0.1",
-        "fileCount": 2,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@tokenizer/token",
-        "version": "0.3.0",
-        "fileCount": 1,
-        "hasNativeAddon": false,
-        "nativeAddonCount": 0
-      },
-      {
-        "name": "@vscode/windows-mutex",
+        "name": ".package-lock.json",
         "version": null,
         "fileCount": 1,
         "hasNativeAddon": false,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:38:51.847Z",
+  "generatedAt": "2026-04-10T08:44:01.435Z",
   "assemblyId": "rebuilt-runtime",
   "activeProfile": "stable",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
@@ -21,8 +21,8 @@
     },
     {
       "path": "node_modules",
-      "kind": "external-package",
-      "notes": "下一阶段拆成 package-manager 可安装 JS 依赖与 native/runtime 外部依赖。",
+      "kind": "generated",
+      "notes": "由 package-manager 可安装 JS 依赖、native/runtime package overlay 和 externalized package overlay 共同生成。",
       "existsInRuntime": true,
       "trackedInRepoRoot": false
     },
@@ -446,30 +446,30 @@
     "topLevelSummary": [
       {
         "path": "node_modules",
-        "count": 16473,
+        "count": 45133,
         "sample": [
-          "node_modules/@anysphere/policy-watcher/LICENSE",
-          "node_modules/@anysphere/policy-watcher/build/Release/vscode-policy-watcher.node",
-          "node_modules/@anysphere/policy-watcher/index.js",
-          "node_modules/@anysphere/policy-watcher/mise.toml",
-          "node_modules/@anysphere/policy-watcher/package.json",
-          "node_modules/@apm-js-collab/code-transformer/LICENSE",
-          "node_modules/@apm-js-collab/code-transformer/NOTICE",
-          "node_modules/@apm-js-collab/code-transformer/index.js",
-          "node_modules/@apm-js-collab/code-transformer/package.json",
-          "node_modules/@apm-js-collab/code-transformer/pkg/orchestrion_js.js",
-          "node_modules/@apm-js-collab/tracing-hooks/LICENSE",
-          "node_modules/@apm-js-collab/tracing-hooks/hook.mjs",
-          "node_modules/@apm-js-collab/tracing-hooks/index.js",
-          "node_modules/@apm-js-collab/tracing-hooks/lib/get-package-version.js",
-          "node_modules/@apm-js-collab/tracing-hooks/package.json",
-          "node_modules/@azure/core-auth/LICENSE",
-          "node_modules/@azure/core-auth/dist/browser/azureKeyCredential.js",
-          "node_modules/@azure/core-auth/dist/browser/azureNamedKeyCredential.js",
-          "node_modules/@azure/core-auth/dist/browser/azureSASCredential.js",
-          "node_modules/@azure/core-auth/dist/browser/index.js"
+          "node_modules/.bin/acorn",
+          "node_modules/.bin/chrome-remote-interface",
+          "node_modules/.bin/crc32",
+          "node_modules/.bin/esparse",
+          "node_modules/.bin/esvalidate",
+          "node_modules/.bin/is-docker",
+          "node_modules/.bin/is-inside-container",
+          "node_modules/.bin/js-yaml",
+          "node_modules/.bin/markdown-it",
+          "node_modules/.bin/mime",
+          "node_modules/.bin/mkdirp",
+          "node_modules/.bin/node-ovsx-sign",
+          "node_modules/.bin/node-which",
+          "node_modules/.bin/ot",
+          "node_modules/.bin/pixelmatch",
+          "node_modules/.bin/prebuild-install",
+          "node_modules/.bin/rc",
+          "node_modules/.bin/resolve",
+          "node_modules/.bin/rimraf",
+          "node_modules/.bin/semver"
         ],
-        "ownershipKind": "external-package"
+        "ownershipKind": "generated"
       },
       {
         "path": "extensions",

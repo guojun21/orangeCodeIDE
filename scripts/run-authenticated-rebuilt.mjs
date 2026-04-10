@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 
+import fs from 'fs';
 import path from 'path';
 import { spawnSync } from 'child_process';
 import { ROOT } from './paths.mjs';
-import { getSharedRebuiltUserDataDir } from './rebuilt-user-data.mjs';
+import {
+  createProbeUserDataDirName,
+  getSharedRebuiltUserDataDir,
+} from './rebuilt-user-data.mjs';
 
 const DEFAULT_USER_DATA_DIR = getSharedRebuiltUserDataDir(
   'SHOPEECODE_REBUILT_AUTH_USER_DATA_DIR',
   'SHOPEECODE_REBUILT_USER_DATA_DIR'
 );
+const MANUAL_USER_DATA_ROOT = path.join('/tmp', 'shc-manual');
 
 function parseArgs(argv) {
   const args = {};
@@ -51,8 +56,17 @@ function runNodeScript(scriptName, scriptArgs = []) {
 }
 
 const { args, passthrough } = parseArgs(process.argv);
-const userDataDir = args['user-data-dir'] ?? DEFAULT_USER_DATA_DIR;
+const isolated = args.isolated === true;
+const userDataDir =
+  args['user-data-dir'] ??
+  (isolated
+    ? path.join(MANUAL_USER_DATA_ROOT, createProbeUserDataDirName('manual-auth'))
+    : DEFAULT_USER_DATA_DIR);
 const envFilePath = args['env-file'];
+
+if (isolated) {
+  fs.mkdirSync(MANUAL_USER_DATA_ROOT, { recursive: true });
+}
 
 runNodeScript('prepare-rebuilt-runtime.mjs');
 

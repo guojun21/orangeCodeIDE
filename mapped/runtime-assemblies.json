@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:48:25.738Z",
+  "generatedAt": "2026-04-10T08:47:06.459Z",
   "sourceOfTruth": "config/runtime/assemblies.json",
   "baseline": {
     "runtime_dependency_id": "cursor-official-distribution",

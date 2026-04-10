@@ -50,7 +50,8 @@ function parseArgs(argv) {
     const key = token.slice(2);
     const value = argv[index + 1];
     if (!value || value.startsWith('--')) {
-      throw new Error(`Missing value for --${key}`);
+      args[key] = true;
+      continue;
     }
     args[key] = value;
     index += 1;
@@ -130,8 +131,11 @@ async function killProcessGroup(pid) {
   return { pid, aliveBefore, cleaned };
 }
 
-function shouldRetrySuite({ suiteId, exitCode, attempt }) {
+function shouldRetrySuite({ suiteId, exitCode, attempt, allowRetry }) {
   if (exitCode === 0) {
+    return false;
+  }
+  if (!allowRetry) {
     return false;
   }
   if (attempt >= 1) {
@@ -143,6 +147,8 @@ function shouldRetrySuite({ suiteId, exitCode, attempt }) {
 const args = parseArgs(process.argv);
 const suiteId = args.suite;
 const suite = SUITES[suiteId];
+const allowRetry =
+  args['allow-retry'] === true || process.env.SHOPEECODE_TEST_GUI_ALLOW_RETRY === '1';
 
 if (!suiteId || !suite) {
   throw new Error(`Usage: verify-runtime-gui-suite.mjs --suite <${Object.keys(SUITES).join('|')}>`);
@@ -186,13 +192,13 @@ for (let attempt = 0; attempt < 2; attempt += 1) {
     launchCountDelta: newLaunches.length,
     launches: newLaunches,
     cleanup: attemptCleanup,
-    retried: shouldRetrySuite({ suiteId, exitCode, attempt }),
+    retried: shouldRetrySuite({ suiteId, exitCode, attempt, allowRetry }),
   });
 
   finalExitCode = exitCode;
   finalLaunches = newLaunches;
 
-  if (!shouldRetrySuite({ suiteId, exitCode, attempt })) {
+  if (!shouldRetrySuite({ suiteId, exitCode, attempt, allowRetry })) {
     break;
   }
 
@@ -213,6 +219,7 @@ const report = {
   launches: finalLaunches,
   attempts,
   cleanup,
+  allowRetry,
   exitCode: finalExitCode,
   passed: finalExitCode === 0 && finalLaunches.length > 0,
 };

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T03:44:59.154Z",
+  "generatedAt": "2026-04-10T08:47:06.469Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
@@ -13,7 +13,7 @@
   },
   "externalDependencyInventory": {
     "nodeModules": {
-      "packageCount": 457,
+      "packageCount": 502,
       "nativePackageCount": 13,
       "nativeAddonCount": 13
     },
@@ -39,8 +39,8 @@
     }
   },
   "nodeModulesModel": {
-    "packageCount": 457,
-    "jsInstallablePackageCount": 444,
+    "packageCount": 502,
+    "jsInstallablePackageCount": 489,
     "nativeRuntimePackageCount": 13,
     "nativeAddonCount": 13,
     "unexpectedNativePackages": [],
@@ -65,21 +65,34 @@
   },
   "runtimeManifests": {
     "packageManager": {
-      "dependencyCount": 444,
+      "dependencyCount": 489,
       "passed": true
     },
     "packageManagerResolution": {
-      "resolvedDependencyCount": 442,
+      "resolvedDependencyCount": 486,
       "aliasedDependencyCount": 3,
-      "omittedDependencyCount": 1,
+      "omittedDependencyCount": 0,
       "externalizedDependencyCount": 1,
-      "unresolvedDependencyCount": 0,
-      "unresolvedDependencies": [],
+      "unresolvedDependencyCount": 2,
+      "unresolvedDependencies": [
+        {
+          "name": ".bin",
+          "version": null,
+          "reason": "missing-version",
+          "detectedBy": "manifest-prefilter"
+        },
+        {
+          "name": ".package-lock.json",
+          "version": null,
+          "reason": "missing-version",
+          "detectedBy": "manifest-prefilter"
+        }
+      ],
       "passed": true
     },
     "packageManagerInstall": {
-      "declaredDependencyCount": 442,
-      "installedDependencyCount": 442,
+      "declaredDependencyCount": 486,
+      "installedDependencyCount": 486,
       "missingDependencyCount": 0,
       "missingDependencies": [],
       "passed": true
@@ -92,7 +105,7 @@
     "nativeArtifactInventory": {
       "packageCount": 13,
       "configuredAddonCount": 13,
-      "configuredRuntimeArtifactCount": 13,
+      "configuredRuntimeArtifactCount": 14,
       "binaryArtifactCount": 14,
       "missingConfiguredRuntimeArtifactCount": 0,
       "passed": true
@@ -117,12 +130,12 @@
     },
     "generatedNodeModules": {
       "generatedTopLevelPackageCount": 500,
-      "expectedTopLevelPackageCount": 456,
+      "expectedTopLevelPackageCount": 500,
       "copiedNativePackageCount": 13,
       "copiedExternalizedPackageCount": 1,
-      "omittedPackageCount": 1,
+      "omittedPackageCount": 0,
       "missingExpectedPackages": [],
-      "hoistedTopLevelPackageCount": 44,
+      "hoistedTopLevelPackageCount": 0,
       "passed": true
     }
   },
@@ -140,7 +153,7 @@
     {
       "path": "node_modules",
       "ownershipKind": "generated",
-      "runtimeOrigin": "external-runtime-input"
+      "runtimeOrigin": "generated-runtime-asset"
     },
     {
       "path": "resources",
@@ -159,7 +172,7 @@
     }
   ],
   "residualFileCounts": {
-    "node_modules": 16473,
+    "node_modules": 45133,
     "extensions": 901,
     "out": 123,
     "resources": 8,

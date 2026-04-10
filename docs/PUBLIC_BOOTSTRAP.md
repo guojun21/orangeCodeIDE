@@ -24,6 +24,20 @@ npm run verify:public-bootstrap
 4. `npm run test:watcher:spike`
 5. `npm run test:workbench-desktop-main:spike`
 
+默认不会再强绑 GUI suite。
+
+如果你要把 GUI 也跑进去，再显式执行：
+
+```bash
+npm run verify:public-bootstrap:gui
+```
+
+如果你只是要起一个干净登录态的单窗手测实例，用：
+
+```bash
+npm run dev:auth:isolated
+```
+
 ## 覆盖默认依赖来源
 
 如果你在做离线回归、内网对比或调试，也可以显式覆盖 runtime 来源：
