@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T10:49:13.416Z",
+  "generatedAt": "2026-04-10T11:05:08.598Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -39,12 +39,20 @@
     "raw_ref": {
       "needle": "project-modules-raw/",
       "description": "raw 恢复层只允许做参考，不允许 active runtime import。"
+    },
+    "original_node_entrypoint_proxy": {
+      "needle": "originalNodeEntrypointProxy/index.js",
+      "description": "active runtime source 不允许长期依赖 original node entrypoint proxy。"
+    },
+    "runtime_output_main": {
+      "needle": "file://${__SHOPEECODE_ROOT__}/out/main.js",
+      "description": "main entry 不允许长期直接指向 out/main.js。"
     }
   },
   "totals": {
-    "scannedFileCount": 852,
-    "fileWithForbiddenMatchCount": 9,
-    "allowedLegacyMatchCount": 9,
+    "scannedFileCount": 853,
+    "fileWithForbiddenMatchCount": 11,
+    "allowedLegacyMatchCount": 12,
     "unexpectedMatchCount": 0,
     "unusedLegacyEntryCount": 0,
     "missingEntrypointCount": 0
@@ -58,9 +66,9 @@
         "rebuilt/src/cli",
         "rebuilt/src/bootstrapFork"
       ],
-      "activeFileCount": 4,
-      "fileWithForbiddenMatchCount": 1,
-      "allowedLegacyMatchCount": 1,
+      "activeFileCount": 5,
+      "fileWithForbiddenMatchCount": 2,
+      "allowedLegacyMatchCount": 3,
       "unexpectedMatchCount": 0,
       "status": "legacy-allowed"
     },
@@ -73,11 +81,12 @@
         "rebuilt/src/vs/code/electron-utility/sharedProcess",
         "rebuilt/src/vs/code/node",
         "rebuilt/src/vs/code/electron-sandbox",
+        "rebuilt/src/vs/workbench/api/node",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 13,
-      "fileWithForbiddenMatchCount": 7,
-      "allowedLegacyMatchCount": 7,
+      "activeFileCount": 14,
+      "fileWithForbiddenMatchCount": 8,
+      "allowedLegacyMatchCount": 8,
       "unexpectedMatchCount": 0,
       "status": "legacy-allowed"
     },
@@ -145,6 +154,18 @@
       "notes": "CLI bridge 仍走 staged runtime JS，后续按 Phase 2 收口。"
     },
     {
+      "path": "rebuilt/src/main/mainRuntimeBridge.js",
+      "kind": "original_node_entrypoint_proxy",
+      "family": "host-entrypoints",
+      "notes": "main bridge 仍走 original node entrypoint proxy + out/main.js，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/main/mainRuntimeBridge.js",
+      "kind": "runtime_output_main",
+      "family": "host-entrypoints",
+      "notes": "main bridge 仍走 original node entrypoint proxy + out/main.js，后续按 Phase 2 收口。"
+    },
+    {
       "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
@@ -179,6 +200,12 @@
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "pty host 仍走 staged runtime JS，后续按 Phase 2 收口。"
+    },
+    {
+      "path": "rebuilt/src/vs/workbench/api/node/extensionHostProcess/index.js",
+      "kind": "original_node_entrypoint_proxy",
+      "family": "runtime-sidecars",
+      "notes": "extension host process 仍走 original node entrypoint proxy，后续和 main 同类入口一起收口。"
     },
     {
       "path": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/index.js",

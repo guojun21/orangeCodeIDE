@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T10:49:11.593Z",
+  "generatedAt": "2026-04-10T11:05:06.419Z",
   "assemblyId": "rebuilt-runtime",
   "runtimeInputRoot": ".runtime-deps/cursor/2.6/app",
   "outputRoot": "recovered/rebuilt/runtime-app",
