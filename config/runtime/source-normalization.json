@@ -41,7 +41,7 @@
   },
   "legacyAllowlist": [
     {
-      "path": "rebuilt/src/cli/index.js",
+      "path": "rebuilt/src/cli/cliRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],

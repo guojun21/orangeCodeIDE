@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T10:13:20.106Z",
+  "generatedAt": "2026-04-10T10:27:38.890Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -42,7 +42,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 850,
+    "scannedFileCount": 851,
     "fileWithForbiddenMatchCount": 9,
     "allowedLegacyMatchCount": 9,
     "unexpectedMatchCount": 0,
@@ -58,7 +58,7 @@
         "rebuilt/src/cli",
         "rebuilt/src/bootstrapFork"
       ],
-      "activeFileCount": 3,
+      "activeFileCount": 4,
       "fileWithForbiddenMatchCount": 1,
       "allowedLegacyMatchCount": 1,
       "unexpectedMatchCount": 0,
@@ -139,7 +139,7 @@
   ],
   "allowedLegacyMatches": [
     {
-      "path": "rebuilt/src/cli/index.js",
+      "path": "rebuilt/src/cli/cliRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "host-entrypoints",
       "notes": "CLI bridge 仍走 staged runtime JS，后续按 Phase 2 收口。"

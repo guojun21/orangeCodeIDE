@@ -5,4 +5,4 @@ globalThis.__SHOPEE_CLI_RUNTIME__ ??= {
   kind: 'rebuilt-cli-entry',
 };
 
-import '../../../recovered/phase2/runtime-input/out/cli.js';
+import './cliRuntimeBridge.js';
