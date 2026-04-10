@@ -23,6 +23,11 @@ const INPUTS = {
   runtimeNodeModulesModel: path.join(ROOT, 'mapped', 'runtime-node-modules-model-report.json'),
   runtimeHostAssetsModel: path.join(ROOT, 'mapped', 'runtime-host-assets-model-report.json'),
   runtimePackageManagerManifest: path.join(ROOT, 'mapped', 'runtime-package-manager-manifest.json'),
+  runtimePackageManagerInstall: path.join(
+    ROOT,
+    'mapped',
+    'runtime-package-manager-install-report.json'
+  ),
   runtimeNativeRuntimeManifest: path.join(ROOT, 'mapped', 'runtime-native-runtime-manifest.json'),
   runtimePackageManagerResolution: path.join(
     ROOT,
@@ -55,6 +60,7 @@ const runtimeExternalDependencies = readJson(INPUTS.runtimeExternalDependencies)
 const runtimeNodeModulesModel = readJson(INPUTS.runtimeNodeModulesModel);
 const runtimeHostAssetsModel = readJson(INPUTS.runtimeHostAssetsModel);
 const runtimePackageManagerManifest = readJson(INPUTS.runtimePackageManagerManifest);
+const runtimePackageManagerInstall = readJson(INPUTS.runtimePackageManagerInstall);
 const runtimeNativeRuntimeManifest = readJson(INPUTS.runtimeNativeRuntimeManifest);
 const runtimePackageManagerResolution = readJson(INPUTS.runtimePackageManagerResolution);
 const runtimeIndependence = readJson(INPUTS.runtimeIndependence);
@@ -63,20 +69,30 @@ const missing = Object.entries(INPUTS)
   .filter(([, filePath]) => !fs.existsSync(filePath))
   .map(([key]) => key);
 
-const passed =
+const corePassed =
   missing.length === 0 &&
   runtimeBootstrap !== null &&
   vscodeBootstrap !== null &&
   watcherSpike?.passed === true &&
   workbenchSpike?.passed === true &&
-  runtimeGuiSmoke?.passed === true &&
-  runtimeGuiAgent?.passed === true &&
   runtimeBoundary?.passed === true &&
   runtimeIndependence?.passed === true;
+
+const guiPassed = runtimeGuiSmoke?.passed === true && runtimeGuiAgent?.passed === true;
+const passed = corePassed;
 
 const result = {
   generatedAt: new Date().toISOString(),
   passed,
+  verificationProfile: {
+    defaultCommand: 'npm run verify:public-bootstrap',
+    defaultMode: 'core-no-gui',
+    defaultIncludesGui: false,
+    guiOptInCommand: 'npm run verify:public-bootstrap:gui',
+    manualIsolatedCommand: 'npm run dev:auth:isolated',
+    corePassed,
+    guiPassed,
+  },
   missing,
   steps: {
     runtimeBootstrap: runtimeBootstrap
@@ -110,6 +126,7 @@ const result = {
     runtimeGuiSmoke: runtimeGuiSmoke
       ? {
           passed: runtimeGuiSmoke.passed === true,
+          requiredForDefaultPass: false,
           launchCountDelta: runtimeGuiSmoke.launchCountDelta ?? 0,
           runner: runtimeGuiSmoke.runner ?? null,
         }
@@ -117,6 +134,7 @@ const result = {
     runtimeGuiAgent: runtimeGuiAgent
       ? {
           passed: runtimeGuiAgent.passed === true,
+          requiredForDefaultPass: false,
           launchCountDelta: runtimeGuiAgent.launchCountDelta ?? 0,
           runner: runtimeGuiAgent.runner ?? null,
         }
@@ -189,6 +207,16 @@ const result = {
       ? {
           passed: runtimePackageManagerManifest.passed === true,
           dependencyCount: runtimePackageManagerManifest.dependencyCount ?? 0,
+        }
+      : null,
+    runtimePackageManagerInstall: runtimePackageManagerInstall
+      ? {
+          passed: runtimePackageManagerInstall.passed === true,
+          installSkipped: runtimePackageManagerInstall.installSkipped === true,
+          reuseReason: runtimePackageManagerInstall.reuseReason ?? null,
+          installedDependencyCount:
+            runtimePackageManagerInstall.installedDependencyCount ?? 0,
+          missingDependencyCount: runtimePackageManagerInstall.missingDependencyCount ?? 0,
         }
       : null,
     runtimeNativeRuntimeManifest: runtimeNativeRuntimeManifest
