@@ -106,7 +106,7 @@
       "notes": "extension monitor 仍走 staged runtime JS。"
     },
     {
-      "path": "rebuilt/src/vs/code/electron-sandbox/processExplorerMain/index.js",
+      "path": "rebuilt/src/vs/code/electron-sandbox/processExplorerMain/processExplorerRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],
