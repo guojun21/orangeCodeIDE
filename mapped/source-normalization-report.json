@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T05:56:04.614Z",
+  "generatedAt": "2026-04-11T06:20:06.624Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -50,7 +50,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 855,
+    "scannedFileCount": 856,
     "fileWithForbiddenMatchCount": 11,
     "allowedLegacyMatchCount": 12,
     "unexpectedMatchCount": 0,
@@ -84,7 +84,7 @@
         "rebuilt/src/vs/workbench/api/node",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 16,
+      "activeFileCount": 17,
       "fileWithForbiddenMatchCount": 8,
       "allowedLegacyMatchCount": 8,
       "unexpectedMatchCount": 0,
@@ -166,7 +166,7 @@
       "notes": "main bridge 仍走 original node entrypoint proxy + out/main.js，后续按 Phase 2 收口。"
     },
     {
-      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
+      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/extensionMonitorRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "extension monitor 仍走 staged runtime JS。"

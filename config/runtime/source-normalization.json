@@ -98,7 +98,7 @@
       "notes": "cli process bridge 仍走 staged runtime JS。"
     },
     {
-      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/index.js",
+      "path": "rebuilt/src/vs/code/electron-sandbox/extensionMonitorMain/extensionMonitorRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],
