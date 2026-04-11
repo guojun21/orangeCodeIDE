@@ -17,7 +17,13 @@ source "${HOME}/.nvm/nvm.sh"
 
 nvm use "${NODE_VERSION}" >/dev/null
 
-CURRENT_NODE_VERSION="$(node -p 'process.versions.node')"
+if [[ -n "${NVM_BIN:-}" ]]; then
+  export PATH="${NVM_BIN}:${PATH}"
+  hash -r
+  CURRENT_NODE_VERSION="$("${NVM_BIN}/node" -p 'process.versions.node')"
+else
+  CURRENT_NODE_VERSION="$(node -p 'process.versions.node')"
+fi
 
 if [[ "${CURRENT_NODE_VERSION}" != "${NODE_VERSION}" ]]; then
   echo "Expected Node ${NODE_VERSION}, got ${CURRENT_NODE_VERSION}." >&2
