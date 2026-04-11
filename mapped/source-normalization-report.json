@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T06:48:27.185Z",
+  "generatedAt": "2026-04-11T07:02:26.577Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -50,7 +50,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 858,
+    "scannedFileCount": 859,
     "fileWithForbiddenMatchCount": 11,
     "allowedLegacyMatchCount": 12,
     "unexpectedMatchCount": 0,
@@ -84,7 +84,7 @@
         "rebuilt/src/vs/workbench/api/node",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 19,
+      "activeFileCount": 20,
       "fileWithForbiddenMatchCount": 8,
       "allowedLegacyMatchCount": 8,
       "unexpectedMatchCount": 0,
@@ -208,7 +208,7 @@
       "notes": "extension host process 仍走 original node entrypoint proxy，后续和 main 同类入口一起收口。"
     },
     {
-      "path": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/index.js",
+      "path": "rebuilt/src/vs/workbench/contrib/debug/node/telemetryApp/telemetryAppRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "telemetry app 仍走 staged runtime JS。"

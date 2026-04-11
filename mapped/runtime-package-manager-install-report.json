@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T06:47:08.314Z",
+  "generatedAt": "2026-04-11T07:01:47.899Z",
   "sourceOfTruth": "mapped/runtime-package-manager-resolution-report.json",
   "installRoot": "recovered/rebuilt/runtime-package-manager-input",
   "installCommand": "npm ci --ignore-scripts --no-audit --no-fund --legacy-peer-deps",
