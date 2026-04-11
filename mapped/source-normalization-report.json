@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T06:34:58.709Z",
+  "generatedAt": "2026-04-11T06:48:27.185Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -50,7 +50,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 857,
+    "scannedFileCount": 858,
     "fileWithForbiddenMatchCount": 11,
     "allowedLegacyMatchCount": 12,
     "unexpectedMatchCount": 0,
@@ -84,7 +84,7 @@
         "rebuilt/src/vs/workbench/api/node",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 18,
+      "activeFileCount": 19,
       "fileWithForbiddenMatchCount": 8,
       "allowedLegacyMatchCount": 8,
       "unexpectedMatchCount": 0,
@@ -190,7 +190,7 @@
       "notes": "cli process bridge 仍走 staged runtime JS。"
     },
     {
-      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/index.js",
+      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/profileAnalysisWorkerRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "profiling worker 仍走 staged runtime JS，后续统一收口。"

@@ -74,7 +74,7 @@
       "notes": "pty host 仍走 staged runtime JS，后续按 Phase 2 收口。"
     },
     {
-      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/index.js",
+      "path": "rebuilt/src/vs/platform/profiling/electron-sandbox/profileAnalysisWorkerMain/profileAnalysisWorkerRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],

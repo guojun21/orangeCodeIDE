@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T06:34:48.201Z",
+  "generatedAt": "2026-04-11T06:48:17.000Z",
   "bootstrapSource": "official-cursor-distribution",
   "stagedRuntimeRoot": ".runtime-deps/cursor/2.6/app",
   "stagedRootInsideRuntimeDeps": true,
