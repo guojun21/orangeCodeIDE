@@ -82,7 +82,7 @@
       "notes": "profiling worker 仍走 staged runtime JS，后续统一收口。"
     },
     {
-      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/index.js",
+      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/sharedProcessRuntimeBridge.js",
       "kinds": [
         "runtime_input_out"
       ],

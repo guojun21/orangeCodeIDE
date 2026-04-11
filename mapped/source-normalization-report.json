@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T05:40:47.587Z",
+  "generatedAt": "2026-04-11T05:56:04.614Z",
   "sourceOfTruth": "config/runtime/source-normalization.json",
   "activeRuntimeRoots": [
     "rebuilt/src"
@@ -50,7 +50,7 @@
     }
   },
   "totals": {
-    "scannedFileCount": 854,
+    "scannedFileCount": 855,
     "fileWithForbiddenMatchCount": 11,
     "allowedLegacyMatchCount": 12,
     "unexpectedMatchCount": 0,
@@ -84,7 +84,7 @@
         "rebuilt/src/vs/workbench/api/node",
         "rebuilt/src/vs/workbench/contrib/debug/node"
       ],
-      "activeFileCount": 15,
+      "activeFileCount": 16,
       "fileWithForbiddenMatchCount": 8,
       "allowedLegacyMatchCount": 8,
       "unexpectedMatchCount": 0,
@@ -178,7 +178,7 @@
       "notes": "process explorer 仍走 staged runtime JS。"
     },
     {
-      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/index.js",
+      "path": "rebuilt/src/vs/code/electron-utility/sharedProcess/sharedProcessMain/sharedProcessRuntimeBridge.js",
       "kind": "runtime_input_out",
       "family": "runtime-sidecars",
       "notes": "shared process bridge 仍走 staged runtime JS。"
